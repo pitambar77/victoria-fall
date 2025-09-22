@@ -64,3 +64,18 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+/* :root{
+  --prim-color:#e8021f;
+  --section-dark-bg:#1b1b1b;
+}
+
+html,
+body {
+  background-color: #111111;
+} */
+
+
+@tailwind utilities;
+
+/* add small custom overrides if needed */
