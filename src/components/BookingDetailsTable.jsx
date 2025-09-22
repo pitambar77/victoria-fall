@@ -3,14 +3,14 @@ import React from 'react';
 import { FaEdit, FaTrashAlt, FaFileAlt } from 'react-icons/fa';
 
 const mockBookingDetails = [
-  { id: 1, name: 'John Deo', avatar: 'https://randomuser.me/api/portraits/men/1.jpg', checkIn: '12-08-2019', checkOut: '15-08-2019', status: 'Paid', phone: '(123)123456', roomType: 'Single' },
-  { id: 2, name: 'Jens Brincker', avatar: 'https://randomuser.me/api/portraits/women/2.jpg', checkIn: '13-08-2019', checkOut: '16-08-2019', status: 'Unpaid', phone: '(123)123456', roomType: 'Double' },
-  { id: 3, name: 'Mark Hay', avatar: 'https://randomuser.me/api/portraits/men/3.jpg', checkIn: '15-08-2019', checkOut: '18-08-2019', status: 'Paid', phone: '(123)123456', roomType: 'Single' },
-  { id: 4, name: 'Anthony Davie', avatar: 'https://randomuser.me/api/portraits/men/4.jpg', checkIn: '16-08-2019', checkOut: '19-08-2019', status: 'Unpaid', phone: '(123)123456', roomType: 'King' },
-  { id: 5, name: 'Alan Gilchrist', avatar: 'https://randomuser.me/api/portraits/men/5.jpg', checkIn: '21-08-2019', checkOut: '23-08-2019', status: 'Paid', phone: '(123)123456', roomType: 'Appartment' },
+  { id: 1, name: 'John Deo', avatar: 'https://randomuser.me/api/portraits/men/1.jpg', checkIn: '12-08-2019', checkOut: '15-08-2019', status: 'Booked', phone: '(123)123456', roomType: 'Single' },
+  { id: 2, name: 'Jens Brincker', avatar: 'https://randomuser.me/api/portraits/women/2.jpg', checkIn: '13-08-2019', checkOut: '16-08-2019', status: 'Pending', phone: '(123)123456', roomType: 'Double' },
+  { id: 3, name: 'Mark Hay', avatar: 'https://randomuser.me/api/portraits/men/3.jpg', checkIn: '15-08-2019', checkOut: '18-08-2019', status: 'Booked', phone: '(123)123456', roomType: 'Single' },
+  { id: 4, name: 'Anthony Davie', avatar: 'https://randomuser.me/api/portraits/men/4.jpg', checkIn: '16-08-2019', checkOut: '19-08-2019', status: 'Pending', phone: '(123)123456', roomType: 'King' },
+  { id: 5, name: 'Alan Gilchrist', avatar: 'https://randomuser.me/api/portraits/men/5.jpg', checkIn: '21-08-2019', checkOut: '23-08-2019', status: 'Booked', phone: '(123)123456', roomType: 'Appartment' },
   { id: 6, name: 'Sue Woodger', avatar: 'https://randomuser.me/api/portraits/women/6.jpg', checkIn: '25-08-2019', checkOut: '26-08-2019', status: 'Pending', phone: '(123)123456', roomType: 'Single' },
-  { id: 7, name: 'David Perry', avatar: 'https://randomuser.me/api/portraits/men/7.jpg', checkIn: '26-08-2019', checkOut: '29-08-2019', status: 'Unpaid', phone: '(123)123456', roomType: 'Single' },
-  { id: 8, name: 'Sneha Pandit', avatar: 'https://randomuser.me/api/portraits/women/8.jpg', checkIn: '27-08-2019', checkOut: '29-08-2019', status: 'Paid', phone: '(123)123456', roomType: 'Double' },
+  { id: 7, name: 'David Perry', avatar: 'https://randomuser.me/api/portraits/men/7.jpg', checkIn: '26-08-2019', checkOut: '29-08-2019', status: 'Pending', phone: '(123)123456', roomType: 'Single' },
+  { id: 8, name: 'Sneha Pandit', avatar: 'https://randomuser.me/api/portraits/women/8.jpg', checkIn: '27-08-2019', checkOut: '29-08-2019', status: 'Booked', phone: '(123)123456', roomType: 'Double' },
 ];
 
 const BookingDetailsTable = () => {
@@ -48,8 +48,8 @@ const BookingDetailsTable = () => {
                 <td className="py-3 px-4 whitespace-nowrap">{booking.checkOut}</td>
                 <td className="py-3 px-4 whitespace-nowrap">
                   <span className={`px-3 py-1 text-xs font-medium rounded-full
-                    ${booking.status === 'Paid' ? 'bg-green-600/20 text-green-400' :
-                       booking.status === 'Unpaid' ? 'bg-red-600/20 text-red-400' :
+                    ${booking.status === 'Booked' ? 'bg-green-600/20 text-green-400' :
+                       booking.status === 'Pending' ? 'bg-red-600/20 text-red-400' :
                        'bg-yellow-600/20 text-yellow-400'}`}>
                     {booking.status}
                   </span>
