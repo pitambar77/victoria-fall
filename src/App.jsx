@@ -2,41 +2,43 @@
 
 import "./App.css";
 
-// import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
-// import Hero from "./components/Hero";
-// import Nav from "./components/Nav";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import Hero from "./components/Hero";
+import Nav from "./components/Nav";
+import Overview from "./pages/Home/Overview";
 
-// function App() {
+function App() {
 
-//     const router = createBrowserRouter(
-//     createRoutesFromElements(
-//       <>
-//        <Route path="/" element={<Nav/>}/>
-//        <Route path="" element={<Hero/>}/>
+    const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+       <Route path="/" element={<Nav/>}/>
+       <Route path="" element={<Hero/>}/>
+      
 
-//       </>
-//     )
-//   )
-//   return (
-//     <>
-//       <RouterProvider router={router}/>
-    
-//     </>
-//   );
-// }
-
-// export default App;
-
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Register from './components/Register';
-import Login from './components/Login';
-
-import DashboardLayout from "./components/DashboardLayout";
-
-
-export default function App() {
+      </>
+    )
+  )
   return (
+    <>
+      <RouterProvider router={router}/>
+    
+    </>
+  );
+}
+
+export default App;
+
+// import React from 'react';
+// import { BrowserRouter as Router } from 'react-router-dom';
+// import Register from './components/Register';
+// import Login from './components/Login';
+
+// import DashboardLayout from "./components/DashboardLayout";
+
+
+// export default function App() {
+//   return (
 //     <BrowserRouter>
 //       {/* <div className="min-h-screen bg-white flex items-start justify-center p-6">
 //         <div className="w-full max-w-xl"> */}
@@ -57,8 +59,8 @@ export default function App() {
 //         {/* </div>
 //       </div> */}
 //     </BrowserRouter>
- <Router>
-      <DashboardLayout />
-    </Router>
-  );
-}
+//  <Router>
+//       <DashboardLayout />
+//     </Router>
+//   );
+// }
