@@ -79,7 +79,7 @@ body {
 @import "tailwindcss";
 
 
-/* Custom styles for slick arrows to match the design (optional but recommended) */
+Custom styles for slick arrows to match the design (optional but recommended)
 .slick-prev:before, .slick-next:before {
     display: none !important; /* Hide default arrows */
 }
@@ -107,3 +107,18 @@ body {
   /* border-radius: 50%; */
   /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
 }
+
+.swiper-pagination {
+  margin-top: 8px; /* Increase space from content */
+  position: relative !important; /* Override absolute positioning */
+}
+
+/* Base dot */
+/* .custom-pagination .swiper-pagination-bullet {
+  @apply w-4 h-4 border rounded-full ;
+}
+
+/* Active dot */
+/* .custom-pagination .swiper-pagination-bullet-active {
+  @apply bg-black w-4 h-4 rounded-full;
+} */ 

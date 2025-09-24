@@ -8,6 +8,7 @@ export default {
     extend: {
         fontFamily: {
         avenir: ["Avenir Light", Helvetica, Arial, sans-serif ],
+        primary: ["Avenir Bold", Helvetica, Arial, sans-serif ],
       },
     },
   },

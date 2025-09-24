@@ -124,7 +124,7 @@ const Nav = () => {
           </ul>
         </div>
       </nav>
-      <Hero/>
+    
     </>
   );
 };

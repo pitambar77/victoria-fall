@@ -2,19 +2,23 @@
 
 import "./App.css";
 
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Routes } from 'react-router-dom'
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
 import Overview from "./pages/Home/Overview";
+import PropertiesDetails from "./pages/Property/PropertiesDetails";
+import Layout from "./Layout";
 
 function App() {
 
     const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-       <Route path="/" element={<Nav/>}/>
+       <Route path="/" element={<Layout/>}>
        <Route path="" element={<Hero/>}/>
-      
+       <Route path="details" element={<PropertiesDetails/>}/>
+
+      </Route>
 
       </>
     )
