@@ -89,7 +89,7 @@ const Nav = () => {
               <Link to="/" className=" transition px-4 lg:px-0 lg:py-0 ">Find your stay</Link>
             </li>
              <li>
-              <Link to="/" className=" transition px-4  lg:px-0 lg:py-0 ">Concierge Services</Link>
+              <Link to="/details" className=" transition px-4  lg:px-0 lg:py-0 ">Concierge Services</Link>
             </li>
             
             
