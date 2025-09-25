@@ -1,13 +1,11 @@
 // src/components/ConciergeServices.jsx
 import React from "react";
-import {
-  FaUtensils,
-  FaMapMarkedAlt,
-  FaHome,
-  FaSun,
-  FaSpa,
-  FaCocktail,
-} from "react-icons/fa";
+import { FaSun, FaSpa, FaCocktail } from "react-icons/fa";
+import { RxHome } from "react-icons/rx";
+import { MdNordicWalking } from "react-icons/md";
+
+import { LuUtensils } from "react-icons/lu";
+
 import Button from "../../components/Button";
 
 const ConciergeServices = () => {
@@ -15,47 +13,47 @@ const ConciergeServices = () => {
     {
       title: "Make Yourself at Home",
       image:
-        "https://cdn.mahlatini.com/destinations/zimbabwe/victoria-falls/the-victoria-falls-hotel/_1280x900_crop_center-center_none/the-victoria-falls-hotel-presidential-suite-main-room-1280.jpg",
-      icon: <FaHome />,
+        "https://m.ahstatic.com/is/image/accorhotels/met_p_a007-82:8by10?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=335&hei=418&qlt=80",
+      icon: <RxHome />,
     },
     {
       title: "Restaurants & Fine Dining",
       image:
-        "https://cdn.mahlatini.com/destinations/zimbabwe/victoria-falls/the-victoria-falls-hotel/_1280x900_crop_center-center_none/the-victoria-falls-hotel-presidential-suite-main-room-1280.jpg",
-      icon: <FaUtensils />,
+        "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/54/46/dd/restaurant-dining-space.jpg?w=600&h=600&s=1",
+      icon: <LuUtensils />,
     },
     {
       title: "Activities & Experiences",
       image:
-        "https://cdn.mahlatini.com/destinations/zimbabwe/victoria-falls/the-victoria-falls-hotel/_1280x900_crop_center-center_none/the-victoria-falls-hotel-presidential-suite-main-room-1280.jpg",
-      icon: <FaMapMarkedAlt />,
+        "https://www.roadaffair.com/wp-content/uploads/2018/09/paragliding-cape-town-south-africa-shutterstock_706168156.jpg",
+      icon: <MdNordicWalking/>,
     },
     {
       title: "Culture & Entertainment",
       image:
-        "https://cdn.mahlatini.com/destinations/zimbabwe/victoria-falls/the-victoria-falls-hotel/_1280x900_crop_center-center_none/the-victoria-falls-hotel-presidential-suite-main-room-1280.jpg",
+        "https://www.discoverafrica.com/wp-content/uploads/2018/03/The_San_People_@Ghanzi.jpg",
       icon: <FaCocktail />,
     },
     {
       title: "Beauty & Wellness",
       image:
-        "https://cdn.mahlatini.com/destinations/zimbabwe/victoria-falls/the-victoria-falls-hotel/_1280x900_crop_center-center_none/the-victoria-falls-hotel-presidential-suite-main-room-1280.jpg",
+        "https://www.go2africa.com/wp-content/uploads/2019/05/botswana-safari-spa-chobe-chilwero.jpg",
       icon: <FaSpa />,
     },
     {
       title: "Private Events",
       image:
-        "https://cdn.mahlatini.com/destinations/zimbabwe/victoria-falls/the-victoria-falls-hotel/_1280x900_crop_center-center_none/the-victoria-falls-hotel-presidential-suite-main-room-1280.jpg",
+        "https://natureresponsiblesafari-kenya.com/wp-content/uploads/2021/04/honeymoon-safari-1.jpg",
       icon: <FaSun />,
     },
   ];
 
   return (
-    <section className="bg-[#f5f5f5] py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="bg-[#f9f4e8] py-20">
+      <div className="max-w-[1140px] mx-auto  text-center">
         {/* Title */}
-        <h2 className="text-4xl md:text-5xl font-serif font-light mb-20 text-gray-800">
-          Exclusive Concierge Services
+        <h2 className="hd text-center text-[30px] mb-10 font-semibold text-[#2e2c2d] tracking-[3px] uppercase">
+          Exclusive Concierge <br className="hidden md:inline" /> Services
         </h2>
 
         {/* Grid of Services */}
@@ -63,7 +61,7 @@ const ConciergeServices = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="relative rounded-xl overflow-hidden shadow-lg group h-96"
+              className="relative rounded-md overflow-hidden shadow-lg group h-[460px]"
             >
               {/* Background Image */}
               <img
@@ -76,11 +74,11 @@ const ConciergeServices = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
               {/* Content Box */}
-              <div className="absolute bottom-6 right-6 left-6 bg-white bg-opacity-80 backdrop-blur-md rounded-lg p-4 flex justify-between items-center shadow-md">
-                <h3 className="text-lg font-semibold text-gray-800 text-left">
+              <div className="absolute bottom-6 right-6 left-6 bg-white bg-opacity-80 backdrop-blur-md rounded-md p-4 flex justify-between items-center shadow-md">
+                <h3 className=" hd text-sm  text-[#2e2c2d] text-left">
                   {service.title}
                 </h3>
-                <span className="text-gray-700 text-2xl">{service.icon}</span>
+                <span className="text-[#2e2c2d] text-md">{service.icon}</span>
               </div>
             </div>
           ))}

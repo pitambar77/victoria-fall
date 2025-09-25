@@ -326,14 +326,14 @@ const Customize = () => {
   ];
 
   return (
-    <div className="bg-gray-100 py-20 px-4 ">
+    <div className=" max-w-[1140px] mx-auto py-20 ">
       <div className="container mx-auto text-center">
         {/* Header Section */}
-        <h2 className="text-4xl md:text-5xl font-light mb-10 text-[#2e2c2d]">
-          READY TO START YOUR AFRICAN SAFARI?
+        <h2 className="hd text-center text-[30px] mb-2 font-semibold text-[#2e2c2d] tracking-[3px] uppercase">
+          READY TO START YOUR <br/> AFRICAN SAFARI?
         </h2>
-        <p className="text-gray-600 mb-12 flex items-center justify-center">
-          <span className="mr-2 text-xl">
+        <p className=" hd text-[#2e2c2d] capitalize mb-10 text-md flex items-center justify-center">
+          <span className="mr-2 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -347,13 +347,13 @@ const Customize = () => {
               />
             </svg>
           </span>
-          LEARN HOW TO CUSTOMIZE YOUR OWN TOUR?
+          Learn how to Customize Your Own Tour?
         </p>
 
         {/* Progress Bar Section */}
         <div className="flex justify-around items-start relative ">
           {/* Connector line */}
-          <div className="absolute top-8 left-[16.666%] right-[16.666%] h-px bg-gray-400 -z-10"></div>
+          {/* <div className="absolute top-8 left-[16.666%] right-[16.666%] h-px bg-gray-400 -z-10"></div> */}
 
           {/* Mapping through steps */}
           {steps.map((step) => (
@@ -363,7 +363,7 @@ const Customize = () => {
               onMouseEnter={() => setHoveredStep(step.id)}
               onMouseLeave={() => setHoveredStep(null)}
             >
-              <h3 className=" text-[16px] font-semibold text-[#5c5e62] my-[40px]">
+              <h3 className=" hd text-[16px] font-semibold text-[#5c5e62] my-[40px]">
                 {step.title}
               </h3>
               {/* This container has a fixed size */}
@@ -392,7 +392,7 @@ const Customize = () => {
               </div>
 
               <div>
-                <p className="font-avenir text-center text-[#5c5e62] leading-relaxed mb-16 text-sm max-w-xs mx-auto">
+                <p className=" hd text-center text-[#5c5e62] leading-relaxed mb-16 text-sm max-w-xs mx-auto">
                   {step.description}
                 </p>
               </div>
@@ -401,8 +401,8 @@ const Customize = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="flex justify-center">
-          <Button>+12 9999 999 9999</Button>
+        <div className="flex justify-center hd">
+          <Button >+12 9999 999 9999</Button>
         </div>
       </div>
     </div>

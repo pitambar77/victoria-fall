@@ -10,6 +10,7 @@ import Awards from '../../components/Awards'
 import Customize from '../../components/Customize'
 import JoinClubSection from '../../components/JoinClubSection'
 import PropertyLocation from './PropertyLocation'
+import FaqSection from '../../components/FaqItem'
 
 const PropertiesDetails = () => {
   return (
@@ -19,6 +20,7 @@ const PropertiesDetails = () => {
    <FacilitiesSection/>
    <ModalGallery/>
  <PropertyLocation/>
+ <FaqSection/>
    <MemoriesSection/>
    <TestimonialSection/>
    <Awards/>

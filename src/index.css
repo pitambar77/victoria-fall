@@ -75,27 +75,38 @@ body {
   background-color: #111111;
 } */
 
+@import "./fonts.css";
 
 @import "tailwindcss";
 
-
-Custom styles for slick arrows to match the design (optional but recommended)
-.slick-prev:before, .slick-next:before {
-    display: none !important; /* Hide default arrows */
+Custom
+  styles
+  for
+  slick
+  arrows
+  to
+  match
+  the
+  design
+  (optional but recommended)
+  .slick-prev:before,
+.slick-next:before {
+  display: none !important; /* Hide default arrows */
 }
-.slick-prev, .slick-next {
-    width: 40px !important;
-    height: 40px !important;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
+.slick-prev,
+.slick-next {
+  width: 40px !important;
+  height: 40px !important;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 .slick-prev {
-    left: -50px !important; /* Adjust based on your layout */
+  left: -50px !important; /* Adjust based on your layout */
 }
 .slick-next {
-    right: -50px !important; /* Adjust based on your layout */
+  right: -50px !important; /* Adjust based on your layout */
 }
 
 /* Style for your custom arrow icons */
@@ -121,4 +132,17 @@ Custom styles for slick arrows to match the design (optional but recommended)
 /* Active dot */
 /* .custom-pagination .swiper-pagination-bullet-active {
   @apply bg-black w-4 h-4 rounded-full;
-} */ 
+} */
+
+.hd {
+  font-family: avenir !important;
+}
+
+.heading {
+  font-family: avenir !important;
+  font-size: 30px;
+  font-weight: 600;
+  color: #2e2c2d;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}

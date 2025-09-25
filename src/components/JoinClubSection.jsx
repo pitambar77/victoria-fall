@@ -15,7 +15,7 @@ const JoinClubSection = () => {
 
   return (
     <div
-      className="relative bg-cover bg-center h-[600px] sm:h-[700px] flex items-center justify-center p-4"
+      className="relative bg-cover bg-center h-[500px] sm:h-[600px] flex items-center justify-center p-4"
       style={{ backgroundImage: 'url("https://africanscenicsafaris.com/blog/wp-content/uploads/2025/05/off-the-beaten-path-tanzania-safari-packages-you-need-to-experience-banner-scaled.webp")' }} // Replace with your image URL
     >
       {/* Dark Overlay */}
@@ -23,19 +23,19 @@ const JoinClubSection = () => {
 
       {/* Content */}
       <div className="relative z-10 text-white text-center max-w-lg mx-auto">
-        <h2 className="text-5xl md:text-6xl font-serif tracking-wider mb-6">
+        <h2 className="hd text-center text-[30px] mb-6 font-semibold  tracking-[3px] uppercase">
           JOIN THE CLUB
         </h2>
-        <p className="text-lg mb-10 leading-relaxed font-light">
+        <p className=" hd text-sm mb-10  tracking-[1px]  ">
           Sign up to start your journey and be the first to receive early access to exclusive
           offers, inspiring stories, and the latest news from across the Rothschild Safaris globe.
         </p>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 hd ">
           <input
             type="text"
             placeholder="Name"
-            className="w-full p-4 bg-transparent border border-gray-400 rounded-full text-white placeholder-gray-300 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition duration-200"
+            className="w-full px-4 py-3 bg-transparent border border-gray-400 rounded-full text-white placeholder-gray-300 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition duration-200"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -43,7 +43,7 @@ const JoinClubSection = () => {
             type="email"
             placeholder="Email Address*"
             required
-            className="w-full p-4 bg-transparent border border-gray-400 rounded-full text-white placeholder-gray-300 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition duration-200"
+            className="w-full px-4 py-3 bg-transparent border border-gray-400 rounded-full text-white placeholder-gray-300 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition duration-200"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -56,7 +56,7 @@ const JoinClubSection = () => {
               checked={agreed}
               onChange={(e) => setAgreed(e.target.checked)}
             />
-            <label htmlFor="agreement" className="text-sm text-gray-200 text-left cursor-pointer">
+            <label htmlFor="agreement" className=" hd text-sm text-gray-200 text-left cursor-pointer">
               By subscribing I agree to receive the latest travel updates, stories, and inspiration.
             </label>
           </div>

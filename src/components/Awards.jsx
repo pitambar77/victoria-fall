@@ -55,11 +55,11 @@ const cards = [
 
 const Awards = () => {
   return (
-    <div className="px-[12%] pb-20 relative">
+    <div className="max-w-[1140px] mx-auto pb-10 relative">
       {/* Heading */}
        <div className="flex items-center  mb-14">
         <span className="w-30 h-[1px] bg-[#2e2c2d] mr-6"></span>
-        <h2 className="text-xl font-semibold text-[#2e2c2d] tracking-wide uppercase">
+        <h2 className=" hd text-lg font-semibold text-[#2e2c2d] tracking-wide uppercase">
           Our Awards
         </h2>
       

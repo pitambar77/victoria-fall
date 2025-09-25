@@ -13,12 +13,12 @@ const images = [
 
 const Gallery = ({ openModal }) => {
   return (
-    <div className="bg-[#F8F5F0] py-20 px-[12%] font-sans">
-      <div className="container mx-auto">
+    <div className="bg-[#F8F5F0] py-20  font-sans">
+      <div className=" max-w-[1140px] mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-10 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif text-gray-800 tracking-wide">
-            Accommodation at BABOHI Lodge
+          <h2 className="hd text-center text-[30px]  font-semibold text-[#2e2c2d] tracking-[3px] uppercase">
+            Accommodation at  BABOHI Lodge
           </h2>
           <a
             href="#"

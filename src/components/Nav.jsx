@@ -20,7 +20,7 @@ const Nav = () => {
 
   return (
     <>
-    <div className="bg-gray-200 px-[12%] text-[#5c5e62] py-2 text-sm hidden lg:block">
+    <div className="bg-gray-200  text-[#5c5e62] py-2 text-sm hidden lg:block">
       <div className="container mx-auto  flex justify-between items-center">
         {/* Left Section: Contact Info */}
         <div className="flex items-center space-x-6">
@@ -58,7 +58,7 @@ const Nav = () => {
       </div>
     </div>
       <nav
-        className={`px-[12%] top-9  fixed left-0 w-full z-[999] 
+        className={` top-9  fixed left-0 w-full z-[999] 
             transition-all duration-300 ${
               isScrolled ? "bg-[#fff] shadow-md text-[#5c5e62]" : " bg-white text-[#5c5e62]"
               
@@ -69,7 +69,7 @@ const Nav = () => {
   // `}
  
       >
-        <div className=" navnbar max-w-7xl py-4 flex items-center justify-between relative">
+        <div className=" navnbar max-w-[1140px] mx-auto py-4 flex items-center justify-between relative">
          
          
           <div className=" lg:hidden block">
@@ -79,7 +79,7 @@ const Nav = () => {
             </button>
           </div>
           <ul
-            className={` flex-col lg:flex lg:flex-row absolute lg:static top-full left-0 w-full lg:w-auto md:py-4 lg:bg-transparent z-50 gap-2 lg:gap-8 text-[14px] font-avenir transition-all duration-500 ease-in-out space-y-5 lg:space-y-0 overflow-hidden 
+            className={` flex-col hd uppercase lg:flex lg:flex-row absolute lg:static top-full left-0 w-full lg:w-auto md:py-4 lg:bg-transparent z-50 gap-2 lg:gap-8 text-[14px] font-avenir transition-all duration-500 ease-in-out space-y-5 lg:space-y-0 overflow-hidden 
               ${isOpen ? "max-h-[300px] opacity-100":"max-h-0 opacity-0"} lg:max-h-none lg:opacity-100`}
           >
             <li>
@@ -109,7 +109,7 @@ const Nav = () => {
 
           </div> */}
            <ul
-            className={`menu flex-col lg:flex lg:flex-row absolute lg:static top-full left-0 w-full lg:w-auto text-[14px] font-avenir  md:pl-5 md:py-4 lg:bg-transparent z-50 gap-2 lg:gap-6  transition-all duration-500 ease-in-out space-y-5 lg:space-y-0 overflow-hidden 
+            className={`menu hd uppercase flex-col lg:flex lg:flex-row absolute lg:static top-full left-0 w-full lg:w-auto text-[14px] font-avenir  md:pl-5 md:py-4 lg:bg-transparent z-50 gap-2 lg:gap-6  transition-all duration-500 ease-in-out space-y-5 lg:space-y-0 overflow-hidden 
               ${isOpen ? "max-h-[300px] opacity-100":"max-h-0 opacity-0"} lg:max-h-none lg:opacity-100`}
           >
             <li>

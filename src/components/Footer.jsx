@@ -77,7 +77,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1C1C1C] text-gray-300">
+    <footer className="bg-[#1d1d1d] hd ">
       {/* Top Section */}
       <div className="container mx-auto py-20 px-4 md:px-8 ">
         <div className=' grid grid-cols-3 items-center justify-between'>
@@ -94,15 +94,15 @@ const Footer = () => {
         </div>
 
         {/* Zimbabwe Contact Info */}
-        <div className="mb-8 md:mb-0 items-center ">
-          <h3 className="text-xl font-semibold mb-2 text-white">Zimbabwe</h3>
+        <div className="mb-8 md:mb-0 items-center hd text-[#9d9d9d] ">
+          <h3 className="text-xl font-semibold mb-2 text-[#6b6957]">Zimbabwe</h3>
           <p>T: +263 (0)77 5386228</p>
           <p>E: john.mc@whereto.africa</p>
         </div>
 
         {/* South Africa Contact Info */}
-        <div className="mb-8 md:mb-0">
-          <h3 className="text-xl font-semibold mb-2 text-white">South Africa</h3>
+        <div className="mb-8 md:mb-0 hd text-[#9d9d9d]">
+          <h3 className="text-xl font-semibold mb-2 text-[#6b6957]">South Africa</h3>
           <p>T: +27 31 535 2811</p>
           <p>W: +27 (0)82 555 7203</p>
           <p>E: john.mc@whereto.africa</p>
@@ -110,19 +110,19 @@ const Footer = () => {
       </div>
   </div>
       {/* Bottom Bar */}
-      <div className="bg-[#161616] py-4 px-4 md:px-8">
+      <div className="bg-[#252525] py-6 px-4 md:px-8">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm">
           {/* Copyright */}
           <div className="mb-2 md:mb-0">
-            <p className="text-gray-400">
+            <p className="text-[#9d9d9d] hd font-semibold ">
               © 2020 Where To Africa Travel (Pty) Ltd. All rights reserved. &nbsp;
-              <a href="#" className="hover:underline text-gray-400">Terms & Conditions</a>
+              <a href="#" className="hover:underline text-[#9d9d9d]">Terms & Conditions</a>
             </p>
           </div>
 
           {/* Social Media & Scroll to Top */}
           <div className="flex items-center space-x-4">
-            <p className="text-white uppercase font-semibold">Get Social</p>
+            <p className="text-[#9d9d9d] hd uppercase font-semibold">Get Social</p>
             <a
               href="#"
               aria-label="Facebook"

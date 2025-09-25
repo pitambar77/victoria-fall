@@ -27,11 +27,11 @@ const testimonials = [
 
 export default function TestimonialSection() {
   return (
-    <div className="px-[12%] py-20 relative bg-white">
+    <div className=" max-w-[1140px] mx-auto py-20 relative bg-white">
       {/* Heading */}
       <div className="flex items-center  mb-14">
         <span className="w-30 h-[1px] bg-[#2e2c2d] mr-6"></span>
-        <h2 className="text-xl font-semibold text-[#2e2c2d] tracking-wide uppercase">
+        <h2 className="hd text-[18px] font-semibold text-[#2e2c2d] tracking-wide uppercase">
           What Our Clients Say
         </h2>
       
@@ -51,14 +51,14 @@ export default function TestimonialSection() {
           {testimonials.map((item) => (
             <SwiperSlide key={item.id}>
               <div className="text-center px-6">
-                <div className="text-4xl text-left text-[#0c2b39] leading-none  mb-4"><RiDoubleQuotesL/></div>
-                <p className="italic font-serif text-xl text-[#2e2c2d] mb-6">
+                <div className="text-4xl text-left text-[#2e2c2d] leading-none  mb-4"><RiDoubleQuotesL/></div>
+                <p className="italic hd text-md text-[#2e2c2d] mb-6">
                   {item.text}
                 </p>
                 <div className="flex space-x-2 mb-4">
-                  <span className="w-10  h-[2px] bg-[#2e2c2d]"></span>
+                  <span className="w-10  h-[1px] bg-[#2e2c2d]"></span>
                 </div>
-                <p className=" text-left font-semibold uppercase  text-sm tracking-wide text-[#2e2c2d]">
+                <p className=" hd text-left uppercase  text-[12px] tracking-wide text-[#2e2c2d]">
                   {item.author}
                 </p>
               </div>
@@ -67,11 +67,11 @@ export default function TestimonialSection() {
         </Swiper>
 
         {/* Custom Arrows */}
-        <button className="testimonial-prev absolute top-1/2 -left-16 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-[#0c2b39] text-white shadow hover:bg-[#123b4d] transition">
+        <button className="testimonial-prev absolute top-1/2 -left-16 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-[#aca188] text-white shadow hover:bg-[#2e2c2d] cursor-pointer duration-300 transition">
           <ChevronLeft size={22} strokeWidth={2} />
         </button>
 
-        <button className="testimonial-next absolute top-1/2 -right-16 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-[#0c2b39] text-white shadow hover:bg-[#123b4d] transition">
+        <button className="testimonial-next absolute top-1/2 -right-16 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-[#aca188] text-white shadow hover:bg-[#2e2c2d] cursor-pointer duration-300 transition">
           <ChevronRight size={22} strokeWidth={2} />
         </button>
       </div>

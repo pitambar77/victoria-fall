@@ -27,11 +27,11 @@ const Hero = () => {
 <div className="absolute inset-0 bg-black opacity-40"></div>
       {/* Text Content */}
       <div className="absolute inset-0 flex flex-col justify-center items-start text-white p-8 md:p-16 lg:p-32">
-        <h1 className="text-4xl md:text-7xl font-serif font-semibold mb-4 capitalize">
+        <h1 className="hd leading-[1.6] text-4xl md:text-[60px] tracking-[5px] font-[600] mb-4 uppercase">
           Victoria Falls
         </h1>
-        <p className="text-xl md:text-2xl lg:text-3xl  max-w-2xl">
-          Trust where to africa's 55 years of experience
+        <p className=" hd font-[500] text-sm tracking-[5px] max-w-3xl uppercase">
+          Trust where to africa's 55 years <br/> of experience
         </p>
       </div>
     </div>
