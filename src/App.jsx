@@ -1,40 +1,67 @@
-// import { useState } from "react";
+// // import { useState } from "react";
+
+// import "./App.css";
+
+// import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Routes } from 'react-router-dom'
+// import Hero from "./components/Hero";
+// import Nav from "./components/Nav";
+// import Overview from "./pages/Home/Overview";
+// import PropertiesDetails from "./pages/Property/PropertiesDetails";
+// import Layout from "./Layout";
+// import ExperienceDetails from "./pages/ExperienceDetails/ExperienceDetails";
+
+// function App() {
+
+//     const router = createBrowserRouter(
+//     createRoutesFromElements(
+//       <>
+//        <Route path='/' element={<Layout/>}>
+//        <Route path='' element={<Hero/>}/>
+//        <Route path='properties-details' element={<PropertiesDetails/>}/>
+//        <Route path='experience-details' element={<ExperienceDetails/>}/>
+
+
+//       </Route>
+
+//       </>
+//     )
+//   )
+//   return (
+//     <>
+//       <RouterProvider router={router}/>
+    
+//     </>
+//   );
+// }
+
+// export default App;
+
 
 import "./App.css";
-
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Routes } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Hero from "./components/Hero";
-import Nav from "./components/Nav";
-import Overview from "./pages/Home/Overview";
 import PropertiesDetails from "./pages/Property/PropertiesDetails";
 import Layout from "./Layout";
 import ExperienceDetails from "./pages/ExperienceDetails/ExperienceDetails";
 
 function App() {
-
-    const router = createBrowserRouter(
+  const router = createBrowserRouter(
     createRoutesFromElements(
-      <>
-       <Route path='/' element={<Layout/>}>
-       <Route path='' element={<Hero/>}/>
-       <Route path='properties-details' element={<PropertiesDetails/>}/>
-       <Route path='experience-etails' element={<ExperienceDetails/>}/>
-
-
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Hero />} />
+        <Route path='properties-details' element={<PropertiesDetails />} />
+        <Route path='experience-details' element={<ExperienceDetails />} />
       </Route>
-
-      </>
     )
-  )
-  return (
-    <>
-      <RouterProvider router={router}/>
-    
-    </>
   );
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;
+
+
+
 
 // import React from 'react';
 // import { BrowserRouter as Router } from 'react-router-dom';

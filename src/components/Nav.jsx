@@ -8,15 +8,24 @@ const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useState(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+  // useState(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolled(window.scrollY > 50);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
+  useEffect(() => {
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 50);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
 
   return (
     <>
@@ -89,7 +98,7 @@ const Nav = () => {
               <Link to='/properties-details' className=" transition uppercase px-4 lg:px-0 lg:py-0 ">Find your stay</Link>
             </li>
              <li>
-              <Link to='/experience-etails' className=" transition uppercase px-4  lg:px-0 lg:py-0 ">Concierge Services</Link>
+              <Link to='/experience-details' className=" transition uppercase px-4  lg:px-0 lg:py-0 ">Concierge Services</Link>
             </li>
             
             
