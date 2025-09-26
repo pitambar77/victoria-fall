@@ -42,6 +42,35 @@ const faqData = [
  * A reusable component for a single FAQ item.
  * Uses the 'isOpen' state to control the visibility of the answer.
  */
+// const FaqItem = ({ question, answer, isOpen, onClick }) => {
+//   return (
+//     <div className="border-b border-gray-300">
+//       {/* Question and Toggle Button */}
+//       <button
+//         className="flex justify-between items-center w-full py-4 text-left focus:outline-none"
+//         onClick={onClick}
+//       >
+//         <span className=" hd text-[#2e2c2d]">
+//           {question}
+//         </span>
+//         {/* Icon (ChevronDown or ChevronUp) */}
+//         {isOpen ? (
+//           <ChevronUp className="w-5 h-5 text-[#2e2c2d]" />
+//         ) : (
+//           <ChevronDown className="w-5 h-5 text-[#2e2c2d]" />
+//         )}
+//       </button>
+
+//       {/* Answer */}
+//       {isOpen && (
+//         <div className="py-4 pt-0 text-base text-gray-600">
+//           <p>{answer}</p>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
 const FaqItem = ({ question, answer, isOpen, onClick }) => {
   return (
     <div className="border-b border-gray-300">
@@ -50,10 +79,8 @@ const FaqItem = ({ question, answer, isOpen, onClick }) => {
         className="flex justify-between items-center w-full py-4 text-left focus:outline-none"
         onClick={onClick}
       >
-        <span className=" hd text-[#2e2c2d]">
-          {question}
-        </span>
-        {/* Icon (ChevronDown or ChevronUp) */}
+        <span className="hd text-[#2e2c2d]">{question}</span>
+
         {isOpen ? (
           <ChevronUp className="w-5 h-5 text-[#2e2c2d]" />
         ) : (
@@ -61,15 +88,20 @@ const FaqItem = ({ question, answer, isOpen, onClick }) => {
         )}
       </button>
 
-      {/* Answer */}
-      {isOpen && (
-        <div className="py-4 pt-0 text-base text-gray-600">
+      {/* Animated Answer */}
+      <div
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${
+          isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="pb-4 text-base text-gray-600">
           <p>{answer}</p>
         </div>
-      )}
+      </div>
     </div>
   );
 };
+
 
 /**
  * The main FAQ section component.
@@ -85,7 +117,7 @@ const FaqSection = () => {
   };
 
   return (
-    <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-[1140px] mx-auto  py-12">
       {/* Title - styled to match the image's font and color (assuming a dark bronze/gold for the title) */}
       <h2 
         className=" hd text-[30px] text-center mb-8 font-semibold text-[#2e2c2d] tracking-[3px] uppercase"

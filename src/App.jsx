@@ -8,6 +8,7 @@ import Nav from "./components/Nav";
 import Overview from "./pages/Home/Overview";
 import PropertiesDetails from "./pages/Property/PropertiesDetails";
 import Layout from "./Layout";
+import ExperienceDetails from "./pages/ExperienceDetails/ExperienceDetails";
 
 function App() {
 
@@ -17,6 +18,8 @@ function App() {
        <Route path="/" element={<Layout/>}>
        <Route path="" element={<Hero/>}/>
        <Route path="details" element={<PropertiesDetails/>}/>
+       <Route path="experience" element={<ExperienceDetails/>}/>
+
 
       </Route>
 

@@ -10,13 +10,7 @@ import {
   FaBlender,
 } from "react-icons/fa";
 import Button from "../../components/Button";
-// import {
-//   MdKitchen,
-//   MdLocalLaundryService,
-//   MdHairDryer,
-//   MdOutlineSecurityCamera,
-//   MdOutlineNoPhotography,
-// } from "react-icons/md";
+
 
 const FacilitiesSection = () => {
   const [showAll, setShowAll] = useState(false);

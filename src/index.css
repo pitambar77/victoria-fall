@@ -121,7 +121,18 @@ Custom
 
 .swiper-pagination {
   margin-top: 8px; /* Increase space from content */
-  position: relative !important; /* Override absolute positioning */
+  position: relative !important;
+ 
+}
+
+.swiper-pagination-bullet {
+  background-color: #aca188 !important; /* inactive dot */
+  opacity: 0.5; /* optional, so active stands out */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #aca188 !important; /* active dot */
+  opacity: 1;
 }
 
 /* Base dot */

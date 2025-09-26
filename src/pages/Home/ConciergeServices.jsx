@@ -75,7 +75,7 @@ const ConciergeServices = () => {
 
               {/* Content Box */}
               <div className="absolute bottom-6 right-6 left-6 bg-white bg-opacity-80 backdrop-blur-md rounded-md p-4 flex justify-between items-center shadow-md">
-                <h3 className=" hd text-sm  text-[#2e2c2d] text-left">
+                <h3 className=" hd text-[16px]  text-[#2e2c2d] text-left">
                   {service.title}
                 </h3>
                 <span className="text-[#2e2c2d] text-md">{service.icon}</span>

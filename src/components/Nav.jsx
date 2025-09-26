@@ -21,7 +21,7 @@ const Nav = () => {
   return (
     <>
     <div className="bg-gray-200  text-[#5c5e62] py-2 text-sm hidden lg:block">
-      <div className="container mx-auto  flex justify-between items-center">
+      <div className="max-w-[1140px] mx-auto  flex justify-between items-center">
         {/* Left Section: Contact Info */}
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-2">
@@ -86,7 +86,7 @@ const Nav = () => {
               <Link to="/" className=" transition uppercase px-4 lg:px-0 lg:py-0 ">Home</Link>
             </li>
              <li>
-              <Link to="/" className=" transition uppercase px-4 lg:px-0 lg:py-0 ">Find your stay</Link>
+              <Link to="/experience" className=" transition uppercase px-4 lg:px-0 lg:py-0 ">Find your stay</Link>
             </li>
              <li>
               <Link to="/details" className=" transition uppercase px-4  lg:px-0 lg:py-0 ">Concierge Services</Link>

@@ -15,12 +15,12 @@ const testimonials = [
   },
   {
     id: 2,
-    text: "Amazing hospitality, beautiful views, and unforgettable experiences. Highly recommend this place for anyone looking to relax and recharge.",
+    text: "Amazing hospitality, beautiful views, and unforgettable experiences.Highly recommend this place for anyone looking to relax and recharge  Highly recommend this place for anyone looking to relax and recharge.",
     author: "ANNA",
   },
   {
     id: 3,
-    text: "The service was outstanding, and the ambiance was exactly what we hoped for. Truly a home away from home.",
+    text: "Highly recommend this place for anyone looking to relax and recharge The service was outstanding, and the ambiance was exactly what we hoped for. Truly a home away from home.Highly recommend this place for anyone looking to relax and recharge",
     author: "MICHAEL",
   },
 ];
@@ -51,7 +51,7 @@ export default function TestimonialSection() {
           {testimonials.map((item) => (
             <SwiperSlide key={item.id}>
               <div className="text-center px-6">
-                <div className="text-4xl text-left text-[#2e2c2d] leading-none  mb-4"><RiDoubleQuotesL/></div>
+                <div className="text-4xl text-left text-[#aca188] leading-none  mb-4"><RiDoubleQuotesL/></div>
                 <p className="italic hd text-md text-[#2e2c2d] mb-6">
                   {item.text}
                 </p>

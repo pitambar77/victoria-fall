@@ -99,7 +99,7 @@ export default function MemoriesSection() {
                   className="w-full h-[200px] object-cover"
                 />
                 <div className="p-4 hd text-[#2e2c2d]">
-                  <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
+                  <h3 className=" text-lg font-[500] mb-2">{card.title}</h3>
                   <p className="text-[#aca188] text-sm mb-2">{card.location}</p>
                   <p className="font-medium mb-2">{card.days}</p>
                 
