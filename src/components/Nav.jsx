@@ -83,13 +83,13 @@ const Nav = () => {
               ${isOpen ? "max-h-[300px] opacity-100":"max-h-0 opacity-0"} lg:max-h-none lg:opacity-100`}
           >
             <li>
-              <Link to="/" className=" transition uppercase px-4 lg:px-0 lg:py-0 ">Home</Link>
+              <Link to='/' className=" transition uppercase px-4 lg:px-0 lg:py-0 ">Home</Link>
             </li>
              <li>
-              <Link to="/experience" className=" transition uppercase px-4 lg:px-0 lg:py-0 ">Find your stay</Link>
+              <Link to='/properties-details' className=" transition uppercase px-4 lg:px-0 lg:py-0 ">Find your stay</Link>
             </li>
              <li>
-              <Link to="/details" className=" transition uppercase px-4  lg:px-0 lg:py-0 ">Concierge Services</Link>
+              <Link to='/experience-etails' className=" transition uppercase px-4  lg:px-0 lg:py-0 ">Concierge Services</Link>
             </li>
             
             
