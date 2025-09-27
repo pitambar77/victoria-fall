@@ -46,6 +46,7 @@ import ExperienceDetails from "./pages/ExperienceDetails/ExperienceDetails";
 
 import PropertiesLanding from "./pages/Property/PrpertiesLanding/PropertiesLanding";
 
+
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -54,6 +55,8 @@ function App() {
         <Route path='properties-details' element={<PropertiesDetails />} />
         <Route path='experience-details' element={<ExperienceDetails />} />
         <Route path='properties-landing' element={<PropertiesLanding/>} />
+        {/* <Route path=':id' element={<Prodetails/>} /> */}
+<Route path=':id' element={<PropertiesDetails />} />
 
       </Route>
     )
@@ -64,41 +67,3 @@ function App() {
 
 export default App;
 
-
-
-
-// import React from 'react';
-// import { BrowserRouter as Router } from 'react-router-dom';
-// import Register from './components/Register';
-// import Login from './components/Login';
-
-// import DashboardLayout from "./components/DashboardLayout";
-
-
-// export default function App() {
-//   return (
-//     <BrowserRouter>
-//       {/* <div className="min-h-screen bg-white flex items-start justify-center p-6">
-//         <div className="w-full max-w-xl"> */}
-//           {/* <div className="mb-6 flex items-center gap-6">
-//             <Link to="/login" className="text-gray-500">Log In</Link>
-//             <Link to="/register" className="text-red-500 border-b-2 border-red-200 pb-2">Register</Link>
-//           </div> */}
-// <DashboardLayout/>
-//           <Routes>
-            
-//             {/* <Route path="/" element={<DashboardLayout/>} /> */}
-//             {/* <Route path="/rooms/all" element={<AllRooms />} />
-//               <Route path="/rooms/add" element={<AddRoom />} />
-//               <Route path="/rooms/edit" element={<EditRoom />} /> */}
-//             <Route path="/register" element={<Register />} />
-//             <Route path="/login" element={<Login />} />
-//           </Routes>
-//         {/* </div>
-//       </div> */}
-//     </BrowserRouter>
-//  <Router>
-//       <DashboardLayout />
-//     </Router>
-//   );
-// }

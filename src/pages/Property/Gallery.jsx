@@ -58,7 +58,7 @@ const Gallery = ({ openModal }) => {
             <img
               src={images[1].url}
               alt="Bathroom"
-              className="w-full h-auto rounded-lg shadow-lg"
+              className="w-full h-auto rounded-md shadow-lg"
             />
             {/* <img
               src={images[2].url}
@@ -77,7 +77,7 @@ const Gallery = ({ openModal }) => {
               alt="Lounge"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-80 flex items-center justify-center rounded-lg">
+            <div className="absolute inset-0 bg-black bg-opacity-80 flex items-center justify-center rounded-md">
               <span className="text-white text-lg md:text-xl uppercase font-semibold flex items-center">
                 View Gallery
                 <svg

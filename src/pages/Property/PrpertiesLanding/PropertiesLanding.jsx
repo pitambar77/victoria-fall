@@ -9,8 +9,8 @@ const PropertiesLanding = () => {
   return (
     <>
       <Banner
-        title="Properties Landing"
-        subtitle="PrivateSunsetCruiseonthe ZambeziRive"
+        title="Properties "
+        subtitle="PrivateSunsetCruiseonthe "
         imageUrl="https://www.tanzaniatourism.com/images/uploads/Zanzibar_Dhow_Sunset_Cruise_03.jpg"
       />
       <Overview

@@ -95,7 +95,7 @@ const Nav = () => {
               <Link to='/' className=" transition uppercase px-4 lg:px-0 lg:py-0 ">Home</Link>
             </li>
              <li>
-              <Link to='/properties-details' className=" transition uppercase px-4 lg:px-0 lg:py-0 ">Find your stay</Link>
+              <Link to='/properties-landing' className=" transition uppercase px-4 lg:px-0 lg:py-0 ">Find your stay</Link>
             </li>
              <li>
               <Link to='/experience-details' className=" transition uppercase px-4  lg:px-0 lg:py-0 ">Concierge Services</Link>
@@ -122,10 +122,10 @@ const Nav = () => {
               ${isOpen ? "max-h-[300px] opacity-100":"max-h-0 opacity-0"} lg:max-h-none lg:opacity-100`}
           >
             <li>
-              <Link to="/properties-landing" className=" transition px-4  uppercase lg:px-0 lg:py-0 font-normal">Owner Application</Link>
+              <Link to="#" className=" transition px-4  uppercase lg:px-0 lg:py-0 font-normal">Owner Application</Link>
             </li>
              <li>
-              <Link to="/" className=" transition px-4 uppercase  lg:px-0 lg:py-0 font-normal">Contact us</Link>
+              <Link to="#" className=" transition px-4 uppercase  lg:px-0 lg:py-0 font-normal">Contact us</Link>
             </li>
            
             

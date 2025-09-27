@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Button from "../../components/Button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const cards = [
   {
@@ -67,6 +68,9 @@ const cards = [
 ];
 
 export default function MemoriesSection() {
+
+  const navigate = useNavigate();
+
   return (
     <div className=" max-w-[1140px] mx-auto  py-16 relative">
       {/* Heading */}
@@ -134,7 +138,13 @@ export default function MemoriesSection() {
 
       {/* CTA Button */}
       <div className="text-center mt-10">
-        <Button>FIND THE PERFECT VILLA</Button>
+        <Button
+         onClick={()=>{
+          navigate('/properties-landing');
+          // window.scrollTo({ top: 0, behavior: "smooth" })
+          window.scrollTo(0,0)
+         }}
+        >FIND THE PERFECT VILLA</Button>
       </div>
     </div>
   );

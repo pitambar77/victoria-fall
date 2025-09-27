@@ -11,26 +11,37 @@ import {
 } from "react-icons/fa";
 import Button from "../../components/Button";
 
+import { resorts } from "../../data/resorts";
+import { useParams } from "react-router-dom";
+
 
 const FacilitiesSection = () => {
   const [showAll, setShowAll] = useState(false);
 
+    const { id } = useParams();
+  const resort = resorts.find((r) => r.id.toString() === id);
+
+  if (!resort) {
+    return <div className="p-10 text-center">Resort not found.</div>;
+  }
+
+
   const facilities = [
-    { icon: <FaTv />, label: "Kitchen" },
-    { icon: <FaTv />, label: "TV" },
-    { icon: <FaBaby />, label: "Travel cot – available upon request" },
-    { icon: <FaBlender />, label: "Fridge" },
+    { icon: <FaTv className=" text-[#ab8c51]"/>, label: "Kitchen" },
+    { icon: <FaTv className=" text-[#ab8c51]" />, label: "TV" },
+    { icon: <FaBaby className=" text-[#ab8c51]" />, label: "Travel cot – available upon request" },
+    { icon: <FaBlender className=" text-[#ab8c51]" />, label: "Fridge" },
     {
-      icon: <FaTv />,
+      icon: <FaTv className=" text-[#ab8c51]" />,
       label: "Carbon monoxide alarm",
       disabled: true,
     },
-    { icon: <FaTv />, label: "Wifi" },
-    { icon: <FaTv />, label: "Washing machine" },
-    { icon: <FaTv />, label: "Hair dryer" },
-    { icon: <FaDog />, label: "Pets allowed" },
+    { icon: <FaTv className=" text-[#ab8c51]" />, label: "Wifi" },
+    { icon: <FaTv  className=" text-[#ab8c51]" />, label: "Washing machine" },
+    { icon: <FaTv className=" text-[#ab8c51]" />, label: "Hair dryer" },
+    { icon: <FaDog className=" text-[#ab8c51]" />, label: "Pets allowed" },
     {
-      icon: <FaTv />,
+      icon: <FaTv className=" text-[#ab8c51]" />,
       label: "Exterior security cameras on property",
     },
   ];
@@ -53,13 +64,13 @@ const FacilitiesSection = () => {
           <div className="flex items-center gap-8 mb-6">
             <div>
               <p className="text-sm uppercase font-[500] flex items-center gap-2">
-                <FaClock /> Check in
+                <FaClock className="text-[#aca188] " /> Check in
               </p>
               <p className="text-2xl font-semibold text-[#5c5e62]">14:00</p>
             </div>
             <div>
               <p className="text-sm uppercase font-[500] text-[#5c5e62] flex items-center gap-2">
-                <FaClock /> Check out
+                <FaClock className="text-[#aca188]" /> Check out
               </p>
               <p className="text-2xl font-semibold text-[#5c5e62]">11:00</p>
             </div>
@@ -68,7 +79,7 @@ const FacilitiesSection = () => {
           {/* Address */}
           <div className="mb-6 text-[#5c5e62]">
             <p className="text-sm  uppercase font-[500] flex items-center gap-2 mb-2">
-              <FaMapMarkerAlt /> Address
+              <FaMapMarkerAlt className="text-[#aca188]" /> Address
             </p>
             <p className=" hd tracking-[1px]">
               BAOBH at QWABI Private Game Reserve <br />
@@ -83,7 +94,7 @@ const FacilitiesSection = () => {
               BOOK NOW
             </Button>
             <p className=" hd text-[#5c5e62] text-md ">
-              From <span className="text-red-600 font-semibold">US$2,959</span>
+              From <span className="text-[#f25922] font-semibold">US$2,959</span>
               /P.P.
             </p>
           </div>
@@ -91,11 +102,16 @@ const FacilitiesSection = () => {
 
         {/* Right Image */}
         <div>
-          <img
+          {/* <img
             src="https://www.jollyhols.co.uk/park-photos/BLAC/580/LP4350-011.jpg?id=02052024"
             alt="Property"
             className="w-full rounded-xl shadow-lg"
-          />
+          /> */}
+          <img
+          src={resort.image}
+          alt={resort.name}
+          className="w-full rounded-md shadow-lg object-cover"
+        />
         </div>
       </div>
 
@@ -129,7 +145,16 @@ const FacilitiesSection = () => {
                 item.disabled ? "opacity-50 line-through" : ""
               }`}
             >
-              {item.icon} {item.label}
+           
+             <div className="flex items-center gap-3 font-[500]">
+                <div className=" flex items-center justify-center w-12 h-12 rounded-full  bg-[#f9f4e8]   transition-all duration-300 hover:bg-gray-100">
+                  {item.icon }
+                  </div> 
+                  <div>
+                    {item.label}
+                    </div>
+                    
+              </div>
             </div>
           ))}
         </div>

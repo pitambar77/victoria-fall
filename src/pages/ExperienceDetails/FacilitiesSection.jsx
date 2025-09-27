@@ -15,50 +15,50 @@ const FacilitiesSection = () => {
 
   const facilities = [
     {
-      icon: <FaTv />,
+      icon: <FaTv className=" text-[#ab8c51]" />,
       label: "Free cancellation",
       description: "Cancel up to 24 hours in advance for a full refund",
     },
     {
-      icon: <FaTv />,
+      icon: <FaTv  className=" text-[#ab8c51]"/>,
       label: "Pickup included",
       description:
         "You can be picked up from your accommodation in Victoria Falls Town.",
     },
     {
-      icon: <FaBaby />,
+      icon: <FaBaby  className=" text-[#ab8c51]"/>,
       label: "Duration 2 hours",
       description: "You can be picked up from your",
     },
     {
-      icon: <FaBlender />,
+      icon: <FaBlender className=" text-[#ab8c51]" />,
       label: "Small group",
       description: "Cancel up to 24 hours in advance for a full refund",
     },
     {
-      icon: <FaTv />,
+      icon: <FaTv className=" text-[#ab8c51]" />,
       label: "Carbon monoxide alarm",
       description: "Cancel up to 24 hours in advance for a full refund",
       disabled: true,
     },
     {
-      icon: <FaTv />,
+      icon: <FaTv className=" text-[#ab8c51]" />,
       label: "Free cancellation",
       description: "Cancel up to 24 hours in advance for a full refund",
     },
     {
-      icon: <FaTv />,
+      icon: <FaTv className=" text-[#ab8c51]" />,
       label: "Pickup included",
       description:
         "You can be picked up from your accommodation in Victoria Falls Town.",
     },
     {
-      icon: <FaBaby />,
+      icon: <FaBaby className=" text-[#ab8c51]" />,
       label: "Duration 2 hours",
       description: "You can be picked up from your",
     },
     {
-      icon: <FaBlender />,
+      icon: <FaBlender className=" text-[#ab8c51]" />,
       label: "Small group",
       description: "Cancel up to 24 hours in advance for a full refund",
     },
@@ -86,24 +86,24 @@ const FacilitiesSection = () => {
           <div className="flex items-center  justify-between mb-6">
             <div className=" w-[50%]">
               <p className="  flex items-center gap-2">
-                <FaClock /> $ 170 per person
+                <FaClock className="text-[#aca188]" /> $ 170 per person
               </p>
             </div>
             <div className=" w-[50%]">
               <p className=" text-[#5c5e62] text-left border-l border-[#5c5e62]/50 pl-5 flex items-center gap-2">
-                <FaClock /> 07.00 daily
+                <FaClock className="text-[#aca188]" /> 07.00 daily
               </p>
             </div>
           </div>
           <div className="flex items-center  justify-between mb-10">
             <div className=" w-[50%]">
               <p className="  flex items-center gap-2">
-                <FaClock /> 11 hours
+                <FaClock className="text-[#aca188]" /> 11 hours
               </p>
             </div>
             <div className=" w-[50%]">
               <p className=" text-[#5c5e62] text-left border-l border-[#5c5e62]/50 pl-5 flex items-center gap-2">
-                <FaClock /> Min pax:2
+                <FaClock className="text-[#aca188]" /> Min pax:2
               </p>
             </div>
           </div>
@@ -157,10 +157,16 @@ const FacilitiesSection = () => {
               className={` ${item.disabled ? "opacity-50 line-through" : ""}`}
             >
               <div className="flex items-center gap-3 font-[500]">
-                {item.icon} {item.label}
+                <div className=" flex items-center justify-center w-12 h-12 rounded-full  bg-[#f9f4e8]   transition-all duration-300 hover:bg-gray-100">
+                  {item.icon }
+                  </div> 
+                  <div>
+                    {item.label}
+                    </div>
+                    
               </div>
-
-              <p className=" pl-7 text-sm">{item.description}</p>
+         <p className=" pl-14 text-sm">{item.description}</p>
+             
             </div>
           ))}
         </div>
