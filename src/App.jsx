@@ -44,6 +44,8 @@ import PropertiesDetails from "./pages/Property/PropertiesDetails";
 import Layout from "./Layout";
 import ExperienceDetails from "./pages/ExperienceDetails/ExperienceDetails";
 
+import PropertiesLanding from "./pages/Property/PrpertiesLanding/PropertiesLanding";
+
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -51,6 +53,8 @@ function App() {
         <Route index element={<Hero />} />
         <Route path='properties-details' element={<PropertiesDetails />} />
         <Route path='experience-details' element={<ExperienceDetails />} />
+        <Route path='properties-landing' element={<PropertiesLanding/>} />
+
       </Route>
     )
   );

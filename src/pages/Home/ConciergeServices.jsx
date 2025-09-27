@@ -50,7 +50,7 @@ const ConciergeServices = () => {
 
   return (
     <section className="bg-[#f9f4e8] py-20">
-      <div className="max-w-[1140px] mx-auto  text-center">
+      <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-0 text-center">
         {/* Title */}
         <h2 className="hd text-center text-[30px] mb-10 font-semibold text-[#2e2c2d] tracking-[3px] uppercase">
           Exclusive Concierge <br className="hidden md:inline" /> Services

@@ -5,7 +5,7 @@ import { FaCheck } from "react-icons/fa";
 
 const ActivityDetails = () => {
   return (
-    <div className="max-w-[1140px] mx-auto px-4 hd sm:px-6 lg:px-0 py-20 space-y-10">
+    <div className="max-w-[1140px] mx-auto  hd px-4 sm:px-6 lg:px-0 py-20 space-y-10">
       {/* Highlights */}
       <div className=" flex">
         <div className=" w-1/4">
