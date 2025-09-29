@@ -125,7 +125,7 @@ const Nav = () => {
               <Link to="/experience-landing" className=" transition px-4  uppercase lg:px-0 lg:py-0 font-normal">Owner Application</Link>
             </li>
              <li>
-              <Link to="#" className=" transition px-4 uppercase  lg:px-0 lg:py-0 font-normal">Contact us</Link>
+              <Link to="/Experience-sub-landing" className=" transition px-4 uppercase  lg:px-0 lg:py-0 font-normal">Contact us</Link>
             </li>
            
             
