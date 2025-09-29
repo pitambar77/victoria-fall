@@ -45,6 +45,7 @@ import Layout from "./Layout";
 import ExperienceDetails from "./pages/ExperienceDetails/ExperienceDetails";
 
 import PropertiesLanding from "./pages/Property/PrpertiesLanding/PropertiesLanding";
+import ExperienceLanding from "./pages/Experience/ExperienceLanding/ExperienceLanding";
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
         <Route path='properties-landing' element={<PropertiesLanding/>} />
         {/* <Route path=':id' element={<Prodetails/>} /> */}
 <Route path=':id' element={<PropertiesDetails />} />
+<Route path="experience-landing" element={<ExperienceLanding/>}/>
 
       </Route>
     )
