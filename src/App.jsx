@@ -47,6 +47,8 @@ import ExperienceDetails from "./pages/ExperienceDetails/ExperienceDetails";
 import PropertiesLanding from "./pages/Property/PrpertiesLanding/PropertiesLanding";
 import ExperienceLanding from "./pages/Experience/ExperienceLanding/ExperienceLanding";
 import ExperienceSubLanding from "./pages/Experience/ExperienceSubLanding/ExperienceSubLanding";
+import ResturantsLanding from "./pages/Resturants/ResturantsLanding/ResturantsLanding";
+import ResturantsDetails from "./pages/Resturants/ResturantsDetails/ResturantsDetails";
 
 
 function App() {
@@ -60,7 +62,10 @@ function App() {
         {/* <Route path=':id' element={<Prodetails/>} /> */}
 <Route path=':id' element={<PropertiesDetails />} />
 <Route path="experience-landing" element={<ExperienceLanding/>}/>
-<Route path="Experience-sub-landing" element={<ExperienceSubLanding/>}/>
+<Route path="experience-sub-landing" element={<ExperienceSubLanding/>}/>
+<Route path="resturants-landing" element={<ResturantsLanding/>}/>
+<Route path="resturants-details" element={<ResturantsDetails/>}/>
+<Route path='/restrant/:id' element={<ResturantsDetails />} />
 
       </Route>
     )

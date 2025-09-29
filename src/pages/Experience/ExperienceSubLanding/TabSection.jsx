@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   "FOOD & CULINARY EXPERIENCES",
@@ -8,7 +9,6 @@ const categories = [
   "PACKAGE DEALS",
   "SCENIC HELICOPTER",
   "WINE ROUTES & TASTING",
-  
 ];
 
 const activities = [
@@ -17,8 +17,7 @@ const activities = [
     category: "FOOD & CULINARY EXPERIENCES",
     title: "Cape Town Culinary – Taste of Africa Tour.",
     price: "From R 1975",
-    image:
-      "https://media.timeout.com/images/105861701/750/562/image.jpg",
+    image: "https://media.timeout.com/images/105861701/750/562/image.jpg",
   },
   {
     id: 2,
@@ -52,7 +51,7 @@ const activities = [
     image:
       "https://s43365.pcdn.co/wp-content/uploads/2025/01/pexels-ajaybhargavguduru-939702.jpg",
   },
-     {
+  {
     id: 6,
     category: "HISTORICAL & CULTURAL TOURS",
     title: "Cape Township Tour – Half Day",
@@ -60,7 +59,7 @@ const activities = [
     image:
       "https://s43365.pcdn.co/wp-content/uploads/2025/01/pexels-ajaybhargavguduru-939702.jpg",
   },
-    {
+  {
     id: 7,
     category: "HISTORICAL & CULTURAL TOURS",
     title: "Cape Township Tour – Half Day",
@@ -68,7 +67,7 @@ const activities = [
     image:
       "https://s43365.pcdn.co/wp-content/uploads/2025/01/pexels-ajaybhargavguduru-939702.jpg",
   },
-    {
+  {
     id: 8,
     category: "HISTORICAL & CULTURAL TOURS",
     title: "Cape Township Tour – Half Day",
@@ -76,7 +75,7 @@ const activities = [
     image:
       "https://s43365.pcdn.co/wp-content/uploads/2025/01/pexels-ajaybhargavguduru-939702.jpg",
   },
-    {
+  {
     id: 9,
     category: "HISTORICAL & CULTURAL TOURS",
     title: "Cape Township Tour – Half Day",
@@ -84,7 +83,7 @@ const activities = [
     image:
       "https://s43365.pcdn.co/wp-content/uploads/2025/01/pexels-ajaybhargavguduru-939702.jpg",
   },
-    {
+  {
     id: 10,
     category: "HISTORICAL & CULTURAL TOURS",
     title: "Cape Township Tour – Half Day",
@@ -133,13 +132,15 @@ const TabSection = () => {
     (item) => item.category === activeCategory
   );
 
+  const navigate = useNavigate();
+
   return (
     <div className=" bg-amber-50/60 py-20">
       <div className="max-w-[1140px] mx-auto px-4 md:px-0">
         {/* Title */}
-         <h2 className=" hd text-center text-[30px] mb-14 font-semibold text-[#2e2c2d] tracking-[3px] uppercase ">
-       well come to Cape Town <br className="hidden md:inline" /> Activities
-      </h2>
+        <h2 className=" hd text-center text-[30px] mb-14 font-semibold text-[#2e2c2d] tracking-[3px] uppercase ">
+          well come to Cape Town <br className="hidden md:inline" /> Activities
+        </h2>
         <p className="hd text-center text-gray-600 ">
           Choose the category/ies of Cape Town Activities to suit your
           preferences, and start booking your memories.
@@ -176,19 +177,22 @@ const TabSection = () => {
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              
+
               <div className=" hd transition-all duration-500 group-hover:-translate-y-4">
-                  <div className="p-4 bg-white group-hover:rounded-t-md text-center">
-                   
-                    <h3 className="text-lg font-[500] text-[#2e2c2d] mt-1 uppercase">
-                      {activity.title}
-                    </h3>
-                    <button className=' my-2 text-[#2e2c2d] border  border-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] font-normal py-[8px] px-[20px]  transition-colors duration-300 cursor-pointer ease-out'>View Destination</button>
-                   
-                    
-                    
-                  </div>
+                <div className="p-4 bg-white group-hover:rounded-t-md text-center">
+                  <h3 className="text-lg font-[500] text-[#2e2c2d] mt-1 uppercase">
+                    {activity.title}
+                  </h3>
+                  <button
+                  onClick={()=>{
+                    navigate('/experience-details')
+                    window.scrollTo(0,0)
+                  }} 
+                  className=" my-2 text-[#2e2c2d] border  border-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] font-normal py-[8px] px-[20px]  transition-colors duration-300 cursor-pointer ease-out">
+                    View Destination
+                  </button>
                 </div>
+              </div>
             </div>
           ))}
         </div>
@@ -198,4 +202,3 @@ const TabSection = () => {
 };
 
 export default TabSection;
-

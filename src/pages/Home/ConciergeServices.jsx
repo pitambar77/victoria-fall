@@ -7,44 +7,55 @@ import { MdNordicWalking } from "react-icons/md";
 import { LuUtensils } from "react-icons/lu";
 
 import Button from "../../components/Button";
+import { Link, useNavigate } from "react-router-dom";
 
 const ConciergeServices = () => {
+
+  const navigate = useNavigate();
+
   const services = [
     {
       title: "Make Yourself at Home",
+
       image:
         "https://m.ahstatic.com/is/image/accorhotels/met_p_a007-82:8by10?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=335&hei=418&qlt=80",
       icon: <RxHome />,
+      url:'/properties-landing'
     },
     {
       title: "Restaurants & Fine Dining",
       image:
         "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/54/46/dd/restaurant-dining-space.jpg?w=600&h=600&s=1",
       icon: <LuUtensils />,
+      url:'/'
     },
     {
       title: "Activities & Experiences",
       image:
         "https://www.roadaffair.com/wp-content/uploads/2018/09/paragliding-cape-town-south-africa-shutterstock_706168156.jpg",
       icon: <MdNordicWalking/>,
+      url:'/experience-landing'
     },
     {
       title: "Culture & Entertainment",
       image:
         "https://www.discoverafrica.com/wp-content/uploads/2018/03/The_San_People_@Ghanzi.jpg",
       icon: <FaCocktail />,
+      url:'/'
     },
     {
       title: "Beauty & Wellness",
       image:
         "https://www.go2africa.com/wp-content/uploads/2019/05/botswana-safari-spa-chobe-chilwero.jpg",
       icon: <FaSpa />,
+      url:'/'
     },
     {
       title: "Private Events",
       image:
         "https://natureresponsiblesafari-kenya.com/wp-content/uploads/2021/04/honeymoon-safari-1.jpg",
       icon: <FaSun />,
+      url:'/'
     },
   ];
 
@@ -74,18 +85,25 @@ const ConciergeServices = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
               {/* Content Box */}
-              <div className="absolute bottom-6 right-6 left-6 bg-white bg-opacity-80 backdrop-blur-md rounded-md p-4 flex justify-between items-center shadow-md">
+              <Link to={`${service.url}`} onClick={() => window.scrollTo(0, 0)}  >
+              <div className="absolute bottom-6 cursor-pointer right-6 left-6 bg-white bg-opacity-80 backdrop-blur-md rounded-md p-4 flex justify-between items-center shadow-md">
                 <h3 className=" hd text-[16px]  text-[#2e2c2d] text-left">
                   {service.title}
                 </h3>
                 <span className="text-[#2e2c2d] text-md">{service.icon}</span>
               </div>
+              </Link>
+              
             </div>
           ))}
         </div>
 
         {/* Button */}
-        <Button>Book Your Tailor-Made Services</Button>
+        <Button  onClick={()=>{
+          navigate('/properties-landing');
+          // window.scrollTo({ top: 0, behavior: "smooth" })
+          window.scrollTo(0,0)
+         }}>Book Your Tailor-Made Services</Button>
       </div>
     </section>
   );

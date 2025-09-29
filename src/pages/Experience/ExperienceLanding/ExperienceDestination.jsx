@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import Button from '../../../components/Button'
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const destinationActivities = [
   {
@@ -41,6 +41,9 @@ const destinationActivities = [
 
 
 const ExperienceDestination = () => {
+
+    const navigate = useNavigate();
+
   return (
     <>
      <div className=" bg-[#faf8f1] py-20">
@@ -69,7 +72,11 @@ const ExperienceDestination = () => {
                     <h3 className="text-lg font-[500] text-[#2e2c2d] mt-1 uppercase">
                       {activity.destination}
                     </h3>
-                    <button className=' my-2 text-[#2e2c2d] border  border-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] font-normal py-[8px] px-[20px]  transition-colors duration-300 cursor-pointer ease-out'>View Destination</button>
+                    <button  onClick={()=>{
+                        navigate('/experience-sub-landing')
+                        window.scrollTo(0,0)
+                    }}
+                     className=' my-2 text-[#2e2c2d] border  border-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] font-normal py-[8px] px-[20px]  transition-colors duration-300 cursor-pointer ease-out'>View Destination</button>
                    
                     {/* <div className=' mt-4'>
 <Button>View Details</Button>
