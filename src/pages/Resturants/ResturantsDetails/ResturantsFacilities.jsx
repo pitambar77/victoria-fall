@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   FaClock,
@@ -13,6 +12,9 @@ import Button from "../../../components/Button";
 
 import { resturants } from "../../../data/resturants";
 import { useParams } from "react-router-dom";
+import RestaurantsMenu from "./RestaurantsMenu";
+import ModalGallery from "../../Property/ModalGallery";
+import BookingSection from "./BookingSection";
 
 
 const ResturantsFacilities = () => {
@@ -20,8 +22,8 @@ const ResturantsFacilities = () => {
 
     const { id } = useParams();
   const resturant = resturants.find((r) => r.id.toString() === id);
-  
-  console.log(resturant)
+
+
 
   if (!resturant) {
     return <div className="p-10 text-center">Resturant not found.</div>;
@@ -52,6 +54,8 @@ const ResturantsFacilities = () => {
   const visibleFacilities = showAll ? facilities : facilities.slice(0, 6);
 
   return (
+    <>
+    
     <div className="  bg-[#f9f9f9] py-20 ">
       {/* Top Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start max-w-[1140px] mx-auto">
@@ -64,19 +68,26 @@ const ResturantsFacilities = () => {
 
           {/* Check-in / Check-out */}
           <div className="flex items-center gap-8 mb-6">
-            <div>
+            <div className=" w-[50%]">
               <p className="text-sm uppercase font-[500] flex items-center gap-2">
-                <FaClock className="text-[#aca188] " /> Check in
+                <FaClock className="text-[#aca188] " /> Opening Time
               </p>
               <p className="text-2xl font-semibold text-[#5c5e62]">14:00</p>
             </div>
-            <div>
+            <div className=" w-[50%] ">
               <p className="text-sm uppercase font-[500] text-[#5c5e62] flex items-center gap-2">
-                <FaClock className="text-[#aca188]" /> Check out
+                <FaClock className="text-[#aca188]" /> Closing Time
               </p>
-              <p className="text-2xl font-semibold text-[#5c5e62]">11:00</p>
+              <p className="text-2xl  font-semibold text-[#5c5e62]">11:00</p>
             </div>
+            
           </div>
+           <div className=" mb-6">
+              <p className="text-sm uppercase font-[500] text-[#5c5e62]  flex items-center gap-2">
+                <FaClock className="text-[#aca188]" /> Contact
+              </p>
+              <p className="text-2xl font-semibold text-[#5c5e62]">+91 1191122331</p>
+            </div>
 
           {/* Address */}
           <div className="mb-6 text-[#5c5e62]">
@@ -118,7 +129,7 @@ const ResturantsFacilities = () => {
       {/* <div className="border-t mt-12 mb-8"></div> */}
 
       {/* Services and Facilities */}
-      <div className="mt-12 mb-8 max-w-[1140px] mx-auto">
+      {/* <div className="mt-12 mb-8 max-w-[1140px] mx-auto">
         <div className="flex items-center justify-between mb-10">
           <div className="flex items-center  ">
         <span className="w-30 h-[1px] bg-[#2e2c2d] mr-6"></span>
@@ -133,10 +144,10 @@ const ResturantsFacilities = () => {
           >
             {showAll ? "View Less ↑" : "View All →"}
           </button>
-        </div>
+        </div> */}
 
         {/* Facilities Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3  gap-6 hd text-[18px] text-[#2e2c2d] ">
+        {/* <div className="grid grid-cols-2 md:grid-cols-3  gap-6 hd text-[18px] text-[#2e2c2d] ">
           {visibleFacilities.map((item, index) => (
             <div
               key={index}
@@ -156,9 +167,13 @@ const ResturantsFacilities = () => {
               </div>
             </div>
           ))}
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </div>
+    <ModalGallery/>
+    <RestaurantsMenu/>
+    <BookingSection/>
+    </>
   );
 };
 

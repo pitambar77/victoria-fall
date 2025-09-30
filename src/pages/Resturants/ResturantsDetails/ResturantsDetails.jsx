@@ -2,6 +2,11 @@ import React from 'react'
 import Banner from '../../../components/Banner'
 import Overview from '../../../components/Overview'
 import ResturantsFacilities from './ResturantsFacilities'
+import ExperiencesSection from '../../Home/ExperiencesSection'
+import TestimonialSection from '../../../components/TestimonialSection'
+import Awards from '../../../components/Awards'
+import JoinClubSection from '../../../components/JoinClubSection'
+
 
 const ResturantsDetails = () => {
   return (
@@ -18,6 +23,10 @@ const ResturantsDetails = () => {
         description='Here at Newmark, we have an incredible variety of restaurants and bars across our beautiful properties, from ocean-side dining to city-chic Asian tapas and whimsical bougainvillea-clad courtyards. Find out more information below'
         />
         <ResturantsFacilities/>
+     <ExperiencesSection/>
+     <TestimonialSection/>
+     <Awards/>
+     <JoinClubSection/>
     </>
   )
 }

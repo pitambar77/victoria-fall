@@ -197,7 +197,7 @@ const ResturantsCard = () => {
               key={`${resort.id}-${index}`}
               className="bg-white rounded-md shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 group "
             >
-              <Link to={`/resturants-details`}>
+              <Link to={`/resturant/${resort.id}`}>
                 {/* Image */}
                 <div className="h-[200px] w-full overflow-hidden">
                   <img

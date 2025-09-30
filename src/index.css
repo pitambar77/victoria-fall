@@ -157,3 +157,9 @@ Custom
   letter-spacing: 3px;
   text-transform: uppercase;
 }
+
+/* Make date & time picker icons white */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
