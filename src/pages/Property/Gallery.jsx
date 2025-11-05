@@ -13,7 +13,7 @@ const images = [
 
 const Gallery = ({ openModal }) => {
   return (
-    <div className="bg-[#F8F5F0] py-20  font-sans">
+    <div className="bg-[#F8F5F0] py-20 hd ">
       <div className=" max-w-[1140px] mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-10 md:mb-16">

@@ -27,10 +27,10 @@ const testimonials = [
 
 export default function TestimonialSection() {
   return (
-    <div className=" max-w-[1140px] mx-auto py-20 relative bg-white">
+    <div className=" max-w-[1140px] mx-auto py-8 md:py-20 px-4  relative bg-white">
       {/* Heading */}
       <div className="flex items-center  mb-14">
-        <span className="w-30 h-[1px] bg-[#2e2c2d] mr-6"></span>
+        <span className="md:w-30 w-10 h-[1px] bg-[#2e2c2d] mr-6"></span>
         <h2 className="hd text-[18px] font-semibold text-[#2e2c2d] tracking-wide uppercase">
           What Our Clients Say
         </h2>
@@ -67,11 +67,11 @@ export default function TestimonialSection() {
         </Swiper>
 
         {/* Custom Arrows */}
-        <button className="testimonial-prev absolute top-1/2 -left-16 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-[#aca188] text-white shadow hover:bg-[#2e2c2d] cursor-pointer duration-300 transition">
+        <button className=" hidden testimonial-prev absolute top-1/2 -left-16 transform -translate-y-1/2 w-12 h-12 lg:flex items-center justify-center rounded-full bg-[#aca188] text-white shadow hover:bg-[#2e2c2d] cursor-pointer duration-300 transition">
           <ChevronLeft size={22} strokeWidth={2} />
         </button>
 
-        <button className="testimonial-next absolute top-1/2 -right-16 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-[#aca188] text-white shadow hover:bg-[#2e2c2d] cursor-pointer duration-300 transition">
+        <button className="hidden testimonial-next absolute top-1/2 -right-16 transform -translate-y-1/2 w-12 h-12 lg:flex items-center justify-center rounded-full bg-[#aca188] text-white shadow hover:bg-[#2e2c2d] cursor-pointer duration-300 transition">
           <ChevronRight size={22} strokeWidth={2} />
         </button>
       </div>

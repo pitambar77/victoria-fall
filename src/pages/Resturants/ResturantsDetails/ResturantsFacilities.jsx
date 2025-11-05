@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams} from "react-router-dom";
+import axios from "axios";
 import {
   FaClock,
   FaMapMarkerAlt,
@@ -10,55 +12,43 @@ import {
 } from "react-icons/fa";
 import Button from "../../../components/Button";
 
-import { resturants } from "../../../data/resturants";
-import { useParams } from "react-router-dom";
-import RestaurantsMenu from "./RestaurantsMenu";
-import ModalGallery from "../../Property/ModalGallery";
-import BookingSection from "./BookingSection";
 
 
 const ResturantsFacilities = () => {
-  const [showAll, setShowAll] = useState(false);
 
-    const { id } = useParams();
-  const resturant = resturants.find((r) => r.id.toString() === id);
+      const { id } = useParams();
+  const [restaurant, setRestaurant] = useState(null);
+
+  // const [showAll, setShowAll] = useState(false);
+
+  useEffect(() => {
+    axios.get(`https://victoria-fall-backend-production.up.railway.app/api/restaurants/${id}`)
+      .then(res => setRestaurant(res.data))
+      .catch(console.error);
+  }, [id]);
+
+  const handleClick = () => {
+    const formElement = document.getElementById("booking-form");
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  if (!restaurant) return <p className="p-6">Loading...</p>;
 
 
 
-  if (!resturant) {
-    return <div className="p-10 text-center">Resturant not found.</div>;
-  }
+//  const facilities = restaurant.facilities
 
-
-  const facilities = [
-    { icon: <FaTv className=" text-[#ab8c51]"/>, label: "Kitchen" },
-    { icon: <FaTv className=" text-[#ab8c51]" />, label: "TV" },
-    { icon: <FaBaby className=" text-[#ab8c51]" />, label: "Travel cot – available upon request" },
-    { icon: <FaBlender className=" text-[#ab8c51]" />, label: "Fridge" },
-    {
-      icon: <FaTv className=" text-[#ab8c51]" />,
-      label: "Carbon monoxide alarm",
-      disabled: true,
-    },
-    { icon: <FaTv className=" text-[#ab8c51]" />, label: "Wifi" },
-    { icon: <FaTv  className=" text-[#ab8c51]" />, label: "Washing machine" },
-    { icon: <FaTv className=" text-[#ab8c51]" />, label: "Hair dryer" },
-    { icon: <FaDog className=" text-[#ab8c51]" />, label: "Pets allowed" },
-    {
-      icon: <FaTv className=" text-[#ab8c51]" />,
-      label: "Exterior security cameras on property",
-    },
-  ];
-
-  // Limit to first 6 if not expanded
-  const visibleFacilities = showAll ? facilities : facilities.slice(0, 6);
+//   // Limit to first 6 if not expanded
+//   const visibleFacilities = showAll ? facilities : facilities.slice(0, 6);
 
   return (
     <>
     
-    <div className="  bg-[#f9f9f9] py-20 ">
+    <div className="  bg-[#f9f9f9] py-10 md:py-20 ">
       {/* Top Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start max-w-[1140px] mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start max-w-[1140px] mx-auto px-4">
         {/* Left Content */}
         <div className=" hd text-[#5c5e62] ">
           <p className="  tracking-[1px] text-[18px]  mb-6">
@@ -72,13 +62,13 @@ const ResturantsFacilities = () => {
               <p className="text-sm uppercase font-[500] flex items-center gap-2">
                 <FaClock className="text-[#aca188] " /> Opening Time
               </p>
-              <p className="text-2xl font-semibold text-[#5c5e62]">14:00</p>
+              <p className="text-lg font-semibold text-[#5c5e62]">{restaurant.openingTime}</p>
             </div>
             <div className=" w-[50%] ">
               <p className="text-sm uppercase font-[500] text-[#5c5e62] flex items-center gap-2">
                 <FaClock className="text-[#aca188]" /> Closing Time
               </p>
-              <p className="text-2xl  font-semibold text-[#5c5e62]">11:00</p>
+              <p className="text-lg  font-semibold text-[#5c5e62]">{restaurant.closingTime}</p>
             </div>
             
           </div>
@@ -86,7 +76,7 @@ const ResturantsFacilities = () => {
               <p className="text-sm uppercase font-[500] text-[#5c5e62]  flex items-center gap-2">
                 <FaClock className="text-[#aca188]" /> Contact
               </p>
-              <p className="text-2xl font-semibold text-[#5c5e62]">+91 1191122331</p>
+              <p className="text-lg font-semibold text-[#5c5e62]">{restaurant.contactNumber}</p>
             </div>
 
           {/* Address */}
@@ -95,15 +85,17 @@ const ResturantsFacilities = () => {
               <FaMapMarkerAlt className="text-[#aca188]" /> Address
             </p>
             <p className=" hd tracking-[1px]">
-              BAOBH at QWABI Private Game Reserve <br />
-              QWABI Private Game Reserve <br />
-              Bela-Bela, Waterberg, Limpopo, South Africa, 0480
+              {restaurant.address1} <br />
+              {restaurant.address2} <br />
+             
             </p>
           </div>
 
           {/* CTA & Price */}
           <div className="flex items-center gap-6">
-            <Button className="px-6 py-3 bg-[#2e2c2d] text-white text-sm font-medium rounded hover:bg-black transition">
+            <Button
+            onClick={handleClick}
+             className="px-6 py-3 bg-[#2e2c2d] text-white text-sm font-medium rounded hover:bg-black transition">
               BOOK NOW
             </Button>
            
@@ -118,8 +110,8 @@ const ResturantsFacilities = () => {
             className="w-full rounded-xl shadow-lg"
           /> */}
           <img
-          src={resturant.image}
-          alt={resturant.name}
+          src={restaurant.bannerImage}
+          alt={restaurant.name}
           className="w-full rounded-md shadow-lg object-cover"
         />
         </div>
@@ -170,9 +162,8 @@ const ResturantsFacilities = () => {
         </div> */}
       {/* </div> */}
     </div>
-    <ModalGallery/>
-    <RestaurantsMenu/>
-    <BookingSection/>
+    
+  
     </>
   );
 };

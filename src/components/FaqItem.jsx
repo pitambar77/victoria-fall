@@ -117,10 +117,10 @@ const FaqSection = () => {
   };
 
   return (
-    <div className="max-w-[1140px] mx-auto  py-12">
+    <div className="max-w-[1140px] mx-auto px-4 py-10 md:py-12">
       {/* Title - styled to match the image's font and color (assuming a dark bronze/gold for the title) */}
       <h2 
-        className=" hd text-[30px] text-center mb-8 font-semibold text-[#2e2c2d] tracking-[3px] uppercase"
+        className=" hd text-xl md:text-[30px] text-center mb-4 md:mb-8 font-semibold text-[#2e2c2d] tracking-[3px] uppercase"
         // Approximate style for the 'FAQs' title
       >
         FAQs

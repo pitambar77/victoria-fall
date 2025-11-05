@@ -35,10 +35,10 @@ const ExperiencesSection = () => {
   ];
 
   return (
-    <div className="bg-white py-20">
-      <div className="max-w-[1140px] mx-auto hd text-[#2e2c2d] text-center px-4 sm:px-6 lg:px-0">
+    <div className="bg-white md:py-20 py-10">
+      <div className="max-w-[1140px] mx-auto hd text-[#2e2c2d] text-center px-4">
         {/* Title */}
-        <h2 className="hd text-center text-[30px] mb-10 font-semibold text-[#2e2c2d] tracking-[3px] uppercase">
+        <h2 className="hd text-center md:text-[30px] text-[20px] mb-10 font-semibold text-[#2e2c2d] tracking-[3px] uppercase">
           Experiences in Victoria <br className="hidden md:inline" /> Falls
         </h2>
 

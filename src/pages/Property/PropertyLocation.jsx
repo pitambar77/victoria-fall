@@ -2,8 +2,8 @@ import React from "react";
 
 const PropertyLocation = () => {
   return (
-    <div className=" max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-0 py-10">
- <div className="relative w-full h-[500px]">
+    <div className=" max-w-[1140px] mx-auto px-4 py-5 sm:py-10">
+ <div className="relative w-full h-[500px] ">
       <div className="absolute inset-0  ">
         {/* You would replace this with your actual map component (e.g., from react-google-maps, leaflet, etc.) */}
 

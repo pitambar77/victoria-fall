@@ -1,3 +1,4 @@
+
 import React from "react";
 import Banner from "../../../components/Banner";
 import PropertiesCards from "./PropertiesCards";
@@ -6,12 +7,14 @@ import TestimonialSection from "../../../components/TestimonialSection";
 import Awards from "../../../components/Awards";
 
 const PropertiesLanding = () => {
+
+
   return (
     <>
       <Banner
         title="Properties "
-        subtitle="PrivateSunsetCruiseonthe "
-        imageUrl="https://www.tanzaniatourism.com/images/uploads/Zanzibar_Dhow_Sunset_Cruise_03.jpg"
+        subtitle="Private Sunset Cruiseonthe "
+        imageUrl="https://static.wixstatic.com/media/12a327_43a1c2429e45453dba913eef8fd04fc5~mv2.jpg/v1/fit/w_2500,h_1330,al_c/12a327_43a1c2429e45453dba913eef8fd04fc5~mv2.jpg"
       />
       <Overview
         title="Private sunset cruise"

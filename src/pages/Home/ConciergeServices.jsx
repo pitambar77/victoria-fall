@@ -27,7 +27,7 @@ const ConciergeServices = () => {
       image:
         "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/54/46/dd/restaurant-dining-space.jpg?w=600&h=600&s=1",
       icon: <LuUtensils />,
-      url:'/'
+      url:'/resturants-landing'
     },
     {
       title: "Activities & Experiences",
@@ -41,29 +41,29 @@ const ConciergeServices = () => {
       image:
         "https://www.discoverafrica.com/wp-content/uploads/2018/03/The_San_People_@Ghanzi.jpg",
       icon: <FaCocktail />,
-      url:'/'
+      url:'/luxury-concierge-services'
     },
     {
       title: "Beauty & Wellness",
       image:
         "https://www.go2africa.com/wp-content/uploads/2019/05/botswana-safari-spa-chobe-chilwero.jpg",
       icon: <FaSpa />,
-      url:'/'
+      url:'/luxury-concierge-services'
     },
     {
       title: "Private Events",
       image:
         "https://natureresponsiblesafari-kenya.com/wp-content/uploads/2021/04/honeymoon-safari-1.jpg",
       icon: <FaSun />,
-      url:'/'
+      url:'/luxury-concierge-services'
     },
   ];
 
   return (
-    <section className="bg-[#f9f4e8] py-20">
-      <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-0 text-center">
+    <section className="bg-[#f9f4e8] md:py-20 py-10">
+      <div className="max-w-[1140px] mx-auto px-4  text-center">
         {/* Title */}
-        <h2 className="hd text-center text-[30px] mb-10 font-semibold text-[#2e2c2d] tracking-[3px] uppercase">
+        <h2 className="hd text-center md:text-[30px] text-[20px] mb-10 font-semibold text-[#2e2c2d] tracking-[3px] uppercase">
           Exclusive Concierge <br className="hidden md:inline" /> Services
         </h2>
 

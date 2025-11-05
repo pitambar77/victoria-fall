@@ -15,7 +15,7 @@ const JoinClubSection = () => {
 
   return (
     <div
-      className="relative bg-cover bg-center h-[500px] sm:h-[600px] flex items-center justify-center p-4"
+      className="relative bg-cover bg-center h-[500px] sm:h-[600px] flex items-center justify-center px-4 "
       style={{ backgroundImage: 'url("https://africanscenicsafaris.com/blog/wp-content/uploads/2025/05/off-the-beaten-path-tanzania-safari-packages-you-need-to-experience-banner-scaled.webp")' }} // Replace with your image URL
     >
       {/* Dark Overlay */}
@@ -23,7 +23,7 @@ const JoinClubSection = () => {
 
       {/* Content */}
       <div className="relative z-10 text-white text-center max-w-lg mx-auto">
-        <h2 className="hd text-center text-[30px] mb-6 font-semibold  tracking-[3px] uppercase">
+        <h2 className="hd text-center text-[20px] md:text-[30px] mb-6 font-semibold  tracking-[3px] uppercase">
           JOIN THE CLUB
         </h2>
         <p className=" hd text-sm mb-10  tracking-[1px]  ">
@@ -35,7 +35,7 @@ const JoinClubSection = () => {
           <input
             type="text"
             placeholder="Name"
-            className="w-full px-4 py-3 bg-transparent border border-gray-400 rounded-full text-white placeholder-gray-300 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition duration-200"
+            className="w-full px-4 py-2 md:py-3 bg-transparent border border-gray-400 rounded-full text-white placeholder-gray-300 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition duration-200"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -43,7 +43,7 @@ const JoinClubSection = () => {
             type="email"
             placeholder="Email Address*"
             required
-            className="w-full px-4 py-3 bg-transparent border border-gray-400 rounded-full text-white placeholder-gray-300 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition duration-200"
+            className="w-full px-4 py-2 md:py-3 bg-transparent border border-gray-400 rounded-full text-white placeholder-gray-300 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition duration-200"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />

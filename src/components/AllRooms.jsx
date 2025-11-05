@@ -36,7 +36,7 @@ const AllRooms = () => {
           <input type="text" placeholder="Search" className="bg-transparent text-gray-100 outline-none w-full" />
         </div>
         <div className="flex items-center space-x-3">
-          <Link to={'/rooms/add'} className="bg-gray-700 p-2 rounded-md text-gray-400 hover:text-white transition-colors">
+          <Link to={'/dashbord/rooms/add'} className="bg-gray-700 p-2 rounded-md text-gray-400 hover:text-white transition-colors">
             <FaPlus />
           </Link>
           <button className="bg-gray-700 p-2 rounded-md text-gray-400 hover:text-white transition-colors">

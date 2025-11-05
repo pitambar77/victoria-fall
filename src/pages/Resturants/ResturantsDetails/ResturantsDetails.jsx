@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState  } from "react";
+import { useParams} from "react-router-dom";
+import axios from "axios";
 import Banner from '../../../components/Banner'
 import Overview from '../../../components/Overview'
 import ResturantsFacilities from './ResturantsFacilities'
@@ -6,23 +8,43 @@ import ExperiencesSection from '../../Home/ExperiencesSection'
 import TestimonialSection from '../../../components/TestimonialSection'
 import Awards from '../../../components/Awards'
 import JoinClubSection from '../../../components/JoinClubSection'
+import Gallery from '../../Resturants/ResturantsDetails/Gallery'
+import RestaurantsMenu from "./RestaurantsMenu";
+import BookingSection from "./BookingSection";
 
 
 const ResturantsDetails = () => {
+
+    const { id } = useParams();
+  const [restaurant, setRestaurant] = useState(null);
+
+  useEffect(() => {
+    axios.get(`https://victoria-fall-backend-production.up.railway.app/api/restaurants/${id}`)
+      .then(res => setRestaurant(res.data))
+      .catch(console.error);
+  }, [id]);
+
+
+
+  if (!restaurant) return <p className="p-6">Loading...</p>;
+
   return (
     <>
         <Banner
-        title='restaurants & bars'
-        subtitle='we have an incredible variety of restaurants '
-        imageUrl='https://yellowzebrasafaris.com/media/27501/jm_boma.jpg?width=2048&height=1024&format=jpg&v=1da5e0ece56d080'
+        title={restaurant.name}
+        subtitle="sub title"
+        imageUrl={restaurant.bannerImage}
         
         />
         <Overview
-         title='Resturant at'
-        subtitle='Cape Town'
-        description='Here at Newmark, we have an incredible variety of restaurants and bars across our beautiful properties, from ocean-side dining to city-chic Asian tapas and whimsical bougainvillea-clad courtyards. Find out more information below'
+         title={restaurant.name}
+        subtitle=''
+        description={restaurant.overview}
         />
-        <ResturantsFacilities/>
+        <ResturantsFacilities />
+        <Gallery/>
+          <RestaurantsMenu menu={restaurant.menu}/>
+    <BookingSection restaurantData={restaurant.name} />
      <ExperiencesSection/>
      <TestimonialSection/>
      <Awards/>

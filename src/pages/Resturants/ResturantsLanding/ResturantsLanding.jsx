@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Banner from '../../../components/Banner'
 import Overview from '../../../components/Overview'
 import ResturantsCard from './ResturantsCard'
@@ -9,6 +9,8 @@ import JoinClubSection from '../../../components/JoinClubSection'
 
 
 const ResturantsLanding = () => {
+   
+  
   return (
    <>
    <Banner

@@ -1,22 +1,16 @@
 import React from "react";
-import {
-  FaCompass,
-  FaPhoneVolume,
-  FaShieldAlt,
-  FaGlobeAmericas,
-  FaGem,
-} from "react-icons/fa";
+
 
 const Overview = () => {
   return (
-    <div className="bg-white py-20 px-4">
+    <div className="bg-white md:py-20 py-10 px-4">
       <div className="max-w-6xl mx-auto text-center">
         {/* Main Heading and Subheading */}
-        <h2 className=" hd text-[30px] mb-6 font-semibold text-[#2e2c2d] tracking-[3px] uppercase">
+        <h2 className=" hd md:text-[30px] text-[20px] mb-6 font-semibold text-[#2e2c2d] tracking-[3px] uppercase">
           Our mission is to turn <br className="hidden md:inline" /> your
           holiday...
         </h2>
-        <p className=" hd max-w-xl mx-auto text-center text-[#5c5e62]  tracking-[1px] mb-16 ">
+        <p className=" hd max-w-xl mx-auto md:text-center text-justify text-[#5c5e62]   md:mb-16 mb-0 ">
           We make your Victoria Falls holiday effortless. From booking your
           dream villa to organizing every detail of your stay — dining,
           shopping, activities, and transfers — we handle it all. You simply
@@ -25,13 +19,13 @@ const Overview = () => {
         </p>
 
         {/* Feature Icons Section */}
-        <div className=" max-w-7xl mx-auto px-20 flex flex-col md:flex-row justify-between items-center space-y-12 md:space-y-0 md:space-x-8 lg:space-x-12 mb-16 py-10">
+        <div className=" hidden max-w-7xl mx-auto px-20 md:flex flex-col md:flex-row justify-between items-center space-y-12 md:space-y-0 md:space-x-8 lg:space-x-12 mb-16 py-10">
           {/* Feature 1 */}
           <div className="flex flex-col items-center text-center max-w-[140px]">
             <div className="flex items-center justify-center w-18 h-18 rounded-full  bg-[#f9f4e8]  mb-4 transition-all duration-300 hover:bg-gray-100">
               {/* <FaCompass className="text-4xl text-[#5c5e62]" /> */}
               <svg
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
                 focusable="false"
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -54,7 +48,7 @@ const Overview = () => {
             <div className="flex items-center justify-center w-18 h-18 rounded-full bg-[#f9f4e8] mb-4 transition-all duration-300 hover:bg-gray-100">
               {/* <FaPhoneVolume className="text-4xl text-[#5c5e62]" /> */}
               <svg
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
                 focusable="false"
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -81,7 +75,7 @@ const Overview = () => {
             <div className="flex items-center justify-center w-18 h-18 rounded-full bg-[#f9f4e8] mb-4 transition-all duration-300 hover:bg-gray-100">
               {/* <FaShieldAlt className="text-4xl text-[#5c5e62]" /> */}
               <svg
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
                 focusable="false"
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -105,7 +99,7 @@ const Overview = () => {
             <div className="flex items-center justify-center w-18 h-18 rounded-full bg-[#f9f4e8] mb-4 transition-all duration-300 hover:bg-gray-100">
               {/* <FaGlobeAmericas className="text-4xl text-[#5c5e62]" /> */}
               <svg
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
                 focusable="false"
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -128,7 +122,7 @@ const Overview = () => {
             <div className="flex items-center justify-center w-18 h-18 rounded-full bg-[#f9f4e8] mb-4 transition-all duration-300 hover:bg-gray-100">
               {/* <FaGem className="text-4xl text-[#5c5e62]" /> */}
               <svg
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
                 focusable="false"
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -148,7 +142,7 @@ const Overview = () => {
         </div>
 
         {/* Featured Logos Section */}
-        <div className="text-center hd">
+        <div className="text-center hd hidden md:block ">
           <p className="text-[#2e2c2d]  font-semibold  uppercase mb-10">
             As featured in
           </p>
