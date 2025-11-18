@@ -6,6 +6,7 @@ import PopularExperiences from "./PopularExperiences";
 import WhyBookWithUs from "./WhyBookWithUs";
 import Testimonial from '../../../components/TestimonialSection'
 import Awards from '../../../components/Awards'
+import experiencel from '../../../assets/experiencel.webp'
 
 const ExperienceLanding = () => {
   return (
@@ -13,7 +14,7 @@ const ExperienceLanding = () => {
       <Banner
         title="cape town"
         subtitle="Private Sunset Cruiseonthe ZambeziRive"
-        imageUrl="https://www.tanzaniatourism.com/images/uploads/Zanzibar_Dhow_Sunset_Cruise_03.jpg"
+        imageUrl={experiencel}
       />
       <Overview
         title="Victoria Falls Activities"

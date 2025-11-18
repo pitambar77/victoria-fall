@@ -6,6 +6,7 @@ import WhyBookWithUs from "../ExperienceLanding/WhyBookWithUs";
 import PopularExperiences from "../ExperienceLanding/PopularExperiences";
 import TestimonialSection from "../../../components/TestimonialSection";
 import Awards from "../../../components/Awards";
+import activity from '../../../assets/activity.webp'
 
 const ExperienceSubLanding = () => {
   return (
@@ -13,7 +14,7 @@ const ExperienceSubLanding = () => {
       <Banner
         title="Sub landing "
         subtitle="Sub landing Page"
-        imageUrl="https://inthesestilettos.com/wp-content/uploads/2016/04/1472.jpg"
+        imageUrl={activity}
       />
       <Overview
         title="Cape Town Activities"

@@ -11,12 +11,13 @@ import Customize from './Customize'
 import JoinClubSection from './JoinClubSection'
 import Map from './Map'
 import Footer from './Footer'
+import homebanner from '../assets/homebanner.webp'
 
 const Hero = () => {
   return (
     <>
     <Banner
-     imageUrl={'https://www.discoverafrica.com/wp-content/uploads/wetu/112812/klrs47094.jpg'}
+     imageUrl={homebanner}
      title={'Victoria Falls' }
      subtitle={`Trust where to africa's 55 years of experience`}
     />

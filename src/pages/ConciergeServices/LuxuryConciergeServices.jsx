@@ -11,6 +11,7 @@ import TestimonialSection from '../../components/TestimonialSection'
 import Awards from '../../components/Awards'
 import JoinClubSection from '../../components/JoinClubSection'
 import Customize from '../../components/Customize'
+import concierge from '../../assets/concierge.webp'
 
 const LuxuryConciergeServices = () => {
 
@@ -21,7 +22,7 @@ const LuxuryConciergeServices = () => {
             <Banner
         title="experience a luxury guest  "
         subtitle="Tailor-made services for holidaymakers in the heart of Provence"
-        imageUrl="https://cdn.audleytravel.com/2646/1895/79/389203-the-victoria-falls-safari-lodge.jpg"
+        imageUrl={concierge}
       />
       <Overview
         title="Exclusive concierge "

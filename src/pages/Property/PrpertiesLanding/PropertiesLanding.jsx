@@ -5,6 +5,7 @@ import PropertiesCards from "./PropertiesCards";
 import Overview from "../../../components/Overview";
 import TestimonialSection from "../../../components/TestimonialSection";
 import Awards from "../../../components/Awards";
+import propertyl from '../../../assets/propertyl.webp'
 
 const PropertiesLanding = () => {
 
@@ -14,7 +15,7 @@ const PropertiesLanding = () => {
       <Banner
         title="Properties "
         subtitle="Private Sunset Cruiseonthe "
-        imageUrl="https://static.wixstatic.com/media/12a327_43a1c2429e45453dba913eef8fd04fc5~mv2.jpg/v1/fit/w_2500,h_1330,al_c/12a327_43a1c2429e45453dba913eef8fd04fc5~mv2.jpg"
+        imageUrl={propertyl}
       />
       <Overview
         title="Private sunset cruise"

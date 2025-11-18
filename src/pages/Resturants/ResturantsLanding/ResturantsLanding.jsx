@@ -6,7 +6,7 @@ import PropertyLocation from '../../Property/PropertyLocation'
 import TestimonialSection from '../../../components/TestimonialSection'
 import Awards from '../../../components/Awards'
 import JoinClubSection from '../../../components/JoinClubSection'
-
+import restaurantl from '../../../assets/restaurantl.webp'
 
 const ResturantsLanding = () => {
    
@@ -16,7 +16,7 @@ const ResturantsLanding = () => {
    <Banner
    title='Resturants '
    subtitle='Most testy food available'
-   imageUrl='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2f/ad/8f/7a/outlet.jpg'
+   imageUrl={restaurantl}
    />
    <Overview
    title='Discover our'
