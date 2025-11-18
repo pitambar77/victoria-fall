@@ -39,7 +39,7 @@ const ConciergeServices = () => {
     {
       title: "Culture & Entertainment",
       image:
-        "https://www.discoverafrica.com/wp-content/uploads/2018/03/The_San_People_@Ghanzi.jpg",
+        "https://weguideafricansafaris.com/wp-content/uploads/2025/09/8-days-tanzania-mid-range-tours.jpg",
       icon: <FaCocktail />,
       url:'/luxury-concierge-services'
     },
