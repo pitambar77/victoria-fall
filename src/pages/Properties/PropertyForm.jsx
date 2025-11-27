@@ -24,6 +24,7 @@ const PropertyForm = () => {
     bannerImage: null,
     galleryImages: [],
   facilities: [],
+  faqs: [],  // ⬅ added here faq
   });
   const [previewBanner, setPreviewBanner] = useState(null);
   const [previewGallery, setPreviewGallery] = useState([]);
@@ -56,10 +57,10 @@ const PropertyForm = () => {
 
         // ✅ Set image previews if URLs are returned
         if (data.bannerImage)
-          setPreviewBanner(`https://victoria-fall-backend-production.up.railway.app/${data.bannerImage}`);
+          setPreviewBanner(`https://victoria-fall-backend-production.up.railway.app/api/${data.bannerImage}`);
         if (data.galleryImages)
           setPreviewGallery(
-            data.galleryImages.map((img) => `https://victoria-fall-backend-production.up.railway.app/${img}`)
+            data.galleryImages.map((img) => `https://victoria-fall-backend-production.up.railway.app/api/${img}`)
           );
       });
     }
@@ -96,16 +97,25 @@ const PropertyForm = () => {
 
     // add facility here
 
-    Object.entries(formData).forEach(([key, value]) => {
-      if (Array.isArray(value) && key !== "facilities" ) {
-        value.forEach((v) => data.append(key, v));
-      }else if (key === "facilities") {
-        data.append("facilities", JSON.stringify(value));
-      }
-       else if (value) {
-        data.append(key, value);
-      }
-    });
+    // Object.entries(formData).forEach(([key, value]) => {
+    //   if (Array.isArray(value) && key !== "facilities" ) {
+    //     value.forEach((v) => data.append(key, v));
+    //   }else if (key === "facilities") {
+    //     data.append("facilities", JSON.stringify(value));
+    //   }
+    //    else if (value) {
+    //     data.append(key, value);
+    //   }
+    // });
+Object.entries(formData).forEach(([key, value]) => {
+  if (Array.isArray(value) && key !== "facilities" && key !== "faqs") {
+    value.forEach((v) => data.append(key, v));
+  } else if (key === "facilities" || key === "faqs") {
+    data.append(key, JSON.stringify(value));  // ⬅ includes faqs
+  } else if (value) {
+    data.append(key, value);
+  }
+});
 
     try {
       if (isEdit) {
@@ -121,6 +131,29 @@ const PropertyForm = () => {
       alert("Error saving properties");
     }
   };
+
+  // Add a new FAQ
+const handleAddFaq = () => {
+  setFormData({
+    ...formData,
+    faqs: [...formData.faqs, { question: "", answer: "" }],
+  });
+};
+
+// Update FAQ fields
+const handleFaqChange = (index, field, value) => {
+  const updatedFaqs = [...formData.faqs];
+  updatedFaqs[index][field] = value;
+  setFormData({ ...formData, faqs: updatedFaqs });
+};
+
+// Remove FAQ
+const handleRemoveFaq = (index) => {
+  const updatedFaqs = [...formData.faqs];
+  updatedFaqs.splice(index, 1);
+  setFormData({ ...formData, faqs: updatedFaqs });
+};
+
 
   return (
     <div className="p-6 max-w-3xl ">
@@ -261,6 +294,46 @@ const PropertyForm = () => {
           facilities={formData.facilities}
           setFacilities={handleFacilitiesChange}
         />
+
+        {/* FAQ SECTION */}
+<div className="space-y-2 border p-4 rounded-md">
+  <h3 className="font-semibold text-lg">FAQ Section</h3>
+
+  {formData.faqs.map((faq, index) => (
+    <div key={index} className="border p-3 rounded-md space-y-2">
+      <input
+        type="text"
+        placeholder="Question"
+        className="w-full border p-2 rounded"
+        value={faq.question}
+        onChange={(e) => handleFaqChange(index, "question", e.target.value)}
+      />
+      <textarea
+        placeholder="Answer"
+        className="w-full border p-2 rounded"
+        value={faq.answer}
+        onChange={(e) => handleFaqChange(index, "answer", e.target.value)}
+      ></textarea>
+
+      <button
+        type="button"
+        className="text-red-600 underline"
+        onClick={() => handleRemoveFaq(index)}
+      >
+        Remove FAQ
+      </button>
+    </div>
+  ))}
+
+  <button
+    type="button"
+    className="bg-blue-600 text-white px-3 py-1 rounded"
+    onClick={handleAddFaq}
+  >
+    + Add FAQ
+  </button>
+</div>
+
 
         <button
           type="submit"

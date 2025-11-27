@@ -2,6 +2,8 @@ import axios from "axios";
 
 const API = "https://victoria-fall-backend-production.up.railway.app/api/properties";
 
+
+
 export const getProperties = () => axios.get(API);
 export const getProperty = (id) => axios.get(`${API}/${id}`);
 export const createProperty = (data) =>

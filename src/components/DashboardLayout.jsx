@@ -2,23 +2,23 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Dashbord from "../components/Dashbord";
-import AllFacilities from '../components/AllFacilities'
+import AllFacilities from "../components/AllFacilities";
 import PropertyForm from "../pages/Properties/PropertyForm";
 import PropertyList from "../pages/Properties/PropertyList";
 import PropertyDetails from "../pages/Properties/PropertyDetails";
 import RestaurantList from "../pages/Restaurants/RestaurantList";
 import RestaurantForm from "../pages/Restaurants/RestaurantForm";
 import RestaurantDetails from "../pages/Restaurants/RestaurantDetails";
-import ActivityList from '../pages/Activities/ActivityList'
-import ActivityForm from '../pages/Activities/ActivityForm'
+import ActivityList from "../pages/Activities/ActivityList";
+import ActivityForm from "../pages/Activities/ActivityForm";
 import ActivityDetails from "../pages/Activities/ActivityDetails";
-import DestinationForm from '../pages/Activities/DestinationForm'
-import DestinationList from '../pages/Activities/DestinationList'
-import CategoryList from '../pages/Activities/CategoryList'
+import DestinationForm from "../pages/Activities/DestinationForm";
+import DestinationList from "../pages/Activities/DestinationList";
+import CategoryList from "../pages/Activities/CategoryList";
 import CategoryForm from "../pages/Activities/CategoryForm";
-import BookingPropertyAdmin from "../components/BookingPropertyAdmin"
-import BookingsAdmin from '../components/BookingsAdmin'
-import BookingRestaurantAdmin from '../components/BookingRestaurantAdmin'
+import BookingPropertyAdmin from "../components/BookingPropertyAdmin";
+import BookingsAdmin from "../components/BookingsAdmin";
+import BookingRestaurantAdmin from "../components/BookingRestaurantAdmin";
 
 const DashboardLayout = () => {
   return (
@@ -48,30 +48,29 @@ const DashboardLayout = () => {
             <Route path="rooms/add" element={<PropertyForm />} />
             <Route path="properties/edit/:id" element={<PropertyForm />} />
             <Route path="properties/:id" element={<PropertyDetails />} />
-<Route path="restaurants/all" element={<RestaurantList />} />
-<Route path="restaurants/add" element={<RestaurantForm />} />
-<Route path="restaurants/edit/:id" element={<RestaurantForm />} />
-<Route path="restaurants/:id" element={<RestaurantDetails />} />
+            <Route path="restaurants/all" element={<RestaurantList />} />
+            <Route path="restaurants/add" element={<RestaurantForm />} />
+            <Route path="restaurants/edit/:id" element={<RestaurantForm />} />
+            <Route path="restaurants/:id" element={<RestaurantDetails />} />
 
-<Route path="activities/all" element={<ActivityList />} />
-<Route path="activities/add" element={<ActivityForm />} />
-<Route path="activities/edit/:id" element={<ActivityForm />} />
-<Route path="activities/:id" element={<ActivityDetails/>}/>
+            <Route path="activities/all" element={<ActivityList />} />
+            <Route path="activities/add" element={<ActivityForm />} />
+            <Route path="activities/edit/:id" element={<ActivityForm />} />
+            <Route path="activities/:id" element={<ActivityDetails />} />
 
-<Route path="destination/add" element={<DestinationForm />} />
-<Route path="destination/all" element={<DestinationList />} />
-<Route path="destination/edit/:id" element={<DestinationForm />} />
+            <Route path="destination/add" element={<DestinationForm />} />
+            <Route path="destination/all" element={<DestinationList />} />
+            <Route path="destination/edit/:id" element={<DestinationForm />} />
 
-<Route path="categories/all" element={<CategoryList />} />
-<Route path="categories/add" element={<CategoryForm />} />
+            <Route path="categories/all" element={<CategoryList />} />
+            <Route path="categories/add" element={<CategoryForm />} />
 
-
-  <Route path="actbooking" element={<BookingsAdmin />} />
-          <Route path="property-booking" element={<BookingPropertyAdmin />} />
-          <Route
-            path="restaurant-booking"
-            element={<BookingRestaurantAdmin />}
-          />
+            <Route path="actbooking" element={<BookingsAdmin />} />
+            <Route path="property-booking" element={<BookingPropertyAdmin />} />
+            <Route
+              path="restaurant-booking"
+              element={<BookingRestaurantAdmin />}
+            />
             <Route path="facilities" element={<AllFacilities />} />
           </Routes>
         </main>
