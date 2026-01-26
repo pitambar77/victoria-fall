@@ -30,7 +30,7 @@
 import axios from "axios";
 
 // const API = "https://victoria-fall-backend-production.up.railway.app/api/restaurants";
-const API = "http://localhost:8000/api/restaurants";
+const API = "https://victoria-fall-backend.manoramaseoservice.com/api/restaurants";
 
 export const getRestaurants = () => axios.get(API);
 export const getRestaurant = (id) => axios.get(`${API}/${id}`);

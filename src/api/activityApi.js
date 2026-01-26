@@ -133,7 +133,7 @@ import axios from "axios";
 /* ================= AXIOS INSTANCE ================= */
 
 const API_BASE =
-  import.meta.env.VITE_API_BASE || "http://localhost:8000";
+  import.meta.env.VITE_API_BASE || "https://victoria-fall-backend.manoramaseoservice.com";
 
 const api = axios.create({
   baseURL: `${API_BASE}/api`,

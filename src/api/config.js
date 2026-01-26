@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://victoria-fall-backend-production.up.railway.app/api/'
+export const BASE_URL = 'https://victoria-fall-backend.manoramaseoservice.com/api/'

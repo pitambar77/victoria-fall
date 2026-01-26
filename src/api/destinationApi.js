@@ -30,7 +30,7 @@
 import axios from "axios";
 
 // const API = "https://victoria-fall-backend-production.up.railway.app/api/destinations";
-const API = "http://localhost:8000/api/destinations";
+const API = "https://victoria-fall-backend.manoramaseoservice.com/api/destinations";
 
 /* ================= CREATE ================= */
 export const createDestination = (data) =>
