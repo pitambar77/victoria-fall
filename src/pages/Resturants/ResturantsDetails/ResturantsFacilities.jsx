@@ -22,7 +22,7 @@ const ResturantsFacilities = () => {
   // const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    axios.get(`https://victoria-fall-backend-production.up.railway.app/api/restaurants/${id}`)
+    axios.get(`http://localhost:8000/api/restaurants/${id}`)
       .then(res => setRestaurant(res.data))
       .catch(console.error);
   }, [id]);
@@ -52,8 +52,7 @@ const ResturantsFacilities = () => {
         {/* Left Content */}
         <div className=" hd text-[#5c5e62] ">
           <p className="  tracking-[1px] text-[18px]  mb-6">
-            In this untamed wilderness, you’ll be met with vibrant hospitality
-            and a palpable passion for conservation.
+            {restaurant.subDescription}
           </p>
 
           {/* Check-in / Check-out */}
@@ -110,7 +109,7 @@ const ResturantsFacilities = () => {
             className="w-full rounded-xl shadow-lg"
           /> */}
           <img
-          src={restaurant.bannerImage}
+          src={restaurant.overviewImage}
           alt={restaurant.name}
           className="w-full rounded-md shadow-lg object-cover"
         />

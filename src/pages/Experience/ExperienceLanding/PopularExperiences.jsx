@@ -153,7 +153,7 @@ export default function PopularExperiences() {
             <SwiperSlide key={activity._id}>
               <div className="bg-white rounded-md shadow-md overflow-hidden mb-10 hover:shadow-lg transition-all duration-300">
                 <img
-                  src={activity.bannerImage}
+                  src={activity.banner[0].bannerImage}
                   alt={activity.activityName}
                   className="w-full h-[220px] object-cover"
                 />
@@ -167,7 +167,7 @@ export default function PopularExperiences() {
                   <div className="flex justify-center">
                     <button
                       onClick={() =>
-                        navigate(`/experience-details/${activity._id}`)
+                        navigate(`/experience-details/${activity.slug}`)
                       }
                       className="my-2 text-[#2e2c2d] border border-[#aca188] hover:border-[#c40] hover:text-[#c40] rounded-[50px] text-[14px] leading-[1.6] capitalize tracking-[3px] font-normal py-[8px] px-[16px] transition-colors duration-300 cursor-pointer ease-out"
                     >

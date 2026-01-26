@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getActivity } from "../../api/activityApi";
+import { getActivityBySlug } from "../../api/activityApi";
 import { useParams } from "react-router-dom";
 import { FaClock, FaTv, FaBaby, FaBlender } from "react-icons/fa";
 import Button from "../../components/Button";
@@ -14,7 +14,7 @@ const iconMap = {
 };
 
 const FacilitiesSection = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const [activity, setActivity] = useState(null);
   const [showAll, setShowAll] = useState(false);
 
@@ -23,14 +23,14 @@ const FacilitiesSection = () => {
   useEffect(() => {
     const fetchActivity = async () => {
       try {
-        const res = await getActivity(id);
+        const res = await getActivityBySlug(slug);
         setActivity(res.data);
       } catch (err) {
         console.error("Error fetching activity:", err);
       }
     };
     fetchActivity();
-  }, [id]);
+  }, [slug]);
 
   if (!activity)
     return <p className="text-center mt-10">Loading activity...</p>;
@@ -59,7 +59,7 @@ const FacilitiesSection = () => {
             </div>
             <div className="w-[50%]">
               <p className="text-[#5c5e62] text-left border-l border-[#5c5e62]/50 pl-5 flex items-center gap-2">
-                <FaClock className="text-[#aca188]" /> 07.00 daily
+                <FaClock className="text-[#aca188]" /> {activity.duration}
               </p>
             </div>
           </div>
@@ -67,7 +67,7 @@ const FacilitiesSection = () => {
           <div className="flex items-center justify-between mb-10">
             <div className="w-[50%]">
               <p className="flex items-center gap-2">
-                <FaClock className="text-[#aca188]" /> 11 hours
+                <FaClock className="text-[#aca188]" /> {activity.content}
               </p>
             </div>
             <div className="w-[50%]">
@@ -95,7 +95,7 @@ const FacilitiesSection = () => {
 
         <div>
           <img
-            src={activity.bannerImage}
+            src={activity.overviewImage}
             alt={activity.activityName}
             className="w-full rounded-md shadow-lg"
           />

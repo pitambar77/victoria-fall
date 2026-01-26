@@ -26,7 +26,7 @@ const FacilitiesSection = () => {
 
   useEffect(() => {
     axios
-      .get(`https://victoria-fall-backend-production.up.railway.app/api/properties/${id}`)
+      .get(`http://localhost:8000/api/properties/${id}`)
       .then((res) => setRestaurant(res.data))
       .catch(console.error);
   }, [id]);
@@ -136,7 +136,7 @@ const FacilitiesSection = () => {
             className="w-full rounded-xl shadow-lg"
           /> */}
           <img
-            src={restaurant.bannerImage}
+            src={restaurant.overviewImage}
             alt={restaurant.name}
             className="w-full rounded-md shadow-lg object-cover"
           />

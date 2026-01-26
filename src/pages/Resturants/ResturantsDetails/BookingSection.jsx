@@ -202,7 +202,7 @@ const BookingSection = ({ restaurantData }) => {
     setMessage("");
 
     try {
-      const res = await fetch("https://victoria-fall-backend-production.up.railway.app/api/restaubookings", {
+      const res = await fetch("http://localhost:8000/api/restaubookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

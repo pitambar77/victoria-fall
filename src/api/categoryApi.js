@@ -3,7 +3,8 @@
 
 import axios from "axios";
 
-const API_URL = "https://victoria-fall-backend-production.up.railway.app/api/categories";
+// const API_URL = "https://victoria-fall-backend-production.up.railway.app/api/categories";
+const API_URL = "http://localhost:8000/api/categories";
 
 export const getCategoriesByDestination = (destinationId) =>
   axios.get(`${API_URL}/${destinationId}`);

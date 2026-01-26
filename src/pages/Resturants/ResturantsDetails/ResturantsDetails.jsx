@@ -19,7 +19,7 @@ const ResturantsDetails = () => {
   const [restaurant, setRestaurant] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://victoria-fall-backend-production.up.railway.app/api/restaurants/${id}`)
+    axios.get(`http://localhost:8000/api/restaurants/${id}`)
       .then(res => setRestaurant(res.data))
       .catch(console.error);
   }, [id]);
@@ -32,7 +32,7 @@ const ResturantsDetails = () => {
     <>
         <Banner
         title={restaurant.name}
-        subtitle="sub title"
+        subtitle={restaurant.shortTitle}
         imageUrl={restaurant.bannerImage}
         
         />

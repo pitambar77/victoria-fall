@@ -46,7 +46,7 @@ const ActivityList = () => {
         {activities.map((activity) => (
           <div key={activity._id} className="border rounded p-4 shadow hover:shadow-lg transition">
             <img
-              src={activity.bannerImage}
+              src={activity.banner[0].bannerImage}
               alt={activity.activityName}
               className="w-full h-40 object-cover rounded mb-2"
             />

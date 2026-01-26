@@ -63,6 +63,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+
 import Banner from '../../components/Banner'
 import Overview from '../../components/Overview'
 import FacilitiesSection from './FacilitiesSection'
@@ -83,10 +84,12 @@ const PropertiesDetails = () => {
   const [restaurant, setRestaurant] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://victoria-fall-backend-production.up.railway.app/api/properties/${id}`)
+    axios.get(`http://localhost:8000/api/properties/${id}`)
       .then(res => setRestaurant(res.data))
       .catch(console.error);
   }, [id]);
+
+  console.log(restaurant);
 
   if (!restaurant) return <p className="p-6">Loading...</p>;
 
@@ -99,7 +102,7 @@ const PropertiesDetails = () => {
         
         />
         <Overview
-         title={restaurant.name}
+         title={restaurant.overviewTittle}
         subtitle=''
         description={restaurant.overview}
         />

@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API = "https://victoria-fall-backend-production.up.railway.app/api/properties";
+// const API = "https://victoria-fall-backend-production.up.railway.app/api/properties";
+
+const API = "http://localhost:8000/api/properties";
 
 
 

@@ -63,17 +63,14 @@ const DestinationList = () => {
          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
           + Add Destination
          </Link>
-         
-        
-        
-         
+
      
       </div>
 
       {/* Destination Form Modal */}
       {showForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
-          <div className=" rounded-xl shadow-lg w-full max-w-lg relative">
+        <div className="fixed inset-0  flex justify-center items-center z-50">
+          <div className=" rounded-xl shadow-lg w-full bg-black bg-opacity-40 text-white max-w-4xl relative">
             <button
               onClick={() => setShowForm(false)}
               className="absolute top-2 right-3 text-gray-600 hover:text-red-500 text-2xl"

@@ -54,10 +54,12 @@ function App() {
           <Route index element={<Hero />} />
           <Route path="properties-details" element={<PropertiesDetails />} />
           <Route path="experience-details" element={<ExperienceDetails />} />
-          <Route
+          {/* <Route
             path="experience-details/:id"
             element={<ExperienceDetails />}
-          />
+          /> */}
+          <Route path="/experience-details/:slug" element={<ExperienceDetails />} />
+
           <Route path="properties-landing" element={<PropertiesLanding />} />
           {/* <Route path=':id' element={<Prodetails/>} /> */}
           <Route path=":id" element={<PropertiesDetails />} />
@@ -67,7 +69,7 @@ function App() {
             element={<ExperienceSubLanding />}
           />
           <Route
-            path="experience-sub-landing/:id"
+            path="experience-sub-landing/:destinationSlug"
             element={<ExperienceSubLanding />}
           />
           <Route path="resturants-landing" element={<ResturantsLanding />} />
