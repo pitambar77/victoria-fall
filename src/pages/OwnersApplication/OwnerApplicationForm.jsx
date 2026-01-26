@@ -120,7 +120,7 @@ const OwnerApplicationForm = () => {
       });
 
       const res = await axios.post(
-        "http://localhost:8000/api/owner-applications",
+        "http://victoria-fall-backend.manoramaseoservice.com/api/owner-applications",
         form,
         {
           headers: { "Content-Type": "multipart/form-data" },

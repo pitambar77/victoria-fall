@@ -22,7 +22,7 @@ const ResturantsFacilities = () => {
   // const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/restaurants/${id}`)
+    axios.get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/${id}`)
       .then(res => setRestaurant(res.data))
       .catch(console.error);
   }, [id]);

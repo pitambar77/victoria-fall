@@ -31,7 +31,7 @@ const ContactForm = () => {
     setMessage("");
 
     try {
-      const response = await fetch("http://localhost:8000/api/contactus", {
+      const response = await fetch("http://victoria-fall-backend.manoramaseoservice.com/api/contactus", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

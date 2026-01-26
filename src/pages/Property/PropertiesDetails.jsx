@@ -84,7 +84,7 @@ const PropertiesDetails = () => {
   const [restaurant, setRestaurant] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/properties/${id}`)
+    axios.get(`http://victoria-fall-backend.manoramaseoservice.com/api/properties/${id}`)
       .then(res => setRestaurant(res.data))
       .catch(console.error);
   }, [id]);

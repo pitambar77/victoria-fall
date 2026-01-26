@@ -123,7 +123,7 @@ const ActivityForm = () => {
     if (!formData.destination) return;
 
     axios
-      .get(`http://localhost:8000/api/categories/${formData.destination}`)
+      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/categories/${formData.destination}`)
       .then((res) => setCategories(res.data))
       .catch(console.error);
   }, [formData.destination]);
@@ -248,7 +248,7 @@ const ActivityForm = () => {
       setGalleryUploading(true);
 
       const res = await axios.post(
-        `http://localhost:8000/api/activities/${id}/gallery-image`,
+        `http://victoria-fall-backend.manoramaseoservice.com/api/activities/${id}/gallery-image`,
         data
       );
 
@@ -265,7 +265,7 @@ const ActivityForm = () => {
   const removeGalleryImage = async (image) => {
     try {
       await axios.put(
-        `http://localhost:8000/api/activities/${id}/gallery-image`,
+        `http://victoria-fall-backend.manoramaseoservice.com/api/activities/${id}/gallery-image`,
         { image }
       );
 

@@ -16,7 +16,7 @@ export default function ModalGallery() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/restaurants/${id}`)
+      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/${id}`)
       .then((res) => setRestaurant(res.data))
       .catch(console.error);
   }, [id]);

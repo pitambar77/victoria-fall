@@ -45,7 +45,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Gallery from "../../components/Gallery";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "http://victoria-fall-backend.manoramaseoservice.com";
 
 export default function ModalGallery() {
   const { slug } = useParams();
@@ -57,7 +57,7 @@ export default function ModalGallery() {
     if (!slug) return;
 
     axios
-      .get(`http://localhost:8000/api/activities/slug/${slug}`)
+      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/activities/slug/${slug}`)
       .then((res) => {
         console.log("API Response:", res.data);
         setActivity(res.data);

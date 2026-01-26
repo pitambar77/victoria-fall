@@ -26,7 +26,7 @@ const FacilitiesSection = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/properties/${id}`)
+      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/properties/${id}`)
       .then((res) => setRestaurant(res.data))
       .catch(console.error);
   }, [id]);
@@ -176,7 +176,7 @@ const FacilitiesSection = () => {
             >
               <div className="flex items-center gap-3 font-[500]">
                 <div className=" flex items-center justify-center w-12 h-12 rounded-full  bg-[#f9f4e8]   transition-all duration-300 hover:bg-gray-100">
-                  {item.icon}
+                  <img src={item.icon} alt="" />
                 </div>
                 <div>{item.facilityName}</div>
               </div>
