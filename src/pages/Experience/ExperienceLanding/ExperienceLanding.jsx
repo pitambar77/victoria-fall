@@ -4,29 +4,28 @@ import Overview from "../../../components/Overview";
 import ExperienceDestination from "./ExperienceDestination";
 import PopularExperiences from "./PopularExperiences";
 import WhyBookWithUs from "./WhyBookWithUs";
-import Testimonial from '../../../components/TestimonialSection'
-import Awards from '../../../components/Awards'
-import experiencel from '../../../assets/experiencel.webp'
+import Testimonial from "../../../components/TestimonialSection";
+import Awards from "../../../components/Awards";
+import experiencel from "../../../assets/experience.webp";
 
 const ExperienceLanding = () => {
   return (
     <>
       <Banner
-        title="cape town"
-        subtitle="Private Sunset Cruiseonthe ZambeziRive"
+        title="Experience"
+        subtitle="Explore Africa’s Iconic Experiences"
         imageUrl={experiencel}
       />
       <Overview
-        title="Victoria Falls Activities"
-        subtitle="on the zimbezi river"
-        description="Victoria Falls, also known as “Mosi oa-Tunya” (“the smoke that thunders”) by the locals, is located nearly halfway along the 2700 km journey of the Mighty Zambezi River from its source in northwestern Zambia to its entry into the Indian Ocean on the coast of Mozambique. "
+        title="Timeless journeys through Southern Africa’s wonders"
+        // subtitle="on the zimbezi river"
+        description="Journey through Southern Africa’s legendary destinations—Victoria Falls, Cape Town, Chobe, and Livingstone. Witness powerful natural wonders, encounter diverse wildlife, and immerse yourself in local culture while enjoying expertly designed experiences that balance adventure, comfort, and discovery."
       />
-      <ExperienceDestination/>
-         <WhyBookWithUs/>
-      <PopularExperiences/>
-      <Testimonial/>
-      <Awards/>
-   
+      <ExperienceDestination />
+      <WhyBookWithUs />
+      <PopularExperiences />
+      <Testimonial />
+      <Awards />
     </>
   );
 };

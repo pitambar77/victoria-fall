@@ -279,7 +279,7 @@ const TabSection = () => {
                     {act.activityName}
                   </h3>
                   <p className="text-gray-600 text-sm mt-1">
-                    ₹{act.pricePerPerson ?? "N/A"} / person
+                    ${act.pricePerPerson ?? "N/A"} / person
                   </p>
 
                   <div className="mt-3 inline-block border border-[#aca188] rounded-full text-[14px] uppercase tracking-[3px] py-[8px] px-[20px]">

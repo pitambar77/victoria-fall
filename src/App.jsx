@@ -63,7 +63,7 @@ function App() {
           <Route path="properties-landing" element={<PropertiesLanding />} />
           {/* <Route path=':id' element={<Prodetails/>} /> */}
           <Route path=":id" element={<PropertiesDetails />} />
-          <Route path="experience-landing" element={<ExperienceLanding />} />
+          <Route path="experience-landing" element={<ExperienceLanding />} /> // added slug here
           <Route
             path="experience-sub-landing"
             element={<ExperienceSubLanding />}

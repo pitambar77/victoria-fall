@@ -243,7 +243,7 @@ const ExperienceDestination = () => {
                   </h3>
 
                   <div className="my-2 text-[#2e2c2d] border border-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] font-normal py-[8px] px-[20px] transition-colors duration-300">
-                    View Destination
+                    View More
                   </div>
                 </div>
               </div>
