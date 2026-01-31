@@ -2,6 +2,7 @@ import "./App.css";
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Navigate,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -58,21 +59,30 @@ function App() {
             path="experience-details/:id"
             element={<ExperienceDetails />}
           /> */}
-          <Route path="/experience-details/:slug" element={<ExperienceDetails />} />
-
-          <Route path="properties-landing" element={<PropertiesLanding />} />
+          <Route
+            path="victoria-falls-experiences/:slug"
+            element={<ExperienceDetails />}
+          />
+          <Route path="properties" element={<PropertiesLanding />} />{" "}
+          //properties link change
           {/* <Route path=':id' element={<Prodetails/>} /> */}
           <Route path=":id" element={<PropertiesDetails />} />
-          <Route path="experience-landing" element={<ExperienceLanding />} /> // added slug here
+          {/* <Route path="victoria-falls-experiences" element={<ExperienceLanding />} /> // added slug here */}
+          {/* <Route path="victoria-falls-experiences" element={<Navigate to="/experience/victorial-falls" replace />} /> // added slug here */}
+          <Route
+            path="victoria-falls-experiences"
+            element={<ExperienceSubLanding fixedSlug="victorial-falls" />}
+          />
           <Route
             path="experience-sub-landing"
             element={<ExperienceSubLanding />}
           />
           <Route
-            path="experience-sub-landing/:destinationSlug"
+            path="experience/:destinationSlug"
             element={<ExperienceSubLanding />}
           />
-          <Route path="resturants-landing" element={<ResturantsLanding />} />
+          <Route path="restaurant" element={<ResturantsLanding />} /> // link
+          change
           <Route path="resturants-details" element={<ResturantsDetails />} />
           <Route path="resturant/:id" element={<ResturantsDetails />} />
           <Route
@@ -89,44 +99,36 @@ function App() {
             path="activity-enquiry-form"
             element={<ActivityExperienceEnquiryForm />}
           />
-
           <Route path="actbooking" element={<BookingsAdmin />} />
           <Route path="property-booking" element={<BookingPropertyAdmin />} />
           <Route
             path="restaurant-booking"
             element={<BookingRestaurantAdmin />}
           />
-
           {/* Backend dashbord for admin */}
-
           <Route path="/restaurants" element={<RestaurantList />} />
           <Route path="/restaurants/new" element={<RestaurantForm />} />
           <Route path="/restaurants/:id" element={<RestaurantDetails />} />
           <Route path="/restaurants/edit/:id" element={<RestaurantForm />} />
-
           <Route path="/properties" element={<PropertyList />} />
           <Route path="/properties/new" element={<PropertyForm />} />
           <Route path="/properties/:id" element={<PropertyDetails />} />
           <Route path="/properties/edit/:id" element={<PropertyForm />} />
-
           <Route path="/activities" element={<ActivityList />} />
           <Route path="/activities/new" element={<ActivityForm />} />
           <Route path="/activities/edit/:id" element={<ActivityForm />} />
           {/* <Route path="/activities/:id" element={<ActivityDetails/>} /> */}
-
           <Route path="/destination" element={<DestinationList />} />
           <Route path="/destination/new" element={<DestinationForm />} />
-
           <Route path="/categories" element={<CategoryList />} />
           <Route path="/categories/new" element={<CategoryForm />} />
-
           <Route path="/la" element={<DestinationsLanding />} />
           <Route path="/la/destination/:id" element={<DestinationDetails />} />
           {/* <Route path="/la/activity/:id" element={<ActivityDetails />} /> */}
         </Route>
         <Route path="/dashbord/*" element={<DashboardLayout />} />
-      </>
-    )
+      </>,
+    ),
   );
 
   return <RouterProvider router={router} />;

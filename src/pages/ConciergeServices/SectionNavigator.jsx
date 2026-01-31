@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const sections = [
  
   { id: "culture-entertainment", label: "CULTURE & ENTERTAINMENT" },
   { id: "beauty-wellbeing", label: "BEAUTY & WELL-BEING" },
   { id: "private-events", label: "PRIVATE EVENTS" },
+  // { id: "experience", label: " EXPERIENCE" },
+
 ];
 
 const SectionNavigator = () => {
@@ -25,8 +28,12 @@ const SectionNavigator = () => {
             className="hd text-white uppercase cursor-pointer tracking-[0.2em] text-[16px] font-[500]  border-b border-white w-4/5 md:w-1/2 py-2 hover:opacity-80 transition-opacity duration-200"
           >
             {s.label}
+           
           </button>
         ))}
+
+         <Link to="/victoria-falls-experiences" className="hd text-white uppercase cursor-pointer tracking-[0.2em] text-[16px] font-[500]  border-b border-white w-4/5 md:w-1/2 py-2 hover:opacity-80 transition-opacity duration-200">EXPERIENCE</Link>
+
       </div>
     </section>
   );
