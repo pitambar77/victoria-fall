@@ -143,7 +143,7 @@ const ExperienceDetails = () => {
       .finally(() => setLoading(false));
   }, [slug]);
 
-  if (loading) return <p className="p-6 text-center">Loading...</p>;
+  if (loading) return;
   if (!activity) return <p className="p-6 text-center">Activity not found</p>;
 
   const bannerData = activity.banner?.[0];

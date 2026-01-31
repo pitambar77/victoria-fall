@@ -171,21 +171,58 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const CultureEntertainment = () => {
   const items = [
     {
-      title: "Art Gallery Tours",
+      title: "Boma Dinner & Drum Show",
       description:
-        "We will introduce you to our favourite local artists and artisans. You might even want to take home one of their pieces, such as this superb wire sculpture by Marie Bossée. Each village hosts small workshops where visitors are invited to meet the artists at work. The larger art galleries exhibit their art pieces all year round.",
+        "A lively night of drums, dancers, bold flavours, and joyful chaos. You eat, you listen, you join the rhythm. Somehow, the evening turns into a memory that feels louder, warmer, and far more personal than expected.",
       img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/Find-Art.jpeg",
     },
     {
-      title: "Music & Theatre Events",
+      title: "Traditional Dance Performances",
       description:
-        "Throughout the year, Provence welcomes a number of much-anticipated cultural events. The Festival d’Avignon is one of them, which takes place for the most part in the fabulous Cour d’Honneur of the Palais des Papes. You can ask The Luberon Concierge to book your tickets and organise your night out.",
+        "Colourful costumes, deep drumbeats, and dancers who move with stories older than the town itself. Watching these performances feels like being invited briefly into someone’s heritage—gentle, expressive, and full of honest cultural pride.",
       img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/Show-time.jpg",
     },
     {
-      title: "Cultural Heritage Walks",
+      title: "Simunye Theatre",
       description:
-        "Provence is a worldwide reference for antiques. All year round, antique dealers, flea markets and garage sales attract visitors searching for a piece of furniture or simply happy to browse. The Luberon Concierge can take you antique hunting in large or small groups, in search of the hidden treasures of the Luberon.",
+        "In an intimate open-air theatre, puppets, dancers, and music breathe life into Bomani’s journey home. The show feels tender and powerful, reminding you how storytelling can stir something quiet and important inside you.",
+      img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/Antiques-1.jpg",
+    },
+    {
+      title: "Elephant Hills Cultural Show",
+      description:
+        "Traditional rhythms echo across the resort grounds as performers share dances and instruments passed down through generations. It’s an easy, relaxed way to meet Zimbabwean culture without filters—simple, heartfelt, and surprisingly moving.",
+      img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/Antiques-1.jpg",
+    },
+
+    {
+      title: "Live Music Performances",
+      description:
+        "Guitars, drums, soft vocals—live music spills into warm evenings around town. Some nights feel calm, others turn lively, and every performance carries a little spark of Zimbabwe’s spirit that lingers long after the last note.",
+      img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/Antiques-1.jpg",
+    },
+    {
+      title: "Heritage & Cultural Tours",
+      description:
+        "A deeper look into everyday traditions—ceremonies, dances, stories shared with gentle candor. These tours offer more than observation; they create small moments of connection that stay with you long after the journey ends.",
+      img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/Antiques-1.jpg",
+    },
+     {
+      title: "Spirit of Africa Cultural Show",
+      description:
+        "At Victoria Falls Hotel, dancers and drummers fill the night with rhythm and story. The show moves gracefully between intensity and softness, giving you a glimpse into a culture carried proudly through generations.",
+      img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/Antiques-1.jpg",
+    },
+     {
+      title: "Community Storytelling Evenings",
+      description:
+        "A small fire, a quiet circle, and stories passed down through families. Some are funny, some are wise, some are unexpectedly emotional. You listen, feeling time slow down as people share pieces of their lived history.",
+      img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/Antiques-1.jpg",
+    },
+     {
+      title: "Local Art & Craft Showcases",
+      description:
+        "Artists gather with beadwork, carvings, paintings, and quiet pride. Watching them demonstrate their craft feels intimate—hands shaping memory into something tangible. You leave appreciating how much culture can be held in one handmade piece.",
       img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/Antiques-1.jpg",
     },
   ];

@@ -5,6 +5,7 @@ import { FaClock, FaTv, FaBaby, FaBlender } from "react-icons/fa";
 import Button from "../../components/Button";
 import ActivityExperienceEnquiryForm from "../../components/ActivityExperienceEnquiryForm";
 import { IoIosClose } from "react-icons/io";
+import iconImage from '../../assets/B-B.png'
 
 const iconMap = {
   FaTv: <FaTv className="text-[#ab8c51]" />,
@@ -46,7 +47,7 @@ const FacilitiesSection = () => {
           <h2 className="hd text-xl md:text-[30px]  font-semibold text-[#2e2c2d] tracking-[2px] mb-6 uppercase">
             {activity.activityName}
           </h2>
-          <p className="tracking-[1px] text-[18px]  mb-6">
+          <p className="hd text-[#5c5e62]  mb-6">
             {activity.subDescription}
           </p>
 
@@ -125,11 +126,12 @@ const FacilitiesSection = () => {
               <div key={index}>
                 <div className="flex items-center gap-3 font-[500]">
                   <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#f9f4e8] hover:bg-gray-100 transition-all duration-300">
-                    {iconMap[item.icon] || <FaTv className="text-[#ab8c51]" />}
+                    {/* {iconMap[item.icon] || <FaTv className="text-[#ab8c51]" />} */}
+                    <img src={iconImage} alt="icon" className=" p-1 h-10" />
                   </div>
                   <div>{item.title}</div>
                 </div>
-                <p className="pl-14 text-sm">{item.description}</p>
+                <p className=" hd pl-14 text-[16px] text-[#5c5e62]">{item.description}</p>
               </div>
             ))}
           </div>

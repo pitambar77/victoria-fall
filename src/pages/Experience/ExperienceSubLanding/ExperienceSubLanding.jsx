@@ -107,6 +107,7 @@ import Awards from "../../../components/Awards";
 
 import { getDestinationBySlug } from "../../../api/destinationApi";
 
+
 const ExperienceSubLanding = ({ fixedSlug }) => {
   const { destinationSlug } = useParams();
 
@@ -146,9 +147,10 @@ const ExperienceSubLanding = ({ fixedSlug }) => {
       />
 
       <TabSection destinationId={destination._id} />
+    
 
       <WhyBookWithUs />
-      <PopularExperiences />
+      {/* <PopularExperiences /> */}
       <TestimonialSection />
       <Awards />
     </>

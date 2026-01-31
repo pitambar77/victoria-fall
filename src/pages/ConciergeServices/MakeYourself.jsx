@@ -7,24 +7,24 @@ import "swiper/css/pagination";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 
-const BeautyWellbeing = () => {
+const MakeYourself = () => {
   const items = [
     {
-      title: "Spa and Wellness Centers",
+      title: "Pre-stock Your Villa",
       description:
-        "Soft music, warm oils, and treatments shaped with local ingredients. Spas here feel like small sanctuaries—places where tired muscles loosen, minds settle, and you remember what it feels like to be gently cared for again.",
+        "Arriving tired is normal, and an empty fridge never feels welcoming. Tell us what comforts you crave. We quietly fill your pantry before you walk in, so your stay starts soft and easy.",
       img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/Yes-we-care.jpg",
     },
     {
-      title: "Yoga and Meditation",
+      title: "Airport Transfer or Chauffeur",
       description:
-        "Mats lie out beneath open skies, slow breathing, a view stretching into the wild. Yoga in Victoria Falls feels grounding—steady movements, calm voices, and a sense that your body finally has space to listen.",
+        "Step out of the arrivals hall and breathe. Your driver is already waiting. No searching, no negotiating, no stress. Just a calm ride from the airport to the doorstep, giving your holiday an unhurried beginning.",
       img: "https://theluberonconcierge.com/wp-content/uploads/2017/08/t1-897x1024.jpg",
     },
     {
-      title: "Health Clubs and Gyms",
+      title: "Hire a Chef",
       description:
-        "Modern equipment, bright spaces, and trainers who understand travel fatigue. Workouts here feel flexible—no pressure, just movement that helps you reset. Sometimes a familiar routine is all it takes to feel fully yourself again.",
+        "Some days you want flavours without the fuss. Our private chef listens, cooks, and brings meals that feel personal. No rush, no noise, just simple dishes made with care in your own space.",
       img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/pexels-cottonbro-3998013.jpg",
     },
     {
@@ -156,4 +156,6 @@ const BeautyWellbeing = () => {
   );
 };
 
-export default BeautyWellbeing;
+
+
+export default MakeYourself

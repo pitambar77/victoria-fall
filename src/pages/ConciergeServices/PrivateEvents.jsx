@@ -10,21 +10,57 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const PrivateEvents = () => {
   const items = [
     {
-      title: "Ready, set… glow!",
+      title: "Intimate Dinner Celebrations",
       description:
-        "A make-up artist might be just the person you need before a big social event. Our expert uses only high-quality, long-lasting make-up products, achieving a natural-looking beauty look. The Luberon Concierge can plan your make-up session in her studio or at your house whenever you feel like it.",
+        "A private chef, candlelight, and a table set just for you. The evening unfolds slowly—stories, laughter, good food—everything blending into a memory that feels warm long after the last plate is cleared.",
       img: "https://theluberonconcierge.com/wp-content/uploads/2017/08/makeup_1.png",
     },
     {
-      title: "Cutting edge florist",
+      title: "Small Wedding Ceremonies",
       description:
-        "After training as a Master Florist Craftsman, our favourite floral designer travelled around the country, gaining a unique savoir-faire. In 2017, she opened her first flower shop and quickly won over an international clientele with her audacious and inventive bouquets. Her creativity and talent will bring a touch of magic to your home/event.",
+        "A quiet space, thoughtful details, and vows spoken above the river’s steady hum. Weddings here feel deeply personal—simple, tender, and free from pressure. Just two people choosing each other, surrounded by gentle nature.",
       img: "https://theluberonconcierge.com/wp-content/uploads/2019/03/lb_3-1024x1024.jpg",
     },
     {
-      title: "The sound of music",
+      title: "Birthday Gatherings",
       description:
-        "We work closely with a guitarist and musical director who has played with major artists from the international and French scenes. So whether you want a jazz trio for a cocktail or an orchestra & DJ for a big event, he will take care of the line-up, playlist, sound system and lighting, based on your taste and expectations.",
+        "Music, cake, friends drifting in with easy smiles. Birthdays here aren’t extravagant—they’re heartfelt. A mix of familiar comforts and small surprises that make you feel genuinely celebrated, not just acknowledged.",
+      img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/The-sound-of-music.jpg",
+    },
+     {
+      title: "Corporate Retreats",
+      description:
+        "Mind-clearing scenery, calm meeting spaces, and moments that encourage honest conversations. Retreats here help teams reconnect without the stiffness of boardrooms. Work feels lighter, ideas feel freer, and people leave a little more aligned.",
+      img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/The-sound-of-music.jpg",
+    },
+     {
+      title: "Anniversary Dinners",
+      description:
+        "Soft lighting, a meaningful meal, and a feeling that the world quietly stepped aside for the night. Anniversaries here aren’t grand gestures—they’re gentle reminders of everything you’ve built together.",
+      img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/The-sound-of-music.jpg",
+    },
+     {
+      title: "Family Reunions",
+      description:
+        "Long tables, shared meals, children running somewhere in the background. Reunions here feel easy, unforced. People catch up slowly, drifting between stories and silence, rediscovering the comfort of familiar faces.",
+      img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/The-sound-of-music.jpg",
+    },
+     {
+      title: "Private Sundowner Events",
+      description:
+        "Golden hour spreads across the landscape as glasses clink softly. A sundowner here feels almost cinematic—warm light, long shadows, and a sense that the day decided to end beautifully just for you.",
+      img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/The-sound-of-music.jpg",
+    },
+     {
+      title: "Proposal Setups",
+      description:
+        "The kind of moment that deserves thoughtful planning and quiet magic. We create a setting where nerves soften and emotions speak clearly—flowers, candles, distant water, and just enough space for a heartfelt yes.",
+      img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/The-sound-of-music.jpg",
+    },
+     {
+      title: "Group Dining Experiences",
+      description:
+        "A long table filled with shared dishes and easy conversation. Laughter rises naturally, plates pass around like small gifts, and the whole night settles into something that feels both communal and comforting.",
       img: "https://theluberonconcierge.com/wp-content/uploads/2022/09/The-sound-of-music.jpg",
     },
   ];
