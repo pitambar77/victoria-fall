@@ -5,15 +5,15 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 const RestaurantDetails = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const [restaurant, setRestaurant] = useState(null);
 
   useEffect(() => {
     axios
-      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/${id}`)
+      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/slug/${slug}`)
       .then((res) => setRestaurant(res.data))
       .catch(console.error);
-  }, [id]);
+  }, [slug]);
 
   if (!restaurant) return <p className="p-6">Loading...</p>;
 

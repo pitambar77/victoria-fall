@@ -15,14 +15,14 @@ import BookingSection from "./BookingSection";
 
 const ResturantsDetails = () => {
 
-    const { id } = useParams();
+    const { slug } = useParams();
   const [restaurant, setRestaurant] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/${id}`)
+    axios.get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/slug/${slug}`)
       .then(res => setRestaurant(res.data))
       .catch(console.error);
-  }, [id]);
+  }, [slug]);
 
 
 

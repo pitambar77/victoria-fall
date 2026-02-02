@@ -288,7 +288,7 @@ export default function MemoriesSection() {
           {properties.map((property) => (
             <SwiperSlide key={property._id}>
               <div className="bg-white hd rounded-md shadow-md overflow-hidden mb-10 hover:shadow-lg transition-all duration-300">
-                <Link to={`/${property._id}`}>
+                <Link to={`/properties/${property.slug}`}>
                 <img
                   src={property.bannerImage}
                   alt={property.name}

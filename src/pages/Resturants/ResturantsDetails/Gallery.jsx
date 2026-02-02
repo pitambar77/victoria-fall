@@ -1,6 +1,4 @@
 
-
-
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -12,14 +10,14 @@ export default function ModalGallery() {
   const [current, setCurrent] = useState(0);
   const [restaurant, setRestaurant] = useState(null);
 
-  const { id } = useParams();
+  const { slug } = useParams();
 
   useEffect(() => {
     axios
-      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/${id}`)
+      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/slug/${slug}`)
       .then((res) => setRestaurant(res.data))
       .catch(console.error);
-  }, [id]);
+  }, [slug]);
 
   if (!restaurant) return <p className="p-6">Loading...</p>;
   if (!restaurant.galleryImages || restaurant.galleryImages.length === 0)

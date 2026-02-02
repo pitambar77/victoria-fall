@@ -18,7 +18,7 @@ import { IoIosClose } from "react-icons/io";
 const FacilitiesSection = () => {
   //backend start
 
-  const { id } = useParams();
+  const { slug } = useParams();
   const [restaurant, setRestaurant] = useState(null);
   const [showAll, setShowAll] = useState(false);
 
@@ -26,43 +26,14 @@ const FacilitiesSection = () => {
 
   useEffect(() => {
     axios
-      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/properties/${id}`)
+      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/properties/slug/${slug}`)
       .then((res) => setRestaurant(res.data))
       .catch(console.error);
-  }, [id]);
+  }, [slug]);
 
   if (!restaurant) return <p className="p-6">Loading...</p>;
 
-  //backend end
-
-  // const [showAll, setShowAll] = useState(false);
-
-  //   const { id } = useParams();
-  // const resort = resorts.find((r) => r.id.toString() === id);
-
-  // if (!resort) {
-  //   return <div className="p-10 text-center">Resort not found.</div>;
-  // }
-
-  // const facilities = [
-  //   { icon: <FaTv className=" text-[#ab8c51]"/>, label: "Kitchen" },
-  //   { icon: <FaTv className=" text-[#ab8c51]" />, label: "TV" },
-  //   { icon: <FaBaby className=" text-[#ab8c51]" />, label: "Travel cot – available upon request" },
-  //   { icon: <FaBlender className=" text-[#ab8c51]" />, label: "Fridge" },
-  //   {
-  //     icon: <FaTv className=" text-[#ab8c51]" />,
-  //     label: "Carbon monoxide alarm",
-  //     disabled: true,
-  //   },
-  //   { icon: <FaTv className=" text-[#ab8c51]" />, label: "Wifi" },
-  //   { icon: <FaTv  className=" text-[#ab8c51]" />, label: "Washing machine" },
-  //   { icon: <FaTv className=" text-[#ab8c51]" />, label: "Hair dryer" },
-  //   { icon: <FaDog className=" text-[#ab8c51]" />, label: "Pets allowed" },
-  //   {
-  //     icon: <FaTv className=" text-[#ab8c51]" />,
-  //     label: "Exterior security cameras on property",
-  //   },
-  // ];
+  
 
   const facilities = restaurant.facilities;
 
