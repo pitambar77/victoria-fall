@@ -10,14 +10,14 @@ export default function ModalGallery() {
   const [current, setCurrent] = useState(0);
   const [restaurant, setRestaurant] = useState(null);
 
-  const { slug } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     axios
-      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/slug/${slug}`)
+      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/${id}`)
       .then((res) => setRestaurant(res.data))
       .catch(console.error);
-  }, [slug]);
+  }, [id]);
 
   if (!restaurant) return <p className="p-6">Loading...</p>;
   if (!restaurant.galleryImages || restaurant.galleryImages.length === 0)

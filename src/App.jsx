@@ -86,7 +86,7 @@ function App() {
           <Route path="restaurant" element={<ResturantsLanding />} /> // link
           change
           <Route path="resturants-details" element={<ResturantsDetails />} />
-          <Route path="resturant/:slug" element={<ResturantsDetails />} />
+          <Route path="resturant/:id" element={<ResturantsDetails />} />
           <Route
             path="luxury-concierge-services"
             element={<LuxuryConciergeServices />}
@@ -110,11 +110,11 @@ function App() {
           {/* Backend dashbord for admin */}
           <Route path="/restaurants" element={<RestaurantList />} />
           <Route path="/restaurants/new" element={<RestaurantForm />} />
-          <Route path="/restaurants/:slug" element={<RestaurantDetails />} />
+          <Route path="/restaurants/:id" element={<RestaurantDetails />} />
           <Route path="/restaurants/edit/:id" element={<RestaurantForm />} />
           <Route path="/properties" element={<PropertyList />} />
           <Route path="/properties/new" element={<PropertyForm />} />
-          <Route path="/properties/:slug" element={<PropertyDetails />} />
+          <Route path="/properties/:id" element={<PropertyDetails />} />
           <Route path="/properties/edit/:id" element={<PropertyForm />} />
           <Route path="/activities" element={<ActivityList />} />
           <Route path="/activities/new" element={<ActivityForm />} />

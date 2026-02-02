@@ -16,16 +16,16 @@ import Button from "../../../components/Button";
 
 const ResturantsFacilities = () => {
 
-      const { slug } = useParams();
+      const { id } = useParams();
   const [restaurant, setRestaurant] = useState(null);
 
   // const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/slug/${slug}`)
+    axios.get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/${id}`)
       .then(res => setRestaurant(res.data))
       .catch(console.error);
-  }, [slug]);
+  }, [id]);
 
   const handleClick = () => {
     const formElement = document.getElementById("booking-form");
