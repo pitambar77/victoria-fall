@@ -100,7 +100,7 @@ const ConciergeServices = () => {
 
         {/* Button */}
         <Button  onClick={()=>{
-          navigate('/properties-landing');
+          navigate('/contact-us');
           // window.scrollTo({ top: 0, behavior: "smooth" })
           window.scrollTo(0,0)
          }}>Book Your Tailor-Made Services</Button>
