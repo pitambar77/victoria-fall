@@ -20,7 +20,7 @@ const ConciergeServices = () => {
       image:
         "https://m.ahstatic.com/is/image/accorhotels/met_p_a007-82:8by10?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=335&hei=418&qlt=80",
       icon: <RxHome />,
-      url:'/properties-landing'
+      url:'/properties'
     },
     {
       title: "Restaurants & Fine Dining",
@@ -34,7 +34,7 @@ const ConciergeServices = () => {
       image:
         "https://www.roadaffair.com/wp-content/uploads/2018/09/paragliding-cape-town-south-africa-shutterstock_706168156.jpg",
       icon: <MdNordicWalking/>,
-      url:'/experience-landing'
+      url:'/victoria-falls-experiences'
     },
     {
       title: "Culture & Entertainment",
