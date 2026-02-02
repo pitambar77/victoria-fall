@@ -51,6 +51,7 @@ const ResturantsFacilities = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start max-w-[1140px] mx-auto px-4">
         {/* Left Content */}
         <div className=" hd text-[#5c5e62] ">
+         
           <p className="  tracking-[1px] text-[18px]  mb-6">
             {restaurant.subDescription}
           </p>
@@ -61,13 +62,13 @@ const ResturantsFacilities = () => {
               <p className="text-sm uppercase font-[500] flex items-center gap-2">
                 <FaClock className="text-[#aca188] " /> Opening Time
               </p>
-              <p className="text-lg font-semibold text-[#5c5e62]">{restaurant.openingTime}</p>
+              <p className="text-lg font-semibold text-[#5c5e62]">{restaurant.openingTime} </p>
             </div>
             <div className=" w-[50%] ">
               <p className="text-sm uppercase font-[500] text-[#5c5e62] flex items-center gap-2">
                 <FaClock className="text-[#aca188]" /> Closing Time
               </p>
-              <p className="text-lg  font-semibold text-[#5c5e62]">{restaurant.closingTime}</p>
+              <p className="text-lg  font-semibold text-[#5c5e62]">{restaurant.closingTime}  </p>
             </div>
             
           </div>

@@ -14,7 +14,7 @@ const PropertiesLanding = () => {
     <>
       <Banner
         title="Properties "
-        subtitle="Private Sunset Cruiseonthe "
+        subtitle="Elite African Home Care "
         imageUrl={propertyl}
       />
       <Overview

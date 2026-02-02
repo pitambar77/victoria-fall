@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import wellness from '../../assets/wellness.webp'
 
 
 const BeautyWellbeing = () => {
@@ -33,40 +34,40 @@ const BeautyWellbeing = () => {
         "Reflexology, aromatherapy, energy balancing—gentle therapies that reach deeper than expected. These sessions feel subtle, almost invisible in the beginning, then suddenly everything inside you sits a little straighter, a little clearer, a little lighter.",
       img: "https://theluberonconcierge.com/wp-content/uploads/2019/01/yoga_2.jpg",
     },
-    {
-      title: "Health Food & Wellness Retreats",
-      description:
-        "Fresh meals, quiet mornings, and days built around nourishment rather than urgency. Wellness retreats offer a simple rhythm—eat well, move gently, rest fully. You leave feeling intentionally rebuilt, not just temporarily refreshed.",
-      img: "https://theluberonconcierge.com/wp-content/uploads/2022/10/let-your-hair-down.jpg",
-    },
-    {
-      title: "Medical Services",
-      description:
-        "Clinics and pharmacies stand ready when you need reassurance. Consultations are calm, efficient, and surprisingly comforting. It’s good to know that care is close by, even during a trip meant for escape and ease.",
-      img: "https://theluberonconcierge.com/wp-content/uploads/2022/10/living-in-the-moment.jpg",
-    },
+    // {
+    //   title: "Health Food & Wellness Retreats",
+    //   description:
+    //     "Fresh meals, quiet mornings, and days built around nourishment rather than urgency. Wellness retreats offer a simple rhythm—eat well, move gently, rest fully. You leave feeling intentionally rebuilt, not just temporarily refreshed.",
+    //   img: "https://theluberonconcierge.com/wp-content/uploads/2022/10/let-your-hair-down.jpg",
+    // },
+    // {
+    //   title: "Medical Services",
+    //   description:
+    //     "Clinics and pharmacies stand ready when you need reassurance. Consultations are calm, efficient, and surprisingly comforting. It’s good to know that care is close by, even during a trip meant for escape and ease.",
+    //   img: "https://theluberonconcierge.com/wp-content/uploads/2022/10/living-in-the-moment.jpg",
+    // },
       {
       title: "Outdoor Relaxation Areas",
       description:
         "Shaded loungers, soft breezes, and the quiet hum of nature around you. These open-air corners feel like gentle pauses—places where you sit without an agenda and somehow feel your whole system calming down.",
       img: "https://theluberonconcierge.com/wp-content/uploads/2022/10/living-in-the-moment.jpg",
     },
-      {
-      title: "Private In-Room Treatments",
-      description:
-        "Sometimes you want care without moving an inch. Therapists arrive softly, creating a spa atmosphere inside your room. Warm towels, soothing oils, unhurried hands—comfort delivered right where you already feel most at ease.",
-      img: "https://theluberonconcierge.com/wp-content/uploads/2022/10/living-in-the-moment.jpg",
-    },
+    //   {
+    //   title: "Private In-Room Treatments",
+    //   description:
+    //     "Sometimes you want care without moving an inch. Therapists arrive softly, creating a spa atmosphere inside your room. Warm towels, soothing oils, unhurried hands—comfort delivered right where you already feel most at ease.",
+    //   img: "https://theluberonconcierge.com/wp-content/uploads/2022/10/living-in-the-moment.jpg",
+    // },
       {
       title: "Wellness Consultations",
       description:
         "For deeper balance, some practitioners offer gentle guidance on diet, stress, and overall well-being. Nothing strict, nothing overwhelming—just thoughtful conversations that help you tune into what your body quietly asks for.",
-      img: "https://theluberonconcierge.com/wp-content/uploads/2022/10/living-in-the-moment.jpg",
+      img:wellness,
     },
   ];
 
   return (
-    <section id="beauty-wellbeing" className="py-10 md:py-20 bg-[#f9f9f7]">
+    <section id="beauty-wellbeing" className="py-10 md:py-20 bg-white">
       <div className="max-w-[1140px] mx-auto px-4 ">
         <h2 className="hd text-xl md:text-[30px] font-semibold text-[#2e2c2d] tracking-[3px]  mb-10 text-center uppercase">
           Beauty and Wellness

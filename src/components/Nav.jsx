@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -16,6 +14,15 @@ import {
 import { BsPhone } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
 
+const socialLinks = [
+  { icon: FaFacebookF, url: "https://www.facebook.com/wheretoafrica/" },
+  { icon: FaInstagram, url: "#" },
+  { icon: FaLinkedinIn, url: "#" },
+  { icon: FaTwitter, url: "#" },
+  { icon: FaYoutube, url: "#" },
+  { icon: FaVimeoV, url: "#" },
+];
+
 const Nav = () => {
   const [showSticky, setShowSticky] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,8 +35,16 @@ const Nav = () => {
 
   const drawerVariants = {
     hidden: { x: "100%", opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" } },
-    exit: { x: "100%", opacity: 0, transition: { duration: 0.3, ease: "easeIn" } },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
+    exit: {
+      x: "100%",
+      opacity: 0,
+      transition: { duration: 0.3, ease: "easeIn" },
+    },
   };
 
   return (
@@ -44,11 +59,11 @@ const Nav = () => {
             </div>
             <div className="flex items-center space-x-2">
               <FaMapMarkerAlt />
-              <span>CAPE TOWN: +27 31 535 2811</span>
+              <span>Victoria Falls: +263 77 2366698</span>
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
+          {/* <div className="flex items-center space-x-4">
             {[FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube, FaVimeoV].map(
               (Icon, i) => (
                 <a key={i} href="#" className="hover:text-gray-900 transition-colors">
@@ -56,6 +71,19 @@ const Nav = () => {
                 </a>
               )
             )}
+          </div> */}
+          <div className="flex items-center space-x-4">
+            {socialLinks.map(({ icon: Icon, url }, i) => (
+              <a
+                key={i}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-900 transition-colors"
+              >
+                <Icon />
+              </a>
+            ))}
           </div>
         </div>
       </div>
@@ -63,16 +91,37 @@ const Nav = () => {
       {/* ----------- Transparent Header (above banner) ----------- */}
       <nav
         className={`w-full absolute top-0 md:top-10 left-0 z-[100] transition-all duration-700 ${
-          showSticky ? "opacity-0 pointer-events-none" : "opacity-100 bg-transparent"
+          showSticky
+            ? "opacity-0 pointer-events-none"
+            : "opacity-100 bg-transparent"
         }`}
       >
         <div className="max-w-[1140px] mx-auto py-4 flex items-center justify-between relative text-white  px-4 ">
           {/* Left Menu (Desktop) */}
           <ul className="hd hidden lg:flex gap-8 text-[14px]   uppercase">
-            <li><Link to="/" className="hover:text-[#c40]">Home</Link></li>
-            <li><Link to="/properties" className="hover:text-[#c40]">Find your stay</Link></li>
-            <li><Link to="/luxury-concierge-services" className="hover:text-[#c40]">Concierge Services</Link></li>
-            <li><Link to="/restaurant" className="hover:text-[#c40]">Restaurant</Link></li>
+            <li>
+              <Link to="/" className="hover:text-[#c40]">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/properties" className="hover:text-[#c40]">
+                Find your stay
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/luxury-concierge-services"
+                className="hover:text-[#c40]"
+              >
+                Concierge Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/restaurant" className="hover:text-[#c40]">
+                Restaurant
+              </Link>
+            </li>
           </ul>
 
           {/* Logo */}
@@ -86,9 +135,24 @@ const Nav = () => {
 
           {/* Right Menu (Desktop) */}
           <ul className="hd hidden lg:flex gap-6 text-[14px]  uppercase">
-             <li><Link to="/victoria-falls-experiences" className="hover:text-[#c40]">Experience</Link></li>
-            <li><Link to="/owners-application" className="hover:text-[#c40]">Owner Application</Link></li>
-            <li><Link to="/contact-us" className="hover:text-[#c40]">Contact Us</Link></li>
+            <li>
+              <Link
+                to="/victoria-falls-experiences"
+                className="hover:text-[#c40]"
+              >
+                Experience
+              </Link>
+            </li>
+            <li>
+              <Link to="/owners-application" className="hover:text-[#c40]">
+                Owner Application
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact-us" className="hover:text-[#c40]">
+                Contact Us
+              </Link>
+            </li>
           </ul>
 
           {/* Mobile Menu Icon */}
@@ -112,11 +176,29 @@ const Nav = () => {
         <div className="max-w-[1140px] mx-auto py-4 flex items-center justify-between relative px-4 ">
           {/* Left Menu (Desktop) */}
           <ul className="hd hidden lg:flex gap-8 text-[14px] uppercase">
-            <li><Link to="/" className="hover:text-[#c40]">Home</Link></li>
-            <li><Link to="/properties" className="hover:text-[#c40]">Find your stay</Link></li>
-            <li><Link to="/luxury-concierge-services" className="hover:text-[#c40]">Concierge Services</Link></li>
-            <li><Link to="/restaurant" className="hover:text-[#c40]">Restaurant</Link></li>
-
+            <li>
+              <Link to="/" className="hover:text-[#c40]">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/properties" className="hover:text-[#c40]">
+                Find your stay
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/luxury-concierge-services"
+                className="hover:text-[#c40]"
+              >
+                Concierge Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/restaurant" className="hover:text-[#c40]">
+                Restaurant
+              </Link>
+            </li>
           </ul>
 
           {/* Logo */}
@@ -130,9 +212,24 @@ const Nav = () => {
 
           {/* Right Menu (Desktop) */}
           <ul className="hd hidden lg:flex gap-6 text-[14px]  uppercase">
-             <li><Link to="/victoria-falls-experiences" className="hover:text-[#c40]">Experience</Link></li>
-            <li><Link to="/owners-application" className="hover:text-[#c40]">Owner Application</Link></li>
-            <li><Link to="/contact-us" className="hover:text-[#c40]">Contact Us</Link></li>
+            <li>
+              <Link
+                to="/victoria-falls-experiences"
+                className="hover:text-[#c40]"
+              >
+                Experience
+              </Link>
+            </li>
+            <li>
+              <Link to="/owners-application" className="hover:text-[#c40]">
+                Owner Application
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact-us" className="hover:text-[#c40]">
+                Contact Us
+              </Link>
+            </li>
           </ul>
 
           {/* Mobile Menu Icon */}
@@ -177,27 +274,50 @@ const Nav = () => {
               </button>
 
               {/* Menu Links */}
-              <Link to="/"  onClick={() => setMenuOpen(false)}  >Home</Link>
+              <Link to="/" onClick={() => setMenuOpen(false)}>
+                Home
+              </Link>
               <div className=" h-[1px] bg-[#ebebeb]/50 w-3/4"></div>
-              <Link to="/properties-landing" onClick={() => setMenuOpen(false)}>Find your stay</Link>
+              <Link to="/properties-landing" onClick={() => setMenuOpen(false)}>
+                Find your stay
+              </Link>
               <div className=" h-[1px] bg-[#ebebeb]/50 w-3/4"></div>
-              <Link to="/experience-landing" onClick={() => setMenuOpen(false)}>Concierge Services</Link>
+              <Link to="/experience-landing" onClick={() => setMenuOpen(false)}>
+                Concierge Services
+              </Link>
               <div className=" h-[1px] bg-[#ebebeb]/50 w-3/4"></div>
-                <Link to="/restaurant" onClick={() => setMenuOpen(false)}>Restaurant</Link>
+              <Link to="/restaurant" onClick={() => setMenuOpen(false)}>
+                Restaurant
+              </Link>
               <div className=" h-[1px] bg-[#ebebeb]/50 w-3/4"></div>
-                <Link to="/victoria-falls-experiences" onClick={() => setMenuOpen(false)}>Experience</Link>
+              <Link
+                to="/victoria-falls-experiences"
+                onClick={() => setMenuOpen(false)}
+              >
+                Experience
+              </Link>
               <div className=" h-[1px] bg-[#ebebeb]/50 w-3/4"></div>
-              <Link to="/owners-application" onClick={() => setMenuOpen(false)}>Owner Application</Link>
+              <Link to="/owners-application" onClick={() => setMenuOpen(false)}>
+                Owner Application
+              </Link>
               <div className=" h-[1px] bg-[#ebebeb]/50 w-3/4"></div>
-              <Link to="/contact-us" onClick={() => setMenuOpen(false)}>Contact Us</Link>
+              <Link to="/contact-us" onClick={() => setMenuOpen(false)}>
+                Contact Us
+              </Link>
               <div className=" h-[1px] bg-[#ebebeb]/50 w-3/4"></div>
 
               <div className="pt-8 flex space-x-4 text-lg">
-                {[FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter].map((Icon, i) => (
-                  <a key={i} href="#" className="hover:text-gray-900 transition-colors">
-                    <Icon />
-                  </a>
-                ))}
+                {[FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter].map(
+                  (Icon, i) => (
+                    <a
+                      key={i}
+                      href="#"
+                      className="hover:text-gray-900 transition-colors"
+                    >
+                      <Icon />
+                    </a>
+                  ),
+                )}
               </div>
             </motion.div>
           </>
@@ -208,4 +328,3 @@ const Nav = () => {
 };
 
 export default Nav;
-

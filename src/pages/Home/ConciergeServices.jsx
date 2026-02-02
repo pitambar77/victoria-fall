@@ -27,7 +27,7 @@ const ConciergeServices = () => {
       image:
         "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/54/46/dd/restaurant-dining-space.jpg?w=600&h=600&s=1",
       icon: <LuUtensils />,
-      url:'/resturants-landing'
+      url:'/restaurant'
     },
     {
       title: "Activities & Experiences",

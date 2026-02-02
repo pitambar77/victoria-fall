@@ -42,7 +42,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="mb-2 md:mb-0">
             <p className="text-[#9d9d9d] hd font-semibold ">
-              © 2020 Where To Africa Travel (Pty) Ltd. All rights reserved. &nbsp;
+              © 2026 Where To Africa Travel (Pty) Ltd. All rights reserved. &nbsp;
               <a href="#" className="hover:underline text-[#9d9d9d]">Terms & Conditions</a>
             </p>
           </div>
@@ -51,7 +51,7 @@ const Footer = () => {
           <div className="flex items-center space-x-4">
             <p className="text-[#9d9d9d] hd uppercase font-semibold">Get Social</p>
             <a
-              href="#"
+              href="https://www.facebook.com/wheretoafrica/"
               aria-label="Facebook"
               className="bg-gray-700 hover:bg-gray-600 rounded-full w-8 h-8 flex items-center justify-center transition-colors duration-200"
             >

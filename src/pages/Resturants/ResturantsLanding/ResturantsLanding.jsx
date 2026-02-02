@@ -6,7 +6,7 @@ import PropertyLocation from '../../Property/PropertyLocation'
 import TestimonialSection from '../../../components/TestimonialSection'
 import Awards from '../../../components/Awards'
 import JoinClubSection from '../../../components/JoinClubSection'
-import restaurantl from '../../../assets/restaurantl.webp'
+import restaurantl from '../../../assets/restaurant-banner.webp'
 
 const ResturantsLanding = () => {
    
@@ -15,13 +15,13 @@ const ResturantsLanding = () => {
    <>
    <Banner
    title='Resturants '
-   subtitle='Most testy food available'
+   subtitle='African Flavours Perfected'
    imageUrl={restaurantl}
    />
    <Overview
-   title='Discover our'
-   subtitle='restaurants & bars'
-   description='Here at Newmark, we have an incredible variety of restaurants and bars across our beautiful properties, from ocean-side dining to city-chic Asian tapas and whimsical bougainvillea-clad courtyards. Find out more information below'
+   title='Luxury African Dining '
+   subtitle='Experience'
+   description='At Where to Africa, our restaurant is more than dining—it’s where culture, community, and flavour meet. We serve authentic African cuisine with global influences, fresh ingredients, warm hospitality, and curated experiences, whether for casual lunches, special dinners, or memorable celebrations.'
    />
    <ResturantsCard/>
    <PropertyLocation/>

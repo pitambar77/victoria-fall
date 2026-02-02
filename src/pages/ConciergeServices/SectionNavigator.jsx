@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const sections = [
- 
+ { id: "make-at-home", label: "Make Yourself at Home" },
   { id: "culture-entertainment", label: "CULTURE & ENTERTAINMENT" },
   { id: "beauty-wellbeing", label: "BEAUTY & WELL-BEING" },
   { id: "private-events", label: "PRIVATE EVENTS" },
+  { id: "food-hall", label: "Food Hall" },
   { id: "victoria-falls-experiences", label: " EXPERIENCE" },
 
 ];

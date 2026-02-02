@@ -35,11 +35,9 @@ const API = "http://victoria-fall-backend.manoramaseoservice.com/api/restaurants
 export const getRestaurants = () => axios.get(API);
 export const getRestaurant = (id) => axios.get(`${API}/${id}`);
 export const createRestaurant = (data) =>
-  axios.post(API, data, { headers: { "Content-Type": "multipart/form-data" } });
+  axios.post(API, data);
 export const updateRestaurant = (id, data) =>
-  axios.put(`${API}/${id}`, data, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
+  axios.put(`${API}/${id}`, data);
 export const deleteRestaurant = (id) => axios.delete(`${API}/${id}`);
 
 export const addMenuCategory = (data) => axios.post(`${API}/menu/category`, data);

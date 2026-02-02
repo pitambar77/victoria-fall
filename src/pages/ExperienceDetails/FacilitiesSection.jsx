@@ -166,7 +166,7 @@ const FacilitiesSection = () => {
             <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 ">
               <div className=" ">
                 <img
-                  src={activity.bannerImage}
+                  src={activity.overviewImage}
                   alt={activity.name}
                   className="w-[600px] h-[200px] md:h-[400px] rounded-md shadow-lg object-cover"
                 />

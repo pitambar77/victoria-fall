@@ -6,40 +6,61 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import intimate from '../../assets/intimate.webp'
-import weding from '../../assets/weeding.webp'
-import birthdaycelebration from '../../assets/birthday-celebration.webp'
+import lookoutcafe from '../../assets/lookoutcafe.webp'
+import Eatery from '../../assets/Eatery.webp'
+import brustcruk from '../../assets/brustcruk.webp'
+import Bomadinner from '../../assets/Boma-Dinner.webp'
+import smokehouse from '../../assets/smokehouse.webp'
+import threemoney from '../../assets/threemoney.webp'
 
 
 
-const PrivateEvents = () => {
+const FoodHall = () => {
   const items = [
     {
-      title: "Intimate Dinner Celebrations",
+      title: "Lookout Café",
       description:
-        "A private chef, candlelight, and a table set just for you. The evening unfolds slowly—stories, laughter, good food—everything blending into a memory that feels warm long after the last plate is cleared.",
-      img: intimate,
+        "Perched on the edge of the gorge, Lookout Café feels like eating inside a postcard. Fresh plates arrive with a breeze, conversations stretch longer than planned, and the view quietly steals your attention every few minutes.",
+      img:lookoutcafe,
     },
     {
-      title: "Small Wedding Ceremonies",
+      title: "Three Monkeys",
       description:
-        "A quiet space, thoughtful details, and vows spoken above the river’s steady hum. Weddings here feel deeply personal—simple, tender, and free from pressure. Just two people choosing each other, surrounded by gentle nature.",
-      img: weding,
+        "A lively, easy-going place where wood-fired smells drift around like familiar company. Burgers, pizzas, laughter, and a splash of travel stories—Three Monkeys is where meals turn into small gatherings, even when you arrive alone.",
+      img:threemoney,
     },
     {
-      title: "Birthday Gatherings",
+      title: "Smoke House",
       description:
-        "Music, cake, friends drifting in with easy smiles. Birthdays here aren’t extravagant—they’re heartfelt. A mix of familiar comforts and small surprises that make you feel genuinely celebrated, not just acknowledged.",
-      img:birthdaycelebration,
+        "Slow-smoked goodness, deep flavours, and a hint of fire in the air. Smoke House is where meat lovers grin without hiding it, and casual diners end up staying longer than they meant to.",
+      img: smokehouse,
+    },
+     {
+      title: "Boma Dinner & Drum Show",
+      description:
+        "Dinner here feels like joining a rhythm rather than sitting at a table. Drums pulse through the night, dancers pull you in, and the meal becomes a full-body memory you carry for days.",
+      img: Bomadinner,
+    },
+     {
+      title: "Bushtracks Express – Steam Train Dinner",
+      description:
+        "A vintage train, soft lights, and the slow hum of wheels on rails. The Bushtracks Express serves dinner as an experience: steady motion, elegant plates, and a nostalgia you feel even if it isn’t yours.",
+      img:brustcruk,
+    },
+     {
+      title: " The Eatery Restaurant ",
+      description:
+        "Riverside calm, warm plates, and a gentle sense of occasion. The Eatery keeps things thoughtful but straightforward—every flavour feels deliberate, every moment unhurried. It’s food with a view that quietly resets your mood.",
+      img: Eatery,
     },
     
   ];
 
   return (
-    <section id="private-events" className=" py-10 md:py-20  border-gray-100 bg-[#f9f9f7]">
+    <section id="food-hall" className=" py-10 md:py-20  border-gray-100 bg-white">
       <div className="max-w-[1140px] mx-auto px-4 ">
         <h2 className="hd text-xl md:text-[30px] font-semibold text-[#2e2c2d] tracking-[3px]  mb-10 text-center uppercase">
-          Private Events
+          FOOD HALL
         </h2>
         {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {items.map((item, idx) => (
@@ -135,4 +156,5 @@ const PrivateEvents = () => {
   );
 };
 
-export default PrivateEvents;
+
+export default FoodHall

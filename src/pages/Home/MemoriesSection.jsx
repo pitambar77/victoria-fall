@@ -337,7 +337,7 @@ export default function MemoriesSection() {
       <div className="text-center mt-4 sm:mt-4 md:mt-6">
         <Button
           onClick={() => {
-            navigate("/properties-landing");
+            navigate("/properties");
             window.scrollTo(0, 0);
           }}
         >

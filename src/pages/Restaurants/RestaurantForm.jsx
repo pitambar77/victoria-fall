@@ -357,9 +357,9 @@ const RestaurantForm = () => {
     Object.entries(formData).forEach(([key, value]) => {
       if (key === "menu") {
         data.append("menu", JSON.stringify(value));
-      } else if (value) {
-        data.append(key, value);
-      }
+      } else if (value !== null && value !== undefined) {
+  data.append(key, value);
+}
     });
 
     try {

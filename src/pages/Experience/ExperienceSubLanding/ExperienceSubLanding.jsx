@@ -136,14 +136,14 @@ const ExperienceSubLanding = ({ fixedSlug }) => {
   return (
     <>
       <Banner
-        title={destination.name}
-        subtitle={`${destination.name} Activities`}
+        title={destination.overview}
+        subtitle={`Victoria Falls Adventures`}
         imageUrl={destination.bannerImage}
       />
 
       <Overview
-        title={`${destination.name} Activities`}
-        description={destination.overview}
+        title={`Victoria Falls Activities & Experiences`}
+        description={"Discover the thrill and beauty of Victoria Falls through carefully curated activities and experiences. Whether you seek adventure, nature, or relaxation, each moment promises excitement, stunning views, and a deep connection to this legendary African wonder."}
       />
 
       <TabSection destinationId={destination._id} />

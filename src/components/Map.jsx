@@ -9,6 +9,7 @@ const Map = () => {
        
          <iframe className=' w-full h-full' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27503528.108134907!2d5.854311110667569!3d-32.70294682224043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1c34a689d9ee1251%3A0xe85d630c1fa4e8a0!2sSouth%20Africa!5e0!3m2!1sen!2sin!4v1758709373155!5m2!1sen!2sin" ></iframe>
        
+       
       </div>
 
       {/* Contact Card Overlay */}
@@ -25,12 +26,12 @@ const Map = () => {
           <div className="text-sm hd text-[#2e2c2d]">
             <p className="font-semibold ">ADDRESS</p>
             <p className=" leading-relaxed">
-              Moorings 5 & Portswood Ridge, 5<br />
-              Portswood Road, Victoria & Alfred<br />
-              Waterfront<br />
-              Western Cape<br />
-              South Africa<br />
-              8001
+              1 Underwood Lodge,<br />
+              34 Underwood Road Umgeni Park,<br />
+              Durban 4050,<br />
+             KwaZulu Natal,<br />
+              South Africa
+             
             </p>
           </div>
         </div>
@@ -44,7 +45,7 @@ const Map = () => {
           </span>
           <div className="text-sm text-[#2e2c2d]">
             <p className="font-semibold text-[#2e2c2d]">PHONE</p>
-            <p className="text-[#2e2c2d]">021 418 6677</p>
+            <p className="text-[#2e2c2d]">+27(0)315352811</p>
           </div>
         </div>
 

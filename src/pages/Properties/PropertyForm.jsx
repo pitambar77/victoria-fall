@@ -574,17 +574,13 @@ const PropertyForm = () => {
       });
   }, [id, isEdit, navigate]);
 
-
-
   const refreshProperty = async () => {
-  const res = await getProperty(id);
-  setFormData((p) => ({
-    ...p,
-    facilities: res.data.facilities || [],
-  }));
-};
-
-
+    const res = await getProperty(id);
+    setFormData((p) => ({
+      ...p,
+      facilities: res.data.facilities || [],
+    }));
+  };
 
   /* ================= HANDLE INPUT ================= */
   const handleChange = (e) => {
@@ -998,19 +994,18 @@ const PropertyForm = () => {
         /> */}
 
         {isEdit && (
-  <FacilityManager
-    propertyId={id}
-    facilities={formData.facilities}
-    refreshProperty={refreshProperty}
-  />
-)}
+          <FacilityManager
+            propertyId={id}
+            facilities={formData.facilities}
+            refreshProperty={refreshProperty}
+          />
+        )}
 
-{!isEdit && (
-  <p className="text-sm text-gray-500">
-    Save the property first to add facilities.
-  </p>
-)}
-
+        {!isEdit && (
+          <p className="text-sm text-gray-500">
+            Save the property first to add facilities.
+          </p>
+        )}
 
         {/* FAQ SECTION */}
         <div className="space-y-2 border p-4 rounded-md">

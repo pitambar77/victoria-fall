@@ -75,6 +75,7 @@ const FacilitiesSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start max-w-[1140px] mx-auto px-4">
         {/* Left Content */}
         <div className=" hd text-[#5c5e62] ">
+          <h3 className="hd text-xl md:text-[30px]  font-semibold text-[#2e2c2d] tracking-[2px] mb-6 uppercase">{restaurant.name}</h3>
           <p className="  tracking-[1px] text-[18px]  mb-6">
             {restaurant.subDescription}
           </p>
@@ -176,7 +177,7 @@ const FacilitiesSection = () => {
             >
               <div className="flex items-center gap-3 font-[500]">
                 <div className=" flex items-center justify-center w-12 h-12 rounded-full  bg-[#f9f4e8]   transition-all duration-300 hover:bg-gray-100">
-                  <img src={item.icon} alt="" />
+                  <img src={item.icon} alt="" className="h-8 w-8" />
                 </div>
                 <div>{item.facilityName}</div>
               </div>

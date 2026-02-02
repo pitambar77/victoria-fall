@@ -1,21 +1,19 @@
 import React from "react";
 
-
 const Overview = () => {
   return (
     <div className="bg-white md:py-20 py-10 px-4">
       <div className="max-w-6xl mx-auto text-center">
         {/* Main Heading and Subheading */}
         <h2 className=" hd md:text-[30px] text-[20px] mb-6 font-semibold text-[#2e2c2d] tracking-[3px] uppercase">
-          Our mission is to turn <br className="hidden md:inline" /> your
-          holiday...
+          Premium African Property <br/> Management
         </h2>
         <p className=" hd max-w-xl mx-auto md:text-center text-justify text-[#5c5e62]   md:mb-16 mb-0 ">
-          We make your Victoria Falls holiday effortless. From booking your
-          dream villa to organizing every detail of your stay — dining,
-          shopping, activities, and transfers — we handle it all. You simply
-          relax and enjoy. With us, your experience at the Falls will be 100%
-          stress-free
+          At Where to Africa, owning a holiday home, safari lodge, or villa
+          should be rewarding, not stressful. Our end-to-end property management
+          ensures year-round care, maximised value, smooth operations, and guest
+          satisfaction, acting as your trusted local partner with consistency,
+          dedication, and integrity.
         </p>
 
         {/* Feature Icons Section */}
