@@ -2,7 +2,7 @@
 
 
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Button from "../../components/Button";
@@ -49,9 +49,9 @@ export default function ModalGallery() {
         </h2>
 
         {/* Desktop button (right side) */}
-        <button className="hidden md:block hd text-sm font-medium text-[#4d4a2f] hover:underline">
+        <Link to='/properties' className="hidden md:block hd text-sm font-medium text-[#4d4a2f] hover:underline">
           VIEW ACCOMMODATION →
-        </button>
+        </Link>
       </div>
 
       {/* Image Grid */}

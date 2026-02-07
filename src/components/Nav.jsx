@@ -118,7 +118,7 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <Link to="/restaurant" className="hover:text-[#c40]">
+              <Link to="/restaurants" className="hover:text-[#c40]">
                 Restaurant
               </Link>
             </li>
@@ -195,7 +195,7 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <Link to="/restaurant" className="hover:text-[#c40]">
+              <Link to="/restaurants" className="hover:text-[#c40]">
                 Restaurant
               </Link>
             </li>
@@ -286,7 +286,7 @@ const Nav = () => {
                 Concierge Services
               </Link>
               <div className=" h-[1px] bg-[#ebebeb]/50 w-3/4"></div>
-              <Link to="/restaurant" onClick={() => setMenuOpen(false)}>
+              <Link to="/restaurants" onClick={() => setMenuOpen(false)}>
                 Restaurant
               </Link>
               <div className=" h-[1px] bg-[#ebebeb]/50 w-3/4"></div>

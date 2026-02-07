@@ -11,21 +11,29 @@ import {
   FaBlender,
 } from "react-icons/fa";
 import Button from "../../../components/Button";
+import { getRestaurantBySlug } from "../../../api/restaurantApi.js";
 
 
 
 const ResturantsFacilities = () => {
 
-      const { id } = useParams();
+      // const { id } = useParams();
+      const { slug } = useParams();
   const [restaurant, setRestaurant] = useState(null);
 
   // const [showAll, setShowAll] = useState(false);
 
+  // useEffect(() => {
+  //   axios.get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/${id}`)
+  //     .then(res => setRestaurant(res.data))
+  //     .catch(console.error);
+  // }, [id]);
+
   useEffect(() => {
-    axios.get(`http://victoria-fall-backend.manoramaseoservice.com/api/restaurants/${id}`)
-      .then(res => setRestaurant(res.data))
-      .catch(console.error);
-  }, [id]);
+  getRestaurantBySlug(slug)
+    .then(res => setRestaurant(res.data))
+    .catch(console.error);
+}, [slug]);
 
   const handleClick = () => {
     const formElement = document.getElementById("booking-form");

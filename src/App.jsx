@@ -83,10 +83,11 @@ function App() {
             path="experience/:destinationSlug"
             element={<ExperienceSubLanding />}
           />
-          <Route path="restaurant" element={<ResturantsLanding />} /> // link
-          change
+          <Route path="restaurants" element={<ResturantsLanding />} /> 
           <Route path="resturants-details" element={<ResturantsDetails />} />
-          <Route path="resturant/:id" element={<ResturantsDetails />} />
+          {/* <Route path="restaurants/:id" element={<ResturantsDetails />} /> */}
+          <Route path="restaurants/:slug" element={<ResturantsDetails />} />
+
           <Route
             path="luxury-concierge-services"
             element={<LuxuryConciergeServices />}

@@ -1,5 +1,3 @@
-
-
 // import React, { useState } from "react";
 // import Button from "./Button";
 
@@ -142,9 +140,9 @@
 
 // export default Customize;
 
-
 import React, { useState } from "react";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 const Customize = () => {
   const [hoveredStep, setHoveredStep] = useState(null);
@@ -269,7 +267,12 @@ const Customize = () => {
 
         {/* CTA Button */}
         <div className="flex justify-center hd mt-4 md:mt-8">
-          <Button>+12 9999 999 9999</Button>
+          <Button>
+           
+            <Link to="https://api.whatsapp.com/send?phone=%2B27765599823&fbclid=IwY2xjawP0PrdleHRuA2FlbQIxMABicmlkETFZVXVUR2xXQW1KRnc0ZlVpc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHtyu5ORI720NC9wJsi99LtGNrTw1U7cin6p64YQrxPXsUHsEqNJT_tHPXGLr_aem_RFx1JBpEITrQBvMzeYtCKw">
+            +27 76 559 9823
+            </Link>
+          </Button>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ const ResturantsLanding = () => {
   return (
    <>
    <Banner
-   title='Resturants '
+   title='Restaurants '
    subtitle='African Flavours Perfected'
    imageUrl={restaurantl}
    />

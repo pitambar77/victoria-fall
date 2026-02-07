@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 export default function ModalGallery({
   title,
@@ -40,9 +41,9 @@ export default function ModalGallery({
 
         {/* Desktop Button */}
         {showButton && (
-          <button className="hidden md:block hd text-sm font-medium text-[#4d4a2f] hover:underline">
+          <Link to='/restaurants' className="hidden md:block hd text-sm font-medium text-[#4d4a2f] hover:underline">
             {buttonText}
-          </button>
+          </Link>
         )}
       </div>
 

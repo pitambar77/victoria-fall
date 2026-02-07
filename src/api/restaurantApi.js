@@ -7,6 +7,9 @@ import axios from "axios";
 const API = "http://victoria-fall-backend.manoramaseoservice.com/api/restaurants";
 
 export const getRestaurants = () => axios.get(API);
+export const getRestaurantBySlug = (slug) =>
+  axios.get(`${API}/slug/${slug}`);
+
 export const getRestaurant = (id) => axios.get(`${API}/${id}`);
 export const createRestaurant = (data) =>
   axios.post(API, data);

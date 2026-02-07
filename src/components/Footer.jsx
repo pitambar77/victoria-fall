@@ -1,6 +1,8 @@
 
 
 import React from 'react';
+import { FaFacebookF } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -42,8 +44,9 @@ const Footer = () => {
           {/* Copyright */}
           <div className="mb-2 md:mb-0">
             <p className="text-[#9d9d9d] hd font-semibold ">
-              © 2026 Where To Africa Travel (Pty) Ltd. All rights reserved. &nbsp;
-              <a href="#" className="hover:underline text-[#9d9d9d]">Terms & Conditions</a>
+              © 2026 Where To Africa Travel (Pty) Ltd. All rights reserved.  &nbsp;
+              < Link to='https://safarimarketingpro.com/' className="hover:underline text-[#9d9d9d]"> Design by Safari Marketing Pro </Link>
+              {/* <a href="#" className="hover:underline text-[#9d9d9d]">  Terms & Conditions</a> */}
             </p>
           </div>
 
@@ -55,7 +58,8 @@ const Footer = () => {
               aria-label="Facebook"
               className="bg-gray-700 hover:bg-gray-600 rounded-full w-8 h-8 flex items-center justify-center transition-colors duration-200"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3 8h-2v2h2v2h-2v2h-2v-2h-2v-2h2v-2h-2V8h2V6h2v2h2V6h2v2h-2z"/></svg>
+              {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3 8h-2v2h2v2h-2v2h-2v-2h-2v-2h2v-2h-2V8h2V6h2v2h2V6h2v2h-2z"/></svg> */}
+              <FaFacebookF className=" text-white" />
             </a>
             
             {/* Scroll to Top Button */}
