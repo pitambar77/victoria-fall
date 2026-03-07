@@ -532,7 +532,8 @@ const TabSection = ({ destinationId }) => {
         );
 
         setAllActivities(destinationActivities);
-        setActivities(destinationActivities.slice(0, 9)); // default: ALL
+        // setActivities(destinationActivities.slice(0, 9)); // default: ALL
+          setActivities(destinationActivities); // default: ALL
       } catch (err) {
         console.error("Error fetching activities:", err);
       } finally {
@@ -556,7 +557,8 @@ const TabSection = ({ destinationId }) => {
           : a.category?._id === selectedCategory
       );
     } else {
-      filtered = allActivities.slice(0, 9); // ✅ 3 rows
+      // filtered = allActivities.slice(0, 9); // ✅ 3 rows
+       filtered = allActivities; // ✅ 3 rows
     }
 
     setActivities(filtered);

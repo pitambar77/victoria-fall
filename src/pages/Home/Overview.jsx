@@ -5,23 +5,23 @@ const Overview = () => {
     <div className="bg-white md:py-20 py-10 px-4">
       <div className="max-w-6xl mx-auto text-center">
         {/* Main Heading and Subheading */}
-        <h2 className=" hd md:text-[30px] text-[20px] mb-6 font-semibold text-[#2e2c2d] tracking-[3px] uppercase">
-          Premium African Property <br/> Management
+        <h2 className=" hd md:text-[30px] text-[20px] mb-6 font-semibold text-[#2e2c2d] tracking-[3px] max-w-2xl mx-auto uppercase">
+          Indulge in a Luxury Escape at Victoria Falls
         </h2>
-        <p className=" hd max-w-xl mx-auto md:text-center text-justify text-[#5c5e62]   md:mb-16 mb-0 ">
-          At Where to Africa, owning a holiday home, safari lodge, or villa
-          should be rewarding, not stressful. Our end-to-end property management
-          ensures year-round care, maximised value, smooth operations, and guest
-          satisfaction, acting as your trusted local partner with consistency,
-          dedication, and integrity.
+
+        <p className=" hd max-w-xl mx-auto md:text-center text-justify text-[#5c5e62]   md:mb-4 mb-0 ">
+          Our Victoria Falls Bed & Breakfast and concierge services are designed
+          to make your holiday effortless and unforgettable. From comfortable,
+          pre-approved accommodation to personalized assistance with activities,
+          restaurant reservations, spa treatments, airport transfers, and
+          exclusive local experiences, we ensure every detail of your stay is
+          taken care of—so you can simply relax and enjoy the magic of Victoria
+          Falls.
         </p>
 
-        {/* Feature Icons Section */}
-        <div className=" hidden max-w-7xl mx-auto px-20 md:flex flex-col md:flex-row justify-between items-center space-y-12 md:space-y-0 md:space-x-8 lg:space-x-12 mb-16 py-10">
-          {/* Feature 1 */}
+        <div className=" hidden max-w-7xl mx-auto px-20 md:flex flex-col md:flex-row justify-between items-center space-y-12 md:space-y-0 md:space-x-8 lg:space-x-12  py-10">
           <div className="flex flex-col items-center text-center max-w-[140px]">
             <div className="flex items-center justify-center w-18 h-18 rounded-full  bg-[#f9f4e8]  mb-4 transition-all duration-300 hover:bg-gray-100">
-              {/* <FaCompass className="text-4xl text-[#5c5e62]" /> */}
               <svg
                 className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
                 focusable="false"
@@ -37,14 +37,12 @@ const Overview = () => {
               </svg>
             </div>
             <p className=" hd text-[#5c5e62] text-sm px-2 ">
-              Tailor-made vacations as unique as you are
+              Tailor-Made Holidays Designed Around You
             </p>
           </div>
 
-          {/* Feature 2 */}
           <div className="flex flex-col items-center text-center max-w-[140px]">
             <div className="flex items-center justify-center w-18 h-18 rounded-full bg-[#f9f4e8] mb-4 transition-all duration-300 hover:bg-gray-100">
-              {/* <FaPhoneVolume className="text-4xl text-[#5c5e62]" /> */}
               <svg
                 className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
                 focusable="false"
@@ -64,14 +62,12 @@ const Overview = () => {
               </svg>
             </div>
             <p className="hd text-[#5c5e62] text-sm  ">
-              24/7/365 support to ensure your trip is perfect
+              24/7 Dedicated Concierge Support for Your Stay
             </p>
           </div>
 
-          {/* Feature 3 */}
           <div className="flex flex-col items-center text-center max-w-[140px]">
             <div className="flex items-center justify-center w-18 h-18 rounded-full bg-[#f9f4e8] mb-4 transition-all duration-300 hover:bg-gray-100">
-              {/* <FaShieldAlt className="text-4xl text-[#5c5e62]" /> */}
               <svg
                 className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
                 focusable="false"
@@ -88,14 +84,12 @@ const Overview = () => {
               </svg>
             </div>
             <p className="text-[#5c5e62] hd text-sm ">
-              Authentic experts who know your destinations
+              Local Experts Who Truly Know the Destination
             </p>
           </div>
 
-          {/* Feature 4 */}
           <div className="flex flex-col items-center text-center max-w-[140px]">
             <div className="flex items-center justify-center w-18 h-18 rounded-full bg-[#f9f4e8] mb-4 transition-all duration-300 hover:bg-gray-100">
-              {/* <FaGlobeAmericas className="text-4xl text-[#5c5e62]" /> */}
               <svg
                 className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
                 focusable="false"
@@ -111,14 +105,12 @@ const Overview = () => {
               </svg>
             </div>
             <p className="text-[#5c5e62] hd text-sm  ">
-              Global adventures to 115 destinations, your way
+              Curated Adventures and Authentic Experiences
             </p>
           </div>
 
-          {/* Feature 5 */}
           <div className="flex flex-col items-center text-center max-w-[140px]">
             <div className="flex items-center justify-center w-18 h-18 rounded-full bg-[#f9f4e8] mb-4 transition-all duration-300 hover:bg-gray-100">
-              {/* <FaGem className="text-4xl text-[#5c5e62]" /> */}
               <svg
                 className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1rm0sa8"
                 focusable="false"
@@ -134,13 +126,12 @@ const Overview = () => {
               </svg>
             </div>
             <p className="text-[#5c5e62] hd text-sm ">
-              Elevated journeys with 5-star stays and private tours
+              Luxury Stays and Private Experiences
             </p>
           </div>
         </div>
 
-        {/* Featured Logos Section */}
-        <div className="text-center hd hidden md:block ">
+        {/* <div className="text-center hd hidden md:block ">
           <p className="text-[#2e2c2d]  font-semibold  uppercase mb-10">
             As featured in
           </p>
@@ -166,7 +157,7 @@ const Overview = () => {
               className=" w-[145px]"
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

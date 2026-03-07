@@ -13,6 +13,8 @@ import {
 } from "react-icons/fa";
 import { BsPhone } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
+import { useQueryClient } from "@tanstack/react-query";
+import { getDestinationBySlug } from "../api/destinationApi.js";
 
 const socialLinks = [
   { icon: FaFacebookF, url: "https://www.facebook.com/wheretoafrica/" },
@@ -26,6 +28,24 @@ const socialLinks = [
 const Nav = () => {
   const [showSticky, setShowSticky] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const queryClient = useQueryClient();
+
+  const prefetchConcierge = () => {
+    queryClient.prefetchQuery({
+      queryKey: ["destination", "victorial-falls"],
+      queryFn: () =>
+        getDestinationBySlug("victorial-falls").then((res) => res.data),
+    });
+  };
+
+  const prefetchExperience = () => {
+    queryClient.prefetchQuery({
+      queryKey: ["destination", "victoria-falls"],
+      queryFn: () =>
+        getDestinationBySlug("victoria-falls").then((res) => res.data),
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => setShowSticky(window.scrollY > 50);
@@ -110,9 +130,18 @@ const Nav = () => {
               </Link>
             </li>
             <li>
+              {/* <Link
+                to="/luxury-concierge-services"
+                className="hover:text-[#c40]"
+              >
+                Concierge Services
+              </Link> */}
+
               <Link
                 to="/luxury-concierge-services"
                 className="hover:text-[#c40]"
+                onMouseEnter={prefetchConcierge}
+                onFocus={prefetchConcierge}
               >
                 Concierge Services
               </Link>
@@ -136,9 +165,17 @@ const Nav = () => {
           {/* Right Menu (Desktop) */}
           <ul className="hd hidden lg:flex gap-6 text-[14px]  uppercase">
             <li>
+              {/* <Link
+                to="/victoria-falls-experiences"
+                className="hover:text-[#c40]"
+              >
+                Experience
+              </Link> */}
               <Link
                 to="/victoria-falls-experiences"
                 className="hover:text-[#c40]"
+                onMouseEnter={prefetchExperience}
+                onFocus={prefetchExperience}
               >
                 Experience
               </Link>

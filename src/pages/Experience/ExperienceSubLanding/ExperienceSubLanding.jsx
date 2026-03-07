@@ -106,6 +106,7 @@ import TestimonialSection from "../../../components/TestimonialSection";
 import Awards from "../../../components/Awards";
 
 import { getDestinationBySlug } from "../../../api/destinationApi";
+import { useQuery } from "@tanstack/react-query";
 
 
 const ExperienceSubLanding = ({ fixedSlug }) => {
@@ -114,22 +115,28 @@ const ExperienceSubLanding = ({ fixedSlug }) => {
   // ✅ priority: fixedSlug (for victoria-falls-experiences) → URL slug
   const slug = fixedSlug || destinationSlug;
 
-  const [destination, setDestination] = useState(null);
+  // const [destination, setDestination] = useState(null);
 
-  useEffect(() => {
-    if (!slug) return;
+  // useEffect(() => {
+  //   if (!slug) return;
 
-    const fetchDestination = async () => {
-      try {
-        const res = await getDestinationBySlug(slug);
-        setDestination(res.data);
-      } catch (error) {
-        console.error("Error fetching destination", error);
-      }
-    };
+  //   const fetchDestination = async () => {
+  //     try {
+  //       const res = await getDestinationBySlug(slug);
+  //       setDestination(res.data);
+  //     } catch (error) {
+  //       console.error("Error fetching destination", error);
+  //     }
+  //   };
 
-    fetchDestination();
-  }, [slug]);
+  //   fetchDestination();
+  // }, [slug]);
+
+  const { data: destination, isLoading } = useQuery({
+  queryKey: ["destination", slug],
+  queryFn: () => getDestinationBySlug(slug).then((res) => res.data),
+  staleTime: 1000 * 60 * 10,
+});
 
   if (!destination) return ;
 

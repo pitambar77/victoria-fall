@@ -135,40 +135,25 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const cards = [
   {
     id: 1,
-    img: "https://newmark-prod.s3.amazonaws.com/attachments/cl1xqi84f00b4rzpbxbl0w2el-award-trip-expert-2.360x360.png",
+    img: "../Green-Tourism-logo-gray.png",
   },
   {
     id: 2,
-    img: "https://newmark-prod.s3.amazonaws.com/attachments/clisw0fbo2kndmc8i8ythg6tr-vertical-banner-1080-x-1350-v2-tc.0.83.1080.1005.360x360.png",
+    img: "../greenline.png",
   },
   {
     id: 3,
-    img: "https://newmark-prod.s3.amazonaws.com/attachments/cl1xqi84f00b4rzpbxbl0w2el-award-trip-expert-2.360x360.png",
+    img: "../JeanUnderwood-gray.png",
   },
   {
     id: 4,
-    img: "https://newmark-prod.s3.amazonaws.com/attachments/clisw0fbo2kndmc8i8ythg6tr-vertical-banner-1080-x-1350-v2-tc.0.83.1080.1005.360x360.png",
+    img: "../atta.png",
   },
   {
     id: 5,
-    img: "https://newmark-prod.s3.amazonaws.com/attachments/cl1xqi84f00b4rzpbxbl0w2el-award-trip-expert-2.360x360.png",
+    img: "../weare-africa.png",
   },
-  {
-    id: 6,
-    img: "https://newmark-prod.s3.amazonaws.com/attachments/clisw0fbo2kndmc8i8ythg6tr-vertical-banner-1080-x-1350-v2-tc.0.83.1080.1005.360x360.png",
-  },
-  {
-    id: 7,
-    img: "https://newmark-prod.s3.amazonaws.com/attachments/clisw0fbo2kndmc8i8ythg6tr-vertical-banner-1080-x-1350-v2-tc.0.83.1080.1005.360x360.png",
-  },
-  {
-    id: 8,
-    img: "https://newmark-prod.s3.amazonaws.com/attachments/cl1xqi84f00b4rzpbxbl0w2el-award-trip-expert-2.360x360.png",
-  },
-  {
-    id: 9,
-    img: "https://newmark-prod.s3.amazonaws.com/attachments/clisw0fbo2kndmc8i8ythg6tr-vertical-banner-1080-x-1350-v2-tc.0.83.1080.1005.360x360.png",
-  },
+  
 ];
 
 const Awards = () => {

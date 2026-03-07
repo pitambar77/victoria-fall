@@ -1,11 +1,12 @@
 
-import React from "react";
+import React, { useState } from "react";
 import Banner from "../../../components/Banner";
 import PropertiesCards from "./PropertiesCards";
 import Overview from "../../../components/Overview";
 import TestimonialSection from "../../../components/TestimonialSection";
 import Awards from "../../../components/Awards";
 import propertyl from '../../../assets/propertyl.webp'
+
 
 const PropertiesLanding = () => {
 

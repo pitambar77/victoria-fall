@@ -13,11 +13,11 @@ const Banner = ({ title, subtitle, imageUrl }) => {
 
       {/* Text Content */}
       <div className=" max-w-[1140px] mx-auto absolute inset-0 flex flex-col justify-center  text-white/80 px-4  ">
-        <h1 className="hd leading-[1.6] text-center sm:text-left text-[24px] sm:text-4xl md:text-[60px] tracking-[5px] font-[600] mb-4 uppercase">
+        <h1 className="hd leading-[1.2] text-center sm:text-left text-[24px] sm:text-4xl md:text-[50px] tracking-[5px] font-[600] mb-4 uppercase max-w-[700px]">
           {title}
         </h1>
         {subtitle && (
-          <p className="hd font-[500] text-sm text-center sm:text-left tracking-[5px] max-w-3xl uppercase">
+          <p className="hd font-[500px] text-md text-center sm:text-left tracking-[2px] max-w-lg ">
             {subtitle}
           </p>
         )}
