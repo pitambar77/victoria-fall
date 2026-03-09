@@ -1,6 +1,6 @@
 import React from "react";
 import PropertyList from "./PropertyList";
-// import MapView from "./MapView";
+import MapView from "./MapView";
 import FiltersBar from "./FiltersBar";
 import TestimonialSection from "../../../components/TestimonialSection";
 import Awards from "../../../components/Awards";
@@ -25,7 +25,7 @@ const ListingsPage = () => {
 
           {/* RIGHT MAP */}
           <div className="col-span-5">
-            {/* <MapView /> */}
+            <MapView />
           </div>
         </div>
       </div>

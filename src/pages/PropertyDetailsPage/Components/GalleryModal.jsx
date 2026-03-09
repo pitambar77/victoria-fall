@@ -25,7 +25,7 @@ export default function GalleryModal({ gallery, close }) {
               onClick={close}
               className="flex items-center gap-2 text-gray-700 hover:text-black"
             >
-              <BsArrowLeftCircle size={24} className=" hover:text-[#ab8c51]" />
+              <BsArrowLeftCircle size={24} className=" hover:text-[#ab8c51] cursor-pointer" />
               <span className="font-medium">Photo gallery</span>
             </button>
           </div>
@@ -36,7 +36,7 @@ export default function GalleryModal({ gallery, close }) {
         </div>
 
         {/* CATEGORY TABS */}
-        <div className="flex gap-4 p-6 border-b border-gray-300 overflow-x-auto bg-white">
+        <div className=" hd flex gap-4 p-6 border-b border-gray-300 overflow-x-auto bg-white">
           {categories.map((cat, i) => (
             <button
               key={i}
@@ -50,7 +50,7 @@ export default function GalleryModal({ gallery, close }) {
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-sm font-semibold">
+              <div className="hd absolute inset-0 bg-black/40 flex items-center justify-center text-white text-sm font-semibold">
                 {cat}
               </div>
             </button>
@@ -58,7 +58,7 @@ export default function GalleryModal({ gallery, close }) {
         </div>
 
         {/* SCROLLABLE CONTENT */}
-        <div className="flex-1 overflow-y-auto px-6 py-6">
+        <div className=" hd flex-1 overflow-y-auto px-6 py-6">
 
           <h3 className="text-2xl font-semibold mb-6">
             {active} ({images.length})
