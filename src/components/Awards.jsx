@@ -186,7 +186,7 @@ const Awards = () => {
           breakpoints={{
             640: { slidesPerView: 3 }, // 👈 mobile: 3 cards
             768: { slidesPerView: 4 }, // tablet
-            1024: { slidesPerView: 6 }, // desktop
+            1024: { slidesPerView: 5 }, // desktop
           }}
           pagination={{
             clickable: true,
@@ -200,7 +200,7 @@ const Awards = () => {
                 <img
                   src={card.img}
                   alt={`Award ${card.id}`}
-                  className="w-full rounded-md md:h-[160px] h-full object-cover"
+                  className="w-full rounded-md p-8 h-full object-cover"
                 />
               </div>
             </SwiperSlide>

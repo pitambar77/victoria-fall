@@ -8,13 +8,6 @@ const PropertiesCards = () => {
 
   const [properties, setProperties] = useState([]);
 
-  // const [priceRange, setPriceRange] = useState("");
-  // const [bedrooms, setBedrooms] = useState("");
-  // const [bathrooms, setBathrooms] = useState("");
-  // const [pool, setPool] = useState("");
-  // const [ac, setAc] = useState("");
-  // const [petFriendly, setPetFriendly] = useState("");
-
   const loadProperties = async () => {
     const res = await getProperties();
     setProperties(res.data);
@@ -23,17 +16,6 @@ const PropertiesCards = () => {
   useEffect(() => {
     loadProperties();
   }, []);
-
-  // const filteredProperties = properties.filter((property) => {
-  //   return (
-  //     (priceRange === "" || property.priceperPerson <= priceRange) &&
-  //     (bedrooms === "" || property.bedrooms >= bedrooms) &&
-  //     (bathrooms === "" || property.bathrooms >= bathrooms) &&
-  //     (pool === "" || property.pool === pool) &&
-  //     (ac === "" || property.ac === ac) &&
-  //     (petFriendly === "" || property.petFriendly === petFriendly)
-  //   );
-  // });
 
   //Backend instegration end
 
@@ -61,75 +43,6 @@ const PropertiesCards = () => {
   return (
     <div className=" bg-[#faf8f1] py-10 md:py-20">
       <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-0 ">
-        {/* <div className="mb-8  p-4 rounded-md shadow-sm">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          
-            <select
-              onChange={(e) => setPriceRange(e.target.value)}
-              className="border p-2 text-sm rounded-md"
-            >
-              <option value="">Price / Night</option>
-              <option value="100">$100</option>
-              <option value="200">$200</option>
-              <option value="300">$300</option>
-              <option value="500">$500</option>
-            </select>
-
-          
-            <select
-              onChange={(e) => setBedrooms(e.target.value)}
-              className="border p-2 text-sm rounded-md"
-            >
-              <option value="">Bedrooms</option>
-              <option value="1">1+</option>
-              <option value="2">2+</option>
-              <option value="3">3+</option>
-              <option value="4">4+</option>
-            </select>
-
-          
-            <select
-              onChange={(e) => setBathrooms(e.target.value)}
-              className="border p-2 text-sm rounded-md"
-            >
-              <option value="">Bathrooms</option>
-              <option value="1">1+</option>
-              <option value="2">2+</option>
-              <option value="3">3+</option>
-            </select>
-
-        
-            <select
-              onChange={(e) => setPool(e.target.value)}
-              className="border p-2 text-sm rounded-md"
-            >
-              <option value="">Pool</option>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
-
-    
-            <select
-              onChange={(e) => setAc(e.target.value)}
-              className="border p-2 text-sm rounded-md"
-            >
-              <option value="">A/C</option>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
-
-        
-            <select
-              onChange={(e) => setPetFriendly(e.target.value)}
-              className="border p-2 text-sm rounded-md"
-            >
-              <option value="">Pet Friendly</option>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
-          </div>
-        </div> */}
-
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentCards.map((resort, index) => (

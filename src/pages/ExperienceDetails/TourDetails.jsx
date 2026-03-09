@@ -56,7 +56,6 @@ const ActivityDetails = () => {
                   {/* Custom Bullet */}
                   <span className="mt-2 w-2 h-2 rounded-full bg-[#dbb563] shrink-0" />
 
-                  {/* Text */}
                   <span>{h}</span>
                 </li>
               ))}
@@ -188,7 +187,7 @@ const ActivityDetails = () => {
                           {/* Text */}
                           <span>{item}</span>
                         </li>
-                      )
+                      ),
                     )}
                   </ul>
                 );

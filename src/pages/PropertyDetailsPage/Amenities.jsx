@@ -1,0 +1,57 @@
+
+
+import { useState } from "react";
+import {
+  Waves,
+  Wifi,
+  AirVent,
+  WashingMachine,
+  Microwave,
+  ChevronRight,
+} from "lucide-react";
+import AmenitiesModal from "./AmenitiesModal";
+
+export default function Amenities() {
+  const [open, setOpen] = useState(false);
+
+  const popular = [
+    { icon: Waves, label: "Pool" },
+    { icon: Microwave, label: "Kitchen" },
+    { icon: WashingMachine, label: "Washer" },
+    { icon: WashingMachine, label: "Dryer" },
+    { icon: Wifi, label: "Free WiFi" },
+    { icon: AirVent, label: "Air conditioning" },
+  ];
+
+  return (
+    <div className="space-y-6">
+      <h2 className="hd text-[18px] font-semibold text-[#2e2c2d]  tracking-wide uppercase mb-6">
+        Popular amenities
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-20">
+        {popular.map((item, i) => {
+          const Icon = item.icon;
+
+          return (
+            <div key={i} className="hd flex items-center gap-4  font-[500]  text-[#2e2c2d]">
+              <Icon size={26} strokeWidth={1.5} color="#a57830" />
+              {item.label}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* See All Button */}
+      <button
+        onClick={() => setOpen(true)}
+        className="hd flex items-center gap-2 text-[#b18642] font-medium hover:underline"
+      >
+        See all
+        <ChevronRight size={18} />
+      </button>
+
+      {open && <AmenitiesModal close={() => setOpen(false)} />}
+    </div>
+  );
+}

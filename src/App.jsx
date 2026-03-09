@@ -46,6 +46,9 @@ import ActivityExperienceEnquiryForm from "./components/ActivityExperienceEnquir
 import BookingsAdmin from "./components/BookingsAdmin";
 import BookingPropertyAdmin from "./components/BookingPropertyAdmin";
 import BookingRestaurantAdmin from "./components/BookingRestaurantAdmin";
+import PropertyDetailsPage from "./pages/PropertyDetailsPage/PropertyDetailsPage";
+import ListingsPage from "./pages/Property/PrpertiesLanding/ListingsPage";
+import { FilterProvider } from "./FilterContext";
 
 function App() {
   const router = createBrowserRouter(
@@ -55,6 +58,7 @@ function App() {
           <Route index element={<Hero />} />
           <Route path="properties-details" element={<PropertiesDetails />} />
           <Route path="experience-details" element={<ExperienceDetails />} />
+          {/* <Route path="propertyListing" element={<ListingsPage/>}/> */}
           {/* <Route
             path="experience-details/:id"
             element={<ExperienceDetails />}
@@ -68,7 +72,6 @@ function App() {
           {/* <Route path=':id' element={<Prodetails/>} /> */}
           {/* <Route path=":id" element={<PropertiesDetails />} /> */}
           <Route path="properties/:slug" element={<PropertiesDetails />} />
-
           {/* <Route path="victoria-falls-experiences" element={<ExperienceLanding />} /> // added slug here */}
           {/* <Route path="victoria-falls-experiences" element={<Navigate to="/experience/victorial-falls" replace />} /> // added slug here */}
           <Route
@@ -83,11 +86,10 @@ function App() {
             path="experience/:destinationSlug"
             element={<ExperienceSubLanding />}
           />
-          <Route path="restaurants" element={<ResturantsLanding />} /> 
+          <Route path="restaurants" element={<ResturantsLanding />} />
           <Route path="resturants-details" element={<ResturantsDetails />} />
           {/* <Route path="restaurants/:id" element={<ResturantsDetails />} /> */}
           <Route path="restaurants/:slug" element={<ResturantsDetails />} />
-
           <Route
             path="luxury-concierge-services"
             element={<LuxuryConciergeServices />}
@@ -130,6 +132,15 @@ function App() {
           {/* <Route path="/la/activity/:id" element={<ActivityDetails />} /> */}
         </Route>
         <Route path="/dashbord/*" element={<DashboardLayout />} />
+        <Route
+          path="properties-landing"
+          element={
+            <FilterProvider>
+              <ListingsPage />
+            </FilterProvider>
+          }
+        />
+        <Route path="propertiesdetails" element={<PropertyDetailsPage />} />
       </>,
     ),
   );
@@ -138,4 +149,3 @@ function App() {
 }
 
 export default App;
-
