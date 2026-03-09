@@ -39,7 +39,7 @@ export default function SpacesSection() {
       {/* See all button */}
       <button
         onClick={() => setOpen(true)}
-        className="text-[#b18642] text-lg font-medium hover:underline"
+        className="text-[#b18642] cursor-pointer font-medium hover:underline"
       >
         See all rooms and beds details
       </button>

@@ -5,37 +5,32 @@ const options = [
   { label: "Price: low to high", value: "priceLow" },
   { label: "Price: high to low", value: "priceHigh" },
   { label: "Guest rating", value: "rating" },
-  { label: "Number of reviews", value: "reviews" }
+  { label: "Number of reviews", value: "reviews" },
 ];
 
 export default function SortFilter({ close }) {
-
   const { filters, setFilters } = useFilters();
 
   const changeSort = (val) => {
     setFilters({
       ...filters,
-      sort: val
+      sort: val,
     });
   };
 
   const clearSort = () => {
-    setFilters({
-      ...filters,
-      sort: "recommended"
-    });
+    const newFilters = { ...filters };
+    delete newFilters.sort;
+
+    setFilters(newFilters);
   };
 
   return (
     <div>
-
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold">Sort by</h2>
 
-        <button
-          onClick={clearSort}
-          className="text-blue-600"
-        >
+        <button onClick={clearSort} className="text-[#b18642] rounded-2xl hover:bg-[#dad9d4]  py-1 px-2 cursor-pointer">
           Clear
         </button>
       </div>
@@ -45,7 +40,6 @@ export default function SortFilter({ close }) {
           key={item.value}
           className="flex items-center gap-3 mb-4 cursor-pointer"
         >
-
           <input
             type="radio"
             name="sort"
@@ -54,19 +48,8 @@ export default function SortFilter({ close }) {
           />
 
           {item.label}
-
         </label>
       ))}
-
-      <div className="flex justify-end mt-8">
-        <button
-          onClick={close}
-          className="bg-blue-600 text-white px-6 py-2 rounded-full"
-        >
-          Done
-        </button>
-      </div>
-
     </div>
   );
 }

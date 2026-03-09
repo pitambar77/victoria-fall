@@ -27,7 +27,7 @@ export default function PopularFilter() {
   return (
     <div>
 
-      <h2 className="text-xl font-semibold mb-6">
+      <h2 className=" hd text-xl font-semibold mb-6">
         Popular filters
       </h2>
 

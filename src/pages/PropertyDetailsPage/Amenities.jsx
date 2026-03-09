@@ -45,7 +45,7 @@ export default function Amenities() {
       {/* See All Button */}
       <button
         onClick={() => setOpen(true)}
-        className="hd flex items-center gap-2 text-[#b18642] font-medium hover:underline"
+        className="hd flex items-center gap-2 cursor-pointer text-[#b18642] font-medium hover:underline"
       >
         See all
         <ChevronRight size={18} />

@@ -1,6 +1,15 @@
-import { X } from "lucide-react";
+import { RxCrossCircled } from "react-icons/rx";
+import { TbAirConditioning } from "react-icons/tb";
+import { useEffect } from "react";
 
 export default function AmenitiesModal({ close }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
   const basics = [
     "Air Conditioning",
     "Clothes Dryer",
@@ -42,68 +51,78 @@ export default function AmenitiesModal({ close }) {
     "Contemporary",
   ];
 
-  const additionalRight = [
-    "Pool cover",
-    "BBQ",
-    "Concierge",
-    "Fireplace",
-  ];
+  const additionalRight = ["Pool cover", "BBQ", "Concierge", "Fireplace"];
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex justify-center items-start pt-20 z-50">
-
-      <div className="bg-white w-[900px] max-h-[80vh] overflow-y-auto rounded-xl shadow-lg p-8">
-
+    <div className="fixed inset-0 bg-black/70 flex justify-center items-start pt-20 z-50">
+      <div className="bg-white w-[900px] max-h-[80vh] rounded-xl shadow-lg flex flex-col">
         {/* Header */}
-        <div className="flex justify-between items-center border-b pb-4">
-          <h2 className="text-2xl font-semibold">Amenities</h2>
-          <button onClick={close}>
-            <X size={24} />
+        <div className="flex items-center gap-4  rounded-t-2xl p-6 shadow sticky top-0 bg-white z-10">
+          <button
+            onClick={close}
+            className="cursor-pointer text-[#ab8c51] hover:text-[#dfab4b]"
+          >
+            <RxCrossCircled size={28} />
           </button>
+          <h2 className="font-[500] text-xl text-[#2e2c2d] capitalize">
+            Property Amenities
+          </h2>
         </div>
 
-        {/* Basics Section */}
-        <div className="mt-6">
-          <h3 className="text-xl font-semibold mb-6">Basics</h3>
+        {/* Scrollable Content */}
+        <div className="overflow-y-auto p-8">
+          {/* Basics */}
+          <div className="mt-2">
+            <h3 className="font-[500] text-lg text-[#2e2c2d] mb-6">Basics</h3>
 
-          <div className="grid grid-cols-2 gap-x-20 gap-y-4 text-lg">
+            <div className="grid grid-cols-2 gap-x-20 gap-y-4 text-[#2e2c2d]">
+              <div className="space-y-4">
+                {basics.map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <TbAirConditioning className="text-[#ab8c51]" size={18} />
+                    {item}
+                  </div>
+                ))}
+              </div>
 
-            <div className="space-y-4">
-              {basics.map((item, i) => (
-                <div key={i}>{item}</div>
-              ))}
+              <div className="space-y-4">
+                {basicsRight.map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <TbAirConditioning className="text-[#ab8c51]" size={18} />
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
 
-            <div className="space-y-4">
-              {basicsRight.map((item, i) => (
-                <div key={i}>{item}</div>
-              ))}
+          {/* Additional */}
+          <div className="mt-10">
+            <h3 className="font-[500] text-lg text-[#2e2c2d] mb-6">
+              Additional
+            </h3>
+
+            <div className="grid grid-cols-2 gap-x-20 gap-y-4 text-[#2e2c2d]">
+              <div className="space-y-4">
+                {additional.map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <TbAirConditioning className="text-[#ab8c51]" size={18} />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <div className="space-y-4">
+                {additionalRight.map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <TbAirConditioning className="text-[#ab8c51]" size={18} />
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
-
           </div>
         </div>
-
-        {/* Additional Section */}
-        <div className="mt-10">
-          <h3 className="text-xl font-semibold mb-6">Additional</h3>
-
-          <div className="grid grid-cols-2 gap-x-20 gap-y-4 text-lg">
-
-            <div className="space-y-4">
-              {additional.map((item, i) => (
-                <div key={i}>{item}</div>
-              ))}
-            </div>
-
-            <div className="space-y-4">
-              {additionalRight.map((item, i) => (
-                <div key={i}>{item}</div>
-              ))}
-            </div>
-
-          </div>
-        </div>
-
       </div>
     </div>
   );

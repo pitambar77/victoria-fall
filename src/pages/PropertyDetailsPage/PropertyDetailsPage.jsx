@@ -28,13 +28,16 @@ export default function PropertyDetailsPage() {
     <div>
       <Header />
       <div className=" hd max-w-[1200px] mx-auto px-4 py-6">
-        <Link
-          to="/properties-landing"
-          className="flex items-center gap-2 hover:underline text-[#ab8c51]"
-        >
-          <GoArrowLeft />
-          <span>See all Properties</span>
-        </Link>
+        <div className=" flex">
+          <Link
+            to="/properties-landing"
+            className="flex items-center gap-2 hover:underline text-[#ab8c51]"
+          >
+            <GoArrowLeft />
+            <span>See all Properties</span>
+          </Link>
+          <div></div>
+        </div>
       </div>
       {/* Gallery */}
       <div className="max-w-[1200px] mx-auto px-4 ">
@@ -79,7 +82,7 @@ export default function PropertyDetailsPage() {
       <Awards />
       <Customize />
       <JoinClubSection />
-      <Footer/>
+      <Footer />
     </div>
   );
 }

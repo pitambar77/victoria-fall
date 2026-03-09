@@ -1,4 +1,6 @@
 import { X, BedDouble, ShowerHead, Toilet, Bath } from "lucide-react";
+import { useEffect } from "react";
+import { RxCrossCircled } from "react-icons/rx";
 
 export default function RoomsBedsModal({ close }) {
   const bedrooms = [
@@ -46,82 +48,90 @@ export default function RoomsBedsModal({ close }) {
     "Entertainment area with BBQ facilities and bar fridge.",
   ];
 
+  useEffect(() => {
+  document.body.style.overflow = "hidden";
+  document.documentElement.style.overflow = "hidden";
+
+  return () => {
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+  };
+}, []);
+
   return (
-    <div className="fixed inset-0 bg-black/40 flex justify-center items-start pt-10 z-50">
-
-      <div className="bg-white w-[900px] max-h-[90vh] overflow-y-auto rounded-xl shadow-lg p-10">
-
+    <div className=" hd fixed inset-0 bg-black/40 flex justify-center items-start pt-10 z-50">
+      {/* <div className="bg-white w-[900px] max-h-[90vh] overflow-y-auto rounded-xl shadow-lg p-10"> */}
+      <div className="bg-white w-[900px] max-h-[90vh] rounded-xl shadow-lg flex flex-col">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-10">
+       
+        <div className="flex items-center gap-4 shadow rounded-t-2xl p-6 sticky top-0 bg-white z-10">
           <button
             onClick={close}
-            className="w-10 h-10 rounded-full border flex items-center justify-center"
+            className="flex items-center justify-center cursor-pointer text-[#ab8c51] hover:text-[#dfab4b]"
           >
-            <X size={20} />
+            <RxCrossCircled size={32} />
           </button>
 
-          <h2 className="text-2xl font-semibold">
+          <h2 className="hd font-[500] text-xl text-[#2e2c2d] capitalize">
             Rooms & beds
           </h2>
         </div>
 
+
+        <div className="overflow-y-auto p-10">
+
         {/* Bedrooms */}
-        <h3 className="text-xl font-semibold mb-6">
+        <h3 className="hd font-[500] text-xl text-[#2e2c2d] capitalize mb-6">
           5 bedrooms <span className="text-gray-500">(sleeps 10)</span>
         </h3>
 
         <div className="grid grid-cols-2 gap-y-8 gap-x-20">
-
           {bedrooms.map((room, i) => (
             <div key={i} className="space-y-2">
+              <p className="hd font-[500] text-lg text-[#2e2c2d] capitalize">
+                {room.name}
+              </p>
 
-              <p className="font-semibold text-lg">{room.name}</p>
+              <BedDouble size={34} strokeWidth={1.5} className=" text-[#ab8c51]" />
 
-              <BedDouble size={34} strokeWidth={1.5} />
-
-              <p className="text-gray-600">{room.bed}</p>
-
+              <p className=" hd text-[#2e2c2d]">{room.bed}</p>
             </div>
           ))}
-
         </div>
 
-        <div className="border-t my-10"></div>
+        <div className="border-t border-gray-300 my-10"></div>
 
         {/* Bathrooms */}
-        <h3 className="text-xl font-semibold mb-6">
+        <h3 className="hd font-[500] text-xl text-[#2e2c2d] capitalize mb-6">
           4 bathrooms
         </h3>
 
         <div className="grid grid-cols-2 gap-y-10 gap-x-20">
-
           {bathrooms.map((bath, i) => (
             <div key={i} className="space-y-3">
-
-              <p className="font-semibold text-lg">{bath.title}</p>
+              <p className="hd font-[500] text-lg text-[#2e2c2d] capitalize">
+                {bath.title}
+              </p>
 
               <div className="flex gap-3">
                 {bath.icons.map((Icon, idx) => (
-                  <Icon key={idx} size={30} />
+                  <Icon key={idx} size={30} className=" text-[#ab8c51] " />
                 ))}
               </div>
 
-              <p className="text-gray-600">{bath.text}</p>
-
+              <p className="hd text-[#2e2c2d]">{bath.text}</p>
             </div>
           ))}
-
         </div>
 
-        <div className="border-t my-10"></div>
+        <div className="border-t border-gray-300 my-10"></div>
 
         {/* Spaces */}
-        <h3 className="text-3xl font-semibold mb-8">
+        <h3 className="hd font-[500] text-xl text-[#2e2c2d] capitalize mb-8">
           Spaces
         </h3>
 
         <div className="grid grid-cols-2 gap-y-4 gap-x-20 text-lg text-gray-700">
-
           <div className="space-y-4">
             {spacesLeft.map((s, i) => (
               <p key={i}>{s}</p>
@@ -130,12 +140,13 @@ export default function RoomsBedsModal({ close }) {
 
           <div className="space-y-4">
             {spacesRight.map((s, i) => (
-              <p key={i}>{s}</p>
+              <p className="hd text-[#2e2c2d]" key={i}>
+                {s}
+              </p>
             ))}
           </div>
-
         </div>
-
+        </div>
       </div>
     </div>
   );
