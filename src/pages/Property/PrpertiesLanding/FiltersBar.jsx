@@ -5,7 +5,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 
 
 
-export default function FiltersBar() {
+export default function FiltersBar({properties}) {
   const [activePanel, setActivePanel] = useState(null);
   const { filters } = useFilters();
 

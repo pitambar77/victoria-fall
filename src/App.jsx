@@ -49,6 +49,8 @@ import BookingRestaurantAdmin from "./components/BookingRestaurantAdmin";
 import PropertyDetailsPage from "./pages/PropertyDetailsPage/PropertyDetailsPage";
 import ListingsPage from "./pages/Property/PrpertiesLanding/ListingsPage";
 import { FilterProvider } from "./FilterContext";
+import PropertiesList from "./pages/Properties/PropertiesList";
+import CreateProperty from "./pages/Admin/CreateProperty";
 
 function App() {
   const router = createBrowserRouter(
@@ -141,6 +143,8 @@ function App() {
           }
         />
         <Route path="propertiesdetails" element={<PropertyDetailsPage />} />
+        <Route path="propt" element={<PropertiesList/>}/>
+        <Route path="cp" element={<CreateProperty/>}/>
       </>,
     ),
   );
