@@ -78,45 +78,68 @@ export default function CreateProperty() {
     country: "Zimbabwe",
   });
 
-const submit = async () => {
-  try {
-
-    const dataToSend = {
-      ...property,
-      highlights: [],
-      aminities: { basic: [], additional: [] },
-      rooms: [],
-      bathrooms: [],
-      space: [],
-      gallery: [],
-    };
-
-    const res = await axios.post(
-      "http://localhost:8001/api/property",
-      dataToSend
-    );
-
-    console.log(res.data);
-    alert("Property Created");
-
-  } catch (err) {
-    console.log(err.response?.data);
-  }
-};
-
   // const submit = async () => {
   //   const formData = new FormData();
 
-  //   formData.append("property", JSON.stringify(property));
+  //   // remove file objects from JSON
+  //   const cleanProperty = {
+  //     ...property,
+  //     highlights: property.highlights.map((h) => ({
+  //       title: h.title,
+  //       description: h.description,
+  //       icon: "",
+  //     })),
+  //   };
 
-  //   property.highlights.forEach((h, i) => {
-  //     if (h.icon) {
-  //       formData.append("icon", h.icon);
+  //   formData.append("property", JSON.stringify(cleanProperty));
+
+  //   // upload icons separately
+  //   property.highlights.forEach((h) => {
+  //     if (h.icon instanceof File) {
+  //       formData.append("highlightIcons", h.icon);
   //     }
   //   });
 
   //   await axios.post("http://localhost:8001/api/property", formData);
   // };
+
+  const submit = async () => {
+    const formData = new FormData();
+
+    const cleanProperty = {
+      ...property,
+      highlights: property.highlights.map((h) => ({
+        title: h.title,
+        description: h.description,
+        icon: "",
+      })),
+    };
+
+    formData.append("property", JSON.stringify(cleanProperty));
+
+    // highlight icons
+    property.highlights.forEach((h) => {
+      if (h.icon instanceof File) {
+        formData.append("highlightIcons", h.icon);
+      }
+    });
+
+    // gallery images
+    property.gallery.forEach((g) => {
+      if (g.image instanceof File) {
+        formData.append("galleryImages", g.image);
+      }
+    });
+
+    // room icons
+    property.rooms.forEach((r) => {
+      if (r.icon instanceof File) {
+        formData.append("roomIcons", r.icon);
+      }
+    });
+
+    await axios.post("http://localhost:8001/api/property", formData);
+  };
 
   return (
     <div className="p-10 space-y-10">
