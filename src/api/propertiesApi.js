@@ -1,5 +1,3 @@
-
-
 import axios from "axios";
 
 const API = "http://victoria-fall-backend.manoramaseoservice.com/api/property";
@@ -75,8 +73,6 @@ export const deleteRoom = (id, roomId) =>
    AMENITIES
 ========================= */
 
-
-
 export const addBasicAmenity = (id, formData) =>
   axios.post(`${API}/${id}/amenities/basic`, formData);
 
@@ -99,8 +95,7 @@ export const deleteAdditionalAmenity = (id, amenityId) =>
  Area location
 ========================= */
 
-export const updateArea = (id, data) =>
-  axios.put(`${API}/${id}/area`, data);
+export const updateArea = (id, data) => axios.put(`${API}/${id}/area`, data);
 
 export const addActivity = (id, formData) =>
   axios.post(`${API}/${id}/activities`, formData);
@@ -110,8 +105,6 @@ export const updateActivity = (id, activityId, formData) =>
 
 export const deleteActivity = (id, activityId) =>
   axios.delete(`${API}/${id}/activities/${activityId}`);
-
-
 
 /* =========================
    LOCATION
@@ -140,7 +133,6 @@ export const updateFeature = (id, data) =>
 export const deleteFeature = (id, data) =>
   axios.delete(`${API}/${id}/features`, { data });
 
-
 /* =========================
    BATHROOMS
 ========================= */
@@ -157,16 +149,13 @@ export const addBathroomDetail = (id, bathroomId, formData) =>
 export const updateBathroomDetail = (id, bathroomId, detailId, formData) =>
   axios.put(
     `${API}/${id}/bathrooms/${bathroomId}/details/${detailId}`,
-    formData
+    formData,
   );
 
 export const deleteBathroomDetail = (id, bathroomId, detailId) =>
-  axios.delete(
-    `${API}/${id}/bathrooms/${bathroomId}/details/${detailId}`
-  );
+  axios.delete(`${API}/${id}/bathrooms/${bathroomId}/details/${detailId}`);
 
-
-  /* =========================
+/* =========================
    SPACE
 ========================= */
 
@@ -178,7 +167,6 @@ export const updateSpace = (id, spaceId, formData) =>
 
 export const deleteSpace = (id, spaceId) =>
   axios.delete(`${API}/${id}/space/${spaceId}`);
-
 
 /* =========================
    HOUSE RULE
@@ -196,14 +184,12 @@ export const updateHouseRule = (id, ruleId, formData) =>
 export const deleteHouseRule = (id, ruleId) =>
   axios.delete(`${API}/${id}/house-rule/${ruleId}`);
 
-
 /* =========================
    INCIDENTAL
 ========================= */
 
 export const updateIncidental = (id, data) =>
   axios.put(`${API}/${id}/incidental`, data);
-
 
 /* =========================
    INFORMATION
@@ -225,7 +211,3 @@ export const deleteInformationBlock = (id, blockId) =>
 
 export const updatePropertyBasic = (id, data) =>
   axios.put(`${API}/${id}/basic`, data);
-
-
-
-

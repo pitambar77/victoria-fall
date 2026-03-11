@@ -83,6 +83,7 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import { useEffect, useRef } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import mapboxgl from "mapbox-gl";
 
 export default function MapPicker({ property, setProperty }) {
   const mapRef = useRef();
@@ -93,7 +94,7 @@ export default function MapPicker({ property, setProperty }) {
       accessToken: import.meta.env.VITE_MAPBOX_TOKEN,
       marker: false,
       placeholder: "Search location",
-      mapboxgl: window.mapboxgl,
+      mapboxgl: mapboxgl,
     });
 
     // geocoder.on("result", (e) => {
