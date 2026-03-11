@@ -1,0 +1,282 @@
+import { useState } from "react";
+
+import {
+  updateHouseRuleMeta,
+  addHouseRule,
+  updateHouseRule,
+  deleteHouseRule
+} from "../../api/propertiesApi";
+
+export default function HouseRulesSection({ property, setProperty }) {
+
+  const [checkIn, setCheckIn] = useState(property.houserule?.checkIn || "");
+  const [checkOut, setCheckOut] = useState(property.houserule?.checkOut || "");
+  const [content, setContent] = useState(property.houserule?.content || "");
+
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [icon, setIcon] = useState(null);
+
+  /* ======================
+     UPDATE META
+  ====================== */
+
+  const updateMeta = async () => {
+
+    const res = await updateHouseRuleMeta(property._id, {
+      checkIn,
+      checkOut,
+      content
+    });
+
+    setProperty(res.data);
+
+  };
+
+  /* ======================
+     ADD RULE
+  ====================== */
+
+  const submitRule = async () => {
+
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("description", description);
+
+    if (icon) {
+      formData.append("icon", icon);
+    }
+
+    const res = await addHouseRule(property._id, formData);
+
+    setProperty(res.data);
+
+    setTitle("");
+    setDescription("");
+    setIcon(null);
+
+  };
+
+  /* ======================
+     UPDATE RULE
+  ====================== */
+
+  const updateRuleItem = async (rule) => {
+
+    const formData = new FormData();
+
+    formData.append("title", rule.title);
+    formData.append("description", rule.description);
+
+    if (rule.newIcon) {
+      formData.append("icon", rule.newIcon);
+    }
+
+    const res = await updateHouseRule(
+      property._id,
+      rule._id,
+      formData
+    );
+
+    setProperty(res.data);
+
+  };
+
+  /* ======================
+     DELETE RULE
+  ====================== */
+
+  const removeRule = async (ruleId) => {
+
+    const res = await deleteHouseRule(property._id, ruleId);
+
+    setProperty(res.data);
+
+  };
+
+  /* ======================
+     CHANGE RULE FIELD
+  ====================== */
+
+  const changeRule = (index, field, value) => {
+
+    const updated = [...property.houserule.rule];
+
+    updated[index][field] = value;
+
+    setProperty({
+      ...property,
+      houserule: {
+        ...property.houserule,
+        rule: updated
+      }
+    });
+
+  };
+
+  const changeIcon = (index, file) => {
+
+    const updated = [...property.houserule.rule];
+
+    updated[index].newIcon = file;
+
+    setProperty({
+      ...property,
+      houserule: {
+        ...property.houserule,
+        rule: updated
+      }
+    });
+
+  };
+
+  return (
+
+    <div className="space-y-8">
+
+      {/* META */}
+
+      <div className="border p-6 rounded space-y-3">
+
+        <h2 className="font-bold text-lg">
+          House Rules Settings
+        </h2>
+
+        <input
+          className="border p-2 w-full"
+          placeholder="Check In Time"
+          value={checkIn}
+          onChange={(e) => setCheckIn(e.target.value)}
+        />
+
+        <input
+          className="border p-2 w-full"
+          placeholder="Check Out Time"
+          value={checkOut}
+          onChange={(e) => setCheckOut(e.target.value)}
+        />
+
+        <textarea
+          className="border p-2 w-full"
+          placeholder="House Rules Description"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+
+        <button
+          onClick={updateMeta}
+          className="bg-blue-600 text-white px-4 py-2 rounded"
+        >
+          Update Settings
+        </button>
+
+      </div>
+
+      {/* EXISTING RULES */}
+
+      <div className="border p-6 rounded space-y-4">
+
+        <h2 className="font-bold text-lg">
+          Rules
+        </h2>
+
+        {property.houserule?.rule?.map((rule, i) => (
+
+          <div key={rule._id} className="border p-4 rounded space-y-2">
+
+            <input
+              className="border p-2 w-full"
+              value={rule.title}
+              onChange={(e) =>
+                changeRule(i, "title", e.target.value)
+              }
+            />
+
+            <input
+              className="border p-2 w-full"
+              value={rule.description}
+              onChange={(e) =>
+                changeRule(i, "description", e.target.value)
+              }
+            />
+
+            {rule.icon && (
+              <img
+                src={rule.icon}
+                className="w-12 h-12 object-cover"
+              />
+            )}
+
+            <input
+              type="file"
+              onChange={(e) =>
+                changeIcon(i, e.target.files[0])
+              }
+            />
+
+            <div className="flex gap-3">
+
+              <button
+                onClick={() => updateRuleItem(rule)}
+                className="bg-blue-600 text-white px-3 py-1 rounded"
+              >
+                Update
+              </button>
+
+              <button
+                onClick={() => removeRule(rule._id)}
+                className="bg-red-500 text-white px-3 py-1 rounded"
+              >
+                Delete
+              </button>
+
+            </div>
+
+          </div>
+
+        ))}
+
+      </div>
+
+      {/* ADD RULE */}
+
+      <div className="border p-6 rounded space-y-3">
+
+        <h2 className="font-bold">
+          Add Rule
+        </h2>
+
+        <input
+          className="border p-2 w-full"
+          placeholder="Rule Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+
+        <input
+          className="border p-2 w-full"
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+
+        <input
+          type="file"
+          onChange={(e) => setIcon(e.target.files[0])}
+        />
+
+        <button
+          onClick={submitRule}
+          className="bg-green-600 text-white px-4 py-2 rounded"
+        >
+          Add Rule
+        </button>
+
+      </div>
+
+    </div>
+
+  );
+
+}

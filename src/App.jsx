@@ -51,6 +51,7 @@ import ListingsPage from "./pages/Property/PrpertiesLanding/ListingsPage";
 import { FilterProvider } from "./FilterContext";
 import PropertiesList from "./pages/Properties/PropertiesList";
 import CreateProperty from "./pages/Admin/CreateProperty";
+import EditProperty from "./components/properties/EditProperty";
 
 function App() {
   const router = createBrowserRouter(
@@ -142,9 +143,10 @@ function App() {
             </FilterProvider>
           }
         />
-        <Route path="propertiesdetails" element={<PropertyDetailsPage />} />
+        <Route path="propertiesdetails/:id" element={<PropertyDetailsPage />} />
         <Route path="propt" element={<PropertiesList/>}/>
         <Route path="cp" element={<CreateProperty/>}/>
+        <Route path="propt/:id" element={<EditProperty/>}/>
       </>,
     ),
   );

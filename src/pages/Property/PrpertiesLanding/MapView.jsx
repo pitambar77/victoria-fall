@@ -1,6 +1,7 @@
 import Map, { Marker } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function MapView({
   properties,
@@ -79,51 +80,55 @@ export default function MapView({
         </Marker>
       ))}
       {selectedProperty && (
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[420px] bg-white rounded-md shadow-md flex overflow-hidden z-20">
-          {/* Property Image */}
-          <img
-            src={selectedProperty.images?.[0]}
-            alt={selectedProperty.title}
-            className="w-40 h-32 object-cover"
-          />
+        <Link to={`/propertiesdetails/${selectedProperty.id}`}>
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[420px] bg-white rounded-md shadow-md flex overflow-hidden z-20">
+            {/* Property Image */}
+            <img
+              src={selectedProperty.images?.[0]}
+              alt={selectedProperty.title}
+              className="w-40 h-32 object-cover"
+            />
 
-          {/* Content */}
-          <div className="p-3 flex flex-col justify-between flex-1">
-            <div>
-              <p className="hd  text-[#2e2c2d]">{selectedProperty.distance}</p>
+            {/* Content */}
+            <div className="p-3 flex flex-col justify-between flex-1">
+              <div>
+                <p className="hd  text-[#2e2c2d]">
+                  {selectedProperty.distance}
+                </p>
 
-              <h3 className="hd text-[18px] font-semibold text-[#2e2c2d]  tracking-wide capitalize">
-                {selectedProperty.title}
-              </h3>
+                <h3 className="hd text-[18px] font-semibold text-[#2e2c2d]  tracking-wide capitalize">
+                  {selectedProperty.title}
+                </h3>
 
-              <p className="text-[#2e2c2d]  capitalize">
-                Sleeps {selectedProperty.sleeps} ·{selectedProperty.bedrooms}{" "}
-                bedrooms ·{selectedProperty.bathrooms} bathrooms
-              </p>
-            </div>
-
-            <div className="flex justify-between items-end">
-              <div className="text-sm">
-                ⭐ {selectedProperty.rating} ({selectedProperty.reviews})
+                <p className="text-[#2e2c2d]  capitalize">
+                  Sleeps {selectedProperty.sleeps} ·{selectedProperty.bedrooms}{" "}
+                  bedrooms ·{selectedProperty.bathrooms} bathrooms
+                </p>
               </div>
 
-              <div className=" hd text-right">
-                <div className="text-[#2e2c2d] font-semibold">
-                  ${selectedProperty.price}
+              <div className="flex justify-between items-end">
+                <div className="text-sm">
+                  ⭐ {selectedProperty.rating} ({selectedProperty.reviews})
                 </div>
-                <div className="text-xs text-gray-500">avg per night</div>
+
+                <div className=" hd text-right">
+                  <div className="text-[#2e2c2d] font-semibold">
+                    ${selectedProperty.price}
+                  </div>
+                  <div className="text-xs text-gray-500">avg per night</div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Close Button */}
-          <button
-            onClick={() => setSelectedProperty(null)}
-            className="absolute top-2 right-2 text-gray-500 cursor-pointer hover:text-[#2e2c2d]"
-          >
-            ✕
-          </button>
-        </div>
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedProperty(null)}
+              className="absolute top-2 right-2 text-gray-500 cursor-pointer hover:text-[#2e2c2d]"
+            >
+              ✕
+            </button>
+          </div>
+        </Link>
       )}
     </Map>
   );

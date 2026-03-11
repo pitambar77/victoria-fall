@@ -12,8 +12,11 @@ import BathroomsForm from "../../components/properties/BathroomsForm";
 import SpaceForm from "../../components/properties/SpaceForm";
 import HouseRulesForm from "../../components/properties/HouseRulesForm";
 import GalleryForm from "../../components/properties/GalleryForm";
-import FeaturesForm from "../../components/properties/FeaturesForm";
-import LocationForm from "../../components/properties/LocationForm";
+// import FeaturesForm from "../../components/properties/FeaturesForm";
+// import LocationForm from "../../components/properties/LocationForm";
+import IncidentalForm from "../../components/properties/IncidentalForm";
+import InformationForm from "../../components/properties/InformationForm";
+import PropertyBasicForm from "../../components/properties/PropertyBasicForm";
 
 export default function CreateProperty() {
   const [property, setProperty] = useState({
@@ -51,7 +54,7 @@ export default function CreateProperty() {
     },
 
     incidental: {
-      description: "",
+      description: [],
     },
 
     information: {
@@ -78,31 +81,6 @@ export default function CreateProperty() {
     country: "Zimbabwe",
   });
 
-  // const submit = async () => {
-  //   const formData = new FormData();
-
-  //   // remove file objects from JSON
-  //   const cleanProperty = {
-  //     ...property,
-  //     highlights: property.highlights.map((h) => ({
-  //       title: h.title,
-  //       description: h.description,
-  //       icon: "",
-  //     })),
-  //   };
-
-  //   formData.append("property", JSON.stringify(cleanProperty));
-
-  //   // upload icons separately
-  //   property.highlights.forEach((h) => {
-  //     if (h.icon instanceof File) {
-  //       formData.append("highlightIcons", h.icon);
-  //     }
-  //   });
-
-  //   await axios.post("http://localhost:8001/api/property", formData);
-  // };
-
   const submit = async () => {
     const formData = new FormData();
 
@@ -123,7 +101,25 @@ export default function CreateProperty() {
         formData.append("highlightIcons", h.icon);
       }
     });
+    // aminity
+    property.aminities.basic.forEach((a) => {
+      if (a.icon instanceof File) {
+        formData.append("amenityIcons", a.icon);
+      }
+    });
 
+    property.aminities.additional.forEach((a) => {
+      if (a.icon instanceof File) {
+        formData.append("amenityIcons", a.icon);
+      }
+    });
+
+    //area explore
+    property.area.relatedactivity.forEach((a) => {
+      if (a.icon instanceof File) {
+        formData.append("activityIcons", a.icon);
+      }
+    });
     // gallery images
     property.gallery.forEach((g) => {
       if (g.image instanceof File) {
@@ -135,6 +131,34 @@ export default function CreateProperty() {
     property.rooms.forEach((r) => {
       if (r.icon instanceof File) {
         formData.append("roomIcons", r.icon);
+      }
+    });
+
+    // bathroom
+    property.bathrooms.forEach((bath) => {
+      bath.bathdetails.forEach((detail) => {
+        if (detail.icon instanceof File) {
+          formData.append("bathroomIcons", detail.icon);
+        }
+      });
+    });
+    // space
+    property.space.forEach((s) => {
+      if (s.icon instanceof File) {
+        formData.append("spaceIcons", s.icon);
+      }
+    });
+    // house rule
+    property.houserule.rule.forEach((r) => {
+      if (r.icon instanceof File) {
+        formData.append("ruleIcons", r.icon);
+      }
+    });
+
+    // gallery
+    property.gallery.forEach((g) => {
+      if (g.image instanceof File) {
+        formData.append("galleryImages", g.image);
       }
     });
 
@@ -151,9 +175,12 @@ export default function CreateProperty() {
       <BathroomsForm property={property} setProperty={setProperty} />
       <SpaceForm property={property} setProperty={setProperty} />
       <HouseRulesForm property={property} setProperty={setProperty} />
+      <IncidentalForm property={property} setProperty={setProperty} />
+      <InformationForm property={property} setProperty={setProperty} />
       <GalleryForm property={property} setProperty={setProperty} />
-      <FeaturesForm property={property} setProperty={setProperty} />
-      <LocationForm property={property} setProperty={setProperty} />
+      {/* <FeaturesForm property={property} setProperty={setProperty} />
+      <LocationForm property={property} setProperty={setProperty} /> */}
+      <PropertyBasicForm property={property} setProperty={setProperty} />
 
       <button
         onClick={submit}

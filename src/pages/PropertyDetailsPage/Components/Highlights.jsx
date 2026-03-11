@@ -1,19 +1,25 @@
 import { MapPin, Gem } from "lucide-react";
 
-export default function Highlights() {
-  const highlights = [
-    {
-      icon: <Gem size={28} />,
-      title: "Outdoor pool",
-      description:
-        "The outdoor pool is a refreshing retreat under the open sky – a rare gem in this area.",
-    },
-    {
-      icon: <MapPin size={28} />,
-      title: "Discover nearby landmarks",
-      description: "Walk to Zambezi National Park",
-    },
-  ];
+export default function Highlights({ property }) {
+
+  const highlights = property?.highlights || [];
+
+  if (!highlights.length) return null;
+
+
+  // const highlights = [
+  //   {
+  //     icon: <Gem size={28} />,
+  //     title: "Outdoor pool",
+  //     description:
+  //       "The outdoor pool is a refreshing retreat under the open sky – a rare gem in this area.",
+  //   },
+  //   {
+  //     icon: <MapPin size={28} />,
+  //     title: "Discover nearby landmarks",
+  //     description: "Walk to Zambezi National Park",
+  //   },
+  // ];
 
   return (
     <div className="hd space-y-6">
@@ -25,7 +31,12 @@ export default function Highlights() {
             
             {/* Icon Circle */}
             <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#f9f4e8] text-[#b08a4e] shrink-0">
-              {item.icon}
+              {/* {item.icon} */}
+               <img
+                src={item.icon}
+                alt={item.title}
+                className="w-8 h-8 object-contain"
+              />
             </div>
 
             {/* Text */}

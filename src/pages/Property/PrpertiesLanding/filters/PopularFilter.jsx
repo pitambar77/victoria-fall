@@ -1,11 +1,11 @@
 import { useFilters } from "../../../../FilterContext";
 
 const options = [
-  "House",
-  "Pool",
-  "Hot tub",
-  "Parking",
-  "King bed"
+  "Villa / Entire House",
+  "Town house",
+  "Apartment",
+  "Cottage",
+  "Lodge / Boutique B&B"
 ];
 
 export default function PopularFilter() {

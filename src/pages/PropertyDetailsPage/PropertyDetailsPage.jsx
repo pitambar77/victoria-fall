@@ -23,7 +23,30 @@ import { Link } from "react-router-dom";
 import { GoArrowLeft } from "react-icons/go";
 import Footer from "../../components/Footer";
 
+
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getProperty } from "../../api/propertiesApi";
+
 export default function PropertyDetailsPage() {
+
+  const { id } = useParams();
+
+  const [property, setProperty] = useState(null);
+
+  useEffect(() => {
+
+    const loadProperty = async () => {
+      const res = await getProperty(id);
+      setProperty(res.data);
+    };
+
+    loadProperty();
+
+  }, [id]);
+
+  if (!property) return <div>Loading...</div>;
+
   return (
     <div>
       <Header />
@@ -41,7 +64,7 @@ export default function PropertyDetailsPage() {
       </div>
       {/* Gallery */}
       <div className="max-w-[1200px] mx-auto px-4 ">
-        <Gallery />
+        <Gallery property={property} />
       </div>
 
       {/* Sticky Tabs */}
@@ -52,25 +75,25 @@ export default function PropertyDetailsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10">
           <div className="space-y-10">
             <section id="overview">
-              <PropertyHeader />
+              <PropertyHeader property={property} />
             </section>
 
-            <Highlights />
-            <PropertyStats />
+            <Highlights property={property} />
+            <PropertyStats property={property} />
 
             <section id="amenities">
-              <Amenities />
+              <Amenities property={property} />
             </section>
 
             <section id="location">
-              <MapSection />
+              <MapSection property={property} />
             </section>
 
-            <RoomsBeds />
-            <SpacesSection />
+            <RoomsBeds property={property} />
+            <SpacesSection property={property} />
 
             <section id="policies">
-              <HouseRules />
+              <HouseRules property={property} />
             </section>
           </div>
 
