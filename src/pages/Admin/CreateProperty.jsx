@@ -162,7 +162,7 @@ export default function CreateProperty() {
       }
     });
 
-    await axios.post("https://victoria-fall-backend.manoramaseoservice.com/api/property", formData);
+    await axios.post("http://victoria-fall-backend.manoramaseoservice.com/api/property", formData);
   };
 
   return (
