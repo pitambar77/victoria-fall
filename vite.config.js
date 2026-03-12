@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(),tailwindcss()],
   server: {
     host: true, // important for domain / subdomain access
-    port: 5175, // choose fixed port
+    port: 5176, // choose fixed port
     strictPort: true, // prevent auto port change
     allowedHosts: [
       'bedandbreakfast.manoramaseoservice.com'
