@@ -71,7 +71,7 @@ const PropertyCard = ({ property }) => {
           <div className="flex-1 flex flex-col justify-between p-4">
             <div>
               <p className="hd  text-[#2e2c2d]">
-                {property.distance} to center
+                {property.distance} 
               </p>
 
               <h2 className="hd text-[18px] font-semibold text-[#2e2c2d]  tracking-wide capitalize">
@@ -97,7 +97,7 @@ const PropertyCard = ({ property }) => {
 
               <div className=" hd text-right">
                 <p className="text-[#2e2c2d] font-semibold">
-                  ${property.price}
+                  {property.price}
                 </p>
                 <p className="text-[#2e2c2d] ">avg per night</p>
               </div>

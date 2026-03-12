@@ -67,6 +67,7 @@ export default function CreateProperty() {
     rating: 0,
     reviews: 0,
     sleeps: "",
+    guest:"",
     distance: "",
 
     features: [],
@@ -82,87 +83,101 @@ export default function CreateProperty() {
   });
 
   const submit = async () => {
-    const formData = new FormData();
+    try {
+      const formData = new FormData();
 
-    const cleanProperty = {
-      ...property,
-      highlights: property.highlights.map((h) => ({
-        title: h.title,
-        description: h.description,
-        icon: "",
-      })),
-    };
+      const cleanProperty = {
+        ...property,
+        highlights: property.highlights.map((h) => ({
+          title: h.title,
+          description: h.description,
+          icon: "",
+        })),
+      };
 
-    formData.append("property", JSON.stringify(cleanProperty));
+      formData.append("property", JSON.stringify(cleanProperty));
 
-    // highlight icons
-    property.highlights.forEach((h) => {
-      if (h.icon instanceof File) {
-        formData.append("highlightIcons", h.icon);
-      }
-    });
-    // aminity
-    property.aminities.basic.forEach((a) => {
-      if (a.icon instanceof File) {
-        formData.append("amenityIcons", a.icon);
-      }
-    });
-
-    property.aminities.additional.forEach((a) => {
-      if (a.icon instanceof File) {
-        formData.append("amenityIcons", a.icon);
-      }
-    });
-
-    //area explore
-    property.area.relatedactivity.forEach((a) => {
-      if (a.icon instanceof File) {
-        formData.append("activityIcons", a.icon);
-      }
-    });
-    // gallery images
-    property.gallery.forEach((g) => {
-      if (g.image instanceof File) {
-        formData.append("galleryImages", g.image);
-      }
-    });
-
-    // room icons
-    property.rooms.forEach((r) => {
-      if (r.icon instanceof File) {
-        formData.append("roomIcons", r.icon);
-      }
-    });
-
-    // bathroom
-    property.bathrooms.forEach((bath) => {
-      bath.bathdetails.forEach((detail) => {
-        if (detail.icon instanceof File) {
-          formData.append("bathroomIcons", detail.icon);
+      // highlight icons
+      property.highlights.forEach((h) => {
+        if (h.icon instanceof File) {
+          formData.append("highlightIcons", h.icon);
         }
       });
-    });
-    // space
-    property.space.forEach((s) => {
-      if (s.icon instanceof File) {
-        formData.append("spaceIcons", s.icon);
-      }
-    });
-    // house rule
-    property.houserule.rule.forEach((r) => {
-      if (r.icon instanceof File) {
-        formData.append("ruleIcons", r.icon);
-      }
-    });
+      // aminity
+      property.aminities.basic.forEach((a) => {
+        if (a.icon instanceof File) {
+          formData.append("amenityIcons", a.icon);
+        }
+      });
 
-    // gallery
-    property.gallery.forEach((g) => {
-      if (g.image instanceof File) {
-        formData.append("galleryImages", g.image);
-      }
-    });
+      property.aminities.additional.forEach((a) => {
+        if (a.icon instanceof File) {
+          formData.append("amenityIcons", a.icon);
+        }
+      });
 
-    await axios.post("http://victoria-fall-backend.manoramaseoservice.com/api/property", formData);
+      //area explore
+      property.area.relatedactivity.forEach((a) => {
+        if (a.icon instanceof File) {
+          formData.append("activityIcons", a.icon);
+        }
+      });
+      // gallery images
+      property.gallery.forEach((g) => {
+        if (g.image instanceof File) {
+          formData.append("galleryImages", g.image);
+        }
+      });
+
+      // room icons
+      property.rooms.forEach((r) => {
+        if (r.icon instanceof File) {
+          formData.append("roomIcons", r.icon);
+        }
+      });
+
+      // bathroom
+      property.bathrooms.forEach((bath) => {
+        bath.bathdetails.forEach((detail) => {
+          if (detail.icon instanceof File) {
+            formData.append("bathroomIcons", detail.icon);
+          }
+        });
+      });
+      // space
+      property.space.forEach((s) => {
+        if (s.icon instanceof File) {
+          formData.append("spaceIcons", s.icon);
+        }
+      });
+      // house rule
+      property.houserule.rule.forEach((r) => {
+        if (r.icon instanceof File) {
+          formData.append("ruleIcons", r.icon);
+        }
+      });
+
+      // gallery
+      property.gallery.forEach((g) => {
+        if (g.image instanceof File) {
+          formData.append("galleryImages", g.image);
+        }
+      });
+
+      await axios.post(
+        "http://victoria-fall-backend.manoramaseoservice.com/api/property",
+        formData,
+      );
+      //  await axios.post(
+      //   "http://localhost:8001/api/property",
+      //   formData,
+      // );
+
+      alert("✅ Property created successfully!");
+    } catch (error) {
+      console.error(error);
+      alert("❌ Failed to create property. Please try again.");
+    }
   };
 
   return (
@@ -184,7 +199,7 @@ export default function CreateProperty() {
 
       <button
         onClick={submit}
-        className="bg-blue-600 text-white px-6 py-3 rounded"
+        className="bg-blue-600 text-white px-6 py-3 cursor-pointer rounded"
       >
         Create Property
       </button>

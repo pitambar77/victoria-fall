@@ -77,10 +77,12 @@ export default function PropertyBasicForm({ property, setProperty }) {
         onChange={(e) => handleChange("category", e.target.value)}
       >
         <option value="">Select Category</option>
-        <option value="Villa">Villa</option>
+        <option value="Villa">Villa / Entire House</option>
         <option value="Apartment">Apartment</option>
-        <option value="Lodge">Lodge</option>
-        <option value="Hotel">Hotel</option>
+        <option value="Lodge">Lodge / Boutique B&B</option>
+        <option value="Cottage">Cottage</option>
+        <option value="Townhouse">Town house</option>
+
       </select>
 
       {/* RATING */}
@@ -105,6 +107,14 @@ export default function PropertyBasicForm({ property, setProperty }) {
         placeholder="Sleeps"
         value={property.sleeps}
         onChange={(e) => handleChange("sleeps", e.target.value)}
+      />
+
+      {/* Guest */}
+      <input
+        className="border p-2 w-full"
+        placeholder="Guest"
+        value={property.guest}
+        onChange={(e) => handleChange("guest", e.target.value)}
       />
 
       {/* DISTANCE */}
