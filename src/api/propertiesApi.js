@@ -8,8 +8,9 @@ const API = "http://victoria-fall-backend.manoramaseoservice.com/api/property";
 ========================= */
 
 export const getProperties = () => axios.get(API);
+export const getProperty = (slug) => axios.get(`${API}/slug/${slug}`);
 
-export const getProperty = (id) => axios.get(`${API}/${id}`);
+// export const getProperty = (id) => axios.get(`${API}/${id}`);
 
 export const createProperty = (data) => axios.post(API, data);
 

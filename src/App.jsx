@@ -144,7 +144,7 @@ function App() {
             </FilterProvider>
           }
         />
-        <Route path="propertiesdetails/:id" element={<PropertyDetailsPage />} />
+        <Route path="propertiesdetails/:slug" element={<PropertyDetailsPage />} />
         {/* <Route path="propt" element={<PropertiesList/>}/> */}
         {/* <Route path="cp" element={<CreateProperty/>}/> */}
         {/* <Route path="propt/:id" element={<EditProperty/>}/> */}

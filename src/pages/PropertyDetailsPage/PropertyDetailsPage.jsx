@@ -30,20 +30,20 @@ import { getProperty } from "../../api/propertiesApi";
 
 export default function PropertyDetailsPage() {
 
-  const { id } = useParams();
+  const {slug } = useParams();
 
   const [property, setProperty] = useState(null);
 
   useEffect(() => {
 
     const loadProperty = async () => {
-      const res = await getProperty(id);
+      const res = await getProperty(slug);
       setProperty(res.data);
     };
 
     loadProperty();
 
-  }, [id]);
+  }, [slug]);
 
   if (!property) return <div>Loading...</div>;
 

@@ -224,6 +224,7 @@ import GalleryForm from "../../components/properties/GalleryForm";
 import IncidentalForm from "../../components/properties/IncidentalForm";
 import InformationForm from "../../components/properties/InformationForm";
 import PropertyBasicForm from "../../components/properties/PropertyBasicForm";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateProperty() {
   const [step, setStep] = useState(1);
@@ -292,6 +293,8 @@ export default function CreateProperty() {
   });
 
   const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate();
 
   /* =============================
      STEP NAVIGATION
@@ -442,6 +445,7 @@ export default function CreateProperty() {
       // await axios.post("http://localhost:8001/api/property", formData);
 
       alert("✅ Property created successfully!");
+      navigate("/dashbord/propt");
     } catch (error) {
       console.error(error);
       alert("❌ Failed to create property. Please try again.");

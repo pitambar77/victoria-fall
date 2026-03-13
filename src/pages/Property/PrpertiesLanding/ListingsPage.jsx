@@ -204,6 +204,7 @@ const ListingsPage = () => {
 
         const formatted = res.data.map((p) => ({
           id: p._id,
+          slug: p.slug,   // ✅ ADD THIS
           title: p.overview?.title,
           price: p.price,
           rating: p.rating,
