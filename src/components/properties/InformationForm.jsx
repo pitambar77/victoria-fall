@@ -1,122 +1,258 @@
+// import React from "react";
+
+// const InformationForm = ({ property, setProperty }) => {
+
+//   const addBlock = () => {
+
+//     setProperty({
+//       ...property,
+//       information: {
+//         ...property.information,
+//         info: [
+//           ...property.information.info,
+//           {
+//             type: "paragraph",
+//             content: ""
+//           }
+//         ]
+//       }
+//     });
+
+//   };
+
+//   const changeBlock = (index, field, value) => {
+
+//     const updated = [...property.information.info];
+
+//     updated[index][field] = value;
+
+//     setProperty({
+//       ...property,
+//       information: {
+//         ...property.information,
+//         info: updated
+//       }
+//     });
+
+//   };
+
+//   const removeBlock = (index) => {
+
+//     const updated = property.information.info.filter((_, i) => i !== index);
+
+//     setProperty({
+//       ...property,
+//       information: {
+//         ...property.information,
+//         info: updated
+//       }
+//     });
+
+//   };
+
+//   return (
+//     <div className="border p-6 space-y-4">
+
+//       <h2 className="text-lg font-semibold">
+//         Information
+//       </h2>
+
+//       {property.information.info.map((block, i) => (
+
+//         <div key={i} className="border p-4 space-y-2">
+
+//           <select
+//             value={block.type}
+//             onChange={(e) =>
+//               changeBlock(i, "type", e.target.value)
+//             }
+//           >
+//             <option value="header">Header</option>
+//             <option value="paragraph">Paragraph</option>
+//             <option value="list">List</option>
+//           </select>
+
+//           {block.type === "list" ? (
+
+//             <textarea
+//               className="border p-2 w-full"
+//               placeholder="Enter list items separated by comma"
+//               value={block.content}
+//               onChange={(e) =>
+//                 changeBlock(i, "content", e.target.value.split(","))
+//               }
+//             />
+
+//           ) : (
+
+//             <textarea
+//               className="border p-2 w-full"
+//               placeholder="Content"
+//               value={block.content}
+//               onChange={(e) =>
+//                 changeBlock(i, "content", e.target.value)
+//               }
+//             />
+
+//           )}
+
+//           <button
+//             onClick={() => removeBlock(i)}
+//             className="text-red-500"
+//           >
+//             Remove
+//           </button>
+
+//         </div>
+
+//       ))}
+
+//       <button
+//         onClick={addBlock}
+//         className="bg-gray-200 px-3 py-1 rounded"
+//       >
+//         Add Block
+//       </button>
+
+//     </div>
+//   );
+// };
+
+// export default InformationForm;
+
 import React from "react";
 
 const InformationForm = ({ property, setProperty }) => {
+  /* Ensure one block exists */
+  const blocks =
+    property.information.info?.length > 0
+      ? property.information.info
+      : [{ type: "paragraph", content: "" }];
+
+  /* ======================
+     ADD BLOCK
+  ====================== */
 
   const addBlock = () => {
-
     setProperty({
       ...property,
       information: {
         ...property.information,
         info: [
-          ...property.information.info,
+          ...blocks,
           {
             type: "paragraph",
-            content: ""
-          }
-        ]
-      }
+            content: "",
+          },
+        ],
+      },
     });
-
   };
 
+  /* ======================
+     CHANGE BLOCK
+  ====================== */
 
   const changeBlock = (index, field, value) => {
-
-    const updated = [...property.information.info];
-
+    const updated = [...blocks];
     updated[index][field] = value;
 
     setProperty({
       ...property,
       information: {
         ...property.information,
-        info: updated
-      }
+        info: updated,
+      },
     });
-
   };
 
+  /* ======================
+     REMOVE BLOCK
+  ====================== */
 
   const removeBlock = (index) => {
-
-    const updated = property.information.info.filter((_, i) => i !== index);
+    const updated = blocks.filter((_, i) => i !== index);
 
     setProperty({
       ...property,
       information: {
         ...property.information,
-        info: updated
-      }
+        info: updated,
+      },
     });
-
   };
 
-
   return (
-    <div className="border p-6 space-y-4">
+    <div className="p-6 space-y-6">
+      <h2 className="text-xl font-semibold">Information</h2>
 
-      <h2 className="text-lg font-semibold">
-        Information
-      </h2>
-
-      {property.information.info.map((block, i) => (
-
-        <div key={i} className="border p-4 space-y-2">
+      {blocks.map((block, i) => (
+        <div
+          key={i}
+          className="border border-gray-200 p-4 rounded-lg space-y-4"
+        >
+          {/* BLOCK TYPE */}
 
           <select
+            className="w-full border border-gray-300 rounded-md p-3 outline-none
+            focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
             value={block.type}
-            onChange={(e) =>
-              changeBlock(i, "type", e.target.value)
-            }
+            onChange={(e) => changeBlock(i, "type", e.target.value)}
           >
             <option value="header">Header</option>
             <option value="paragraph">Paragraph</option>
             <option value="list">List</option>
           </select>
 
-          {block.type === "list" ? (
+          {/* CONTENT */}
 
+          {block.type === "list" ? (
             <textarea
-              className="border p-2 w-full"
+              className="w-full border border-gray-300 rounded-md p-3 outline-none
+              focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
               placeholder="Enter list items separated by comma"
-              value={block.content}
+              value={
+                Array.isArray(block.content)
+                  ? block.content.join(", ")
+                  : block.content
+              }
               onChange={(e) =>
                 changeBlock(i, "content", e.target.value.split(","))
               }
             />
-
           ) : (
-
             <textarea
-              className="border p-2 w-full"
+              className="w-full border border-gray-300 rounded-md p-3 outline-none
+              focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
               placeholder="Content"
               value={block.content}
-              onChange={(e) =>
-                changeBlock(i, "content", e.target.value)
-              }
+              onChange={(e) => changeBlock(i, "content", e.target.value)}
             />
-
           )}
 
-          <button
-            onClick={() => removeBlock(i)}
-            className="text-red-500"
-          >
-            Remove
-          </button>
+          {/* REMOVE BUTTON */}
 
+          {blocks.length > 1 && (
+            <div className="flex justify-end">
+              <button
+                onClick={() => removeBlock(i)}
+                className="text-red-500 text-sm hover:text-red-700"
+              >
+                Remove Block
+              </button>
+            </div>
+          )}
         </div>
-
       ))}
+
+      {/* ADD BLOCK */}
 
       <button
         onClick={addBlock}
-        className="bg-gray-200 px-3 py-1 rounded"
+        className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded"
       >
-        Add Block
+        + Add Block
       </button>
-
     </div>
   );
 };

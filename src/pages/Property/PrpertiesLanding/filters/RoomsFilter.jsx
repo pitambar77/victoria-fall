@@ -14,8 +14,9 @@ export default function RoomsFilter() {
   setFilters({
     ...filters,
     bedrooms: 0,
-    beds: 0,
-    bathrooms: 0
+    // beds: 0,
+    bathrooms: 0,
+    guest:0,
   });
 };
 
@@ -31,7 +32,7 @@ export default function RoomsFilter() {
         </button>
       </div>
 
-      {["bedrooms", "beds", "bathrooms"].map((item) => (
+      {["bedrooms", "bathrooms","guest"].map((item) => (
         <div key={item} className="flex justify-between items-center mb-4">
           <p>Minimum {item}</p>
 

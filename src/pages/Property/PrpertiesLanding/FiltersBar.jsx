@@ -8,6 +8,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 export default function FiltersBar({properties}) {
   const [activePanel, setActivePanel] = useState(null);
   const { filters } = useFilters();
+  const {appliedCount} = useFilters();
 
   const count = filters.bedrooms + filters.bathrooms;
 
@@ -28,7 +29,8 @@ export default function FiltersBar({properties}) {
             activePanel === "filters" ? activeBtn : ""
           }`}
         >
-          Filters {count > 0 && `(${count})`}
+          {/* Filters {count > 0 && `(${count})`} */}
+          Filters {appliedCount > 0 && `(${appliedCount})`}
           <RiArrowDropDownLine size={22} />
         </button>
 

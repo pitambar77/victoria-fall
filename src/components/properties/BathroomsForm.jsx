@@ -1,6 +1,184 @@
+// import React from "react";
+
+// const BathroomsForm = ({ property, setProperty }) => {
+//   /* ======================
+//      ADD BATHROOM
+//   ====================== */
+
+//   const addBathroom = () => {
+//     setProperty({
+//       ...property,
+//       bathrooms: [
+//         ...property.bathrooms,
+//         {
+//           bathName: "",
+//           bathdetails: [],
+//         },
+//       ],
+//     });
+//   };
+
+//   /* ======================
+//      CHANGE BATH NAME
+//   ====================== */
+
+//   const changeBathName = (index, value) => {
+//     const updated = [...property.bathrooms];
+
+//     updated[index].bathName = value;
+
+//     setProperty({
+//       ...property,
+//       bathrooms: updated,
+//     });
+//   };
+
+//   /* ======================
+//      REMOVE BATHROOM
+//   ====================== */
+
+//   const removeBathroom = (index) => {
+//     const updated = property.bathrooms.filter((_, i) => i !== index);
+
+//     setProperty({
+//       ...property,
+//       bathrooms: updated,
+//     });
+//   };
+
+//   /* ======================
+//      ADD BATH DETAIL
+//   ====================== */
+
+//   const addDetail = (bathIndex) => {
+//     const updated = [...property.bathrooms];
+
+//     updated[bathIndex].bathdetails.push({
+//       name: "",
+//       icon: "",
+//     });
+
+//     setProperty({
+//       ...property,
+//       bathrooms: updated,
+//     });
+//   };
+
+//   /* ======================
+//      CHANGE DETAIL
+//   ====================== */
+
+//   const changeDetail = (bathIndex, detailIndex, field, value) => {
+//     const updated = [...property.bathrooms];
+
+//     updated[bathIndex].bathdetails[detailIndex][field] = value;
+
+//     setProperty({
+//       ...property,
+//       bathrooms: updated,
+//     });
+//   };
+
+//   /* ======================
+//      REMOVE DETAIL
+//   ====================== */
+
+//   const removeDetail = (bathIndex, detailIndex) => {
+//     const updated = [...property.bathrooms];
+
+//     updated[bathIndex].bathdetails = updated[bathIndex].bathdetails.filter(
+//       (_, i) => i !== detailIndex,
+//     );
+
+//     setProperty({
+//       ...property,
+//       bathrooms: updated,
+//     });
+//   };
+
+//   return (
+//     <div className="border p-6 space-y-6">
+//       <h2 className="text-lg font-semibold">Bathrooms</h2>
+
+//       {property.bathrooms.map((bathroom, i) => (
+//         <div key={i} className="border p-4 rounded space-y-4">
+//           {/* Bathroom Name */}
+
+//           <input
+//             className="border p-2 w-full"
+//             placeholder="Bathroom Name"
+//             value={bathroom.bathName}
+//             onChange={(e) => changeBathName(i, e.target.value)}
+//           />
+
+//           {/* Bathroom Details */}
+
+//           <div className="space-y-3">
+//             {bathroom.bathdetails.map((detail, j) => (
+//               <div key={j} className="flex gap-3 items-center">
+//                 <input
+//                   className="border p-2 flex-1"
+//                   placeholder="Detail Name (Shower / Bathtub / Sink)"
+//                   value={detail.name}
+//                   onChange={(e) => changeDetail(i, j, "name", e.target.value)}
+//                 />
+
+//                 <input
+//                   type="file"
+//                   onChange={(e) =>
+//                     changeDetail(i, j, "icon", e.target.files[0])
+//                   }
+//                 />
+
+//                 <button
+//                   onClick={() => removeDetail(i, j)}
+//                   className="text-red-500 text-sm"
+//                 >
+//                   Remove
+//                 </button>
+//               </div>
+//             ))}
+
+//             <button
+//               onClick={() => addDetail(i)}
+//               className="bg-gray-200 px-3 py-1 rounded"
+//             >
+//               Add Detail
+//             </button>
+//           </div>
+
+//           <button
+//             onClick={() => removeBathroom(i)}
+//             className="text-red-600 text-sm"
+//           >
+//             Remove Bathroom
+//           </button>
+//         </div>
+//       ))}
+
+//       <button onClick={addBathroom} className="bg-gray-300 px-3 py-1 rounded">
+//         Add Bathroom
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default BathroomsForm;
+
 import React from "react";
 
-const BathroomsForm = ({ property, setProperty }) => {
+const BathroomsForm = ({ property, setProperty, errors }) => {
+  /* Ensure one bathroom exists */
+  const bathrooms =
+    property.bathrooms?.length > 0
+      ? property.bathrooms
+      : [
+          {
+            bathName: "",
+            bathdetails: [{ name: "", icon: "" }],
+          },
+        ];
+
   /* ======================
      ADD BATHROOM
   ====================== */
@@ -9,10 +187,10 @@ const BathroomsForm = ({ property, setProperty }) => {
     setProperty({
       ...property,
       bathrooms: [
-        ...property.bathrooms,
+        ...bathrooms,
         {
           bathName: "",
-          bathdetails: [],
+          bathdetails: [{ name: "", icon: "" }],
         },
       ],
     });
@@ -23,8 +201,7 @@ const BathroomsForm = ({ property, setProperty }) => {
   ====================== */
 
   const changeBathName = (index, value) => {
-    const updated = [...property.bathrooms];
-
+    const updated = [...bathrooms];
     updated[index].bathName = value;
 
     setProperty({
@@ -38,7 +215,7 @@ const BathroomsForm = ({ property, setProperty }) => {
   ====================== */
 
   const removeBathroom = (index) => {
-    const updated = property.bathrooms.filter((_, i) => i !== index);
+    const updated = bathrooms.filter((_, i) => i !== index);
 
     setProperty({
       ...property,
@@ -51,7 +228,7 @@ const BathroomsForm = ({ property, setProperty }) => {
   ====================== */
 
   const addDetail = (bathIndex) => {
-    const updated = [...property.bathrooms];
+    const updated = [...bathrooms];
 
     updated[bathIndex].bathdetails.push({
       name: "",
@@ -69,7 +246,7 @@ const BathroomsForm = ({ property, setProperty }) => {
   ====================== */
 
   const changeDetail = (bathIndex, detailIndex, field, value) => {
-    const updated = [...property.bathrooms];
+    const updated = [...bathrooms];
 
     updated[bathIndex].bathdetails[detailIndex][field] = value;
 
@@ -84,7 +261,7 @@ const BathroomsForm = ({ property, setProperty }) => {
   ====================== */
 
   const removeDetail = (bathIndex, detailIndex) => {
-    const updated = [...property.bathrooms];
+    const updated = [...bathrooms];
 
     updated[bathIndex].bathdetails = updated[bathIndex].bathdetails.filter(
       (_, i) => i !== detailIndex,
@@ -97,67 +274,117 @@ const BathroomsForm = ({ property, setProperty }) => {
   };
 
   return (
-    <div className="border p-6 space-y-6">
-      <h2 className="text-lg font-semibold">Bathrooms</h2>
+    <div className="p-6 space-y-8">
+      <h2 className="text-xl font-semibold">Bathrooms</h2>
 
-      {property.bathrooms.map((bathroom, i) => (
-        <div key={i} className="border p-4 rounded space-y-4">
+      {bathrooms.map((bathroom, i) => (
+        <div
+          key={i}
+          className="border border-gray-200 p-4 rounded-lg space-y-6"
+        >
           {/* Bathroom Name */}
-
           <input
-            className="border p-2 w-full"
-            placeholder="Bathroom Name"
+            className={`w-full border rounded-md p-3 outline-none transition
+  ${
+    errors?.title
+      ? "border-red-500 focus:ring-red-200"
+      : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
+  }`}
+            placeholder="Bathroom Name*"
             value={bathroom.bathName}
             onChange={(e) => changeBathName(i, e.target.value)}
           />
-
+          {errors?.title && (
+            <p className="text-red-500 text-sm">{errors.title}</p>
+          )}
           {/* Bathroom Details */}
-
-          <div className="space-y-3">
+          <div className="space-y-6">
             {bathroom.bathdetails.map((detail, j) => (
-              <div key={j} className="flex gap-3 items-center">
+              <div
+                key={j}
+                className="border border-gray-200 p-4 rounded-lg space-y-4"
+              >
                 <input
-                  className="border p-2 flex-1"
+                  className="w-full border border-gray-300 rounded-md p-3 outline-none
+                  focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
                   placeholder="Detail Name (Shower / Bathtub / Sink)"
                   value={detail.name}
                   onChange={(e) => changeDetail(i, j, "name", e.target.value)}
                 />
 
-                <input
-                  type="file"
-                  onChange={(e) =>
-                    changeDetail(i, j, "icon", e.target.files[0])
-                  }
-                />
+                {/* ICON UPLOAD */}
 
-                <button
-                  onClick={() => removeDetail(i, j)}
-                  className="text-red-500 text-sm"
-                >
-                  Remove
-                </button>
+                <div className="w-[220px]">
+                  <label className="text-gray-700 mb-2 block">
+                    Upload Detail Icon
+                  </label>
+
+                  <label className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition overflow-hidden">
+                    {detail.icon ? (
+                      <img
+                        src={URL.createObjectURL(detail.icon)}
+                        alt="preview"
+                        className="w-16 h-16 object-contain"
+                      />
+                    ) : (
+                      <span className="text-sm text-gray-500">
+                        Click to upload
+                      </span>
+                    )}
+
+                    <input
+                      type="file"
+                      hidden
+                      onChange={(e) =>
+                        changeDetail(i, j, "icon", e.target.files[0])
+                      }
+                    />
+                  </label>
+                </div>
+
+                {/* Remove Detail */}
+                {bathroom.bathdetails.length > 1 && (
+                  <div className="flex justify-end">
+                    <button
+                      onClick={() => removeDetail(i, j)}
+                      className="text-red-500 text-sm hover:text-red-700"
+                    >
+                      Remove Detail
+                    </button>
+                  </div>
+                )}
               </div>
             ))}
 
+            {/* Add Detail Button */}
             <button
               onClick={() => addDetail(i)}
-              className="bg-gray-200 px-3 py-1 rounded"
+              className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded"
             >
-              Add Detail
+              + Add Detail
             </button>
           </div>
 
-          <button
-            onClick={() => removeBathroom(i)}
-            className="text-red-600 text-sm"
-          >
-            Remove Bathroom
-          </button>
+          {/* Remove Bathroom */}
+          {bathrooms.length > 1 && (
+            <div className="flex justify-end">
+              <button
+                onClick={() => removeBathroom(i)}
+                className="text-red-600 text-sm hover:text-red-700"
+              >
+                Remove Bathroom
+              </button>
+            </div>
+          )}
         </div>
       ))}
 
-      <button onClick={addBathroom} className="bg-gray-300 px-3 py-1 rounded">
-        Add Bathroom
+      {/* Add Bathroom */}
+      <button
+        onClick={addBathroom}
+        className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded"
+      >
+        + Add Bathroom
       </button>
     </div>
   );

@@ -79,7 +79,7 @@ const PropertyCard = ({ property }) => {
               </h2>
 
               <p className="text-[#2e2c2d]  capitalize">
-                House · Sleeps {property.sleeps} · {property.bedrooms} bedrooms
+                {property.category} · {property.bedrooms} bedrooms
                 · {property.bathrooms} bathrooms
               </p>
             </div>
@@ -97,7 +97,7 @@ const PropertyCard = ({ property }) => {
 
               <div className=" hd text-right">
                 <p className="text-[#2e2c2d] font-semibold">
-                  {property.price}
+                  $ {property.price}
                 </p>
                 <p className="text-[#2e2c2d] ">avg per night</p>
               </div>

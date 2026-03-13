@@ -34,7 +34,7 @@ export default function EditProperty() {
   if (!property) return <div className="p-10">Loading property...</div>;
 
   return (
-    <div className="p-8 space-y-6">
+    <div className="p-4 space-y-6 bg-[#f8f7f4]">
       {/* HEADER */}
 
       <div className="flex justify-between items-center">
@@ -44,90 +44,90 @@ export default function EditProperty() {
           <p className="text-gray-500">{property.overview?.title}</p>
         </div>
 
-        <Link to="/propt" className="text-sm text-blue-600">
+        <Link to="/dashbord/propt" className="text-sm text-blue-600">
           ← Back to Properties
         </Link>
       </div>
 
       {/* TABS */}
 
-      <div className="flex gap-6 border-b">
+      <div className="flex gap-6 bg-white rounded-md p-4 ">
         <button
           onClick={() => setTab("overview")}
-          className={`pb-2 ${tab === "overview" ? "border-b-2 border-black font-semibold" : ""}`}
+          className={`pb-2 cursor-pointer ${tab === "overview" ? "border-b-2 cursor-pointer border-[#ab8c52] font-semibold" : ""}`}
         >
           Overview
         </button>
         <button
           onClick={() => setTab("highlights")}
-          className={`pb-2 ${tab === "highlights" ? "border-b-2 border-black font-semibold" : ""}`}
+          className={`pb-2 cursor-pointer ${tab === "highlights" ? "border-b-2 cursor-pointer border-[#ab8c52] font-semibold" : ""}`}
         >
           Highlights
         </button>
 
         <button
           onClick={() => setTab("amenities")}
-          className={`pb-2 ${tab === "amenities" ? "border-b-2 border-black font-semibold" : ""}`}
+          className={`pb-2 cursor-pointer ${tab === "amenities" ? "border-b-2 border-[#ab8c52] font-semibold" : ""}`}
         >
           Amenities
         </button>
         <button
           onClick={() => setTab("areasec")}
-          className={`pb-2 ${tab === "areasec" ? "border-b-2 border-black font-semibold" : ""}`}
+          className={`pb-2 cursor-pointer ${tab === "areasec" ? "border-b-2 border-[#ab8c52] font-semibold" : ""}`}
         >
           Explore Area
         </button>
 
         <button
           onClick={() => setTab("rooms")}
-          className={`pb-2 ${tab === "rooms" ? "border-b-2 border-black font-semibold" : ""}`}
+          className={`pb-2 cursor-pointer ${tab === "rooms" ? "border-b-2 border-[#ab8c52] font-semibold" : ""}`}
         >
           Rooms
         </button>
         <button
           onClick={() => setTab("bathrooms")}
-          className={`pb-2 ${tab === "bathrooms" ? "border-b-2 border-black font-semibold" : ""}`}
+          className={`pb-2 cursor-pointer ${tab === "bathrooms" ? "border-b-2 border-[#ab8c52] font-semibold" : ""}`}
         >
           Bath Rooms
         </button>
 
         <button
           onClick={() => setTab("space")}
-          className={`pb-2 ${tab === "space" ? "border-b-2 border-black font-semibold" : ""}`}
+          className={`pb-2 cursor-pointer ${tab === "space" ? "border-b-2 border-[#ab8c52] font-semibold" : ""}`}
         >
           Space
         </button>
 
         <button
           onClick={() => setTab("rule")}
-          className={`pb-2 ${tab === "rule" ? "border-b-2 border-black font-semibold" : ""}`}
+          className={`pb-2 cursor-pointer ${tab === "rule" ? "border-b-2 border-[#ab8c52] font-semibold" : ""}`}
         >
           House rule
         </button>
 
         <button
           onClick={() => setTab("insidental")}
-          className={`pb-2 ${tab === "insidental" ? "border-b-2 border-black font-semibold" : ""}`}
+          className={`pb-2 cursor-pointer ${tab === "insidental" ? "border-b-2 border-[#ab8c52] font-semibold" : ""}`}
         >
           Insidental
         </button>
 
         <button
           onClick={() => setTab("information")}
-          className={`pb-2 ${tab === "information" ? "border-b-2 border-black font-semibold" : ""}`}
+          className={`pb-2 cursor-pointer ${tab === "information" ? "border-b-2 border-[#ab8c52] font-semibold" : ""}`}
         >
          Information 
         </button>
 
         <button
           onClick={() => setTab("gallery")}
-          className={`pb-2 ${tab === "gallery" ? "border-b-2 border-black font-semibold" : ""}`}
+          className={`pb-2 cursor-pointer ${tab === "gallery" ? "border-b-2 border-[#ab8c52] font-semibold" : ""}`}
         >
           Gallery
         </button>
          <button
           onClick={() => setTab("basics")}
-          className={`pb-2 ${tab === "basics" ? "border-b-2 border-black font-semibold" : ""}`}
+          className={`pb-2 cursor-pointer ${tab === "basics" ? "border-b-2 border-[#ab8c52] font-semibold" : ""}`}
         >
           Basic 
         </button>

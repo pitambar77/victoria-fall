@@ -1,22 +1,22 @@
 import { DoorOpen, Bath, Users, Maximize } from "lucide-react";
 
-export default function PropertyStats() {
+export default function PropertyStats({property}) {
   const stats = [
     {
       icon: DoorOpen,
-      label: "5 bedrooms",
+      label: `${property.rooms?.length || 0} bedrooms`,
     },
     {
       icon: Bath,
-      label: "4 bathrooms",
+      label:`${property.bathrooms?.length || 0} bathrooms`,
     },
     {
       icon: Users,
-      label: "Sleeps 10",
+      label: `Sleeps ${property.sleeps || 0}`,
     },
     {
-      icon: Maximize,
-      label: "10763.9 sq ft",
+      icon: Users,
+      label: `Guest ${property.guest || 0}`,
     },
   ];
 

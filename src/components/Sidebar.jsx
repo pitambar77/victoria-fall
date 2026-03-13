@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaHome, FaBed, FaChevronDown, FaChevronUp } from "react-icons/fa";
@@ -10,23 +7,24 @@ const Sidebar = () => {
   const [openRestaurants, setOpenRestaurants] = useState(false);
   const [openActivities, setActivities] = useState(false);
 
-  
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
 
   return (
     <aside className="w-64 bg-[#554e3d] text-gray-200 shadow-xl flex flex-col py-6 px-4 fixed top-0 left-0 h-full">
       <div className=" text-center mt-4 mb-10 ">
-        <img src="https://whereto.africa/wp-content/uploads/2020/06/whereto-logo-wh.png" alt="" className='w-30'/>
-       </div>
+        <img
+          src="https://whereto.africa/wp-content/uploads/2020/06/whereto-logo-wh.png"
+          alt=""
+          className="w-30"
+        />
+      </div>
 
       <nav className="flex flex-col gap-2">
         <Link
           to="/dashbord"
           className={`flex items-center gap-2 px-3 py-2 rounded-md ${
-            isActive("/dashbord")
-              ? "bg-[#c40] text-white"
-              : "hover:bg-[#c40]"
+            isActive("/dashbord") ? "bg-[#c40] text-white" : "hover:bg-[#c40]"
           }`}
         >
           <FaHome /> Home
@@ -64,10 +62,30 @@ const Sidebar = () => {
             >
               Add Room
             </Link>
+            <Link
+              to="/dashbord/propt"
+              className={`text-sm ${
+                isActive("/dashbord/propt")
+                  ? "text-[#c40]"
+                  : "hover:text-[#c40]"
+              }`}
+            >
+              All Properties list
+            </Link>
+            <Link
+              to="/dashbord/cp"
+              className={`text-sm ${
+                isActive("/dashbord/cp")
+                  ? "text-[#c40]"
+                  : "hover:text-[#c40]"
+              }`}
+            >
+              Create Property
+            </Link>
           </div>
         )}
 
-         <button
+        <button
           onClick={() => setOpenRestaurants(!openRestaurants)}
           className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-[#c40]"
         >
@@ -76,7 +94,6 @@ const Sidebar = () => {
           </span>
           {openRestaurants ? <FaChevronUp /> : <FaChevronDown />}
         </button>
-
 
         {openRestaurants && (
           <div className="ml-6 flex flex-col gap-1">
@@ -94,7 +111,7 @@ const Sidebar = () => {
               to="/dashbord/restaurants/add"
               className={`text-sm ${
                 isActive("/dashbord/restaurants/add")
-                 ? "text-[#c40]"
+                  ? "text-[#c40]"
                   : "hover:text-[#c40]"
               }`}
             >
@@ -103,7 +120,7 @@ const Sidebar = () => {
           </div>
         )}
 
-         <button
+        <button
           onClick={() => setActivities(!openActivities)}
           className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-[#c40]"
         >
@@ -112,7 +129,6 @@ const Sidebar = () => {
           </span>
           {openActivities ? <FaChevronUp /> : <FaChevronDown />}
         </button>
-
 
         {openActivities && (
           <div className="ml-6 flex flex-col gap-1 space-y-2">
@@ -130,13 +146,13 @@ const Sidebar = () => {
               to="/dashbord/activities/add"
               className={`text-sm ${
                 isActive("/dashbord/activities/add")
-                 ? "text-[#c40]"
+                  ? "text-[#c40]"
                   : "hover:text-[#c40]"
               }`}
             >
               Add Activities
             </Link>
-               <Link
+            <Link
               to="/dashbord/destination/all"
               className={`text-sm ${
                 isActive("/dashbord/destination/all")
@@ -150,14 +166,14 @@ const Sidebar = () => {
               to="/dashbord/destination/add"
               className={`text-sm ${
                 isActive("/dashbord/destination/add")
-                 ? "text-[#c40]"
+                  ? "text-[#c40]"
                   : "hover:text-[#c40]"
               }`}
             >
               Add Destination
             </Link>
 
-             <Link
+            <Link
               to="/dashbord/categories/all"
               className={`text-sm ${
                 isActive("/dashbord/categories/all")
@@ -167,20 +183,18 @@ const Sidebar = () => {
             >
               All Categories
             </Link>
-             <Link
+            <Link
               to="/dashbord/categories/add"
               className={`text-sm ${
                 isActive("/dashbord/categories/add")
-                 ? "text-[#c40]"
+                  ? "text-[#c40]"
                   : "hover:text-[#c40]"
               }`}
             >
-             Add Category
+              Add Category
             </Link>
-         
           </div>
         )}
-
 
         <Link
           to="/dashbord/facilities"
@@ -196,7 +210,7 @@ const Sidebar = () => {
           to="/dashbord/actbooking"
           className={`flex items-center gap-2 px-3 py-2 rounded-md ${
             isActive("/dashbord/actbooking")
-             ? "bg-[#c40] text-white"
+              ? "bg-[#c40] text-white"
               : "hover:bg-[#c40]"
           }`}
         >
@@ -222,6 +236,16 @@ const Sidebar = () => {
         >
           🏗️ Restaurant Booking
         </Link>
+        {/* <Link
+          to="/dashbord/cp"
+          className={`flex items-center gap-2 px-3 py-2 rounded-md ${
+            isActive("/dashbord/cp")
+              ? "bg-[#c40] text-white"
+              : "hover:bg-[#c40]"
+          }`}
+        >
+         🏗️ Property Listing
+        </Link> */}
       </nav>
     </aside>
   );

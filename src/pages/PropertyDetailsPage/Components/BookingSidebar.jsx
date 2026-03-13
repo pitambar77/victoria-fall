@@ -1,9 +1,9 @@
 import Button from "../../../components/Button";
 
-export default function BookingSidebar() {
+export default function BookingSidebar({property}) {
   return (
-    <div className="lg:sticky top-20 border border-gray-300 rounded-md p-6 shadow-sm h-fit">
-      <h3 className="text-2xl font-semibold">$500</h3>
+    <div className=" hd lg:sticky top-20 border border-gray-300 rounded-md p-6 shadow-sm h-fit">
+      <h3 className="text-xl font-normal">${property.price}</h3>
       <p className="text-sm text-gray-300">per night</p>
 
       <div className="mt-6 space-y-3 ">

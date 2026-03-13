@@ -19,10 +19,14 @@ import CategoryForm from "../pages/Activities/CategoryForm";
 import BookingPropertyAdmin from "../components/BookingPropertyAdmin";
 import BookingsAdmin from "../components/BookingsAdmin";
 import BookingRestaurantAdmin from "../components/BookingRestaurantAdmin";
+import CreateProperty from "../pages/Admin/CreateProperty";
+import PropertiesList from "../pages/Properties/PropertiesList";
+import EditProperty from "./properties/EditProperty";
+
 
 const DashboardLayout = () => {
   return (
-    <div className="flex  min-h-screen ">
+    <div className="flex bg-[#f8f7f4]  ">
       {/* Sidebar */}
       <Sidebar />
 
@@ -41,11 +45,14 @@ const DashboardLayout = () => {
         </header>
 
         {/* Nested Dashboard Routes */}
-        <main className="flex-1 p-6 overflow-y-auto">
+        <main className="hd flex-1 p-6 overflow-y-auto">
           <Routes>
             <Route path="/" element={<Dashbord />} />
             <Route path="rooms/all" element={<PropertyList />} />
             <Route path="rooms/add" element={<PropertyForm />} />
+             <Route path = "cp" element={<CreateProperty/>}/>
+              <Route path="propt" element={<PropertiesList/>}/>
+              <Route path="propt/:id" element={<EditProperty/>}/>
             <Route path="properties/edit/:id" element={<PropertyForm />} />
             <Route path="properties/:id" element={<PropertyDetails />} />
             <Route path="restaurants/all" element={<RestaurantList />} />
@@ -72,6 +79,7 @@ const DashboardLayout = () => {
               element={<BookingRestaurantAdmin />}
             />
             <Route path="facilities" element={<AllFacilities />} />
+           
           </Routes>
         </main>
       </div>

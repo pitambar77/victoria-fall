@@ -133,6 +133,7 @@ function App() {
           <Route path="/la" element={<DestinationsLanding />} />
           <Route path="/la/destination/:id" element={<DestinationDetails />} />
           {/* <Route path="/la/activity/:id" element={<ActivityDetails />} /> */}
+          {/* <Route path="/cp" element={<CreateProperty/>}/> */}
         </Route>
         <Route path="/dashbord/*" element={<DashboardLayout />} />
         <Route
@@ -144,9 +145,9 @@ function App() {
           }
         />
         <Route path="propertiesdetails/:id" element={<PropertyDetailsPage />} />
-        <Route path="propt" element={<PropertiesList/>}/>
-        <Route path="cp" element={<CreateProperty/>}/>
-        <Route path="propt/:id" element={<EditProperty/>}/>
+        {/* <Route path="propt" element={<PropertiesList/>}/> */}
+        {/* <Route path="cp" element={<CreateProperty/>}/> */}
+        {/* <Route path="propt/:id" element={<EditProperty/>}/> */}
       </>,
     ),
   );

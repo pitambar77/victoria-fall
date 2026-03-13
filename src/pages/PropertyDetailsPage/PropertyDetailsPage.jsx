@@ -97,7 +97,7 @@ export default function PropertyDetailsPage() {
             </section>
           </div>
 
-          <BookingSidebar />
+          <BookingSidebar property={property} />
         </div>
       </div>
       <MemoriesSection />

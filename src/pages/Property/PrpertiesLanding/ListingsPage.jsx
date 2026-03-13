@@ -212,6 +212,8 @@ const ListingsPage = () => {
           bedrooms: p.rooms?.length || 0,
           bathrooms: p.bathrooms?.length || 0,
           sleeps: p.sleeps,
+          guest: Number(p.guest) || 0,
+          category: p.category,
           features: p.features || [],
           lat: p.location?.lat,
           lng: p.location?.lng,
@@ -235,11 +237,16 @@ const ListingsPage = () => {
 
     if (p.bedrooms < filters.bedrooms) return false;
     if (p.bathrooms < filters.bathrooms) return false;
+    if (p.guest < filters.guest) return false;
 
-    if (
-      filters.popular.length > 0 &&
-      !filters.popular.every((f) => p.features.includes(f))
-    ) {
+    // if (
+    //   filters.popular.length > 0 &&
+    //   !filters.popular.every((f) => p.features.includes(f))
+    // ) {
+    //   return false;
+    // }
+
+    if (filters.popular.length > 0 && !filters.popular.includes(p.category)) {
       return false;
     }
 

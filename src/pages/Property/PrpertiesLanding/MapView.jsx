@@ -64,7 +64,7 @@ export default function MapView({
                 setSelectedProperty(p);
               }}
             >
-              ${p.price}
+              $ {p.price}
             </div>
 
             {/* Pointer */}
