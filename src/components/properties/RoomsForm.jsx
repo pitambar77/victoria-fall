@@ -86,6 +86,8 @@
 //   );
 // }
 
+import IconPicker from "../../components/IconPicker";
+
 export default function RoomsForm({ property, setProperty, errors }) {
   /* Ensure one room exists */
   const rooms =
@@ -97,7 +99,32 @@ export default function RoomsForm({ property, setProperty, errors }) {
      ADD ROOM
   ===================== */
 
+  // const addRoom = () => {
+  //   setProperty({
+  //     ...property,
+  //     rooms: [
+  //       ...rooms,
+  //       {
+  //         bedroomName: "",
+  //         bed: "",
+  //         icon: "",
+  //       },
+  //     ],
+  //   });
+  // };
+
   const addRoom = () => {
+    const lastRoom = rooms[rooms.length - 1];
+
+    if (
+      !lastRoom.bedroomName.trim() ||
+      !lastRoom.bed.trim() ||
+      !lastRoom.icon
+    ) {
+      alert("Please fill all room fields before adding another room.");
+      return;
+    }
+
     setProperty({
       ...property,
       rooms: [
@@ -138,6 +165,11 @@ export default function RoomsForm({ property, setProperty, errors }) {
     });
   };
 
+  const lastRoom = rooms[rooms.length - 1];
+
+  const isLastRoomFilled =
+    lastRoom?.bedroomName?.trim() && lastRoom?.bed?.trim() && lastRoom?.icon;
+
   return (
     <div className="p-6 space-y-6">
       <h2 className="text-xl font-semibold">Rooms</h2>
@@ -164,16 +196,39 @@ export default function RoomsForm({ property, setProperty, errors }) {
             <p className="text-red-500 text-sm">{errors.title}</p>
           )}
           {/* Bed Type */}
-          <input
+          {/* <input
             className="w-full border border-gray-300 rounded-md p-3 outline-none
             focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
             placeholder="Bed Type (King / Queen / Twin)"
             value={room.bed}
             onChange={(e) => handleChange(i, "bed", e.target.value)}
-          />
+          /> */}
+
+          <select
+            className="w-full border border-gray-300 rounded-md p-3 outline-none
+  focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+            value={room.bed}
+            onChange={(e) => handleChange(i, "bed", e.target.value)}
+          >
+            <option value="">Select Bed Type</option>
+            <option value="King">King</option>
+            <option value="Queen">Queen</option>
+            <option value="Twin">Twin</option>
+            <option value="Double">Double</option>
+            <option value="Single">Single</option>
+            <option value="Twin XL">Twin XL</option>
+            <option value="Full">Full</option>
+            <option value="California King">California King</option>
+            <option value="Bunk Bed">Bunk Bed</option>
+            <option value="Sofa Bed">Sofa Bed</option>
+            <option value="Murphy Bed">Murphy Bed</option>
+            <option value="Day Bed">Day Bed</option>
+            <option value="Trundle Bed">Trundle Bed</option>
+            <option value="Futon">Futon</option>
+          </select>
 
           {/* ICON UPLOAD */}
-          <div className="w-[220px]">
+          {/* <div className="w-[220px]">
             <label className="text-gray-700 mb-2 block">Upload Bed Icon</label>
 
             <label className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition overflow-hidden">
@@ -210,6 +265,19 @@ export default function RoomsForm({ property, setProperty, errors }) {
                 onChange={(e) => handleChange(i, "icon", e.target.files[0])}
               />
             </label>
+          </div> */}
+
+          {/* ICON SELECT */}
+
+          <div>
+            <label className="block mb-2 text-sm font-medium">
+              Select Bed Icon
+            </label>
+
+            <IconPicker
+              value={room.icon}
+              onSelect={(iconName) => handleChange(i, "icon", iconName)}
+            />
           </div>
 
           {/* Remove Button */}
@@ -227,9 +295,21 @@ export default function RoomsForm({ property, setProperty, errors }) {
       ))}
 
       {/* Add Room */}
-      <button
+      {/* <button
         onClick={addRoom}
         className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded"
+      >
+        + Add Room
+      </button> */}
+
+      <button
+        onClick={addRoom}
+        disabled={!isLastRoomFilled}
+        className={`px-4 py-2 rounded ${
+          isLastRoomFilled
+            ? "bg-gray-200 hover:bg-gray-300"
+            : "bg-gray-100 text-gray-400 cursor-not-allowed"
+        }`}
       >
         + Add Room
       </button>

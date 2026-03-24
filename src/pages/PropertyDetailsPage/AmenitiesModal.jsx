@@ -130,6 +130,7 @@
 
 import { RxCrossCircled } from "react-icons/rx";
 import { useEffect } from "react";
+import { amenityIcons } from "../../constants/amenityIcons";
 
 export default function AmenitiesModal({ property, close }) {
   useEffect(() => {
@@ -148,6 +149,10 @@ export default function AmenitiesModal({ property, close }) {
 
   const additionalLeft = additional.slice(0, Math.ceil(additional.length / 2));
   const additionalRight = additional.slice(Math.ceil(additional.length / 2));
+
+  const iconMap = Object.fromEntries(
+    amenityIcons.map((item) => [item.name, item.icon]),
+  );
 
   return (
     <div className="fixed inset-0 bg-black/70 flex justify-center items-start pt-20 z-50">
@@ -178,7 +183,10 @@ export default function AmenitiesModal({ property, close }) {
               <div className="space-y-4">
                 {basicsLeft.map((item) => (
                   <div key={item._id} className="flex items-center gap-3">
-                    <img src={item.icon} className="w-6 h-6 object-contain" />
+                    {(() => {
+                      const Icon = iconMap[item.icon];
+                      return Icon ? <Icon size={20} color="#a57830" /> : null;
+                    })()}
 
                     {item.aminityName}
                   </div>
@@ -188,7 +196,10 @@ export default function AmenitiesModal({ property, close }) {
               <div className="space-y-4">
                 {basicsRight.map((item) => (
                   <div key={item._id} className="flex items-center gap-3">
-                    <img src={item.icon} className="w-6 h-6 object-contain" />
+                    {(() => {
+                      const Icon = iconMap[item.icon];
+                      return Icon ? <Icon size={20} color="#a57830" /> : null;
+                    })()}
 
                     {item.aminityName}
                   </div>
@@ -205,7 +216,7 @@ export default function AmenitiesModal({ property, close }) {
             </h3>
 
             <div className="grid grid-cols-2 gap-x-20 gap-y-4 text-[#2e2c2d]">
-              <div className="space-y-4">
+              {/* <div className="space-y-4">
                 {additionalLeft.map((item) => (
                   <div key={item._id} className="flex items-center gap-3">
                     <img src={item.icon} className="w-6 h-6 object-contain" />
@@ -219,6 +230,31 @@ export default function AmenitiesModal({ property, close }) {
                 {additionalRight.map((item) => (
                   <div key={item._id} className="flex items-center gap-3">
                     <img src={item.icon} className="w-6 h-6 object-contain" />
+
+                    {item.aminityName}
+                  </div>
+                ))}
+              </div> */}
+              <div className="space-y-4">
+                {additionalLeft.map((item) => (
+                  <div key={item._id} className="flex items-center gap-3">
+                    {(() => {
+                      const Icon = iconMap[item.icon];
+                      return Icon ? <Icon size={20} color="#a57830" /> : null;
+                    })()}
+
+                    {item.aminityName}
+                  </div>
+                ))}
+              </div>
+
+              <div className="space-y-4">
+                {additionalRight.map((item) => (
+                  <div key={item._id} className="flex items-center gap-3">
+                    {(() => {
+                      const Icon = iconMap[item.icon];
+                      return Icon ? <Icon size={20} color="#a57830" /> : null;
+                    })()}
 
                     {item.aminityName}
                   </div>

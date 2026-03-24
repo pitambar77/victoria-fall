@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MapPin, Plane, ChevronRight } from "lucide-react";
 import ExploreAreaModal from "./ExploreAreaModal";
+import { amenityIcons } from "../../../constants/amenityIcons.js";
 
 export default function ExploreAreaSection({ property }) {
   const [open, setOpen] = useState(false);
@@ -43,7 +44,7 @@ export default function ExploreAreaSection({ property }) {
       <div className="grid md:grid-cols-2 gap-10 items-start">
         {/* MAP CARD */}
         <div className="border border-gray-300 rounded-sm overflow-hidden">
-         <div
+          <div
             className="w-full h-[150px]"
             dangerouslySetInnerHTML={{ __html: area.maplink }}
           />
@@ -54,7 +55,7 @@ export default function ExploreAreaSection({ property }) {
             </p>
 
             <a
-               href={`https://www.google.com/maps/search/${area.locationname}`}
+              href={`https://www.google.com/maps/search/${area.locationname}`}
               target="_blank"
               rel="noreferrer"
               className="flex text-sm items-center gap-2 font-medium hover:underline"
@@ -67,61 +68,45 @@ export default function ExploreAreaSection({ property }) {
 
         {/* NEARBY LIST */}
         <div className="space-y-6">
-          {/* {places.map((place, index) => (
-            <div
-              key={index}
-              className="hd flex items-center justify-between "
-            >
-              <div className="flex items-center gap-4">
-                {place.icon === "location" ? (
-                  <MapPin size={24} color="#a57830" />
-                ) : (
-                  <Plane size={24} color="#a57830" />
-                )}
-
-                <span className="hd font-[500]  text-[#2e2c2d]">{place.name}</span>
-              </div>
-
-              <span className="text-gray-600">{place.time}</span>
-            </div>
-          ))} */}
-
-          {places.map((place) => (
-
+          {/* {places.map((place) => (
+            
             <div
               key={place._id}
               className="hd flex items-center justify-between"
             >
-
               <div className="flex items-center gap-4">
-
-                <img
-                  src={place.icon}
-                  className="w-6 h-6 object-contain "
-                />
+                <img src={place.icon} className="w-6 h-6 object-contain " />
 
                 <span className="hd font-[500] text-[#2e2c2d]">
                   {place.title}
                 </span>
-
               </div>
 
-              <span className="text-gray-600">
-                {place.shortDescription}
-              </span>
-
+              <span className="text-gray-600">{place.shortDescription}</span>
             </div>
+          ))} */}
 
-          ))}
+          {places.map((place) => {
+            const iconData = amenityIcons.find((i) => i.name === place.icon);
+            const Icon = iconData?.icon;
 
-          {/* OPEN MODAL BUTTON */}
-          {/* <button
-            onClick={() => setOpen(true)}
-            className="hd flex items-center gap-2 text-[#b18642] font-medium hover:underline"
-          >
-            See all about this area
-            <ChevronRight size={18} />
-          </button> */}
+            return (
+              <div
+                key={place._id}
+                className="hd flex items-center justify-between"
+              >
+                <div className="flex items-center gap-4">
+                  {Icon && <Icon size={22} color="#a57830" />}
+
+                  <span className="hd font-[500] text-[#2e2c2d]">
+                    {place.title}
+                  </span>
+                </div>
+
+                <span className="text-gray-600">{place.shortDescription}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
 

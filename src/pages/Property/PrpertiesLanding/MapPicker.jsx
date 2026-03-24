@@ -89,7 +89,59 @@ export default function MapPicker({ property, setProperty }) {
   const mapRef = useRef();
   const geocoderRef = useRef();
 
+  // useEffect(() => {
+  //   const geocoder = new MapboxGeocoder({
+  //     accessToken: import.meta.env.VITE_MAPBOX_TOKEN,
+  //     marker: false,
+  //     placeholder: "Search location",
+  //     mapboxgl: mapboxgl,
+  //   });
+
+  //   // geocoder.on("result", (e) => {
+
+  //   //   const [lng, lat] = e.result.center;
+
+  //   //   setProperty((prev) => ({
+  //   //     ...prev,
+  //   //     location: { lat, lng },
+  //   //     address: e.result.place_name
+  //   //   }));
+
+  //   // });
+
+  //   geocoder.on("result", (e) => {
+  //     const [lng, lat] = e.result.center;
+
+  //     const context = e.result.context || [];
+
+  //     const city = context.find((c) => c.id.includes("place"))?.text || "";
+
+  //     const country = context.find((c) => c.id.includes("country"))?.text || "";
+
+  //     const region = context.find((c) => c.id.includes("region"))?.text || "";
+
+  //     setProperty((prev) => ({
+  //       ...prev,
+
+  //       address: e.result.place_name,
+
+  //       city: city,
+
+  //       country: country,
+
+  //       location: {
+  //         lat,
+  //         lng,
+  //       },
+  //     }));
+  //   });
+
+  //   geocoderRef.current.appendChild(geocoder.onAdd(mapRef.current));
+  // }, []);
+
   useEffect(() => {
+    if (!geocoderRef.current) return;
+
     const geocoder = new MapboxGeocoder({
       accessToken: import.meta.env.VITE_MAPBOX_TOKEN,
       marker: false,
@@ -97,48 +149,27 @@ export default function MapPicker({ property, setProperty }) {
       mapboxgl: mapboxgl,
     });
 
-    // geocoder.on("result", (e) => {
-
-    //   const [lng, lat] = e.result.center;
-
-    //   setProperty((prev) => ({
-    //     ...prev,
-    //     location: { lat, lng },
-    //     address: e.result.place_name
-    //   }));
-
-    // });
-
     geocoder.on("result", (e) => {
       const [lng, lat] = e.result.center;
 
       const context = e.result.context || [];
 
       const city = context.find((c) => c.id.includes("place"))?.text || "";
-
       const country = context.find((c) => c.id.includes("country"))?.text || "";
-
-      const region = context.find((c) => c.id.includes("region"))?.text || "";
 
       setProperty((prev) => ({
         ...prev,
-
         address: e.result.place_name,
-
         city: city,
-
         country: country,
-
-        location: {
-          lat,
-          lng,
-        },
+        location: { lat, lng },
       }));
     });
 
-    geocoderRef.current.appendChild(geocoder.onAdd(mapRef.current));
+    if (geocoderRef.current.childNodes.length === 0) {
+      geocoderRef.current.appendChild(geocoder.onAdd(mapRef.current));
+    }
   }, []);
-
   const handleClick = (e) => {
     const { lng, lat } = e.lngLat;
 

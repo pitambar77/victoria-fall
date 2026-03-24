@@ -166,6 +166,7 @@
 // export default BathroomsForm;
 
 import React from "react";
+import IconPicker from "../../components/IconPicker";
 
 const BathroomsForm = ({ property, setProperty, errors }) => {
   /* Ensure one bathroom exists */
@@ -183,7 +184,27 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
      ADD BATHROOM
   ====================== */
 
+  // const addBathroom = () => {
+  //   setProperty({
+  //     ...property,
+  //     bathrooms: [
+  //       ...bathrooms,
+  //       {
+  //         bathName: "",
+  //         bathdetails: [{ name: "", icon: "" }],
+  //       },
+  //     ],
+  //   });
+  // };
+
   const addBathroom = () => {
+    const lastBathroom = bathrooms[bathrooms.length - 1];
+
+    if (!lastBathroom.bathName.trim()) {
+      alert("Please fill the bathroom name before adding another bathroom.");
+      return;
+    }
+
     setProperty({
       ...property,
       bathrooms: [
@@ -195,7 +216,6 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
       ],
     });
   };
-
   /* ======================
      CHANGE BATH NAME
   ====================== */
@@ -227,8 +247,30 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
      ADD BATH DETAIL
   ====================== */
 
+  // const addDetail = (bathIndex) => {
+  //   const updated = [...bathrooms];
+
+  //   updated[bathIndex].bathdetails.push({
+  //     name: "",
+  //     icon: "",
+  //   });
+
+  //   setProperty({
+  //     ...property,
+  //     bathrooms: updated,
+  //   });
+  // };
+
   const addDetail = (bathIndex) => {
     const updated = [...bathrooms];
+
+    const lastDetail =
+      updated[bathIndex].bathdetails[updated[bathIndex].bathdetails.length - 1];
+
+    if (!lastDetail.name.trim() || !lastDetail.icon) {
+      alert("Please fill detail name and icon before adding another detail.");
+      return;
+    }
 
     updated[bathIndex].bathdetails.push({
       name: "",
@@ -273,6 +315,9 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
     });
   };
 
+  const lastBathroom = bathrooms[bathrooms.length - 1];
+  const canAddBathroom = lastBathroom?.bathName?.trim();
+
   return (
     <div className="p-6 space-y-8">
       <h2 className="text-xl font-semibold">Bathrooms</h2>
@@ -314,7 +359,7 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
 
                 {/* ICON UPLOAD */}
 
-                <div className="w-[220px]">
+                {/* <div className="w-[220px]">
                   <label className="text-gray-700 mb-2 block">
                     Upload Detail Icon
                   </label>
@@ -340,6 +385,18 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
                       }
                     />
                   </label>
+                </div> */}
+                <div>
+                  <label className="block mb-2 text-sm font-medium">
+                    Select Detail Icon
+                  </label>
+
+                  <IconPicker
+                    value={detail.icon}
+                    onSelect={(iconName) =>
+                      changeDetail(i, j, "icon", iconName)
+                    }
+                  />
                 </div>
 
                 {/* Remove Detail */}
@@ -380,9 +437,21 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
       ))}
 
       {/* Add Bathroom */}
-      <button
+      {/* <button
         onClick={addBathroom}
         className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded"
+      >
+        + Add Bathroom
+      </button> */}
+
+      <button
+        onClick={addBathroom}
+        disabled={!canAddBathroom}
+        className={`px-4 py-2 rounded ${
+          canAddBathroom
+            ? "bg-gray-300 hover:bg-gray-400"
+            : "bg-gray-100 text-gray-400 cursor-not-allowed"
+        }`}
       >
         + Add Bathroom
       </button>

@@ -1,184 +1,5 @@
-// export default function AmenitiesForm({ property, setProperty }) {
-//   /* ======================
-//      BASIC AMENITIES
-//   ====================== */
-
-//   const addBasicAmenity = () => {
-//     setProperty({
-//       ...property,
-//       aminities: {
-//         ...property.aminities,
-//         basic: [...property.aminities.basic, { aminityName: "", icon: "" }],
-//       },
-//     });
-//   };
-
-//   const changeBasic = (index, field, value) => {
-//     const updated = [...property.aminities.basic];
-
-//     updated[index][field] = value;
-
-//     setProperty({
-//       ...property,
-//       aminities: {
-//         ...property.aminities,
-//         basic: updated,
-//       },
-//     });
-//   };
-
-//   const removeBasic = (index) => {
-//     const updated = property.aminities.basic.filter((_, i) => i !== index);
-
-//     setProperty({
-//       ...property,
-//       aminities: {
-//         ...property.aminities,
-//         basic: updated,
-//       },
-//     });
-//   };
-
-//   /* ======================
-//      ADDITIONAL AMENITIES
-//   ====================== */
-
-//   const addAdditionalAmenity = () => {
-//     setProperty({
-//       ...property,
-//       aminities: {
-//         ...property.aminities,
-//         additional: [
-//           ...property.aminities.additional,
-//           { aminityName: "", icon: "" },
-//         ],
-//       },
-//     });
-//   };
-
-//   const changeAdditional = (index, field, value) => {
-//     const updated = [...property.aminities.additional];
-
-//     updated[index][field] = value;
-
-//     setProperty({
-//       ...property,
-//       aminities: {
-//         ...property.aminities,
-//         additional: updated,
-//       },
-//     });
-//   };
-
-//   const removeAdditional = (index) => {
-//     const updated = property.aminities.additional.filter((_, i) => i !== index);
-
-//     setProperty({
-//       ...property,
-//       aminities: {
-//         ...property.aminities,
-//         additional: updated,
-//       },
-//     });
-//   };
-
-//   return (
-//     <div className="border p-6 space-y-6">
-//       {/* ================= BASIC ================= */}
-
-//       <div>
-//         <h2 className="text-lg font-semibold mb-3">Basic Amenities</h2>
-
-//         {property.aminities.basic.map((amenity, i) => (
-//           <div key={i} className="flex gap-3 mb-2">
-//             <input
-//               className="border p-2 flex-1"
-//               placeholder="Amenity Name"
-//               value={amenity.aminityName}
-//               onChange={(e) => changeBasic(i, "aminityName", e.target.value)}
-//             />
-
-//             {/* <input
-//               type="file"
-//               onChange={(e) =>
-//                 changeBasic(i, "icon", e.target.files[0])
-//               }
-//             /> */}
-
-//             <div className="flex flex-col gap-1">
-//               <label className="text-sm font-medium">Upload Icon</label>
-
-//               <input
-//                 type="file"
-//                 onChange={(e) => changeBasic(i, "icon", e.target.files[0])}
-//                 className="border p-2 rounded"
-//               />
-
-//               {property.aminities.basic[i]?.icon && (
-//                 <span className="text-xs text-gray-500">
-//                   {property.aminities.basic[i].icon.name}
-//                 </span>
-//               )}
-//             </div>
-
-//             <button onClick={() => removeBasic(i)} className="text-red-500">
-//               Remove
-//             </button>
-//           </div>
-//         ))}
-
-//         <button
-//           onClick={addBasicAmenity}
-//           className="bg-gray-200 px-3 py-1 rounded"
-//         >
-//           Add More Basic Amenity
-//         </button>
-//       </div>
-
-//       {/* ================= ADDITIONAL ================= */}
-
-//       <div>
-//         <h2 className="text-lg font-semibold mb-3">Additional Amenities</h2>
-
-//         {property.aminities.additional.map((amenity, i) => (
-//           <div key={i} className="flex gap-3 mb-2">
-//             <input
-//               className="border p-2 flex-1"
-//               placeholder="Amenity Name"
-//               value={amenity.aminityName}
-//               onChange={(e) =>
-//                 changeAdditional(i, "aminityName", e.target.value)
-//               }
-//             />
-
-//             <div className="flex flex-col gap-1">
-//               <label className="text-sm font-medium">Upload Icon</label>
-//               <input
-//                 type="file"
-//                 onChange={(e) => changeAdditional(i, "icon", e.target.files[0])}
-//                 className="border p-2 rounded"
-//               />
-//             </div>
-
-//             <button
-//               onClick={() => removeAdditional(i)}
-//               className="text-red-500"
-//             >
-//               Remove
-//             </button>
-//           </div>
-//         ))}
-
-//         <button
-//           onClick={addAdditionalAmenity}
-//           className="bg-gray-200 px-3 py-1 rounded"
-//         >
-//           Add More Additional Amenity
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
+import { amenityIcons } from "../../constants/amenityIcons";
+import IconPicker from "../../components/IconPicker";
 
 export default function AmenitiesForm({ property, setProperty }) {
   /* DEFAULT DATA */
@@ -196,7 +17,24 @@ export default function AmenitiesForm({ property, setProperty }) {
      BASIC AMENITIES
   ====================== */
 
+  // const addBasicAmenity = () => {
+  //   setProperty({
+  //     ...property,
+  //     aminities: {
+  //       ...property.aminities,
+  //       basic: [...basicAmenities, { aminityName: "", icon: "" }],
+  //     },
+  //   });
+  // };
+
   const addBasicAmenity = () => {
+    const lastAmenity = basicAmenities[basicAmenities.length - 1];
+
+    if (!lastAmenity.aminityName.trim() || !lastAmenity.icon) {
+      alert("Please fill the current amenity before adding another.");
+      return;
+    }
+
     setProperty({
       ...property,
       aminities: {
@@ -235,7 +73,24 @@ export default function AmenitiesForm({ property, setProperty }) {
      ADDITIONAL AMENITIES
   ====================== */
 
+  // const addAdditionalAmenity = () => {
+  //   setProperty({
+  //     ...property,
+  //     aminities: {
+  //       ...property.aminities,
+  //       additional: [...additionalAmenities, { aminityName: "", icon: "" }],
+  //     },
+  //   });
+  // };
+
   const addAdditionalAmenity = () => {
+    const lastAmenity = additionalAmenities[additionalAmenities.length - 1];
+
+    if (!lastAmenity.aminityName.trim() || !lastAmenity.icon) {
+      alert("Please fill the current amenity before adding another.");
+      return;
+    }
+
     setProperty({
       ...property,
       aminities: {
@@ -244,7 +99,6 @@ export default function AmenitiesForm({ property, setProperty }) {
       },
     });
   };
-
   const changeAdditional = (index, field, value) => {
     const updated = [...additionalAmenities];
     updated[index][field] = value;
@@ -270,12 +124,21 @@ export default function AmenitiesForm({ property, setProperty }) {
     });
   };
 
+  const lastBasic = basicAmenities[basicAmenities.length - 1];
+
+  const canAddBasic = lastBasic.aminityName.trim() && lastBasic.icon;
+
+  const lastAdditional = additionalAmenities[additionalAmenities.length - 1];
+
+  const canAddAdditional =
+    lastAdditional.aminityName.trim() && lastAdditional.icon;
+
   return (
     <div className="p-6 space-y-10">
       {/* ================= BASIC ================= */}
 
       <div>
-        <h2 className="text-lg font-semibold mb-4">Basic Amenities</h2>
+        <h2 className="text-lg font-semibold mb-4">Popular Amenities</h2>
 
         {basicAmenities.map((amenity, i) => (
           <div
@@ -291,7 +154,7 @@ export default function AmenitiesForm({ property, setProperty }) {
             />
 
             {/* ICON UPLOAD */}
-            <div className="w-[220px]">
+            {/* <div className="w-[220px]">
               <label className="text-gray-700 mb-2 block">
                 Upload Amenity Icon
               </label>
@@ -332,6 +195,38 @@ export default function AmenitiesForm({ property, setProperty }) {
                   onChange={(e) => changeBasic(i, "icon", e.target.files[0])}
                 />
               </label>
+            </div> */}
+
+            <div>
+              <label className="block mb-2 text-sm font-medium">
+                Select Amenity Icon
+              </label>
+
+              {/* <div className="grid grid-cols-6 gap-2">
+                {amenityIcons.map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <button
+                      key={item.name}
+                      type="button"
+                      onClick={() => changeBasic(i, "icon", item.name)}
+                      className={`p-2 border rounded flex items-center justify-center
+          ${
+            amenity.icon === item.name
+              ? "border-[#c1b296] bg-[#c1b296]/20"
+              : "border-gray-300"
+          }`}
+                    >
+                      <Icon size={20} />
+                    </button>
+                  );
+                })}
+              </div> */}
+              <IconPicker
+                value={amenity.icon}
+                onSelect={(iconName) => changeBasic(i, "icon", iconName)}
+              />
             </div>
 
             {basicAmenities.length > 1 && (
@@ -347,9 +242,21 @@ export default function AmenitiesForm({ property, setProperty }) {
           </div>
         ))}
 
-        <button
+        {/* <button
           onClick={addBasicAmenity}
           className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded"
+        >
+          + Add More Basic Amenity
+        </button> */}
+
+        <button
+          onClick={addBasicAmenity}
+          disabled={!canAddBasic}
+          className={`px-4 py-2 rounded ${
+            canAddBasic
+              ? "bg-gray-200 hover:bg-gray-300"
+              : "bg-gray-100 text-gray-400 cursor-not-allowed"
+          }`}
         >
           + Add More Basic Amenity
         </button>
@@ -376,7 +283,7 @@ export default function AmenitiesForm({ property, setProperty }) {
             />
 
             {/* ICON UPLOAD */}
-            <div className="w-[220px]">
+            {/* <div className="w-[220px]">
               <label className="text-gray-700 mb-2 block">
                 Upload Amenity Icon
               </label>
@@ -418,6 +325,38 @@ export default function AmenitiesForm({ property, setProperty }) {
                   }
                 />
               </label>
+            </div> */}
+
+            <div>
+              <label className="block mb-2 text-sm font-medium">
+                Select Amenity Icon
+              </label>
+
+              {/* <div className="grid grid-cols-6 gap-2">
+                {amenityIcons.map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <button
+                      key={item.name}
+                      type="button"
+                      onClick={() => changeAdditional(i, "icon", item.name)}
+                      className={`p-2 border rounded flex items-center justify-center
+          ${
+            amenity.icon === item.name
+              ? "border-[#c1b296] bg-[#c1b296]/20"
+              : "border-gray-300"
+          }`}
+                    >
+                      <Icon size={20} />
+                    </button>
+                  );
+                })}
+              </div> */}
+              <IconPicker
+                value={amenity.icon}
+                onSelect={(iconName) => changeAdditional(i, "icon", iconName)}
+              />
             </div>
 
             {additionalAmenities.length > 1 && (
@@ -435,7 +374,12 @@ export default function AmenitiesForm({ property, setProperty }) {
 
         <button
           onClick={addAdditionalAmenity}
-          className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded"
+          disabled={!canAddAdditional}
+          className={`px-4 py-2 rounded ${
+            canAddAdditional
+              ? "bg-gray-200 hover:bg-gray-300"
+              : "bg-gray-100 text-gray-400 cursor-not-allowed"
+          }`}
         >
           + Add More Additional Amenity
         </button>

@@ -148,6 +148,7 @@
 // export default HouseRulesForm;
 
 import React from "react";
+import IconPicker from "../../components/IconPicker";
 
 const HouseRulesForm = ({ property, setProperty, errors }) => {
   /* Ensure one rule exists */
@@ -174,7 +175,30 @@ const HouseRulesForm = ({ property, setProperty, errors }) => {
      ADD RULE
   ====================== */
 
+  // const addRule = () => {
+  //   setProperty({
+  //     ...property,
+  //     houserule: {
+  //       ...property.houserule,
+  //       rule: [...rules, { title: "", description: "", icon: "" }],
+  //     },
+  //   });
+  // };
+
   const addRule = () => {
+    const lastRule = rules[rules.length - 1];
+
+    if (
+      !lastRule.title.trim() ||
+      !lastRule.description.trim() ||
+      !lastRule.icon
+    ) {
+      alert(
+        "Please fill rule title, description, and select an icon before adding another rule.",
+      );
+      return;
+    }
+
     setProperty({
       ...property,
       houserule: {
@@ -217,6 +241,11 @@ const HouseRulesForm = ({ property, setProperty, errors }) => {
     });
   };
 
+  const lastRule = rules[rules.length - 1];
+
+  const canAddRule =
+    lastRule?.title?.trim() && lastRule?.description?.trim() && lastRule?.icon;
+
   return (
     <div className="p-6 space-y-8">
       <h2 className="text-xl font-semibold">House Rules</h2>
@@ -224,7 +253,7 @@ const HouseRulesForm = ({ property, setProperty, errors }) => {
       {/* ================= META ================= */}
 
       <div className="space-y-4">
-        <input
+        {/* <input
           className={`w-full border rounded-md p-3 outline-none transition
   ${
     errors?.checkIn
@@ -235,12 +264,47 @@ const HouseRulesForm = ({ property, setProperty, errors }) => {
           placeholder="Check In Time *"
           value={property.houserule.checkIn}
           onChange={handleMetaChange}
-        />
+        /> */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-2 w-full">
+            <label className="text-sm sm:text-base font-medium text-gray-700">
+              Check-in Time *
+            </label>
 
-        {errors?.checkIn && (
-          <p className="text-red-500 text-sm">{errors.checkIn}</p>
-        )}
-        <input
+            <div className="relative">
+              <input
+                type="time"
+                className={`w-full border rounded-md p-3 pl-10 sm:pl-11 text-sm sm:text-base outline-none transition
+      ${
+        errors?.checkIn
+          ? "border-red-500 focus:ring-red-200"
+          : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
+      }`}
+                name="checkIn"
+                value={property.houserule.checkIn || ""}
+                onChange={handleMetaChange}
+              />
+
+              {/* Clock Icon */}
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm sm:text-base">
+                🕒
+              </span>
+            </div>
+
+            <p className="text-xs sm:text-sm text-gray-500">
+              Select the check-in time for guests.
+            </p>
+
+            {errors?.checkIn && (
+              <p className="text-red-500 text-xs sm:text-sm">
+                {errors.checkIn}
+              </p>
+            )}
+          </div>
+          {errors?.checkIn && (
+            <p className="text-red-500 text-sm">{errors.checkIn}</p>
+          )}
+          {/* <input
           className={`w-full border rounded-md p-3 outline-none transition
   ${
     errors?.checkOut
@@ -251,26 +315,62 @@ const HouseRulesForm = ({ property, setProperty, errors }) => {
           placeholder="Check Out Time *"
           value={property.houserule.checkOut}
           onChange={handleMetaChange}
-        />
+        /> */}
 
-        {errors?.checkOut && (
-          <p className="text-red-500 text-sm">{errors.checkOut}</p>
-        )}
+          <div className="space-y-2 w-full">
+            <label className="text-sm sm:text-base font-medium text-gray-700">
+              Check-out Time *
+            </label>
 
-        <textarea
+            <div className="relative">
+              <input
+                type="time"
+                className={`w-full border rounded-md p-3 pl-10 sm:pl-11 text-sm sm:text-base outline-none transition
+      ${
+        errors?.checkOut
+          ? "border-red-500 focus:ring-red-200"
+          : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
+      }`}
+                name="checkOut"
+                value={property.houserule.checkOut || ""}
+                onChange={handleMetaChange}
+              />
+
+              {/* Clock Icon */}
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm sm:text-base">
+                🕒
+              </span>
+            </div>
+
+            <p className="text-xs sm:text-sm text-gray-500">
+              Select the check-out time for guests.
+            </p>
+
+            {errors?.checkOut && (
+              <p className="text-red-500 text-xs sm:text-sm">
+                {errors.checkOut}
+              </p>
+            )}
+          </div>
+
+          {errors?.checkOut && (
+            <p className="text-red-500 text-sm">{errors.checkOut}</p>
+          )}
+        </div>
+        {/* <textarea
           className="w-full border border-gray-300 rounded-md p-3 outline-none
           focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
           name="content"
           placeholder="House Rules Description"
           value={property.houserule.content}
           onChange={handleMetaChange}
-        />
+        /> */}
       </div>
 
       {/* ================= RULE LIST ================= */}
 
       <div className="space-y-6">
-        <h3 className="text-lg font-medium">Rules</h3>
+        <h3 className="text-lg font-medium">Property Policies</h3>
 
         {rules.map((rule, i) => (
           <div
@@ -286,26 +386,26 @@ const HouseRulesForm = ({ property, setProperty, errors }) => {
       ? "border-red-500 focus:ring-red-200"
       : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
   }`}
-              placeholder="Rule Title"
+              placeholder="Policy Title (Children / Pets / Events / Smoking)"
               value={rule.title}
               onChange={(e) => changeRule(i, "title", e.target.value)}
             />
 
- {errors?.title && (
-          <p className="text-red-500 text-sm">{errors.title}</p>
-        )}
+            {errors?.title && (
+              <p className="text-red-500 text-sm">{errors.title}</p>
+            )}
 
             <input
               className="w-full border border-gray-300 rounded-md p-3 outline-none
               focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
-              placeholder="Description"
+              placeholder="Policy Description (e.g, pet not allow)"
               value={rule.description}
               onChange={(e) => changeRule(i, "description", e.target.value)}
             />
 
             {/* ICON UPLOAD */}
 
-            <div className="w-[220px]">
+            {/* <div className="w-[220px]">
               <label className="text-gray-700 mb-2 block">
                 Upload Rule Icon
               </label>
@@ -327,6 +427,17 @@ const HouseRulesForm = ({ property, setProperty, errors }) => {
                   onChange={(e) => changeRule(i, "icon", e.target.files[0])}
                 />
               </label>
+            </div> */}
+
+            <div>
+              <label className="block mb-2 text-sm font-medium">
+                Select Rule Icon
+              </label>
+
+              <IconPicker
+                value={rule.icon}
+                onSelect={(iconName) => changeRule(i, "icon", iconName)}
+              />
             </div>
 
             {/* REMOVE RULE */}
@@ -346,9 +457,20 @@ const HouseRulesForm = ({ property, setProperty, errors }) => {
 
         {/* ADD RULE BUTTON */}
 
-        <button
+        {/* <button
           onClick={addRule}
           className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded"
+        >
+          + Add Rule
+        </button> */}
+        <button
+          onClick={addRule}
+          disabled={!canAddRule}
+          className={`px-4 py-2 rounded ${
+            canAddRule
+              ? "bg-gray-200 hover:bg-gray-300"
+              : "bg-gray-100 text-gray-400 cursor-not-allowed"
+          }`}
         >
           + Add Rule
         </button>

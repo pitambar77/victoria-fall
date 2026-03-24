@@ -182,6 +182,7 @@
 // export default AreaForm;
 
 import React from "react";
+import IconPicker from "../../components/IconPicker";
 
 const AreaForm = ({ property, setProperty }) => {
   /* Ensure one activity exists */
@@ -208,7 +209,36 @@ const AreaForm = ({ property, setProperty }) => {
      RELATED ACTIVITIES
   ===================== */
 
+  // const addActivity = () => {
+  //   setProperty({
+  //     ...property,
+  //     area: {
+  //       ...property.area,
+  //       relatedactivity: [
+  //         ...activities,
+  //         {
+  //           title: "",
+  //           shortDescription: "",
+  //           icon: "",
+  //         },
+  //       ],
+  //     },
+  //   });
+  // };
+
   const addActivity = () => {
+    const lastActivity = activities[activities.length - 1];
+
+    // Check if required fields are filled
+    if (
+      !lastActivity.title.trim() ||
+      !lastActivity.shortDescription.trim() ||
+      !lastActivity.icon
+    ) {
+      alert("Please fill all activity fields before adding a new one.");
+      return;
+    }
+
     setProperty({
       ...property,
       area: {
@@ -250,9 +280,15 @@ const AreaForm = ({ property, setProperty }) => {
     });
   };
 
+  const lastActivity = activities[activities.length - 1];
+  const isLastActivityFilled =
+    lastActivity.title.trim() &&
+    lastActivity.shortDescription.trim() &&
+    lastActivity.icon;
+
   return (
     <div className="p-6 space-y-8">
-      <h2 className="text-xl font-semibold">Explore the Area</h2>
+      <h2 className="text-xl font-semibold">Explore the Near by Area</h2>
 
       {/* LOCATION NAME */}
 
@@ -268,6 +304,7 @@ const AreaForm = ({ property, setProperty }) => {
       {/* MAP LINK */}
 
       <input
+      type="url"
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
         name="maplink"
@@ -308,7 +345,7 @@ const AreaForm = ({ property, setProperty }) => {
 
             {/* ICON UPLOAD */}
 
-            <div className="w-[220px]">
+            {/* <div className="w-[220px]">
               <label className="text-gray-700 mb-2 block">
                 Upload Activity Icon
               </label>
@@ -349,6 +386,19 @@ const AreaForm = ({ property, setProperty }) => {
                   onChange={(e) => changeActivity(i, "icon", e.target.files[0])}
                 />
               </label>
+            </div> */}
+
+            {/* ICON SELECT */}
+
+            <div>
+              <label className="block mb-2 text-sm font-medium">
+                Select Activity Icon
+              </label>
+
+              <IconPicker
+                value={activity.icon}
+                onSelect={(iconName) => changeActivity(i, "icon", iconName)}
+              />
             </div>
 
             {/* Remove Button */}
@@ -368,9 +418,21 @@ const AreaForm = ({ property, setProperty }) => {
 
         {/* ADD BUTTON */}
 
-        <button
+        {/* <button
           onClick={addActivity}
           className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded"
+        >
+          + Add More Activity
+        </button> */}
+
+        <button
+          onClick={addActivity}
+          disabled={!isLastActivityFilled}
+          className={`px-4 py-2 rounded ${
+            isLastActivityFilled
+              ? "bg-gray-200 hover:bg-gray-300"
+              : "bg-gray-100 text-gray-400 cursor-not-allowed"
+          }`}
         >
           + Add More Activity
         </button>

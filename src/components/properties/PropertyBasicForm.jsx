@@ -198,18 +198,12 @@
 //   );
 // }
 
-
-
 import React from "react";
 import MapPicker from "../../pages/Property/PrpertiesLanding/MapPicker";
 
 export default function PropertyBasicForm({ property, setProperty, errors }) {
-
   /* Ensure one feature exists */
-  const features =
-    property.features?.length > 0
-      ? property.features
-      : [""];
+  const features = property.features?.length > 0 ? property.features : [""];
 
   /* =========================
      BASIC FIELD CHANGE
@@ -268,11 +262,11 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
 
   return (
     <div className="p-6 space-y-8">
-
       <h2 className="text-xl font-semibold">Property Details</h2>
 
       {/* PRICE */}
       <input
+        type="number"
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
         placeholder="Price"
@@ -280,9 +274,7 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
         onChange={(e) => handleChange("price", e.target.value)}
       />
 
-      {errors?.price && (
-          <p className="text-red-500 text-sm">{errors.price}</p>
-        )}
+      {errors?.price && <p className="text-red-500 text-sm">{errors.price}</p>}
 
       {/* CATEGORY */}
       <select
@@ -303,7 +295,7 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
       <input
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
-        placeholder="Rating"
+        placeholder="Property Rating (e.g., 4.5)"
         value={property.rating}
         onChange={(e) => handleChange("rating", e.target.value)}
       />
@@ -312,7 +304,7 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
       <input
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
-        placeholder="Reviews"
+        placeholder="Total Reviews (e.g., 120 reviews)"
         value={property.reviews}
         onChange={(e) => handleChange("reviews", e.target.value)}
       />
@@ -321,31 +313,29 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
       <input
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
-        placeholder="Sleeps"
+        placeholder="Sleeps / Sleeping Capacity"
         value={property.sleeps}
         onChange={(e) => handleChange("sleeps", e.target.value)}
       />
 
       {errors?.sleeps && (
-          <p className="text-red-500 text-sm">{errors.sleeps}</p>
-        )}
+        <p className="text-red-500 text-sm">{errors.sleeps}</p>
+      )}
 
       {/* GUEST */}
       <input
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
-        placeholder="Guest"
+        placeholder="Maximum Guests Allowed"
         value={property.guest}
         onChange={(e) => handleChange("guest", e.target.value)}
       />
-{errors?.guest && (
-          <p className="text-red-500 text-sm">{errors.guest}</p>
-        )}
+      {errors?.guest && <p className="text-red-500 text-sm">{errors.guest}</p>}
       {/* DISTANCE */}
       <input
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
-        placeholder="Distance from city"
+        placeholder="Distance from City Center (e.g., 5 km)"
         value={property.distance}
         onChange={(e) => handleChange("distance", e.target.value)}
       />
@@ -353,7 +343,6 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
       {/* FEATURES */}
 
       <div className="space-y-4">
-
         <h3 className="text-lg font-semibold">Features</h3>
 
         {features.map((feature, i) => (
@@ -361,7 +350,6 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
             key={i}
             className="border border-gray-200 p-4 rounded-lg space-y-3"
           >
-
             <input
               className="w-full border border-gray-300 rounded-md p-3 outline-none
               focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
@@ -380,7 +368,6 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
                 </button>
               </div>
             )}
-
           </div>
         ))}
 
@@ -390,15 +377,16 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
         >
           + Add Feature
         </button>
-
       </div>
 
       {/* LOCATION */}
 
       <div className="space-y-4">
-
         <h3 className="text-lg font-semibold">Location Coordinates</h3>
-
+        <p className="text-sm text-gray-500">
+          **( Select the property location from the map. Latitude and longitude will
+          be filled automatically.)
+        </p>
         <input
           className="w-full border border-gray-300 rounded-md p-3 outline-none
           focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
@@ -414,7 +402,6 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
           value={property.location?.lng || ""}
           onChange={(e) => handleLocation("lng", Number(e.target.value))}
         />
-
       </div>
 
       {/* ADDRESS */}
@@ -422,7 +409,7 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
       <input
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
-        placeholder="Address"
+        placeholder="Enter Property Address"
         value={property.address}
         onChange={(e) => handleChange("address", e.target.value)}
       />
@@ -432,7 +419,7 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
       <input
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
-        placeholder="City"
+        placeholder="Enter City or Town"
         value={property.city}
         onChange={(e) => handleChange("city", e.target.value)}
       />
@@ -442,7 +429,7 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
       <input
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
-        placeholder="Country"
+        placeholder="Select Country"
         value={property.country}
         onChange={(e) => handleChange("country", e.target.value)}
       />
@@ -450,8 +437,6 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
       {/* MAP PICKER */}
 
       <MapPicker property={property} setProperty={setProperty} />
-
     </div>
   );
 }
-

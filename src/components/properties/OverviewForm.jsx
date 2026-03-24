@@ -1,141 +1,63 @@
-// export default function OverviewForm({ property, setProperty }) {
-//   const change = (e) => {
-//     setProperty({
-//       ...property,
-//       overview: {
-//         ...property.overview,
-//         [e.target.name]: e.target.value,
-//       },
-//     });
-//   };
+export default function OverviewForm({
+  property,
+  setProperty,
+  errors,
+  clearError,
+}) {
+  // const change = (e) => {
+  //   setProperty({
+  //     ...property,
+  //     overview: {
+  //       ...property.overview,
+  //       [e.target.name]: e.target.value,
+  //     },
+  //   });
+  // };
 
-//   const addParagraph = () => {
-//     setProperty({
-//       ...property,
-//       overview: {
-//         ...property.overview,
-//         description: [
-//           ...(property.overview?.description || []),
-//           { type: "paragraph", content: "" },
-//         ],
-//       },
-//     });
-//   };
-
-//   return (
-//     <div className=" p-2 space-y-3">
-//       <h2 className="font-semibold mb-6 text-xl">Overview</h2>
-
-//       {/* <input
-//         name="title"
-//         placeholder="Property Name"
-//         required
-//         className="border border-gray-400 rounded-sm p-2 w-full outline-[#c1b296] outline-1"
-//         onChange={change}
-//       /> */}
-
-//       {/* <div className="relative w-full">
-//         <input
-//           name="title"
-//           required
-//           onChange={change}
-//           className="peer w-full border border-gray-300 rounded-md p-3 pt-5 outline-none
-//     focus:border-[#c1b296] focus:ring-1 focus:ring-[#c1b296]"
-//         />
-
-//         <label
-//           className="absolute left-3 top-2 text-gray-500 text-sm
-//     peer-placeholder-shown:top-3
-//     peer-placeholder-shown:text-base
-//     peer-focus:top-1
-//     peer-focus:text-xs
-//     transition-all duration-200"
-//         >
-//           Property Name
-//         </label>
-//       </div> */}
-
-//       <div className="relative w-full">
-//         <input
-//           name="title"
-//           placeholder="Property Name"
-//           required
-//           onChange={change}
-//           className="w-full border border-gray-300 rounded-md p-3 outline-none
-//     focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition-all duration-200"
-//         />
-//       </div>
-
-//       <input
-//         name="subTitle"
-//         placeholder="Property sub title"
-//         className="w-full border border-gray-300 rounded-md p-3 outline-none
-//     focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition-all duration-200"
-//         onChange={change}
-//       />
-
-//       <textarea
-//         name="landingsubcontent"
-//         placeholder="Landing Content"
-//         className="w-full border border-gray-300 rounded-md p-3 outline-none
-//     focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition-all duration-200"
-//         onChange={change}
-//       />
-
-//       {/* Render Paragraphs */}
-//       {property.overview?.description?.map((block, index) => (
-//         <textarea
-//           key={index}
-//           value={block.content}
-//           placeholder=" Property Content"
-//           className="w-full border border-gray-300 rounded-md p-3 outline-none
-//     focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition-all duration-200"
-//           onChange={(e) => {
-//             const updated = [...property.overview.description];
-//             updated[index].content = e.target.value;
-
-//             setProperty({
-//               ...property,
-//               overview: {
-//                 ...property.overview,
-//                 description: updated,
-//               },
-//             });
-//           }}
-//         />
-//       ))}
-
-//       <button
-//         onClick={addParagraph}
-//         className="bg-gray-200 hover:bg-gray-300 cursor-pointer rounded-sm px-3 py-1"
-//       >
-//         Add Paragraph content
-//       </button>
-//     </div>
-//   );
-// }
-
-export default function OverviewForm({ property, setProperty, errors }) {
   const change = (e) => {
+    const { name, value } = e.target;
+
     setProperty({
       ...property,
       overview: {
         ...property.overview,
-        [e.target.name]: e.target.value,
+        [name]: value,
       },
     });
+
+    clearError(name);
   };
 
   /* ADD PARAGRAPH */
+  // const addParagraph = () => {
+  //   setProperty({
+  //     ...property,
+  //     overview: {
+  //       ...property.overview,
+  //       description: [
+  //         ...(property.overview?.description || []),
+  //         { type: "paragraph", content: "" },
+  //       ],
+  //     },
+  //   });
+  // };
+
   const addParagraph = () => {
+    const descriptions = property.overview?.description || [];
+
+    if (
+      descriptions.length > 0 &&
+      !descriptions[descriptions.length - 1].content.trim()
+    ) {
+      alert("Please fill the previous content before adding a new one.");
+      return;
+    }
+
     setProperty({
       ...property,
       overview: {
         ...property.overview,
-        description: [
-          ...(property.overview?.description || []),
-          { type: "paragraph", content: "" },
-        ],
+        description: [...descriptions, { type: "paragraph", content: "" }],
       },
     });
   };
@@ -189,14 +111,14 @@ export default function OverviewForm({ property, setProperty, errors }) {
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
       />
       {/* Landing Content */}
-      <textarea
+      {/* <textarea
         name="landingsubcontent"
         placeholder="Landing Content"
         value={property.overview.landingsubcontent || ""}
         onChange={change}
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
-      />
+      /> */}
       {/* {paragraphs.map((block, index) => (
         <div key={index} className="relative">
 
@@ -237,9 +159,25 @@ export default function OverviewForm({ property, setProperty, errors }) {
         <div key={index} className="space-y-2">
           <textarea
             value={block.content}
-            placeholder={`Property short content ${index + 1}`}
-            className="w-full border border-gray-300 rounded-md p-3 outline-none
-      focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+            placeholder={`Property short description ${index + 1}`}
+            className={`w-full border rounded-md p-3 outline-none transition
+  ${
+    errors?.description
+      ? "border-red-500 focus:ring-red-200"
+      : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
+  }`}
+            // onChange={(e) => {
+            //   const updated = [...paragraphs];
+            //   updated[index].content = e.target.value;
+
+            //   setProperty({
+            //     ...property,
+            //     overview: {
+            //       ...property.overview,
+            //       description: updated,
+            //     },
+            //   });
+            // }}
             onChange={(e) => {
               const updated = [...paragraphs];
               updated[index].content = e.target.value;
@@ -251,6 +189,8 @@ export default function OverviewForm({ property, setProperty, errors }) {
                   description: updated,
                 },
               });
+
+              clearError("description");
             }}
           />
 
@@ -269,13 +209,17 @@ export default function OverviewForm({ property, setProperty, errors }) {
         </div>
       ))}
 
+      {errors?.description && (
+        <p className="text-red-500 text-sm">{errors.description}</p>
+      )}
+
       {/* Add Paragraph */}
       <button
         type="button"
         onClick={addParagraph}
         className="bg-gray-200 hover:bg-gray-300 cursor-pointer rounded px-3 py-1"
       >
-        + Add More Content
+        + Add More Description
       </button>
     </div>
   );

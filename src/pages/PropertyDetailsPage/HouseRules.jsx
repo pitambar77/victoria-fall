@@ -129,6 +129,8 @@
 //   );
 // }
 
+import { amenityIcons } from "../../constants/amenityIcons";
+
 export default function HouseRules({ property }) {
   const rules = property?.houserule;
   const incidental = property?.incidental;
@@ -157,7 +159,7 @@ export default function HouseRules({ property }) {
           </div>
 
           {/* RULE LIST */}
-          <div className="grid md:grid-cols-2 gap-6 pt-4">
+          {/* <div className="grid md:grid-cols-2 gap-6 pt-4">
             {rules.rule?.map((rule) => (
               <div key={rule._id} className="flex gap-4">
                 <img src={rule.icon} className="w-7 h-7 object-contain" />
@@ -173,6 +175,28 @@ export default function HouseRules({ property }) {
                 </div>
               </div>
             ))}
+          </div> */}
+          <div className="grid md:grid-cols-2 gap-6 pt-4">
+            {rules.rule?.map((rule) => {
+              const iconData = amenityIcons.find((i) => i.name === rule.icon);
+              const Icon = iconData?.icon;
+
+              return (
+                <div key={rule._id} className="flex gap-4">
+                  {Icon && <Icon size={22} color="#a57830" />}
+
+                  <div>
+                    <p className="hd font-[500] text-lg text-[#2e2c2d]">
+                      {rule.title}
+                    </p>
+
+                    <p className="text-[16px] text-[#2e2c2d]">
+                      {rule.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

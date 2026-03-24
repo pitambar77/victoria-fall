@@ -70,7 +70,7 @@ function App() {
             path="victoria-falls-experiences/:slug"
             element={<ExperienceDetails />}
           />
-          <Route path="properties" element={<PropertiesLanding />} />{" "}
+          <Route path="properties" element={<PropertiesLanding />} />
           //properties link change
           {/* <Route path=':id' element={<Prodetails/>} /> */}
           {/* <Route path=":id" element={<PropertiesDetails />} /> */}

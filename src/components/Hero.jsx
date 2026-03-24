@@ -12,6 +12,7 @@ import JoinClubSection from "./JoinClubSection";
 import Map from "./Map";
 import PositiveImpact from "../pages/Home/PositiveImpact";
 
+
 const Hero = () => {
   return (
     <>
@@ -30,6 +31,7 @@ const Hero = () => {
       <Awards />
       <Customize />
       <JoinClubSection />
+   
       <Map />
     </>
   );

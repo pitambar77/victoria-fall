@@ -23,26 +23,22 @@ import { Link } from "react-router-dom";
 import { GoArrowLeft } from "react-icons/go";
 import Footer from "../../components/Footer";
 
-
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getProperty } from "../../api/propertiesApi";
 
 export default function PropertyDetailsPage() {
-
-  const {slug } = useParams();
+  const { slug } = useParams();
 
   const [property, setProperty] = useState(null);
 
   useEffect(() => {
-
     const loadProperty = async () => {
       const res = await getProperty(slug);
       setProperty(res.data);
     };
 
     loadProperty();
-
   }, [slug]);
 
   if (!property) return <div>Loading...</div>;
