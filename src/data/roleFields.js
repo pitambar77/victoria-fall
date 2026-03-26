@@ -1,6 +1,4 @@
 
-// based on owner requirement
-
 // src/data/roleFields.js
 export const roleFields = {
   "Property Owner": {
