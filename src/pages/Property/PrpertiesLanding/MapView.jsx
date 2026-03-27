@@ -80,7 +80,7 @@ export default function MapView({
         </Marker>
       ))}
       {selectedProperty && (
-        <Link to={`/propertiesdetails/${selectedProperty.id}`}>
+        <Link to={`/property/${selectedProperty.slug}`}>
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[420px] bg-white rounded-md shadow-md flex overflow-hidden z-20">
             {/* Property Image */}
             <img

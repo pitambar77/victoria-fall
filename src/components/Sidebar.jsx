@@ -42,7 +42,7 @@ const Sidebar = () => {
 
         {openRooms && (
           <div className="ml-6 flex flex-col gap-1">
-            <Link
+            {/* <Link
               to="/dashbord/rooms/all"
               className={`text-sm ${
                 isActive("/dashbord/rooms/all")
@@ -51,8 +51,8 @@ const Sidebar = () => {
               }`}
             >
               All Rooms
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               to="/dashbord/rooms/add"
               className={`text-sm ${
                 isActive("/dashbord/rooms/add")
@@ -61,7 +61,7 @@ const Sidebar = () => {
               }`}
             >
               Add Room
-            </Link>
+            </Link> */}
             <Link
               to="/dashbord/propt"
               className={`text-sm ${

@@ -70,13 +70,22 @@ function App() {
             path="victoria-falls-experiences/:slug"
             element={<ExperienceDetails />}
           />
-          <Route path="properties" element={<PropertiesLanding />} />
+          {/* <Route path="properties" element={<PropertiesLanding />} /> */}
           //properties link change
           {/* <Route path=':id' element={<Prodetails/>} /> */}
           {/* <Route path=":id" element={<PropertiesDetails />} /> */}
           <Route path="properties/:slug" element={<PropertiesDetails />} />
           {/* <Route path="victoria-falls-experiences" element={<ExperienceLanding />} /> // added slug here */}
           {/* <Route path="victoria-falls-experiences" element={<Navigate to="/experience/victorial-falls" replace />} /> // added slug here */}
+          {/* <Route
+            path="properties"
+            element={
+              <FilterProvider>
+                <ListingsPage />
+              </FilterProvider>
+            }
+          />
+          <Route path="properties/:slug" element={<PropertyDetailsPage />} /> */}
           <Route
             path="victoria-falls-experiences"
             element={<ExperienceSubLanding fixedSlug="victorial-falls" />}
@@ -118,7 +127,7 @@ function App() {
           <Route path="/restaurants/new" element={<RestaurantForm />} />
           <Route path="/restaurants/:id" element={<RestaurantDetails />} />
           <Route path="/restaurants/edit/:id" element={<RestaurantForm />} />
-          <Route path="/properties" element={<PropertyList />} />
+          {/* <Route path="/properties" element={<PropertyList />} /> */}
           <Route path="/properties/new" element={<PropertyForm />} />
           <Route path="/properties/:id" element={<PropertyDetails />} />
           <Route path="/properties/edit/:id" element={<PropertyForm />} />
@@ -137,14 +146,15 @@ function App() {
         </Route>
         <Route path="/dashbord/*" element={<DashboardLayout />} />
         <Route
-          path="properties-landing"
+          path="properties"
           element={
             <FilterProvider>
               <ListingsPage />
             </FilterProvider>
           }
         />
-        <Route path="propertiesdetails/:slug" element={<PropertyDetailsPage />} />
+        <Route path="property/:slug" element={<PropertyDetailsPage />} />
+        {/* <Route path="properties/:slug" element={<PropertyDetailsPage />} /> */}
         {/* <Route path="propt" element={<PropertiesList/>}/> */}
         {/* <Route path="cp" element={<CreateProperty/>}/> */}
         {/* <Route path="propt/:id" element={<EditProperty/>}/> */}

@@ -59,7 +59,7 @@ import { Link } from "react-router-dom";
 const PropertyCard = ({ property }) => {
   return (
     <>
-      <Link to={`/propertiesdetails/${property.slug}`}>
+      <Link to={`/property/${property.slug}`}>
         <div className=" hd flex gap-4 border border-gray-300 rounded-xl  mb-4 bg-white shadow-sm">
           {/* Image */}
           <img

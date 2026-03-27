@@ -1,7 +1,7 @@
 import { amenityIcons } from "../../constants/amenityIcons";
 import IconPicker from "../../components/IconPicker";
 
-export default function AmenitiesForm({ property, setProperty }) {
+export default function AmenitiesForm({ property, setProperty, errors }) {
   /* DEFAULT DATA */
   const basicAmenities =
     property.aminities.basic?.length > 0
@@ -16,16 +16,6 @@ export default function AmenitiesForm({ property, setProperty }) {
   /* ======================
      BASIC AMENITIES
   ====================== */
-
-  // const addBasicAmenity = () => {
-  //   setProperty({
-  //     ...property,
-  //     aminities: {
-  //       ...property.aminities,
-  //       basic: [...basicAmenities, { aminityName: "", icon: "" }],
-  //     },
-  //   });
-  // };
 
   const addBasicAmenity = () => {
     const lastAmenity = basicAmenities[basicAmenities.length - 1];
@@ -72,16 +62,6 @@ export default function AmenitiesForm({ property, setProperty }) {
   /* ======================
      ADDITIONAL AMENITIES
   ====================== */
-
-  // const addAdditionalAmenity = () => {
-  //   setProperty({
-  //     ...property,
-  //     aminities: {
-  //       ...property.aminities,
-  //       additional: [...additionalAmenities, { aminityName: "", icon: "" }],
-  //     },
-  //   });
-  // };
 
   const addAdditionalAmenity = () => {
     const lastAmenity = additionalAmenities[additionalAmenities.length - 1];
@@ -152,6 +132,12 @@ export default function AmenitiesForm({ property, setProperty }) {
               value={amenity.aminityName}
               onChange={(e) => changeBasic(i, "aminityName", e.target.value)}
             />
+
+            {errors?.[`basicName_${i}`] && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors[`basicName_${i}`]}
+              </p>
+            )}
 
             {/* ICON UPLOAD */}
             {/* <div className="w-[220px]">

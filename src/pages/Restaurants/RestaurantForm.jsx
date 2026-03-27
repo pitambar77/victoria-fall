@@ -1,6 +1,3 @@
-
-
-
 // import React, { useState, useEffect } from "react";
 // import {
 //   createRestaurant,
@@ -216,7 +213,6 @@
 
 // export default RestaurantForm;
 
-
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import API from "../../api/axiosInstance.js";
@@ -322,10 +318,7 @@ const RestaurantForm = () => {
     try {
       setGalleryUploading(true);
 
-      const res = await API.post(
-        `/restaurants/${id}/gallery-image`,
-        fd
-      );
+      const res = await API.post(`/restaurants/${id}/gallery-image`, fd);
 
       setPreviewGallery(res.data.galleryImages);
     } catch (error) {
@@ -358,8 +351,8 @@ const RestaurantForm = () => {
       if (key === "menu") {
         data.append("menu", JSON.stringify(value));
       } else if (value !== null && value !== undefined) {
-  data.append(key, value);
-}
+        data.append(key, value);
+      }
     });
 
     try {
@@ -379,19 +372,19 @@ const RestaurantForm = () => {
 
   /* ================= UI ================= */
   return (
-    <div className="p-6 max-w-4xl">
+    <div className="p-6 max-w-6xl">
       <h2 className="text-xl font-semibold mb-4">
         {isEdit ? "Edit Restaurant" : "Add Restaurant"}
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-
         <input
           name="name"
           value={formData.name}
           onChange={handleChange}
           placeholder="Restaurant Name"
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
           required
         />
 
@@ -400,7 +393,8 @@ const RestaurantForm = () => {
           value={formData.shortTitle}
           onChange={handleChange}
           placeholder="Short Title"
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
         />
 
         <input
@@ -408,7 +402,8 @@ const RestaurantForm = () => {
           value={formData.resturantType}
           onChange={handleChange}
           placeholder="Restaurant Type"
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
         />
 
         <input
@@ -416,7 +411,8 @@ const RestaurantForm = () => {
           value={formData.overviewTittle}
           onChange={handleChange}
           placeholder="Overview Title"
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
         />
 
         <textarea
@@ -424,7 +420,8 @@ const RestaurantForm = () => {
           value={formData.overview}
           onChange={handleChange}
           placeholder="Overview"
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
         />
 
         <textarea
@@ -432,7 +429,8 @@ const RestaurantForm = () => {
           value={formData.subDescription}
           onChange={handleChange}
           placeholder="Sub Description"
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
         />
 
         <div className="grid grid-cols-2 gap-4">
@@ -441,14 +439,16 @@ const RestaurantForm = () => {
             value={formData.address1}
             onChange={handleChange}
             placeholder="Address 1"
-            className="border p-2 rounded"
+            className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
           />
           <input
             name="address2"
             value={formData.address2}
             onChange={handleChange}
             placeholder="Address 2"
-            className="border p-2 rounded"
+            className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
           />
         </div>
 
@@ -458,14 +458,16 @@ const RestaurantForm = () => {
             value={formData.openingTime}
             onChange={handleChange}
             placeholder="Opening Time"
-            className="border p-2 rounded"
+            className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
           />
           <input
             name="closingTime"
             value={formData.closingTime}
             onChange={handleChange}
             placeholder="Closing Time"
-            className="border p-2 rounded"
+            className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
           />
         </div>
 
@@ -475,14 +477,15 @@ const RestaurantForm = () => {
             value={formData.contactNumber}
             onChange={handleChange}
             placeholder="Contact Number"
-            className="border p-2 rounded"
+            className="w-full border border-gray-300 rounded-md p-3 outline-none"
           />
           <input
             name="priceperPerson"
             value={formData.priceperPerson}
             onChange={handleChange}
             placeholder="Price per Person"
-            className="border p-2 rounded"
+            className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
           />
         </div>
 
@@ -495,7 +498,10 @@ const RestaurantForm = () => {
         {/* Overview Image */}
         <input type="file" name="overviewImage" onChange={handleChange} />
         {previewOverview && (
-          <img src={previewOverview} className="w-40 h-24 rounded object-cover" />
+          <img
+            src={previewOverview}
+            className="w-40 h-24 rounded object-cover"
+          />
         )}
 
         {/* ===== GALLERY (ONE BY ONE) ===== */}

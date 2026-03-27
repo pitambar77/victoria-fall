@@ -291,6 +291,10 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
         <option value="Townhouse">Town house</option>
       </select>
 
+      {errors?.category && (
+  <p className="text-red-500 text-sm">{errors.category}</p>
+)}
+
       {/* RATING */}
       <input
         className="w-full border border-gray-300 rounded-md p-3 outline-none

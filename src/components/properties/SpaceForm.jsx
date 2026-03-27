@@ -85,7 +85,7 @@
 import React from "react";
 import IconPicker from "../../components/IconPicker";
 
-const SpaceForm = ({ property, setProperty }) => {
+const SpaceForm = ({ property, setProperty, errors }) => {
   /* Ensure one space exists */
   const spaces =
     property.space?.length > 0 ? property.space : [{ title: "", icon: "" }];
@@ -236,6 +236,10 @@ const SpaceForm = ({ property, setProperty }) => {
               onSelect={(iconName) => handleChange(i, "icon", iconName)}
             />
           </div>
+
+          {errors?.[`space_${i}`] && (
+            <p className="text-red-500 text-sm">{errors[`space_${i}`]}</p>
+          )}
 
           {/* Remove Button */}
           {spaces.length > 1 && (

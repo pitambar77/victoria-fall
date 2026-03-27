@@ -276,88 +276,6 @@ const ActivityForm = () => {
     }
   };
 
-  /* ================= SUBMIT ================= */
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-
-  //     if (!formData.destination || !formData.category || !formData.activityName) {
-  //       alert("Destination, Category & Activity Name are required");
-  //       return;
-  //     }
-  //     const payload = {
-  //   ...formData,
-  //   banner: formData.banner, // ONLY title & subTitle
-  //   // bannerImage stays as a TOP-LEVEL File
-  // };
-
-  //     try {
-  //       isEdit
-  //         ? await updateActivity(id, payload)
-  //         : await createActivity(payload);
-
-  //       navigate("/dashbord/activities");
-  //     } catch (err) {
-  //       console.error(err);
-  //       alert("Save failed");
-  //     }
-  //   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   if (!formData.destination || !formData.category || !formData.activityName) {
-  //     alert("Destination, Category & Activity Name are required");
-  //     return;
-  //   }
-
-  //   const data = new FormData();
-
-  //   /* ================= BASIC FIELDS ================= */
-  //   data.append("destination", formData.destination);
-  //   data.append("category", formData.category);
-  //   data.append("locationName", formData.locationName);
-  //   data.append("activityName", formData.activityName);
-  //   data.append("overview", formData.overview);
-  //   data.append("subDescription", formData.subDescription);
-  //   data.append("pricePerPerson", formData.pricePerPerson);
-  //   data.append("minPerson", formData.minPerson);
-  //   data.append("duration", formData.duration);
-  //   data.append("content", formData.content);
-  //   data.append("importantInfo", formData.importantInfo);
-
-  //   /* ================= FILES ================= */
-  //   if (formData.overviewImage) {
-  //     data.append("overviewImage", formData.overviewImage);
-  //   }
-
-  //   if (formData.bannerImage) {
-  //     data.append("bannerImage", formData.bannerImage);
-  //   }
-
-  //   /* ================= JSON FIELDS ================= */
-  //   data.append("banner", JSON.stringify(formData.banner));
-  //   data.append("overviewInfo", JSON.stringify(formData.overviewInfo));
-  //   data.append("facilities", JSON.stringify(formData.facilities));
-  //   data.append("highlights", JSON.stringify(formData.highlights));
-  //   data.append("fullDescription", JSON.stringify(formData.fullDescription));
-  //   data.append("include", JSON.stringify(formData.include));
-  //   data.append("exclude", JSON.stringify(formData.exclude));
-
-  //   try {
-  //     if (isEdit) {
-  //       await updateActivity(id, data);
-  //       alert("Activity updated successfully!");
-  //     } else {
-  //       await createActivity(data);
-  //       alert("Activity created successfully!");
-  //     }
-
-  //     navigate("activities");
-  //   } catch (err) {
-  //     console.error("Save failed:", err);
-  //     alert("Save failed");
-  //   }
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -387,7 +305,7 @@ const ActivityForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-6  rounded-xl shadow-md max-w-3xl mx-auto"
+      className="p-6 shadow-sm max-w-5xl mx-auto"
     >
       <h2 className="text-xl font-semibold mb-4">Create Activity</h2>
 
@@ -399,7 +317,7 @@ const ActivityForm = () => {
             name="destination"
             value={formData.destination}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded-md p-3 outline-none"
             required
           >
             <option value="">Select Destination</option>
@@ -418,7 +336,7 @@ const ActivityForm = () => {
             name="category"
             value={formData.category}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded-md p-3 outline-none"
             required
           >
             <option value="">Select Category</option>
@@ -437,33 +355,33 @@ const ActivityForm = () => {
             name="locationName"
             value={formData.locationName}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded-md p-3 outline-none"
           />
         </div>
       </div>
 
       {/* OVERVIEW IMAGE */}
-      <div>
-        <label className="font-medium">Overview Image</label>
+      <div className=" space-y-2 mt-4">
+        <label className="font-medium mt-2">Overview Image</label>
         <input
           type="file"
           name="overviewImage"
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none"
         />
         {previewOverviewImage && (
           <img src={previewOverviewImage} className="w-40 mt-2 rounded" />
         )}
       </div>
 
-      <div>
+      <div className=" mt-4">
         {/* BANNER */}
         <label className="font-medium mt-4">Banner Image</label>
         <input
           type="file"
           name="bannerImage"
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none"
         />
         {previewBannerImage && (
           <img
@@ -485,11 +403,11 @@ const ActivityForm = () => {
               return { ...p, banner };
             })
           }
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none"
         />
       </div>
 
-      <div className="mt-2">
+      <div className="mt-4">
         <label className="block text-sm font-medium">Banner Subtitle</label>
         <input
           type="text"
@@ -501,20 +419,20 @@ const ActivityForm = () => {
               return { ...p, banner };
             })
           }
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none"
         />
       </div>
 
       {/* OVERVIEW INFO */}
-      <div>
+      <div >
         <h3 className="mt-6 font-semibold">Overview Sections</h3>
         {formData.overviewInfo.map((sec, i) => (
-          <div key={i} className="border p-3 mt-2 rounded">
+          <div key={i} className="border border-gray-300 rounded-md p-3 outline-none p-3 mt-2 rounded">
             <input
               value={sec.title}
               onChange={(e) => handleOverviewTitleChange(i, e.target.value)}
               placeholder="Title"
-              className="w-full border p-2 mb-2"
+              className="w-full border border-gray-300 rounded-md p-3 outline-none p-2 mb-2"
             />
 
             {sec.description.map((d, idx) => (
@@ -524,7 +442,7 @@ const ActivityForm = () => {
                   onChange={(e) =>
                     handleOverviewDescChange(i, idx, e.target.value)
                   }
-                  className="w-full border p-2"
+                  className="w-full border border-gray-300 rounded-md p-3 outline-none p-2"
                 />
                 <button
                   type="button"
@@ -551,7 +469,7 @@ const ActivityForm = () => {
       </button>
 
       {/* Activity Name */}
-      <div>
+      <div className=" mt-4">
         <label className="block text-sm font-medium">Activity Name</label>
         <input
           type="text"
@@ -559,43 +477,43 @@ const ActivityForm = () => {
           value={formData.activityName}
           onChange={handleChange}
           placeholder="Enter activity name"
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none"
           required
         />
       </div>
 
       {/* Price Per Person */}
-      <div>
+      <div className=" mt-4">
         <label className="block text-sm font-medium">Price Per Person</label>
         <input
           type="number"
           name="pricePerPerson"
           value={formData.pricePerPerson}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none"
         />
       </div>
 
-      <div>
+      <div className=" mt-4">
         <label className="block text-sm font-medium">Duration</label>
         <input
           type="text"
           name="duration"
           value={formData.duration}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none"
         />
       </div>
 
       {/* Minimum Person */}
-      <div>
+      <div className=" mt-4">
         <label className="block text-sm font-medium">Minimum Person</label>
         <input
           type="number"
           name="minPerson"
           value={formData.minPerson}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none"
         />
       </div>
 
@@ -607,12 +525,12 @@ const ActivityForm = () => {
           value={formData.content}
           onChange={handleChange}
           rows="4"
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none"
         />
       </div>
 
       {/* ✅ Gallery Images */}
-      <div>
+      <div className=" mt-4">
         {/* ================= GALLERY ================= */}
         <div className="mt-6">
           <label className="block text-sm font-medium">Gallery Images</label>
@@ -623,7 +541,7 @@ const ActivityForm = () => {
             accept="image/*"
             disabled={!isEdit || galleryUploading}
             onChange={(e) => uploadSingleGalleryImage(e.target.files[0])}
-            className="border p-2 rounded"
+            className="border border-gray-300 rounded-md p-3 outline-none"
           />
 
           {!isEdit && (
@@ -665,7 +583,7 @@ const ActivityForm = () => {
           value={formData.overview}
           onChange={handleChange}
           placeholder="Write short overview..."
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none"
           rows="3"
         />
       </div>
@@ -678,7 +596,7 @@ const ActivityForm = () => {
           value={formData.subDescription}
           onChange={handleChange}
           placeholder="Enter short sub description..."
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none"
           rows="3"
         />
       </div>
@@ -693,14 +611,14 @@ const ActivityForm = () => {
               placeholder="Icon URL"
               value={facility.icon}
               onChange={(e) => handleFacilityChange(i, "icon", e.target.value)}
-              className="border p-2 rounded"
+              className="border border-gray-300 rounded-md p-3 outline-none"
             />
             <input
               type="text"
               placeholder="Title"
               value={facility.title}
               onChange={(e) => handleFacilityChange(i, "title", e.target.value)}
-              className="border p-2 rounded"
+              className="border border-gray-300 rounded-md p-3 outline-none"
             />
             <input
               type="text"
@@ -709,7 +627,7 @@ const ActivityForm = () => {
               onChange={(e) =>
                 handleFacilityChange(i, "description", e.target.value)
               }
-              className="border p-2 rounded"
+              className="border border-gray-300 rounded-md p-3 outline-none"
             />
             <button
               type="button"
@@ -739,7 +657,7 @@ const ActivityForm = () => {
                 type="text"
                 value={val}
                 onChange={(e) => handleArrayChange(i, field, e.target.value)}
-                className="w-full border p-2 rounded"
+                className="w-full border border-gray-300 rounded-md p-3 outline-none"
               />
               <button
                 type="button"
@@ -777,7 +695,7 @@ const ActivityForm = () => {
   <h3 className="font-semibold mb-2">Important Info</h3>
 
   {formData.importantInfo.map((block, i) => (
-    <div key={i} className="border p-3 mb-3 rounded">
+    <div key={i} className="border border-gray-300 rounded-md p-3 outline-none p-3 mb-3 rounded">
       {/* TYPE SELECT */}
       <select
         value={block.type}
@@ -787,7 +705,7 @@ const ActivityForm = () => {
           updated[i].content = e.target.value === "list" ? [""] : "";
           setFormData({ ...formData, importantInfo: updated });
         }}
-        className="border p-2 mb-2 w-full"
+        className="border border-gray-300 rounded-md p-3 outline-none p-2 mb-2 w-full"
       >
         <option value="header">Header</option>
         <option value="paragraph">Paragraph</option>
@@ -805,7 +723,7 @@ const ActivityForm = () => {
                 updated[i].content[idx] = e.target.value;
                 setFormData({ ...formData, importantInfo: updated });
               }}
-              className="border p-2 w-full"
+              className="border border-gray-300 rounded-md p-3 outline-none p-2 w-full"
             />
             <button
               type="button"
@@ -828,7 +746,7 @@ const ActivityForm = () => {
             updated[i].content = e.target.value;
             setFormData({ ...formData, importantInfo: updated });
           }}
-          className="border p-2 w-full"
+          className="border border-gray-300 rounded-md p-3 outline-none p-2 w-full"
         />
       )}
 

@@ -183,7 +183,7 @@ export default function RoomsForm({ property, setProperty, errors }) {
           <input
             className={`w-full border rounded-md p-3 outline-none transition
   ${
-    errors?.title
+    errors?.bedroomName
       ? "border-red-500 focus:ring-red-200"
       : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
   }`}
@@ -192,8 +192,8 @@ export default function RoomsForm({ property, setProperty, errors }) {
             onChange={(e) => handleChange(i, "bedroomName", e.target.value)}
           />
 
-          {errors?.title && (
-            <p className="text-red-500 text-sm">{errors.title}</p>
+          {errors?.[`bedroomName_${i}`] && (
+            <p className="text-red-500 text-sm">{errors[`bedroomName_${i}`]}</p>
           )}
           {/* Bed Type */}
           {/* <input
@@ -208,6 +208,7 @@ export default function RoomsForm({ property, setProperty, errors }) {
             className="w-full border border-gray-300 rounded-md p-3 outline-none
   focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
             value={room.bed}
+            required
             onChange={(e) => handleChange(i, "bed", e.target.value)}
           >
             <option value="">Select Bed Type</option>
@@ -227,6 +228,9 @@ export default function RoomsForm({ property, setProperty, errors }) {
             <option value="Futon">Futon</option>
           </select>
 
+          {errors?.[`bed_${i}`] && (
+            <p className="text-red-500 text-sm">{errors[`bed_${i}`]}</p>
+          )}
           {/* ICON UPLOAD */}
           {/* <div className="w-[220px]">
             <label className="text-gray-700 mb-2 block">Upload Bed Icon</label>
@@ -279,6 +283,10 @@ export default function RoomsForm({ property, setProperty, errors }) {
               onSelect={(iconName) => handleChange(i, "icon", iconName)}
             />
           </div>
+
+          {errors?.[`icon_${i}`] && (
+            <p className="text-red-500 text-sm">{errors[`icon_${i}`]}</p>
+          )}
 
           {/* Remove Button */}
           {rooms.length > 1 && (

@@ -32,7 +32,7 @@ const MenuManager = ({ menu, setMenu }) => {
   };
 
   return (
-    <div className="border p-2 rounded mt-4">
+    <div className="border border-gray-300 rounded-md p-3 outline-none p-2 rounded mt-4">
       <h3 className="font-bold mb-2">Menu</h3>
 
       {/* Add Category */}
@@ -41,7 +41,7 @@ const MenuManager = ({ menu, setMenu }) => {
           value={categoryName}
           onChange={(e) => setCategoryName(e.target.value)}
           placeholder="New Category"
-          className="border p-1 flex-1"
+          className="border border-gray-300 rounded-md p-3 outline-none p-1 flex-1"
         />
         <button
           type="button"
@@ -54,7 +54,7 @@ const MenuManager = ({ menu, setMenu }) => {
 
       {/* List categories */}
       {menu.map((cat, i) => (
-        <div key={i} className="mb-2 border p-2 rounded">
+        <div key={i} className="mb-2 border border-gray-300 rounded-md p-3 outline-none p-2 ">
           <div className="flex justify-between items-center mb-1">
             <h4 className="font-semibold">{cat.category}</h4>
             <button
@@ -104,20 +104,22 @@ const AddItemForm = ({ categoryIndex, addItem }) => {
         placeholder="Name"
         value={itemData.name}
         onChange={(e) => setItemData({ ...itemData, name: e.target.value })}
-        className="border p-1 flex-1"
+        className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition flex-1 "
       />
       <input
         placeholder="Ingredients"
         value={itemData.ingredients}
         onChange={(e) => setItemData({ ...itemData, ingredients: e.target.value })}
-        className="border p-1 flex-1"
+        className="w-full border border-gray-300 rounded-md p-3 outline-none
+        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition flex-1"
       />
       <input
         placeholder="Price"
         type="number"
         value={itemData.price}
         onChange={(e) => setItemData({ ...itemData, price: e.target.value })}
-        className="border p-1 w-24"
+        className="border border-gray-300 rounded-md p-3 outline-none p-1 w-24"
       />
       <button
         type="button"

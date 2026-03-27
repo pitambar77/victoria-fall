@@ -26,11 +26,13 @@ import Footer from "../../components/Footer";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getProperty } from "../../api/propertiesApi";
+import PropertiesBookingForm from "../../components/PropertiesBookingForm";
 
 export default function PropertyDetailsPage() {
   const { slug } = useParams();
 
   const [property, setProperty] = useState(null);
+  const [showBookingForm, setShowBookingForm] = useState(false);
 
   useEffect(() => {
     const loadProperty = async () => {
@@ -49,7 +51,7 @@ export default function PropertyDetailsPage() {
       <div className=" hd max-w-[1200px] mx-auto px-4 py-6">
         <div className=" flex">
           <Link
-            to="/properties-landing"
+            to="/properties"
             className="flex items-center gap-2 hover:underline text-[#ab8c51]"
           >
             <GoArrowLeft />
@@ -93,14 +95,32 @@ export default function PropertyDetailsPage() {
             </section>
           </div>
 
-          <BookingSidebar property={property} />
+          <BookingSidebar
+            property={property}
+            openBooking={() => setShowBookingForm(true)}
+          />
         </div>
       </div>
-      <MemoriesSection />
+      <MemoriesSection title={"Explore More Exceptional Homes Nearby"} />
       <TestimonialSection />
       <Awards />
       <Customize />
       <JoinClubSection />
+      {showBookingForm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-[800px] w-full relative p-6 max-h-[90vh] overflow-y-auto">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowBookingForm(false)}
+              className=" cursor-pointer absolute top-4 right-4 text-gray-500 hover:text-black text-xl"
+            >
+              ✕
+            </button>
+
+            <PropertiesBookingForm propertyName={property.overview?.title} />
+          </div>
+        </div>
+      )}
       <Footer />
     </div>
   );

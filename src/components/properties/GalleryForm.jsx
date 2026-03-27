@@ -210,7 +210,9 @@ export default function GalleryForm({ property, setProperty, errors }) {
             value={item.imageName}
             onChange={(e) => handleChange(i, "imageName", e.target.value)}
           />
-
+{errors?.imageName && (
+              <p className="text-red-500 text-sm">{errors.imageName}</p>
+            )}
           {/* Image Category */}
 
           <select
@@ -239,7 +241,9 @@ export default function GalleryForm({ property, setProperty, errors }) {
             <option value="Surroundings">Surroundings</option>
             <option value="Other">Other</option>
           </select>
-
+{errors?.imageCategory && (
+              <p className="text-red-500 text-sm">{errors.imageCategory}</p>
+            )}
           {/* IMAGE UPLOAD */}
 
           <div className="w-[220px]">
@@ -279,10 +283,11 @@ export default function GalleryForm({ property, setProperty, errors }) {
                 onChange={(e) => handleChange(i, "image", e.target.files[0])}
               />
             </label>
-            {errors?.title && (
-              <p className="text-red-500 text-sm">{errors.title}</p>
+            {errors?.image && (
+              <p className="text-red-500 text-sm">{errors.image}</p>
             )}
           </div>
+          <p className=" text-gray-700"> (**Minimum six images required)</p>
 
           {/* Remove Image */}
 

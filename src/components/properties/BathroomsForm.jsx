@@ -331,7 +331,7 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
           <input
             className={`w-full border rounded-md p-3 outline-none transition
   ${
-    errors?.title
+    errors?.bathName
       ? "border-red-500 focus:ring-red-200"
       : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
   }`}
@@ -339,8 +339,8 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
             value={bathroom.bathName}
             onChange={(e) => changeBathName(i, e.target.value)}
           />
-          {errors?.title && (
-            <p className="text-red-500 text-sm">{errors.title}</p>
+          {errors?.[`bathName_${i}`] && (
+            <p className="text-red-500 text-sm">{errors[`bathName_${i}`]}</p>
           )}
           {/* Bathroom Details */}
           <div className="space-y-6">
@@ -356,6 +356,12 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
                   value={detail.name}
                   onChange={(e) => changeDetail(i, j, "name", e.target.value)}
                 />
+
+                {errors?.[`bathDetailName_${i}_${j}`] && (
+                  <p className="text-red-500 text-sm">
+                    {errors[`bathDetailName_${i}_${j}`]}
+                  </p>
+                )}
 
                 {/* ICON UPLOAD */}
 
@@ -398,6 +404,12 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
                     }
                   />
                 </div>
+
+                {errors?.[`bathDetailIcon_${i}_${j}`] && (
+                  <p className="text-red-500 text-sm">
+                    {errors[`bathDetailIcon_${i}_${j}`]}
+                  </p>
+                )}
 
                 {/* Remove Detail */}
                 {bathroom.bathdetails.length > 1 && (

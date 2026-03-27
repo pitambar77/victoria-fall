@@ -585,14 +585,214 @@ export default function CreateProperty() {
       }
     }
 
-    if (step === 5 && !property.rooms?.[0]?.bedroomName?.trim()) {
-      setErrors({ title: "Bed Room name is required" });
+    if (step === 3) {
+      const basic = property.aminities.basic || [];
+      const additional = property.aminities.additional || [];
+
+      for (let i = 0; i < basic.length; i++) {
+        if (!basic[i].aminityName?.trim()) {
+          setErrors({ [`basicName_${i}`]: "Amenity name required" });
+          return;
+        }
+
+        if (!basic[i].icon) {
+          setErrors({ [`basicIcon_${i}`]: "Icon required" });
+          return;
+        }
+      }
+
+      for (let i = 0; i < additional.length; i++) {
+        if (!additional[i].aminityName?.trim()) {
+          setErrors({ [`addName_${i}`]: "Amenity name required" });
+          return;
+        }
+
+        if (!additional[i].icon) {
+          setErrors({ [`addIcon_${i}`]: "Icon required" });
+          return;
+        }
+      }
+    }
+
+    if (step === 4) {
+      if (!property.area.locationname.trim()) {
+        setError("locationname", "location is required");
+        return;
+      }
+      if (!property.area.maplink.trim()) {
+        setError("maplink", "maplink is required");
+        return;
+      }
+
+      if (step === 4) {
+        if (!property.area.locationname.trim()) {
+          setError("locationname", "Location is required");
+          return;
+        }
+
+        if (!property.area.maplink.trim()) {
+          setError("maplink", "Map link is required");
+          return;
+        }
+
+        const activities = property.area.relatedactivity || {};
+
+        for (let i = 0; i < activities.length; i++) {
+          const activity = activities[i];
+
+          if (
+            !activity.title?.trim() ||
+            !activity.shortDescription?.trim() ||
+            !activity.icon
+          ) {
+            setErrors({
+              [`activity_${i}`]: "Please complete this activity",
+            });
+
+            return;
+          }
+        }
+      }
+    }
+
+    // if (step === 5) {
+    //   const rooms = property.rooms || [];
+
+    //   if (!rooms[0]?.bedroomName?.trim()) {
+    //     setErrors({ bedroomName: "Bedroom name is required" });
+    //     return;
+    //   }
+
+    //   if (!rooms[0]?.bed?.trim()) {
+    //     setErrors({ bed: "Bed type is required" });
+    //     return;
+    //   }
+    // }
+
+    if (step === 5) {
+      const rooms = property.rooms || [];
+
+      for (let i = 0; i < rooms.length; i++) {
+        const room = rooms[i];
+
+        if (!room.bedroomName?.trim()) {
+          setErrors({ [`bedroomName_${i}`]: "Bedroom name is required" });
+          return;
+        }
+
+        if (!room.bed?.trim()) {
+          setErrors({ [`bed_${i}`]: "Bed type is required" });
+          return;
+        }
+
+        if (!room.icon) {
+          setErrors({ [`icon_${i}`]: "Bed icon is required" });
+          return;
+        }
+      }
+    }
+
+    // if (step === 6) {
+    //   const bathrooms = property.bathrooms || [];
+
+    //   if (!bathrooms[0]?.bathName?.trim()) {
+    //     setErrors({ bathName: "Bathroom name is required" });
+    //     return;
+    //   }
+
+    //   if (!bathrooms[0]?.bathdetails?.[0]?.name?.trim()) {
+    //     setErrors({ bathDetailName: "Bathroom detail name is required" });
+    //     return;
+    //   }
+
+    //   if (!bathrooms[0]?.bathdetails?.[0]?.icon) {
+    //     setErrors({ bathDetailIcon: "Bathroom detail icon is required" });
+    //     return;
+    //   }
+    // }
+
+    if (step === 6) {
+      const bathrooms = property.bathrooms || [];
+
+      for (let i = 0; i < bathrooms.length; i++) {
+        const bath = bathrooms[i];
+
+        if (!bath.bathName?.trim()) {
+          setErrors({ [`bathName_${i}`]: "Bathroom name is required" });
+          return;
+        }
+
+        const details = bath.bathdetails || [];
+
+        for (let j = 0; j < details.length; j++) {
+          const detail = details[j];
+
+          if (!detail.name?.trim()) {
+            setErrors({
+              [`bathDetailName_${i}_${j}`]: "Detail name is required",
+            });
+            return;
+          }
+
+          if (!detail.icon) {
+            setErrors({
+              [`bathDetailIcon_${i}_${j}`]: "Detail icon is required",
+            });
+            return;
+          }
+        }
+      }
+    }
+
+    //     if (step === 7) {
+    //   const spaces = property.space || [];
+
+    //   for (let i = 0; i < spaces.length; i++) {
+    //     const space = spaces[i];
+
+    //     const anyFilled = space.title?.trim() || space.icon;
+    //     const allFilled = space.title?.trim() && space.icon;
+
+    //     // If user started filling but didn't complete
+    //     if (anyFilled && !allFilled) {
+    //       setErrors({
+    //         [`space_${i}`]: "Please complete this space or remove it",
+    //       });
+    //       return;
+    //     }
+    //   }
+    // }
+
+if (step === 7) {
+  const spaces = property.space || [];
+
+  for (let i = 0; i < spaces.length; i++) {
+    const space = spaces[i];
+
+    // first row optional
+    if (i === 0) {
+      const anyFilled = space.title?.trim() || space.icon;
+      const allFilled = space.title?.trim() && space.icon;
+
+      if (anyFilled && !allFilled) {
+        setErrors({
+          [`space_${i}`]: "Please complete this space",
+        });
+        return;
+      }
+
+      continue;
+    }
+
+    // all additional rows required
+    if (!space.title?.trim() || !space.icon) {
+      setErrors({
+        [`space_${i}`]: "Please complete this space or remove it",
+      });
       return;
     }
-    if (step === 6 && !property.bathrooms?.[0]?.bathName?.trim()) {
-      setErrors({ title: "Bath room details  required" });
-      return;
-    }
+  }
+}
 
     if (step === 8 && !property.houserule.checkIn?.trim()) {
       setErrors({ checkIn: "Check In  required" });
@@ -607,15 +807,38 @@ export default function CreateProperty() {
       return;
     }
 
-    if (step === 11 && !property.gallery?.[0]?.image) {
-      setErrors({ title: "Image  required" });
-      return;
+    // if (step === 11 && !property.gallery?.[0]?.image) {
+    //   setErrors({ title: "Image  required" });
+    //   return;
+    // }
+
+    if (step === 11) {
+      const images = property.gallery || [];
+
+      if (!images[0]?.imageName?.trim()) {
+        setErrors({ imageName: "Image name is required" });
+        return;
+      }
+
+      if (!images[0]?.imageCategory) {
+        setErrors({ imageCategory: "Image category is required" });
+        return;
+      }
+
+      if (!images[0]?.image) {
+        setErrors({ image: "Image upload is required" });
+        return;
+      }
+
+      // if (images.length < 6) {
+      //   setErrors({ image: "Minimum 6 images required" });
+      //   return;
+      // }
     }
 
     setErrors({});
     clearAllErrors();
     setStep((prev) => prev + 1);
-    
   };
 
   const prevStep = () => {
@@ -629,6 +852,11 @@ export default function CreateProperty() {
   const submit = async () => {
     if (!property.price || property.price.trim() === "") {
       setErrors({ price: "Price required" });
+      return;
+    }
+
+    if (!property.category || property.category.trim() === "") {
+      setErrors({ category: "Category is required" });
       return;
     }
 
@@ -769,10 +997,22 @@ export default function CreateProperty() {
         return <HighlightsForm property={property} setProperty={setProperty} />;
 
       case 3:
-        return <AmenitiesForm property={property} setProperty={setProperty} />;
+        return (
+          <AmenitiesForm
+            property={property}
+            setProperty={setProperty}
+            errors={errors}
+          />
+        );
 
       case 4:
-        return <AreaForm property={property} setProperty={setProperty} />;
+        return (
+          <AreaForm
+            property={property}
+            setProperty={setProperty}
+            errors={errors}
+          />
+        );
 
       case 5:
         return (
@@ -793,7 +1033,13 @@ export default function CreateProperty() {
         );
 
       case 7:
-        return <SpaceForm property={property} setProperty={setProperty} />;
+        return (
+          <SpaceForm
+            property={property}
+            setProperty={setProperty}
+            errors={errors}
+          />
+        );
 
       case 8:
         return (

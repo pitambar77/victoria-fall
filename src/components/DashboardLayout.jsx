@@ -40,7 +40,7 @@ const DashboardLayout = () => {
               alt="user"
               className="w-9 h-9 rounded-full"
             />
-            <p className="font-medium">Ella Jones</p>
+          
           </div>
         </header>
 
@@ -48,13 +48,13 @@ const DashboardLayout = () => {
         <main className="hd flex-1 p-6 overflow-y-auto">
           <Routes>
             <Route path="/" element={<Dashbord />} />
-            <Route path="rooms/all" element={<PropertyList />} />
-            <Route path="rooms/add" element={<PropertyForm />} />
+            {/* <Route path="rooms/all" element={<PropertyList />} />
+            <Route path="rooms/add" element={<PropertyForm />} /> */}
              <Route path = "cp" element={<CreateProperty/>}/>
               <Route path="propt" element={<PropertiesList/>}/>
-              <Route path="propt/:id" element={<EditProperty/>}/>
-            <Route path="properties/edit/:id" element={<PropertyForm />} />
-            <Route path="properties/:id" element={<PropertyDetails />} />
+              <Route path="propt/:slug" element={<EditProperty/>}/>
+            {/* <Route path="properties/edit/:id" element={<PropertyForm />} /> */}
+            {/* <Route path="properties/:id" element={<PropertyDetails />} /> */}
             <Route path="restaurants/all" element={<RestaurantList />} />
             <Route path="restaurants/add" element={<RestaurantForm />} />
             <Route path="restaurants/edit/:id" element={<RestaurantForm />} />

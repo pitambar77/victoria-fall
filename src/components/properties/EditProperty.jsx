@@ -17,19 +17,19 @@ import InformationSection from "./InformationSection";
 import PropertyBasicSection from "./PropertyBasicSection";
 
 export default function EditProperty() {
-  const { id } = useParams();
+  const { slug } = useParams();
 
   const [property, setProperty] = useState(null);
   const [tab, setTab] = useState("overview");
 
   useEffect(() => {
     const fetchProperty = async () => {
-      const res = await getProperty(id);
+      const res = await getProperty(slug);
       setProperty(res.data);
     };
 
     fetchProperty();
-  }, [id]);
+  }, [slug]);
 
   if (!property) return <div className="p-10">Loading property...</div>;
 

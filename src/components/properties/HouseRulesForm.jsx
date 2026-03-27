@@ -301,9 +301,7 @@ const HouseRulesForm = ({ property, setProperty, errors }) => {
               </p>
             )}
           </div>
-          {errors?.checkIn && (
-            <p className="text-red-500 text-sm">{errors.checkIn}</p>
-          )}
+         
           {/* <input
           className={`w-full border rounded-md p-3 outline-none transition
   ${
@@ -346,11 +344,7 @@ const HouseRulesForm = ({ property, setProperty, errors }) => {
               Select the check-out time for guests.
             </p>
 
-            {errors?.checkOut && (
-              <p className="text-red-500 text-xs sm:text-sm">
-                {errors.checkOut}
-              </p>
-            )}
+            
           </div>
 
           {errors?.checkOut && (

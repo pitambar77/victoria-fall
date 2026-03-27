@@ -221,7 +221,7 @@ export default function PropertiesList() {
                 <td className="p-4">
                   <div className="flex gap-4 text-sm">
                     <Link
-                      to={`${p._id}`}
+                      to={`${p.slug}`}
                       className="text-blue-600 cursor-pointer hover:underline"
                     >
                       Edit

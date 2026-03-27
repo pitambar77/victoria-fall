@@ -124,7 +124,8 @@
 // }
 
 import React, { useEffect, useState } from "react";
-import { getProperties } from "../../api/propertyApi";
+// import { getProperties } from "../../api/propertyApi";
+import { getProperties } from "../../api/propertiesApi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -137,14 +138,35 @@ import { IoLocationSharp } from "react-icons/io5";
 import { GiFamilyHouse } from "react-icons/gi";
 import { MdOutlineAttachMoney } from "react-icons/md";
 
-export default function MemoriesSection() {
+export default function MemoriesSection({ title, description }) {
   const [properties, setProperties] = useState([]);
   const navigate = useNavigate();
 
+  // const loadProperties = async () => {
+  //   const res = await getProperties();
+  //   setProperties(res.data);
+  // };
+
   const loadProperties = async () => {
+  try {
     const res = await getProperties();
-    setProperties(res.data);
-  };
+
+    const formatted = res.data.map((p) => ({
+      id: p._id,
+      slug: p.slug,
+      title: p.overview?.title,
+      price: p.price,
+      category: p.category,
+      city: p.city,
+      adress:p.address,
+      image: p.gallery?.length ? p.gallery[0].image : "",
+    }));
+
+    setProperties(formatted);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
   useEffect(() => {
     loadProperties();
@@ -154,15 +176,11 @@ export default function MemoriesSection() {
     <div className="max-w-[1140px] mx-auto py-10 sm:py-14 md:py-16 px-4 relative">
       {/* Heading */}
       <h2 className="hd text-center text-[20px] sm:text-[24px] md:text-[30px] mb-6 font-semibold text-[#2e2c2d] tracking-[2px] md:tracking-[3px] uppercase leading-snug max-w-2xl mx-auto">
-        Discover Your Perfect Luxury Home Away from Home
+         {title}
       </h2>
       <p className=" hd max-w-xl mx-auto md:text-center text-justify text-[#5c5e62]   md:mb-16 mb-0 ">
-        Discover a carefully selected collection of unique accommodations in
-        Victoria Falls, chosen for their comfort, character, and prime
-        locations. Whether you are traveling as a couple, with family, or with
-        friends, each property offers the perfect base to explore the wonders of
-        Victoria Falls while enjoying personalized services and unforgettable
-        experiences.
+        
+        {description}
       </p>
 
       {/* Carousel */}
@@ -193,12 +211,12 @@ export default function MemoriesSection() {
         >
           {properties.map((property) => (
             <SwiperSlide key={property._id}>
-              <Link to={`/properties/${property.slug}`}>
+              <Link to={`/property/${property.slug}`}  >
                 <div className="relative group overflow-hidden rounded-sm h-[480px]">
                   {/* Image */}
                   <img
-                    src={property.bannerImage}
-                    alt={property.name}
+                    src={property.image}
+                    alt={property.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
 
@@ -209,7 +227,7 @@ export default function MemoriesSection() {
                   <div className="absolute bottom-6 left-6 right-6 text-white ">
                     {/* Title */}
                     <h3 className=" hd text-lg sm:text-xl font-[500] capitalize mb-1 sm:mb-2">
-                      {property.name}
+                      {property.title}
                     </h3>
 
                     {/* Location */}
@@ -218,19 +236,19 @@ export default function MemoriesSection() {
                     </p> */}
                     <p className="hd flex items-center gap-2 text-sm text-gray-200 mt-1">
                       <IoLocationSharp className="" />
-                      {property.address1}
+                      {property.city} {property.adress}
                     </p>
 
                     {/* Property Type */}
                     <p className="hd flex items-center gap-2 text-sm text-gray-200 mt-1">
                       <GiFamilyHouse />
-                      {property.propertyType}
+                      {property.category}
                     </p>
 
                     {/* Price */}
                     <p className="hd flex items-center gap-1 text-sm text-gray-200 mt-1">
                       <MdOutlineAttachMoney className=" text-xl" />
-                      {property.priceperPerson} per night
+                       {property.price}
                     </p>
                   </div>
 

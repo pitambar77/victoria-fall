@@ -184,7 +184,7 @@
 import React from "react";
 import IconPicker from "../../components/IconPicker";
 
-const AreaForm = ({ property, setProperty }) => {
+const AreaForm = ({ property, setProperty, errors }) => {
   /* Ensure one activity exists */
   const activities =
     property.area.relatedactivity?.length > 0
@@ -288,7 +288,7 @@ const AreaForm = ({ property, setProperty }) => {
 
   return (
     <div className="p-6 space-y-8">
-      <h2 className="text-xl font-semibold">Explore the Near by Area</h2>
+      <h2 className="text-xl font-semibold">Property Location</h2>
 
       {/* LOCATION NAME */}
 
@@ -301,10 +301,14 @@ const AreaForm = ({ property, setProperty }) => {
         onChange={handleChange}
       />
 
+      {errors?.locationname && (
+        <p className="text-red-500 text-sm">{errors.locationname}</p>
+      )}
+
       {/* MAP LINK */}
 
       <input
-      type="url"
+        type="url"
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
         name="maplink"
@@ -313,10 +317,14 @@ const AreaForm = ({ property, setProperty }) => {
         onChange={handleChange}
       />
 
+      {errors?.maplink && (
+        <p className="text-red-500 text-sm">{errors.maplink}</p>
+      )}
+
       {/* RELATED ACTIVITIES */}
 
       <div className="space-y-6">
-        <h3 className="text-lg font-medium">Related Activities</h3>
+        <h3 className="text-lg font-medium">Add Near by Areas</h3>
 
         {activities.map((activity, i) => (
           <div
@@ -412,6 +420,12 @@ const AreaForm = ({ property, setProperty }) => {
                   Remove Activity
                 </button>
               </div>
+            )}
+
+            {errors?.[`activity_${i}`] && (
+              <p className="text-red-500 text-sm mt-2">
+                {errors[`activity_${i}`]}
+              </p>
             )}
           </div>
         ))}
