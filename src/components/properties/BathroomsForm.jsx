@@ -168,7 +168,7 @@
 import React from "react";
 import IconPicker from "../../components/IconPicker";
 
-const BathroomsForm = ({ property, setProperty, errors }) => {
+const BathroomsForm = ({ property, setProperty, errors, clearError }) => {
   /* Ensure one bathroom exists */
   const bathrooms =
     property.bathrooms?.length > 0
@@ -228,6 +228,7 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
       ...property,
       bathrooms: updated,
     });
+    clearError(`bathName_${index}`);
   };
 
   /* ======================
@@ -296,6 +297,13 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
       ...property,
       bathrooms: updated,
     });
+     if (field === "name") {
+    clearError(`bathDetailName_${bathIndex}_${detailIndex}`);
+  }
+
+  if (field === "icon") {
+    clearError(`bathDetailIcon_${bathIndex}_${detailIndex}`);
+  }
   };
 
   /* ======================
@@ -331,7 +339,7 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
           <input
             className={`w-full border rounded-md p-3 outline-none transition
   ${
-    errors?.bathName
+    errors?.[`bathName_${i}`]
       ? "border-red-500 focus:ring-red-200"
       : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
   }`}
@@ -350,8 +358,12 @@ const BathroomsForm = ({ property, setProperty, errors }) => {
                 className="border border-gray-200 p-4 rounded-lg space-y-4"
               >
                 <input
-                  className="w-full border border-gray-300 rounded-md p-3 outline-none
-                  focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+                  className={`w-full border rounded-md p-3 outline-none transition
+${
+  errors?.[`bathDetailName_${i}_${j}`]
+    ? "border-red-500 focus:ring-red-200"
+    : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
+}`}
                   placeholder="Detail Name (Shower / Bathtub / Sink)"
                   value={detail.name}
                   onChange={(e) => changeDetail(i, j, "name", e.target.value)}

@@ -1,94 +1,11 @@
-// export default function RoomsForm({ property, setProperty }) {
-//   /* =====================
-//      ADD ROOM
-//   ===================== */
-
-//   const addRoom = () => {
-//     setProperty({
-//       ...property,
-//       rooms: [
-//         ...property.rooms,
-//         {
-//           bedroomName: "",
-//           bed: "",
-//           icon: "",
-//         },
-//       ],
-//     });
-//   };
-
-//   /* =====================
-//      HANDLE CHANGE
-//   ===================== */
-
-//   const handleChange = (index, field, value) => {
-//     const updated = [...property.rooms];
-
-//     updated[index][field] = value;
-
-//     setProperty({
-//       ...property,
-//       rooms: updated,
-//     });
-//   };
-
-//   /* =====================
-//      REMOVE ROOM
-//   ===================== */
-
-//   const removeRoom = (index) => {
-//     const updated = property.rooms.filter((_, i) => i !== index);
-
-//     setProperty({
-//       ...property,
-//       rooms: updated,
-//     });
-//   };
-
-//   return (
-//     <div className="border p-6 space-y-4">
-//       <h2 className="text-lg font-semibold">Rooms Section</h2>
-
-//       {property.rooms.map((room, i) => (
-//         <div key={i} className="border p-4 rounded space-y-2">
-//           <input
-//             className="border p-2 w-full"
-//             placeholder="Bedroom Name"
-//             value={room.bedroomName}
-//             onChange={(e) => handleChange(i, "bedroomName", e.target.value)}
-//           />
-
-//           <input
-//             className="border p-2 w-full"
-//             placeholder="Bed Type (King / Queen / Twin)"
-//             value={room.bed}
-//             onChange={(e) => handleChange(i, "bed", e.target.value)}
-//           />
-
-//           <input
-//             type="file"
-//             onChange={(e) => handleChange(i, "icon", e.target.files[0])}
-//           />
-
-//           <button
-//             onClick={() => removeRoom(i)}
-//             className="text-red-500 text-sm"
-//           >
-//             Remove Room
-//           </button>
-//         </div>
-//       ))}
-
-//       <button onClick={addRoom} className="bg-gray-200 px-3 py-1 rounded">
-//         Add Room
-//       </button>
-//     </div>
-//   );
-// }
-
 import IconPicker from "../../components/IconPicker";
 
-export default function RoomsForm({ property, setProperty, errors }) {
+export default function RoomsForm({
+  property,
+  setProperty,
+  errors,
+  clearError,
+}) {
   /* Ensure one room exists */
   const rooms =
     property.rooms?.length > 0
@@ -150,6 +67,9 @@ export default function RoomsForm({ property, setProperty, errors }) {
       ...property,
       rooms: updated,
     });
+    clearError(`bedroomName_${index}`);
+    clearError(`bed_${index}`);
+    clearError(`icon_${index}`);
   };
 
   /* =====================
@@ -183,7 +103,7 @@ export default function RoomsForm({ property, setProperty, errors }) {
           <input
             className={`w-full border rounded-md p-3 outline-none transition
   ${
-    errors?.bedroomName
+    errors?.[`bedroomName_${i}`]
       ? "border-red-500 focus:ring-red-200"
       : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
   }`}
@@ -205,8 +125,12 @@ export default function RoomsForm({ property, setProperty, errors }) {
           /> */}
 
           <select
-            className="w-full border border-gray-300 rounded-md p-3 outline-none
-  focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+            className={`w-full border rounded-md p-3 outline-none transition
+  ${
+    errors?.[`bed_${i}`]
+      ? "border-red-500 focus:ring-red-200"
+      : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
+  }`}
             value={room.bed}
             required
             onChange={(e) => handleChange(i, "bed", e.target.value)}

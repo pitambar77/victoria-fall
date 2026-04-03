@@ -162,7 +162,7 @@ export default function OverviewForm({
             placeholder={`Property short description ${index + 1}`}
             className={`w-full border rounded-md p-3 outline-none transition
   ${
-    errors?.description
+    errors?.[`description_${index}`]
       ? "border-red-500 focus:ring-red-200"
       : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
   }`}
@@ -190,7 +190,7 @@ export default function OverviewForm({
                 },
               });
 
-              clearError("description");
+              clearError(`description_${index}`);
             }}
           />
 
@@ -206,12 +206,14 @@ export default function OverviewForm({
               </button>
             </div>
           )}
+
+          {errors?.[`description_${index}`] && (
+            <p className="text-red-500 text-sm">
+              {errors[`description_${index}`]}
+            </p>
+          )}
         </div>
       ))}
-
-      {errors?.description && (
-        <p className="text-red-500 text-sm">{errors.description}</p>
-      )}
 
       {/* Add Paragraph */}
       <button

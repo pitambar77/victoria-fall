@@ -1,7 +1,12 @@
 import { amenityIcons } from "../../constants/amenityIcons";
 import IconPicker from "../../components/IconPicker";
 
-export default function AmenitiesForm({ property, setProperty, errors }) {
+export default function AmenitiesForm({
+  property,
+  setProperty,
+  errors,
+  clearError,
+}) {
   /* DEFAULT DATA */
   const basicAmenities =
     property.aminities.basic?.length > 0
@@ -45,6 +50,9 @@ export default function AmenitiesForm({ property, setProperty, errors }) {
         basic: updated,
       },
     });
+
+    clearError(`basicName_${index}`);
+    clearError(`basicIcon_${index}`);
   };
 
   const removeBasic = (index) => {
@@ -90,6 +98,9 @@ export default function AmenitiesForm({ property, setProperty, errors }) {
         additional: updated,
       },
     });
+
+    clearError(`addName_${index}`);
+    clearError(`addIcon_${index}`);
   };
 
   const removeAdditional = (index) => {
@@ -126,8 +137,12 @@ export default function AmenitiesForm({ property, setProperty, errors }) {
             className="border border-gray-200 p-4 rounded-lg space-y-4 mb-4"
           >
             <input
-              className="w-full border border-gray-300 rounded-md p-3 outline-none
-              focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+              className={`w-full border rounded-md p-3 outline-none
+  ${
+    errors?.[`basicName_${i}`]
+      ? "border-red-500"
+      : "border-gray-300 focus:border-[#c1b296]"
+  }`}
               placeholder="Amenity Name"
               value={amenity.aminityName}
               onChange={(e) => changeBasic(i, "aminityName", e.target.value)}
@@ -213,6 +228,11 @@ export default function AmenitiesForm({ property, setProperty, errors }) {
                 value={amenity.icon}
                 onSelect={(iconName) => changeBasic(i, "icon", iconName)}
               />
+              {errors?.[`basicIcon_${i}`] && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors[`basicIcon_${i}`]}
+                </p>
+              )}
             </div>
 
             {basicAmenities.length > 1 && (
@@ -259,14 +279,24 @@ export default function AmenitiesForm({ property, setProperty, errors }) {
             className="border border-gray-200 p-4 rounded-lg space-y-4 mb-4"
           >
             <input
-              className=" w-full border border-gray-300 rounded-md p-3 outline-none
-              focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+              className={`w-full border rounded-md p-3 outline-none
+  ${
+    errors?.[`addName_${i}`]
+      ? "border-red-500"
+      : "border-gray-300 focus:border-[#c1b296]"
+  }`}
               placeholder="Amenity Name"
               value={amenity.aminityName}
               onChange={(e) =>
                 changeAdditional(i, "aminityName", e.target.value)
               }
             />
+
+            {errors?.[`addName_${i}`] && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors[`addName_${i}`]}
+              </p>
+            )}
 
             {/* ICON UPLOAD */}
             {/* <div className="w-[220px]">
@@ -343,6 +373,11 @@ export default function AmenitiesForm({ property, setProperty, errors }) {
                 value={amenity.icon}
                 onSelect={(iconName) => changeAdditional(i, "icon", iconName)}
               />
+              {errors?.[`addIcon_${i}`] && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors[`addIcon_${i}`]}
+                </p>
+              )}
             </div>
 
             {additionalAmenities.length > 1 && (

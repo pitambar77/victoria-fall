@@ -1,107 +1,9 @@
-// export default function GalleryForm({ property, setProperty }) {
-//   /* =====================
-//      ADD IMAGE
-//   ===================== */
-
-//   const addImage = () => {
-//     setProperty({
-//       ...property,
-//       gallery: [
-//         ...property.gallery,
-//         {
-//           image: "",
-//           imageName: "",
-//           imageCategory: "",
-//         },
-//       ],
-//     });
-//   };
-
-//   /* =====================
-//      HANDLE CHANGE
-//   ===================== */
-
-//   const handleChange = (index, field, value) => {
-//     const updated = [...property.gallery];
-
-//     updated[index][field] = value;
-
-//     setProperty({
-//       ...property,
-//       gallery: updated,
-//     });
-//   };
-
-//   /* =====================
-//      REMOVE IMAGE
-//   ===================== */
-
-//   const removeImage = (index) => {
-//     const updated = property.gallery.filter((_, i) => i !== index);
-
-//     setProperty({
-//       ...property,
-//       gallery: updated,
-//     });
-//   };
-
-//   return (
-//     <div className="border p-6 space-y-4">
-//       <h2 className="text-lg font-semibold">Gallery</h2>
-
-//       {property.gallery.map((item, i) => (
-//         <div key={i} className="border p-4 rounded space-y-2">
-//           <input
-//             className="border p-2 w-full"
-//             placeholder="Image Name"
-//             value={item.imageName}
-//             onChange={(e) => handleChange(i, "imageName", e.target.value)}
-//           />
-
-//           {/* <input
-//             className="border p-2 w-full"
-//             placeholder="Image Category (Bedroom / Pool / Exterior)"
-//             value={item.imageCategory}
-//             onChange={(e) =>
-//               handleChange(i, "imageCategory", e.target.value)
-//             }
-//           /> */}
-
-//           <select
-//             className="border p-2 w-full"
-//             value={item.imageCategory}
-//             onChange={(e) => handleChange(i, "imageCategory", e.target.value)}
-//           >
-//             <option value="">Select Category</option>
-//             <option value="Bedroom">Bedroom</option>
-//             <option value="Bathroom">Bathroom</option>
-//             <option value="Pool">Pool</option>
-//             <option value="Exterior">Exterior</option>
-//             <option value="Living">Living Area</option>
-//           </select>
-
-//           <input
-//             type="file"
-//             onChange={(e) => handleChange(i, "image", e.target.files[0])}
-//           />
-
-//           <button
-//             onClick={() => removeImage(i)}
-//             className="text-red-500 text-sm"
-//           >
-//             Remove Image
-//           </button>
-//         </div>
-//       ))}
-
-//       <button onClick={addImage} className="bg-gray-200 px-3 py-1 rounded">
-//         Add Image
-//       </button>
-//     </div>
-//   );
-// }
-
-export default function GalleryForm({ property, setProperty, errors }) {
+export default function GalleryForm({
+  property,
+  setProperty,
+  errors,
+  clearError,
+}) {
   /* Ensure one image exists */
   const images =
     property.gallery?.length > 0
@@ -163,6 +65,16 @@ export default function GalleryForm({ property, setProperty, errors }) {
      HANDLE CHANGE
   ===================== */
 
+  // const handleChange = (index, field, value) => {
+  //   const updated = [...images];
+  //   updated[index][field] = value;
+
+  //   setProperty({
+  //     ...property,
+  //     gallery: updated,
+  //   });
+  // };
+
   const handleChange = (index, field, value) => {
     const updated = [...images];
     updated[index][field] = value;
@@ -171,6 +83,10 @@ export default function GalleryForm({ property, setProperty, errors }) {
       ...property,
       gallery: updated,
     });
+
+     if (field === "imageName") clearError(`imageName_${index}`);
+  if (field === "imageCategory") clearError(`imageCategory_${index}`);
+  if (field === "image") clearError(`image_${index}`);
   };
 
   /* =====================
@@ -196,6 +112,7 @@ export default function GalleryForm({ property, setProperty, errors }) {
   return (
     <div className="p-6 space-y-8">
       <h2 className="text-xl font-semibold">Gallery</h2>
+      <p className=" text-gray-700"> (**Minimum six images required)</p>
 
       {images.map((item, i) => (
         <div
@@ -204,20 +121,28 @@ export default function GalleryForm({ property, setProperty, errors }) {
         >
           {/* Image Name */}
           <input
-            className="w-full border border-gray-300 rounded-md p-3 outline-none
-            focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+            className={`w-full border rounded-md p-3 outline-none
+  ${
+    errors?.[`imageName_${i}`]
+      ? "border-red-500"
+      : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
+  }`}
             placeholder="Image Title"
             value={item.imageName}
             onChange={(e) => handleChange(i, "imageName", e.target.value)}
           />
-{errors?.imageName && (
-              <p className="text-red-500 text-sm">{errors.imageName}</p>
-            )}
+          {errors?.[`imageName_${i}`] && (
+            <p className="text-red-500 text-sm">{errors[`imageName_${i}`]}</p>
+          )}
           {/* Image Category */}
 
           <select
-            className="w-full border border-gray-300 rounded-md p-3 outline-none
-            focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+            className={`w-full border rounded-md p-3 outline-none
+  ${
+    errors?.[`imageCategory_${i}`]
+      ? "border-red-500"
+      : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
+  }`}
             value={item.imageCategory}
             onChange={(e) => handleChange(i, "imageCategory", e.target.value)}
           >
@@ -241,9 +166,11 @@ export default function GalleryForm({ property, setProperty, errors }) {
             <option value="Surroundings">Surroundings</option>
             <option value="Other">Other</option>
           </select>
-{errors?.imageCategory && (
-              <p className="text-red-500 text-sm">{errors.imageCategory}</p>
-            )}
+          {errors?.[`imageCategory_${i}`] && (
+            <p className="text-red-500 text-sm">
+              {errors[`imageCategory_${i}`]}
+            </p>
+          )}
           {/* IMAGE UPLOAD */}
 
           <div className="w-[220px]">
@@ -283,12 +210,12 @@ export default function GalleryForm({ property, setProperty, errors }) {
                 onChange={(e) => handleChange(i, "image", e.target.files[0])}
               />
             </label>
-            {errors?.image && (
-              <p className="text-red-500 text-sm">{errors.image}</p>
+            {errors?.[`image_${i}`] && (
+              <p className="text-red-500 text-sm">{errors[`image_${i}`]}</p>
             )}
           </div>
-          <p className=" text-gray-700"> (**Minimum six images required)</p>
-
+          
+         
           {/* Remove Image */}
 
           {images.length > 1 && (

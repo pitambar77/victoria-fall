@@ -1,207 +1,12 @@
-// import React from "react";
-// import MapPicker from "../../pages/Property/PrpertiesLanding/MapPicker";
-
-// export default function PropertyBasicForm({ property, setProperty }) {
-//   /* =========================
-//      BASIC FIELD CHANGE
-//   ========================= */
-
-//   const handleChange = (field, value) => {
-//     setProperty({
-//       ...property,
-//       [field]: value,
-//     });
-//   };
-
-//   /* =========================
-//      LOCATION CHANGE
-//   ========================= */
-
-//   const handleLocation = (field, value) => {
-//     setProperty({
-//       ...property,
-//       location: {
-//         ...property.location,
-//         [field]: value,
-//       },
-//     });
-//   };
-
-//   /* =========================
-//      FEATURES
-//   ========================= */
-
-//   const addFeature = () => {
-//     setProperty({
-//       ...property,
-//       features: [...property.features, ""],
-//     });
-//   };
-
-//   const changeFeature = (index, value) => {
-//     const updated = [...property.features];
-
-//     updated[index] = value;
-
-//     setProperty({
-//       ...property,
-//       features: updated,
-//     });
-//   };
-
-//   const removeFeature = (index) => {
-//     const updated = property.features.filter((_, i) => i !== index);
-
-//     setProperty({
-//       ...property,
-//       features: updated,
-//     });
-//   };
-
-//   return (
-//     <div className="border p-6 space-y-6">
-//       <h2 className="text-lg font-semibold">Property Details</h2>
-
-//       {/* PRICE */}
-//       <input
-//         className="border p-2 w-full"
-//         placeholder="Price"
-//         value={property.price}
-//         onChange={(e) => handleChange("price", e.target.value)}
-//       />
-
-//       {/* CATEGORY */}
-//       <select
-//         className="border p-2 w-full"
-//         value={property.category}
-//         onChange={(e) => handleChange("category", e.target.value)}
-//       >
-//         <option value="">Select Category</option>
-//         <option value="Villa">Villa / Entire House</option>
-//         <option value="Apartment">Apartment</option>
-//         <option value="Lodge">Lodge / Boutique B&B</option>
-//         <option value="Cottage">Cottage</option>
-//         <option value="Townhouse">Town house</option>
-
-//       </select>
-
-//       {/* RATING */}
-//       <input
-//         className="border p-2 w-full"
-//         placeholder="Rating"
-//         value={property.rating}
-//         onChange={(e) => handleChange("rating", e.target.value)}
-//       />
-
-//       {/* REVIEWS */}
-//       <input
-//         className="border p-2 w-full"
-//         placeholder="Reviews"
-//         value={property.reviews}
-//         onChange={(e) => handleChange("reviews", e.target.value)}
-//       />
-
-//       {/* SLEEPS */}
-//       <input
-//         className="border p-2 w-full"
-//         placeholder="Sleeps"
-//         value={property.sleeps}
-//         onChange={(e) => handleChange("sleeps", e.target.value)}
-//       />
-
-//       {/* Guest */}
-//       <input
-//         className="border p-2 w-full"
-//         placeholder="Guest"
-//         value={property.guest}
-//         onChange={(e) => handleChange("guest", e.target.value)}
-//       />
-
-//       {/* DISTANCE */}
-//       <input
-//         className="border p-2 w-full"
-//         placeholder="Distance from city"
-//         value={property.distance}
-//         onChange={(e) => handleChange("distance", e.target.value)}
-//       />
-
-//       {/* FEATURES */}
-//       <div className="space-y-3">
-//         <h3 className="font-semibold">Features</h3>
-
-//         {property.features.map((feature, i) => (
-//           <div key={i} className="flex gap-2">
-//             <input
-//               className="border p-2 w-full"
-//               placeholder="Feature"
-//               value={feature}
-//               onChange={(e) => changeFeature(i, e.target.value)}
-//             />
-
-//             <button onClick={() => removeFeature(i)} className="text-red-500">
-//               Remove
-//             </button>
-//           </div>
-//         ))}
-
-//         <button onClick={addFeature} className="bg-gray-200 px-3 py-1 rounded">
-//           Add Feature
-//         </button>
-//       </div>
-
-//       {/* LOCATION */}
-//       <div className="space-y-3">
-//         <h3 className="font-semibold">Location Coordinates</h3>
-
-//         <input
-//           className="border p-2 w-full"
-//           placeholder="Latitude"
-//           value={property.location?.lat || ""}
-//           onChange={(e) => handleLocation("lat", Number(e.target.value))}
-//         />
-
-//         <input
-//           className="border p-2 w-full"
-//           placeholder="Longitude"
-//           value={property.location?.lng || ""}
-//           onChange={(e) => handleLocation("lng", Number(e.target.value))}
-//         />
-//       </div>
-
-//       {/* ADDRESS */}
-//       <input
-//         className="border p-2 w-full"
-//         placeholder="Address"
-//         value={property.address}
-//         onChange={(e) => handleChange("address", e.target.value)}
-//       />
-
-//       {/* CITY */}
-//       <input
-//         className="border p-2 w-full"
-//         placeholder="City"
-//         value={property.city}
-//         onChange={(e) => handleChange("city", e.target.value)}
-//       />
-
-//       {/* COUNTRY */}
-//       <input
-//         className="border p-2 w-full"
-//         placeholder="Country"
-//         value={property.country}
-//         onChange={(e) => handleChange("country", e.target.value)}
-//       />
-
-//       {/* MAP PICKER */}
-//       <MapPicker property={property} setProperty={setProperty} />
-//     </div>
-//   );
-// }
-
 import React from "react";
 import MapPicker from "../../pages/Property/PrpertiesLanding/MapPicker";
 
-export default function PropertyBasicForm({ property, setProperty, errors }) {
+export default function PropertyBasicForm({
+  property,
+  setProperty,
+  errors,
+  clearError,
+}) {
   /* Ensure one feature exists */
   const features = property.features?.length > 0 ? property.features : [""];
 
@@ -214,6 +19,7 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
       ...property,
       [field]: value,
     });
+    clearError(field);
   };
 
   /* =========================
@@ -228,6 +34,7 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
         [field]: value,
       },
     });
+    clearError(field);
   };
 
   /* =========================
@@ -266,9 +73,14 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
 
       {/* PRICE */}
       <input
+        name="price"
         type="number"
-        className="w-full border border-gray-300 rounded-md p-3 outline-none
-        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+        className={`w-full border rounded-md p-3 outline-none
+  ${
+    errors?.price
+      ? "border-red-500"
+      : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
+  }`}
         placeholder="Price"
         value={property.price}
         onChange={(e) => handleChange("price", e.target.value)}
@@ -278,8 +90,13 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
 
       {/* CATEGORY */}
       <select
-        className="w-full border border-gray-300 rounded-md p-3 outline-none
-        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+        name="category"
+        className={`w-full border rounded-md p-3 outline-none
+  ${
+    errors?.category
+      ? "border-red-500"
+      : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
+  }`}
         value={property.category}
         onChange={(e) => handleChange("category", e.target.value)}
       >
@@ -292,8 +109,8 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
       </select>
 
       {errors?.category && (
-  <p className="text-red-500 text-sm">{errors.category}</p>
-)}
+        <p className="text-red-500 text-sm">{errors.category}</p>
+      )}
 
       {/* RATING */}
       <input
@@ -315,8 +132,13 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
 
       {/* SLEEPS */}
       <input
-        className="w-full border border-gray-300 rounded-md p-3 outline-none
-        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+      name="sleeps"
+        className={`w-full border rounded-md p-3 outline-none
+  ${
+    errors?.sleeps
+      ? "border-red-500"
+      : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
+  }`}
         placeholder="Sleeps / Sleeping Capacity"
         value={property.sleeps}
         onChange={(e) => handleChange("sleeps", e.target.value)}
@@ -328,8 +150,13 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
 
       {/* GUEST */}
       <input
-        className="w-full border border-gray-300 rounded-md p-3 outline-none
-        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+        name="guest"
+               className={`w-full border rounded-md p-3 outline-none
+  ${
+    errors?.guest
+      ? "border-red-500"
+      : "border-gray-300 focus:border-[#c1b296] focus:ring-[#c1b296]/40"
+  }`}
         placeholder="Maximum Guests Allowed"
         value={property.guest}
         onChange={(e) => handleChange("guest", e.target.value)}
@@ -388,8 +215,8 @@ export default function PropertyBasicForm({ property, setProperty, errors }) {
       <div className="space-y-4">
         <h3 className="text-lg font-semibold">Location Coordinates</h3>
         <p className="text-sm text-gray-500">
-          **( Select the property location from the map. Latitude and longitude will
-          be filled automatically.)
+          **( Select the property location from the map. Latitude and longitude
+          will be filled automatically.)
         </p>
         <input
           className="w-full border border-gray-300 rounded-md p-3 outline-none

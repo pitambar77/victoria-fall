@@ -1,190 +1,7 @@
-// import React from "react";
-
-// const AreaForm = ({ property, setProperty }) => {
-//   /* =====================
-//      BASIC AREA FIELDS
-//   ===================== */
-
-//   const handleChange = (e) => {
-//     setProperty({
-//       ...property,
-//       area: {
-//         ...property.area,
-//         [e.target.name]: e.target.value,
-//       },
-//     });
-//   };
-
-//   /* =====================
-//      RELATED ACTIVITIES
-//   ===================== */
-
-//   const addActivity = () => {
-//     setProperty({
-//       ...property,
-//       area: {
-//         ...property.area,
-//         relatedactivity: [
-//           ...property.area.relatedactivity,
-//           {
-//             title: "",
-//             shortDescription: "",
-//             icon: "",
-//           },
-//         ],
-//       },
-//     });
-//   };
-
-//   const changeActivity = (index, field, value) => {
-//     const updated = [...property.area.relatedactivity];
-
-//     updated[index][field] = value;
-
-//     setProperty({
-//       ...property,
-//       area: {
-//         ...property.area,
-//         relatedactivity: updated,
-//       },
-//     });
-//   };
-
-//   const removeActivity = (index) => {
-//     const updated = property.area.relatedactivity.filter((_, i) => i !== index);
-
-//     setProperty({
-//       ...property,
-//       area: {
-//         ...property.area,
-//         relatedactivity: updated,
-//       },
-//     });
-//   };
-
-//   return (
-//     <div className="border p-6 space-y-6">
-//       <h2 className="text-lg font-semibold">Explore the area</h2>
-
-//       {/* LOCATION NAME */}
-
-//       <input
-//         className="border p-2 w-full"
-//         name="locationname"
-//         placeholder="Location Name"
-//         value={property.area.locationname}
-//         onChange={handleChange}
-//       />
-
-//       {/* MAP LINK */}
-
-//       <input
-//         className="border p-2 w-full"
-//         name="maplink"
-//         placeholder="Google Map Link"
-//         value={property.area.maplink}
-//         onChange={handleChange}
-//       />
-
-//       {/* RELATED ACTIVITIES */}
-
-//       <div className="space-y-4">
-//         <h3 className="font-medium">Related Activities</h3>
-
-//         {property.area.relatedactivity.map((activity, i) => (
-//           <div key={i} className="border p-4 rounded space-y-2">
-//             <input
-//               className="border p-2 w-full"
-//               placeholder="Activity Title"
-//               value={activity.title}
-//               onChange={(e) => changeActivity(i, "title", e.target.value)}
-//             />
-
-//             <input
-//               className="border p-2 w-full"
-//               placeholder="Short Description"
-//               value={activity.shortDescription}
-//               onChange={(e) =>
-//                 changeActivity(i, "shortDescription", e.target.value)
-//               }
-//             />
-
-//             {/* <div className="flex flex-col gap-1">
-//               <label className="text-sm font-medium">Upload Icon</label>
-//               <input
-//                 type="file"
-//                 onChange={(e) => changeActivity(i, "icon", e.target.files[0])}
-//                 className=" border p-2 rounded w-1/4"
-//               />
-//             </div> */}
-//             <div className="w-[220px]">
-//               <label className=" text-gray-700 mb-2 block">
-//                 Upload Activity Icon
-//               </label>
-
-//               <label className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg p-2 cursor-pointer hover:border-blue-500 transition overflow-hidden">
-//                 {property.area.relatedactivity[i]?.icon ? (
-//                   <img
-//                     src={URL.createObjectURL(
-//                       property.area.relatedactivity[i].icon,
-//                     )}
-//                     alt="preview"
-//                     className="w-26 h-26 object-contain"
-//                   />
-//                 ) : (
-//                   <>
-//                     <svg
-//                       xmlns="http://www.w3.org/2000/svg"
-//                       className="w-8 h-8 text-gray-400 mb-2"
-//                       fill="none"
-//                       viewBox="0 0 24 24"
-//                       stroke="currentColor"
-//                     >
-//                       <path
-//                         strokeLinecap="round"
-//                         strokeLinejoin="round"
-//                         strokeWidth={2}
-//                         d="M7 16a4 4 0 01-.88-7.9A5 5 0 1115.9 6L16 6a4 4 0 010 8h-1M12 12v9m0-9l-3 3m3-3l3 3"
-//                       />
-//                     </svg>
-
-//                     <span className="text-sm text-gray-500">
-//                       Click to upload
-//                     </span>
-//                   </>
-//                 )}
-
-//                 <input
-//                   type="file"
-//                   hidden
-//                   onChange={(e) => changeActivity(i, "icon", e.target.files[0])}
-//                 />
-//               </label>
-//             </div>
-
-//             <button
-//               onClick={() => removeActivity(i)}
-//               className="text-red-500 text-sm"
-//             >
-//               Remove Activity
-//             </button>
-//           </div>
-//         ))}
-
-//         <button onClick={addActivity} className="bg-gray-200 px-3 py-1 rounded">
-//           Add More Activity
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AreaForm;
-
 import React from "react";
 import IconPicker from "../../components/IconPicker";
 
-const AreaForm = ({ property, setProperty, errors }) => {
+const AreaForm = ({ property, setProperty, errors, clearError }) => {
   /* Ensure one activity exists */
   const activities =
     property.area.relatedactivity?.length > 0
@@ -195,14 +12,29 @@ const AreaForm = ({ property, setProperty, errors }) => {
      BASIC AREA FIELDS
   ===================== */
 
+  // const handleChange = (e) => {
+  //   setProperty({
+  //     ...property,
+  //     area: {
+  //       ...property.area,
+  //       [e.target.name]: e.target.value,
+  //     },
+  //   });
+  //
+  // };
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
     setProperty({
       ...property,
       area: {
         ...property.area,
-        [e.target.name]: e.target.value,
+        [name]: value,
       },
     });
+
+    clearError(name);
   };
 
   /* =====================
@@ -293,8 +125,12 @@ const AreaForm = ({ property, setProperty, errors }) => {
       {/* LOCATION NAME */}
 
       <input
-        className="w-full border border-gray-300 rounded-md p-3 outline-none
-        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+        className={`w-full border rounded-md p-3 outline-none
+  ${
+    errors?.locationname
+      ? "border-red-500"
+      : "border-gray-300 focus:border-[#c1b296]"
+  }`}
         name="locationname"
         placeholder="Location Name"
         value={property.area.locationname}
@@ -309,8 +145,12 @@ const AreaForm = ({ property, setProperty, errors }) => {
 
       <input
         type="url"
-        className="w-full border border-gray-300 rounded-md p-3 outline-none
-        focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+        className={`w-full border rounded-md p-3 outline-none
+  ${
+    errors?.maplink
+      ? "border-red-500"
+      : "border-gray-300 focus:border-[#c1b296]"
+  }`}
         name="maplink"
         placeholder="Google Map Link"
         value={property.area.maplink}

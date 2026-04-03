@@ -27,6 +27,7 @@ const ActivityForm = () => {
     pricePerPerson: "",
     minPerson: "",
     duration: "",
+    bookNowUrl: "", // ✅ ADD THIS
     content: "",
 
     overviewImage: null,
@@ -79,6 +80,7 @@ const ActivityForm = () => {
           pricePerPerson: data.pricePerPerson || "",
           minPerson: data.minPerson || "",
           duration: data.duration || "",
+          bookNowUrl: data.bookNowUrl || "",
           content: data.content || "",
 
           overviewImage: null,
@@ -528,6 +530,18 @@ const ActivityForm = () => {
           className="w-full border border-gray-300 rounded-md p-3 outline-none"
         />
       </div>
+
+      <div className="mt-4">
+  <label className="block text-sm font-medium">Book Now URL</label>
+  <input
+    type="url"
+    name="bookNowUrl"
+    value={formData.bookNowUrl}
+    onChange={handleChange}
+    placeholder="https://booking-link.com"
+    className="w-full border border-gray-300 rounded-md p-3 outline-none"
+  />
+</div>
 
       {/* ✅ Gallery Images */}
       <div className=" mt-4">

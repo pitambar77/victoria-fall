@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getActivityBySlug } from "../../api/activityApi";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaClock, FaTv, FaBaby, FaBlender } from "react-icons/fa";
 import Button from "../../components/Button";
 import ActivityExperienceEnquiryForm from "../../components/ActivityExperienceEnquiryForm";
 import { IoIosClose } from "react-icons/io";
-import iconImage from '../../assets/B-B.png'
+import iconImage from "../../assets/B-B.png";
 
 const iconMap = {
   FaTv: <FaTv className="text-[#ab8c51]" />,
@@ -47,9 +47,7 @@ const FacilitiesSection = () => {
           <h2 className="hd text-xl md:text-[30px]  font-semibold text-[#2e2c2d] tracking-[2px] mb-6 uppercase">
             {activity.activityName}
           </h2>
-          <p className="hd text-[#5c5e62]  mb-6">
-            {activity.subDescription}
-          </p>
+          <p className="hd text-[#5c5e62]  mb-6">{activity.subDescription}</p>
 
           <div className="flex items-center  justify-between mb-6">
             <div className="w-[50%]">
@@ -80,17 +78,13 @@ const FacilitiesSection = () => {
           </div>
 
           <div className="flex items-center gap-6">
-            <Button
-              onClick={() => setShowForm(true)}
-              className="px-6 py-3 bg-[#2e2c2d] text-white text-sm font-medium rounded hover:bg-black transition"
-            >
-              Send Enquiry
-            </Button>
-            {/* <Button 
-            
-            className="px-6 py-3 bg-[#2e2c2d] text-white text-sm font-medium rounded hover:bg-black transition">
-              Book Online
+            <Button onClick={() => setShowForm(true)}>Send Enquiry</Button>
+            {/* <Button className="px-6 py-3 bg-[#2e2c2d] text-white text-sm font-medium rounded hover:bg-black transition">
+              <Link to={'https://pureafricaexperiences.zaui.net/booking/web/#/default/activity/275'}>Book Online</Link>
             </Button> */}
+            <Button href={activity.bookNowUrl} target="_blank">
+              Book Online
+            </Button>
           </div>
         </div>
 
@@ -131,7 +125,9 @@ const FacilitiesSection = () => {
                   </div>
                   <div>{item.title}</div>
                 </div>
-                <p className=" hd pl-14 text-[16px] text-[#5c5e62]">{item.description}</p>
+                <p className=" hd pl-14 text-[16px] text-[#5c5e62]">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -195,7 +191,9 @@ const FacilitiesSection = () => {
                 </p>
               </div>
               <div>
-                <ActivityExperienceEnquiryForm activityData={activity.activityName} />
+                <ActivityExperienceEnquiryForm
+                  activityData={activity.activityName}
+                />
               </div>
             </div>
           </div>
