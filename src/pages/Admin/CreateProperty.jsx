@@ -1,5 +1,3 @@
-//=========== use hook ==================
-
 import { useState } from "react";
 import axios from "axios";
 
@@ -167,34 +165,7 @@ export default function CreateProperty() {
       }
     }
 
-    // if (step === 3) {
-    //   const basic = property.aminities.basic || [];
-    //   const additional = property.aminities.additional || [];
 
-    //   for (let i = 0; i < basic.length; i++) {
-    //     if (!basic[i].aminityName?.trim()) {
-    //       setErrors({ [`basicName_${i}`]: "Amenity name required" });
-    //       return;
-    //     }
-
-    //     if (!basic[i].icon) {
-    //       setErrors({ [`basicIcon_${i}`]: "Icon required" });
-    //       return;
-    //     }
-    //   }
-
-    //   for (let i = 0; i < additional.length; i++) {
-    //     if (!additional[i].aminityName?.trim()) {
-    //       setErrors({ [`addName_${i}`]: "Amenity name required" });
-    //       return;
-    //     }
-
-    //     if (!additional[i].icon) {
-    //       setErrors({ [`addIcon_${i}`]: "Icon required" });
-    //       return;
-    //     }
-    //   }
-    // }
 
     if (step === 3) {
       const basic = property.aminities.basic || [];

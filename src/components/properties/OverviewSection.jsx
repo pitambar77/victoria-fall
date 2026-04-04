@@ -1,15 +1,13 @@
 // import { useState, useEffect } from "react";
-// import axios from "axios";
-// import { updateOverviewMeta } from "../../api/propertiesApi.js";
-// import { updateOverview } from "../../api/propertiesApi";
-// import { deleteOverviewBlock } from "../../api/propertiesApi";
+// import { updateOverviewMeta, updateOverview, deleteOverviewBlock } from "../../api/propertiesApi";
 
 // export default function OverviewSection({ property, setProperty }) {
+
 //   const [form, setForm] = useState({
 //     title: "",
 //     subTitle: "",
 //     landingsubcontent: "",
-//     description: [],
+//     description: [{ type: "paragraph", content: "" }]
 //   });
 
 //   /* =========================
@@ -17,14 +15,21 @@
 //   ========================= */
 
 //   useEffect(() => {
+
 //     if (!property) return;
+
+//     const blocks =
+//       property.overview?.description?.length > 0
+//         ? property.overview.description
+//         : [{ type: "paragraph", content: "" }];
 
 //     setForm({
 //       title: property.overview?.title ?? "",
 //       subTitle: property.overview?.subTitle ?? "",
 //       landingsubcontent: property.overview?.landingsubcontent ?? "",
-//       description: property.overview?.description ?? [],
+//       description: blocks
 //     });
+
 //   }, [property]);
 
 //   /* =========================
@@ -32,12 +37,14 @@
 //   ========================= */
 
 //   const handleChange = (e) => {
+
 //     const { name, value } = e.target;
 
 //     setForm((prev) => ({
 //       ...prev,
-//       [name]: value,
+//       [name]: value
 //     }));
+
 //   };
 
 //   /* =========================
@@ -45,10 +52,15 @@
 //   ========================= */
 
 //   const addParagraph = () => {
+
 //     setForm((prev) => ({
 //       ...prev,
-//       description: [...prev.description, { type: "paragraph", content: "" }],
+//       description: [
+//         ...prev.description,
+//         { type: "paragraph", content: "" }
+//       ]
 //     }));
+
 //   };
 
 //   /* =========================
@@ -56,15 +68,19 @@
 //   ========================= */
 
 //   const updateParagraph = (index, value) => {
+
 //     setForm((prev) => {
+
 //       const updated = [...prev.description];
 //       updated[index].content = value;
 
 //       return {
 //         ...prev,
-//         description: updated,
+//         description: updated
 //       };
+
 //     });
+
 //   };
 
 //   /* =========================
@@ -72,18 +88,22 @@
 //   ========================= */
 
 //   const deleteParagraph = async (block, index) => {
+
 //     try {
+
 //       if (block._id) {
 //         await deleteOverviewBlock(property._id, block._id);
 //       }
 
 //       setForm((prev) => ({
 //         ...prev,
-//         description: prev.description.filter((_, i) => i !== index),
+//         description: prev.description.filter((_, i) => i !== index)
 //       }));
+
 //     } catch (err) {
 //       console.error(err);
 //     }
+
 //   };
 
 //   /* =========================
@@ -91,111 +111,155 @@
 //   ========================= */
 
 //   const saveOverview = async () => {
+
 //     try {
+
 //       await updateOverviewMeta(property._id, {
 //         title: form.title,
 //         subTitle: form.subTitle,
-//         landingsubcontent: form.landingsubcontent,
+//         landingsubcontent: form.landingsubcontent
 //       });
 
-//       // await axios.put(`/api/property/${property._id}/overview`, {
-//       //   overview: {
-//       //     ...property.overview,
-//       //     description: form.description
-//       //   }
-//       // });
 //       await updateOverview(property._id, {
 //         overview: {
 //           ...property.overview,
-//           description: form.description,
-//         },
+//           description: form.description
+//         }
 //       });
 
 //       setProperty((prev) => ({
 //         ...prev,
-//         overview: form,
+//         overview: form
 //       }));
 
 //       alert("Overview updated ✅");
+
 //     } catch (err) {
 //       console.error(err);
 //     }
+
 //   };
 
 //   if (!property) return null;
 
 //   return (
-//     <div className="border p-6 rounded-lg space-y-4">
-//       <h2 className="font-bold text-lg">Overview</h2>
+
+//     <div className="p-6   bg-white rounded-lg space-y-6">
+
+//       <h2 className="text-xl font-semibold">
+//         Overview
+//       </h2>
+
+//       {/* TITLE */}
 
 //       <input
 //         name="title"
 //         value={form.title}
 //         onChange={handleChange}
 //         placeholder="Title"
-//         className="border p-2 w-full"
+//         className="w-full border border-gray-300 rounded-md p-3 outline-none
+//         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
 //       />
+
+//       {/* SUBTITLE */}
 
 //       <input
 //         name="subTitle"
 //         value={form.subTitle}
 //         onChange={handleChange}
 //         placeholder="Subtitle"
-//         className="border p-2 w-full"
+//         className="w-full border border-gray-300 rounded-md p-3 outline-none
+//         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
 //       />
+
+//       {/* LANDING CONTENT */}
 
 //       <textarea
 //         name="landingsubcontent"
 //         value={form.landingsubcontent}
 //         onChange={handleChange}
 //         placeholder="Landing Content"
-//         className="border p-2 w-full"
+//         className="w-full border border-gray-300 rounded-md p-3 outline-none
+//         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
 //       />
 
-//       <button onClick={addParagraph} className="bg-gray-200 px-3 py-1">
-//         Add Paragraph
-//       </button>
+//       {/* PARAGRAPH BLOCKS */}
 
-//       {form.description.map((block, index) => (
-//         <div key={block._id || index} className="space-y-2">
-//           <textarea
-//             value={block.content}
-//             placeholder="Paragraph"
-//             className="border p-2 w-full"
-//             onChange={(e) => updateParagraph(index, e.target.value)}
-//           />
+//       <div className="space-y-4">
 
-//           <button
-//             onClick={() => deleteParagraph(block, index)}
-//             className="text-red-500 text-sm"
+//         <h3 className="font-semibold">
+//           Description Paragraphs
+//         </h3>
+
+//         {form.description.map((block, index) => (
+
+//           <div
+//             key={block._id || index}
+//             className="border border-gray-200 p-4 rounded-lg space-y-3"
 //           >
-//             Delete
-//           </button>
-//         </div>
-//       ))}
+
+//             <textarea
+//               value={block.content}
+//               placeholder={`Paragraph ${index + 1}`}
+//               className="w-full border border-gray-300 rounded-md p-3 outline-none
+//               focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
+//               onChange={(e) => updateParagraph(index, e.target.value)}
+//             />
+
+//             {form.description.length > 1 && (
+
+//               <div className="flex justify-end">
+
+//                 <button
+//                   onClick={() => deleteParagraph(block, index)}
+//                   className="text-red-500 text-sm hover:text-red-700"
+//                 >
+//                   Remove Paragraph
+//                 </button>
+
+//               </div>
+
+//             )}
+
+//           </div>
+
+//         ))}
+
+//         <button
+//           onClick={addParagraph}
+//           className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded"
+//         >
+//           + Add Paragraph
+//         </button>
+
+//       </div>
+
+//       {/* SAVE BUTTON */}
 
 //       <button
 //         onClick={saveOverview}
-//         className="bg-blue-600 text-white px-4 py-2 rounded"
+//         className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded"
 //       >
 //         Save Overview
 //       </button>
+
 //     </div>
 //   );
 // }
 
-
-
 import { useState, useEffect } from "react";
-import { updateOverviewMeta, updateOverview, deleteOverviewBlock } from "../../api/propertiesApi";
+import {
+  updateOverviewMeta,
+  updateOverview,
+  deleteOverviewBlock,
+} from "../../api/propertiesApi";
 
 export default function OverviewSection({ property, setProperty }) {
-
   const [form, setForm] = useState({
     title: "",
     subTitle: "",
     landingsubcontent: "",
-    description: [{ type: "paragraph", content: "" }]
+    description: [{ type: "paragraph", content: "" }],
   });
 
   /* =========================
@@ -203,7 +267,6 @@ export default function OverviewSection({ property, setProperty }) {
   ========================= */
 
   useEffect(() => {
-
     if (!property) return;
 
     const blocks =
@@ -215,143 +278,104 @@ export default function OverviewSection({ property, setProperty }) {
       title: property.overview?.title ?? "",
       subTitle: property.overview?.subTitle ?? "",
       landingsubcontent: property.overview?.landingsubcontent ?? "",
-      description: blocks
+      description: blocks,
     });
-
   }, [property]);
-
-
 
   /* =========================
      HANDLE INPUT CHANGE
   ========================= */
 
   const handleChange = (e) => {
-
     const { name, value } = e.target;
 
     setForm((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
-
   };
-
-
 
   /* =========================
      ADD PARAGRAPH
   ========================= */
 
   const addParagraph = () => {
-
     setForm((prev) => ({
       ...prev,
-      description: [
-        ...prev.description,
-        { type: "paragraph", content: "" }
-      ]
+      description: [...prev.description, { type: "paragraph", content: "" }],
     }));
-
   };
-
-
 
   /* =========================
      UPDATE PARAGRAPH
   ========================= */
 
   const updateParagraph = (index, value) => {
-
     setForm((prev) => {
-
       const updated = [...prev.description];
       updated[index].content = value;
 
       return {
         ...prev,
-        description: updated
+        description: updated,
       };
-
     });
-
   };
-
-
 
   /* =========================
      DELETE PARAGRAPH
   ========================= */
 
   const deleteParagraph = async (block, index) => {
-
     try {
-
       if (block._id) {
         await deleteOverviewBlock(property._id, block._id);
       }
 
       setForm((prev) => ({
         ...prev,
-        description: prev.description.filter((_, i) => i !== index)
+        description: prev.description.filter((_, i) => i !== index),
       }));
-
     } catch (err) {
       console.error(err);
     }
-
   };
-
-
 
   /* =========================
      SAVE OVERVIEW
   ========================= */
 
   const saveOverview = async () => {
-
     try {
-
       await updateOverviewMeta(property._id, {
         title: form.title,
         subTitle: form.subTitle,
-        landingsubcontent: form.landingsubcontent
+        landingsubcontent: form.landingsubcontent,
       });
 
       await updateOverview(property._id, {
         overview: {
           ...property.overview,
-          description: form.description
-        }
+          description: form.description,
+        },
       });
 
       setProperty((prev) => ({
         ...prev,
-        overview: form
+        overview: form,
       }));
 
       alert("Overview updated ✅");
-
     } catch (err) {
       console.error(err);
     }
-
   };
-
-
 
   if (!property) return null;
 
-
-
   return (
-
     <div className="p-6   bg-white rounded-lg space-y-6">
-
-      <h2 className="text-xl font-semibold">
-        Overview
-      </h2>
-
+      <h2 className="text-xl font-semibold">Overview</h2>
 
       {/* TITLE */}
 
@@ -364,7 +388,6 @@ export default function OverviewSection({ property, setProperty }) {
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
       />
 
-
       {/* SUBTITLE */}
 
       <input
@@ -375,7 +398,6 @@ export default function OverviewSection({ property, setProperty }) {
         className="w-full border border-gray-300 rounded-md p-3 outline-none
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
       />
-
 
       {/* LANDING CONTENT */}
 
@@ -388,22 +410,16 @@ export default function OverviewSection({ property, setProperty }) {
         focus:border-[#c1b296] focus:ring-2 focus:ring-[#c1b296]/40 transition"
       />
 
-
       {/* PARAGRAPH BLOCKS */}
 
       <div className="space-y-4">
-
-        <h3 className="font-semibold">
-          Description Paragraphs
-        </h3>
+        <h3 className="font-semibold">Description Paragraphs</h3>
 
         {form.description.map((block, index) => (
-
           <div
             key={block._id || index}
             className="border border-gray-200 p-4 rounded-lg space-y-3"
           >
-
             <textarea
               value={block.content}
               placeholder={`Paragraph ${index + 1}`}
@@ -413,24 +429,17 @@ export default function OverviewSection({ property, setProperty }) {
             />
 
             {form.description.length > 1 && (
-
               <div className="flex justify-end">
-
                 <button
                   onClick={() => deleteParagraph(block, index)}
                   className="text-red-500 text-sm hover:text-red-700"
                 >
                   Remove Paragraph
                 </button>
-
               </div>
-
             )}
-
           </div>
-
         ))}
-
 
         <button
           onClick={addParagraph}
@@ -438,9 +447,7 @@ export default function OverviewSection({ property, setProperty }) {
         >
           + Add Paragraph
         </button>
-
       </div>
-
 
       {/* SAVE BUTTON */}
 
@@ -450,9 +457,6 @@ export default function OverviewSection({ property, setProperty }) {
       >
         Save Overview
       </button>
-
     </div>
   );
 }
-
-
