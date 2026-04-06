@@ -182,8 +182,10 @@ export default function HouseRules({ property }) {
               const Icon = iconData?.icon;
 
               return (
-                <div key={rule._id} className="flex gap-4">
-                  {Icon && <Icon size={22} color="#a57830" />}
+                <div key={rule._id} className="flex gap-4 items-start">
+                  <div className="flex-shrink-0">
+                    {Icon && <Icon size={22} color="#a57830" />}
+                  </div>
 
                   <div>
                     <p className="hd font-[500] text-lg text-[#2e2c2d]">

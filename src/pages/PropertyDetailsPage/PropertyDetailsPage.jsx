@@ -101,7 +101,10 @@ export default function PropertyDetailsPage() {
           />
         </div>
       </div>
-      <MemoriesSection title={"Explore More Exceptional Homes Nearby"} />
+      <div className="bg-[#f9f4e8] mt-16">
+        <MemoriesSection title={"Explore More Exceptional Homes Nearby"} />
+      </div>
+
       <TestimonialSection />
       <Awards />
       <Customize />
