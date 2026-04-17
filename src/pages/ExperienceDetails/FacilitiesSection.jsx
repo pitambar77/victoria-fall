@@ -33,6 +33,12 @@ const FacilitiesSection = () => {
     fetchActivity();
   }, [slug]);
 
+  useEffect(() => {
+    if (window.ZauiEmbed) {
+      window.ZauiEmbed.init();
+    }
+  }, [slug]);
+
   if (!activity)
     return <p className="text-center mt-10">Loading activity...</p>;
 
@@ -82,9 +88,16 @@ const FacilitiesSection = () => {
             {/* <Button className="px-6 py-3 bg-[#2e2c2d] text-white text-sm font-medium rounded hover:bg-black transition">
               <Link to={'https://pureafricaexperiences.zaui.net/booking/web/#/default/activity/275'}>Book Online</Link>
             </Button> */}
-            <Button href={activity.bookNowUrl} target="_blank">
+            {/* <Button href={activity.bookNowUrl} target="_blank">
               Book Online
-            </Button>
+            </Button> */}
+
+            <a
+              className="zaui-embed-button !bg-[#aca188] !text-white !border-0 !rounded-full !text-[14px] !leading-[0] !uppercase !tracking-[3px] !py-[21px] !px-[20px] hover:!bg-[#c40]"
+              href={activity.bookNowUrl}
+            >
+              Book Online
+            </a>
           </div>
         </div>
 
